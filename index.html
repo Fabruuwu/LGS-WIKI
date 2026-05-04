@@ -8,10 +8,8 @@
 </head>
 <body data-page="home">
 <div class="bg-layer"></div>
-
 <nav>
   <div class="nav-logo" onclick="goTo('home')">LGS</div>
-  <!-- Botón hamburguesa (solo visible en móvil) -->
   <button class="nav-hamburger" id="nav-hamburger" aria-label="Menú">
     <span></span><span></span><span></span>
   </button>
@@ -21,9 +19,9 @@
     <button class="nav-btn" data-page="inventario" onclick="goTo('inventario');closeMenu()">Inventario</button>
     <button class="nav-btn" data-page="tierlist"   onclick="goTo('tierlist');closeMenu()">Tier List</button>
     <button class="nav-btn" data-page="equipos"    onclick="goTo('equipos');closeMenu()">Equipos</button>
+    <button class="nav-btn" data-page="notas"      onclick="goTo('notas');closeMenu()">Notas</button>
   </div>
 </nav>
-
 <div class="home-wrap">
   <div class="hero-badge">✦ Base de Datos Oficial ✦</div>
   <h1 class="hero-title">Latam Gaming<br>Society</h1>
@@ -51,14 +49,18 @@
       <div class="hcard-title">Equipos</div>
       <div class="hcard-desc">Composiciones recomendadas y sinergias para cada contenido</div>
     </div>
+    <div class="home-card c-notas" onclick="goTo('notas')">
+      <span class="hcard-icon">📋</span>
+      <div class="hcard-title">Notas</div>
+      <div class="hcard-desc">Historial de buffs, nerfs y reworks de cada parche</div>
+    </div>
   </div>
   <div class="home-stats">
     <div><div class="hstat-num">2</div><div class="hstat-label">Personajes</div></div>
-    <div><div class="hstat-num">4</div><div class="hstat-label">Secciones</div></div>
+    <div><div class="hstat-num">5</div><div class="hstat-label">Secciones</div></div>
     <div><div class="hstat-num">∞</div><div class="hstat-label">Builds</div></div>
   </div>
 </div>
-
 <script src="scripts.js" defer></script>
 </body>
 </html>

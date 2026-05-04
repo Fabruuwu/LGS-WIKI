@@ -101,6 +101,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;display:flex;align-items:cen
 .home-card.c-tier{--c1:#f5c842;--c2:#ff6b35;}
 .home-card.c-inventario{--c1:#ffcc00;--c2:#f2994a;}
 .home-card.c-teams{--c1:#00e5ff;--c2:#00b894;}
+.home-card.c-notas{--c1:#a855f7;--c2:#00e5ff;}
 .hcard-icon{font-size:2.6rem;margin-bottom:14px;display:block;position:relative;z-index:1;
   filter:drop-shadow(0 0 10px var(--c1,var(--violet)));transition:transform .3s;}
 .home-card:hover .hcard-icon{transform:scale(1.15) rotate(-5deg);}
