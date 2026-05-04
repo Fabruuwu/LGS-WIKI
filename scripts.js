@@ -23,7 +23,7 @@ const CHARS=[
   {
     id:1,name:'ReyDNS',tagline:'"El Gatillo del Servidor"',
     element:'fuego',rarity:5,role:'Main DPS',paradigma:'Paradigma de la Artillería',
-    art: 'Personajes 1.0 - tanda 2/ReyDNS.jpg',
+    art:null,
     stats:{HP:420,ATQ:380,DEF:110,VEL:126,'Prob. Crítica':'5%','Daño Crítico':'50%','Rec. Energía':20,'Bono Fuego':0},
     skills:[
       {icon:'🗡️',name:'Tiro de Advertencia',type:'Ataque Básico',
@@ -56,7 +56,7 @@ const CHARS=[
   {
     id:2,name:'Miki',tagline:'"Nada escapa a su cronología... ni los mensajes borrados."',
     element:'caos',rarity:5,role:'Soporte / Control',paradigma:'Paradigma de la Estadística',
-    art: 'Personajes 1.0 - tanda 2/Miki.png',
+    art:null,
     stats:{HP:680,ATQ:180,DEF:260,VEL:112,'Prob. Crítica':'5%','Daño Crítico':'50%','Rec. Energía':20,'Bono Vacío':0},
     skills:[
       {icon:'🗡️',name:'Golpe de Archivo',type:'Ataque Básico',
@@ -119,12 +119,11 @@ function renderCards(){
   const grid=document.getElementById('chars-grid');
   if(!grid) return;
   const list=CHARS.filter(c=>{
-    return c.name.toLowerCase().includes(fSearch.toLowerCase());
+    return (fRarity==='all'||c.rarity==fRarity)&&
+           (fElem==='all'||c.element===fElem)&&
+           c.name.toLowerCase().includes(fSearch.toLowerCase());
   });
-  // char-count ya no existe, lo ignoramos
-  const countEl=document.getElementById('char-count');
-  if(countEl) countEl.textContent=list.length;
-
+  document.getElementById('char-count').textContent=list.length;
   if(!list.length){
     grid.innerHTML=`<div class="empty-state"><span class="empty-icon">🔍</span><div class="empty-text">No se encontraron personajes</div></div>`;
     return;
