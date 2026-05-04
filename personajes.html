@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<style>
-.pill {
-  background: purple !important;
-  color: yellow !important;
-  border: 2px solid red !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-}
-</style>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Personajes · LGS Wiki</title>
@@ -37,39 +28,13 @@
     <h2 class="section-title">Personajes</h2>
     <p class="section-sub">Explorá a cada guerrero del universo LGS</p>
   </div>
-  <div class="filters">
-    <div class="search-wrap">
-      <span class="s-icon">🔍</span>
-      <input type="text" id="search-input" placeholder="Buscar personaje...">
-    </div>
-    <div class="fdiv"></div>
-    <div class="fg">
-      <div class="fl">Rareza</div>
-      <div class="fp" id="rarity-filters">
-        <div class="pill sp active" data-rarity="all">Todos</div>
-        <div class="pill sp" data-rarity="5">⭐⭐⭐⭐⭐</div>
-        <div class="pill sp" data-rarity="4">⭐⭐⭐⭐</div>
-      </div>
-    </div>
-    <div class="fdiv"></div>
-    <div class="fg">
-      <div class="fl">Elemento</div>
-      <div class="fp" id="elem-filters">
-        <div class="pill active" data-elem="all">Todos</div>
-        <div class="pill" data-elem="fuego"><span class="edot" style="background:#ff6b35;box-shadow:0 0 5px #ff6b35"></span>Fuego</div>
-        <div class="pill" data-elem="hidro"><span class="edot" style="background:#4fc3f7;box-shadow:0 0 5px #4fc3f7"></span>Agua</div>
-        <div class="pill" data-elem="aero"><span class="edot" style="background:#b2ff59;box-shadow:0 0 5px #b2ff59"></span>Viento</div>
-        <div class="pill" data-elem="geo"><span class="edot" style="background:#ffca28;box-shadow:0 0 5px #ffca28"></span>Tierra</div>
-        <div class="pill" data-elem="electro"><span class="edot" style="background:#ce93d8;box-shadow:0 0 5px #ce93d8"></span>Rayo</div>
-        <div class="pill" data-elem="crio"><span class="edot" style="background:#80deea;box-shadow:0 0 5px #80deea"></span>Hielo</div>
-        <div class="pill" data-elem="flora"><span class="edot" style="background:#69f0ae;box-shadow:0 0 5px #69f0ae"></span>Naturaleza</div>
-        <div class="pill" data-elem="celestial"><span class="edot" style="background:#ffe082;box-shadow:0 0 5px #ffe082"></span>Luz</div>
-        <div class="pill" data-elem="umbral"><span class="edot" style="background:#9e9e9e;box-shadow:0 0 5px #9e9e9e"></span>Oscuridad</div>
-        <div class="pill" data-elem="caos"><span class="edot" style="background:#e040fb;box-shadow:0 0 5px #e040fb"></span>Vacío</div>
-      </div>
-    </div>
-    <div class="count-lbl"><span id="char-count">0</span> personajes</div>
+
+  <!-- Buscador simple -->
+  <div class="simple-search">
+    <span class="s-icon">🔍</span>
+    <input type="text" id="search-input" placeholder="Buscar personaje...">
   </div>
+
   <div class="chars-grid" id="chars-grid"></div>
 </div>
 <div class="modal-overlay" id="modal-overlay">

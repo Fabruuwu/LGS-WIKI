@@ -119,11 +119,12 @@ function renderCards(){
   const grid=document.getElementById('chars-grid');
   if(!grid) return;
   const list=CHARS.filter(c=>{
-    return (fRarity==='all'||c.rarity==fRarity)&&
-           (fElem==='all'||c.element===fElem)&&
-           c.name.toLowerCase().includes(fSearch.toLowerCase());
+    return c.name.toLowerCase().includes(fSearch.toLowerCase());
   });
-  document.getElementById('char-count').textContent=list.length;
+  // char-count ya no existe, lo ignoramos
+  const countEl=document.getElementById('char-count');
+  if(countEl) countEl.textContent=list.length;
+
   if(!list.length){
     grid.innerHTML=`<div class="empty-state"><span class="empty-icon">🔍</span><div class="empty-text">No se encontraron personajes</div></div>`;
     return;
