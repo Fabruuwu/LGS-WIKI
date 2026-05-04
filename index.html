@@ -191,6 +191,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;display:flex;align-items:cen
 .mbadge-dot{width:9px;height:9px;border-radius:50%;}
 .mbadge-role{background:rgba(155,89,245,.15);border-color:rgba(155,89,245,.35);color:var(--violet);}
 .mbadge-rarity{border-color:rgba(245,200,66,.3);}
+.mbadge-paradigma{background:rgba(0,229,255,.08);border-color:rgba(0,229,255,.3);color:var(--cyan);}
+.mbadge-via{background:rgba(245,200,66,.12);border-color:rgba(245,200,66,.4);color:var(--gold);
+  font-family:'Rajdhani',sans-serif;font-weight:700;cursor:pointer;letter-spacing:.8px;
+  transition:background .2s;}
+.mbadge-via:hover{background:rgba(245,200,66,.25);}
 .modal-body{padding:22px 26px 30px;}
 .ms-title{font-family:'Cinzel Decorative',cursive;font-size:.75rem;color:var(--cyan);
   letter-spacing:3px;text-transform:uppercase;margin-bottom:12px;padding-bottom:7px;
@@ -394,7 +399,7 @@ const CHARS=[
   {
     id:1,name:'ReyDNS',tagline:'"El Gatillo del Servidor"',
     element:'fuego',rarity:5,role:'Main DPS',paradigma:'Paradigma de la Artillería',
-    art: 'ReyDNS.jpg', 
+    art:'ReyDNS.jpg', 
     stats:{HP:420,ATQ:380,DEF:110,VEL:126,'Prob. Crítica':'5%','Daño Crítico':'50%','Rec. Energía':20,'Bono Fuego':0},
     skills:[
       {icon:'🗡️',name:'Tiro de Advertencia',type:'Ataque Básico',
@@ -513,6 +518,8 @@ function openChar(id){
           <div class="mbadge"><div class="mbadge-dot" style="background:${el.color};box-shadow:0 0 7px ${el.color}"></div>${el.label}</div>
           <div class="mbadge mbadge-rarity">${stars(c.rarity)}</div>
           <div class="mbadge mbadge-role">${c.role}</div>
+          <div class="mbadge mbadge-paradigma">📘 ${c.paradigma}</div>
+          <button class="mbadge mbadge-via" onclick="alert('Próximamente')">⚔️ Cambio de Vía</button>
         </div>
       </div>
     </div>
