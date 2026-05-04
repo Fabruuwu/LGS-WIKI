@@ -115,15 +115,47 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;display:flex;align-items:cen
 
 /* ── SECCIONES ── */
 .chars-wrap{padding:100px 40px 60px;max-width:1300px;margin:0 auto;}
-.section-header{text-align:center;margin-bottom:44px;}
-.section-badge{display:inline-block;background:linear-gradient(90deg,rgba(255,79,163,.2),rgba(155,89,245,.2));
-  border:1px solid rgba(255,79,163,.4);border-radius:20px;padding:5px 18px;
-  font-size:.75rem;letter-spacing:3px;text-transform:uppercase;color:var(--pink);margin-bottom:14px;}
-.section-title{font-family:'Cinzel Decorative',cursive;font-size:clamp(1.5rem,4vw,2.8rem);
-  background:linear-gradient(135deg,#fff 0%,var(--gold) 50%,var(--pink) 100%);
-  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px;}
-.section-sub{color:rgba(255,255,255,.4);letter-spacing:2px;font-size:.82rem;text-transform:uppercase;}
 
+.section-header {
+  text-align: center;
+  margin-bottom: 50px;
+  animation: fadeInDown 0.8s ease both;
+}
+
+.section-badge{
+  display:inline-block;
+  background:linear-gradient(90deg,rgba(255,79,163,.2),rgba(155,89,245,.2)); 
+  border:1px solid rgba(255,79,163,.4);
+  border-radius:20px;
+  padding:5px 18px; 
+  font-size:.75rem;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--pink);
+  margin-bottom:14px;
+}
+
+.section-title {
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  background: linear-gradient(135deg, #fff 0%, var(--violet) 50%, var(--cyan) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  filter: drop-shadow(0 0 15px rgba(155, 89, 245, 0.3));
+}
+
+.section-sub {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+  letter-spacing: 1px;
+}
 /* ── INVENTARIO ── */
 .inventory-wrap{padding:100px 40px 60px;max-width:1300px;margin:0 auto;}
 .inventory-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;margin-top:24px;}
