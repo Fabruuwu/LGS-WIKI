@@ -28,24 +28,31 @@
     <h2 class="section-title">Personajes</h2>
     <p class="section-sub">Explorá a cada guerrero del universo LGS</p>
   </div>
-  <div class="filters">
+  <div class="filters" style="display:flex;flex-wrap:wrap;gap:14px;align-items:flex-end;margin-bottom:32px;background:rgba(255,255,255,.03);border:1px solid rgba(155,89,245,0.35);border-radius:14px;padding:18px 22px;">
+    <!-- Buscador -->
     <div class="search-wrap">
       <span class="s-icon">🔍</span>
       <input type="text" id="search-input" placeholder="Buscar personaje...">
     </div>
-    <div class="fdiv"></div>
-    <div class="fg">
-      <div class="fl">Rareza</div>
-      <div class="fp" id="rarity-filters">
+
+    <div class="fdiv" style="width:1px;background:rgba(255,255,255,.07);align-self:stretch;"></div>
+
+    <!-- Rareza -->
+    <div style="display:flex;flex-direction:column;gap:7px;">
+      <div style="font-size:.68rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.35);">Rareza</div>
+      <div style="display:flex;flex-wrap:wrap;gap:5px;" id="rarity-filters">
         <div class="pill sp active" data-rarity="all">Todos</div>
         <div class="pill sp" data-rarity="5">⭐⭐⭐⭐⭐</div>
         <div class="pill sp" data-rarity="4">⭐⭐⭐⭐</div>
       </div>
     </div>
-    <div class="fdiv"></div>
-    <div class="fg">
-      <div class="fl">Elemento</div>
-      <div class="fp" id="elem-filters">
+
+    <div class="fdiv" style="width:1px;background:rgba(255,255,255,.07);align-self:stretch;"></div>
+
+    <!-- Elemento -->
+    <div style="display:flex;flex-direction:column;gap:7px;">
+      <div style="font-size:.68rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.35);">Elemento</div>
+      <div style="display:flex;flex-wrap:wrap;gap:5px;" id="elem-filters">
         <div class="pill active" data-elem="all">Todos</div>
         <div class="pill" data-elem="fuego"><span class="edot" style="background:#ff6b35;box-shadow:0 0 5px #ff6b35"></span>Fuego</div>
         <div class="pill" data-elem="hidro"><span class="edot" style="background:#4fc3f7;box-shadow:0 0 5px #4fc3f7"></span>Agua</div>
@@ -59,7 +66,10 @@
         <div class="pill" data-elem="caos"><span class="edot" style="background:#e040fb;box-shadow:0 0 5px #e040fb"></span>Vacío</div>
       </div>
     </div>
-    <div class="count-lbl"><span id="char-count">0</span> personajes</div>
+
+    <div style="margin-left:auto;color:rgba(255,255,255,.3);font-size:.82rem;white-space:nowrap;align-self:flex-end;">
+      <span id="char-count">0</span> personajes
+    </div>
   </div>
   <div class="chars-grid" id="chars-grid"></div>
 </div>
