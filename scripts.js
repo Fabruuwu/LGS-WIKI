@@ -90,24 +90,36 @@ const CHARS=[
 
 let fRarity='all', fElem='all', fSearch='';
 
+// ── Navegación ──
 function setupNav(){
-  const page = document.body.dataset.page || 'home';
-  document.querySelectorAll('.nav-btn').forEach(btn=>btn.classList.toggle('active', btn.dataset.page===page));
+  const page=document.body.dataset.page||'home';
+  document.querySelectorAll('.nav-btn').forEach(btn=>btn.classList.toggle('active',btn.dataset.page===page));
 }
 
 function goTo(page){
-  const target = page==='home' ? 'index.html' : `${page}.html`;
-  window.location.href = target;
+  const target=page==='home'?'index.html':`${page}.html`;
+  window.location.href=target;
 }
 
-function stars(n){return '⭐'.repeat(n);}
+// ── Menú hamburguesa ──
+function toggleMenu(){
+  document.getElementById('nav-links')?.classList.toggle('open');
+  document.getElementById('nav-hamburger')?.classList.toggle('open');
+}
+
+function closeMenu(){
+  document.getElementById('nav-links')?.classList.remove('open');
+  document.getElementById('nav-hamburger')?.classList.remove('open');
+}
+
+// ── Personajes ──
+function stars(n){return'⭐'.repeat(n);}
 
 function renderCards(){
   const grid=document.getElementById('chars-grid');
   if(!grid) return;
   const list=CHARS.filter(c=>{
-    return c.rarity >= 4 &&
-           (fRarity==='all'||c.rarity==fRarity)&&
+    return (fRarity==='all'||c.rarity==fRarity)&&
            (fElem==='all'||c.element===fElem)&&
            c.name.toLowerCase().includes(fSearch.toLowerCase());
   });
@@ -121,7 +133,7 @@ function renderCards(){
     const artHtml=c.art
       ?`<img src="${c.art}" alt="${c.name}">`
       :`<div class="card-art-bg" style="${GRAD[c.element]}"></div>`;
-    return `<div class="char-card" data-rarity="${c.rarity}" onclick="openChar(${c.id})">
+    return`<div class="char-card" data-rarity="${c.rarity}" onclick="openChar(${c.id})">
       <div class="card-art">
         ${artHtml}
         <div class="elem-badge" style="background:${el.color};box-shadow:0 0 9px ${el.color}"></div>
@@ -135,6 +147,7 @@ function renderCards(){
   }).join('');
 }
 
+// ── Modal ──
 function openChar(id){
   const c=CHARS.find(x=>x.id===id); if(!c) return;
   const el=EC[c.element];
@@ -154,6 +167,8 @@ function openChar(id){
           <div class="mbadge"><div class="mbadge-dot" style="background:${el.color};box-shadow:0 0 7px ${el.color}"></div>${el.label}</div>
           <div class="mbadge mbadge-rarity">${stars(c.rarity)}</div>
           <div class="mbadge mbadge-role">${c.role}</div>
+          <div class="mbadge mbadge-paradigma">📘 ${c.paradigma}</div>
+          <button class="mbadge mbadge-via" onclick="alert('Próximamente')">⚔️ Cambio de Vía</button>
         </div>
       </div>
     </div>
@@ -196,34 +211,35 @@ function closeModal(){
   document.body.style.overflow='';
 }
 
+// ── DOMContentLoaded ──
 document.addEventListener('DOMContentLoaded',()=>{
   setupNav();
-  const rarityFilters=document.getElementById('rarity-filters');
-  const elemFilters=document.getElementById('elem-filters');
-  const searchInput=document.getElementById('search-input');
 
-  if(rarityFilters){
-    rarityFilters.addEventListener('click',e=>{
-      const p=e.target.closest('.pill'); if(!p) return;
-      rarityFilters.querySelectorAll('.pill').forEach(x=>x.classList.remove('active'));
-      p.classList.add('active'); fRarity=p.dataset.rarity; renderCards();
-    });
-  }
+  // Hamburguesa
+  document.getElementById('nav-hamburger')?.addEventListener('click', toggleMenu);
 
-  if(elemFilters){
-    elemFilters.addEventListener('click',e=>{
-      const p=e.target.closest('.pill'); if(!p) return;
-      elemFilters.querySelectorAll('.pill').forEach(x=>x.classList.remove('active'));
-      p.classList.add('active'); fElem=p.dataset.elem; renderCards();
-    });
-  }
+  // Filtros personajes
+  document.getElementById('rarity-filters')?.addEventListener('click',e=>{
+    const p=e.target.closest('.pill'); if(!p) return;
+    document.querySelectorAll('#rarity-filters .pill').forEach(x=>x.classList.remove('active'));
+    p.classList.add('active'); fRarity=p.dataset.rarity; renderCards();
+  });
 
-  if(searchInput){
-    searchInput.addEventListener('input',e=>{fSearch=e.target.value; renderCards();});
-  }
+  document.getElementById('elem-filters')?.addEventListener('click',e=>{
+    const p=e.target.closest('.pill'); if(!p) return;
+    document.querySelectorAll('#elem-filters .pill').forEach(x=>x.classList.remove('active'));
+    p.classList.add('active'); fElem=p.dataset.elem; renderCards();
+  });
 
+  document.getElementById('search-input')?.addEventListener('input',e=>{
+    fSearch=e.target.value; renderCards();
+  });
+
+  // Modal
   document.getElementById('modal-close')?.addEventListener('click', closeModal);
-  document.getElementById('modal-overlay')?.addEventListener('click',e=>{ if(e.target===e.currentTarget) closeModal(); });
+  document.getElementById('modal-overlay')?.addEventListener('click',e=>{
+    if(e.target===e.currentTarget) closeModal();
+  });
   document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeModal(); });
 
   renderCards();

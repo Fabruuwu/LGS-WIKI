@@ -8,16 +8,22 @@
 </head>
 <body data-page="home">
 <div class="bg-layer"></div>
+
 <nav>
   <div class="nav-logo" onclick="goTo('home')">LGS</div>
-  <div class="nav-links">
-    <button class="nav-btn" data-page="home" onclick="goTo('home')">Inicio</button>
-    <button class="nav-btn" data-page="personajes" onclick="goTo('personajes')">Personajes</button>
-    <button class="nav-btn" data-page="inventario" onclick="goTo('inventario')">Inventario</button>
-    <button class="nav-btn" data-page="tierlist" onclick="goTo('tierlist')">Tier List</button>
-    <button class="nav-btn" data-page="equipos" onclick="goTo('equipos')">Equipos</button>
+  <!-- Botón hamburguesa (solo visible en móvil) -->
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Menú">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links" id="nav-links">
+    <button class="nav-btn" data-page="home"       onclick="goTo('home');closeMenu()">Inicio</button>
+    <button class="nav-btn" data-page="personajes" onclick="goTo('personajes');closeMenu()">Personajes</button>
+    <button class="nav-btn" data-page="inventario" onclick="goTo('inventario');closeMenu()">Inventario</button>
+    <button class="nav-btn" data-page="tierlist"   onclick="goTo('tierlist');closeMenu()">Tier List</button>
+    <button class="nav-btn" data-page="equipos"    onclick="goTo('equipos');closeMenu()">Equipos</button>
   </div>
 </nav>
+
 <div class="home-wrap">
   <div class="hero-badge">✦ Base de Datos Oficial ✦</div>
   <h1 class="hero-title">Latam Gaming<br>Society</h1>
@@ -52,6 +58,7 @@
     <div><div class="hstat-num">∞</div><div class="hstat-label">Builds</div></div>
   </div>
 </div>
+
 <script src="scripts.js" defer></script>
 </body>
 </html>
