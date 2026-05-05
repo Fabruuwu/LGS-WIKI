@@ -673,6 +673,742 @@ const CHARS=[
       { n:6, name:'Espejismo de la Nieve', desc:'Al usar la Ultimate con 3+ Compases, activa Danza del Vacío Helado sin consumir el ataque original (la Ultimate aplica ambos daños por separado).' }
     ]
 },
+{
+    id:13, name:'Poberto', tagline:'"El conejo no es un peluche... es su guardián."',
+    element:'electro', rarity:4, role:'Tanque / Protector', paradigma:'Paradigma del Escudo',
+    art:'Personajes 1.0 - tanda 2/Poberto.png',
+    stats:{
+      HP:740, ATQ:210, DEF:275, VEL:104,
+      'Prob. Crítica':'5%', 'Daño Crítico':'50%', 'Rec. Energía':20,
+      'Acierto de Efecto':20, 'Res. a Efectos':10, 'Ef. de Ruptura':30,
+      'Bono Rayo':0, 'Bono Curación':0
+    },
+    skills:[
+      {
+        icon:'🗡️', name:'Caricia del Conejo', type:'Ataque Básico',
+        flavor:'Extiende su mano y lanza una pequeña descarga eléctrica que chisporrotea al impactar.',
+        desc:'Inflige <strong>(40%–90% del ATQ)</strong> como Daño de Rayo a un enemigo.'
+      },
+      {
+        icon:'🔥', name:'Manto del Guardián', type:'Habilidad',
+        flavor:'Poberto alza su mano y una máscara de conejo hecha de energía envuelve al aliado.',
+        desc:'Otorga a un aliado un <strong>Escudo</strong> equivalente al <strong>(20%–35%) de la DEF de Poberto</strong> durante 2 turnos. Si el escudo se rompe antes de tiempo, el aliado recupera un <strong>10% de su HP Máximo</strong>.'
+      },
+      {
+        icon:'🌟', name:'Protectora del Bosque', type:'Ultimate',
+        flavor:'Cierra los ojos y una cúpula de luz eléctrica se expande desde ella.',
+        desc:'Otorga a todos los aliados un <strong>Escudo</strong> equivalente al <strong>(25%–45%) de la DEF de Poberto</strong> durante 2 turnos. Aumenta la DEF de todos los aliados en un <strong>20%</strong> durante 2 turnos.'
+      },
+      {
+        icon:'🧠', name:'Guardiana Seria', type:'Talento',
+        flavor:'Antes de que empiece la batalla, Poberto ya tiene su máscara puesta.',
+        desc:'Al inicio del combate, otorga un <strong>Escudo del 15% de su HP Máximo</strong> a todo el equipo durante 2 turnos.'
+      },
+    ],
+    passives:[
+      { name:'Defensa Mejorada', desc:'Aumenta la DEF de Poberto en un <strong>15%</strong>.' },
+      { name:'Manto Duradero', desc:'Los escudos que otorga Poberto duran <strong>3 turnos</strong> en lugar de 2.' },
+      { name:'Aura Protectora', desc:'Al inicio de su turno, recupera un <strong>3% de su HP Máximo</strong> por cada aliado con escudo activo.' }
+    ],
+    pings:[
+      { n:1, name:'Runas de Protección', desc:'Los escudos de Poberto son un <strong>20% más fuertes</strong>.' },
+      { n:2, name:'Aura Eléctrica', desc:'Los aliados con escudo devuelven un <strong>10% del daño recibido</strong> como Daño de Rayo.' },
+      { n:3, name:'Manto Reforzado', desc:'<strong>Habilidad +3 niveles</strong> (máx. nivel 8).' },
+      { n:4, name:'Conejo de la Suerte', desc:'Al romperse un escudo, el aliado gana <strong>+15% de VEL</strong> durante 1 turno.' },
+      { n:5, name:'Protectora Suprema', desc:'<strong>Ultimate +3 niveles</strong> (máx. nivel 8).' },
+      { n:6, name:'Luz del Bosque', desc:'Al usar la Ultimate, limpia <strong>1 debuff</strong> de todos los aliados.' }
+    ]
+},
+{
+    id:14, name:'Yanfei', tagline:'"Las linternas vuelan alto, pero sus palabras vuelan más lejos."',
+    element:'fuego', rarity:4, role:'SubDPS / Debuffer', paradigma:'Paradigma del Warn',
+    art:'Personajes 1.0 - tanda 2/Yanfei.png',
+    stats:{
+      HP:590, ATQ:310, DEF:140, VEL:109,
+      'Prob. Crítica':'5%', 'Daño Crítico':'50%', 'Rec. Energía':20,
+      'Acierto de Efecto':20, 'Res. a Efectos':10, 'Ef. de Ruptura':30,
+      'Bono Fuego':0, 'Bono Curación':0
+    },
+    skills:[
+      {
+        icon:'🗡️', name:'Chispa de Tinta', type:'Ataque Básico',
+        flavor:'Una chispa ardiente envuelta en caligrafía.',
+        desc:'Inflige <strong>(45%–100% del ATQ)</strong> como Daño de Fuego a un enemigo.'
+      },
+      {
+        icon:'🔥', name:'Lluvia de Linternas', type:'Habilidad',
+        flavor:'Yanfei lanza una ráfaga de linternas que explotan en llamas.',
+        desc:'Inflige <strong>(80%–160% del ATQ)</strong> como Daño de Fuego a un enemigo y adyacentes. Aplica <strong>"Quemadura"</strong> al objetivo principal: daño de Fuego del <strong>30% del ATQ</strong> durante 2 turnos.'
+      },
+      {
+        icon:'🌟', name:'Firmamento Ígneo', type:'Ultimate',
+        flavor:'El cielo se ilumina con cientos de linternas que caen sobre el campo.',
+        desc:'Inflige <strong>(130%–280% del ATQ)</strong> como Daño de Fuego a todos los enemigos. Aplica <strong>"Quemadura"</strong> a todos (20% del ATQ, 2 turnos). Otorga a los aliados <strong>+15% de ATQ</strong> durante 2 turnos.'
+      },
+      {
+        icon:'🧠', name:'Sabia de las Llamas', type:'Talento',
+        flavor:'El conocimiento arde eternamente.',
+        desc:'Cuando un enemigo muere mientras está Quemado, Yanfei recupera <strong>10 puntos de Energía</strong>.'
+      },
+    ],
+    passives:[
+      { name:'Fuego Persistente', desc:'La Quemadura dura <strong>3 turnos</strong> en lugar de 2.' },
+      { name:'Llama Interior', desc:'Aumenta el Daño de Fuego de Yanfei en un <strong>10%</strong>.' },
+      { name:'Prendida', desc:'Al inicio del combate, aplica Quemadura a un enemigo aleatorio.' }
+    ],
+    pings:[
+      { n:1, name:'Prólogo Ardiente', desc:'El daño de la Quemadura aumenta al <strong>40% del ATQ</strong>.' },
+      { n:2, name:'Manuscrito Brillante', desc:'Los enemigos con Quemadura tienen un <strong>-15% de DEF</strong>.' },
+      { n:3, name:'Caligrafía Veloz', desc:'<strong>Habilidad +3 niveles</strong> (máx. nivel 8).' },
+      { n:4, name:'Palabras Curativas', desc:'Al aplicar Quemadura, Yanfei recupera un <strong>5% de su HP Máximo</strong>.' },
+      { n:5, name:'Firmamento Eterno', desc:'<strong>Ultimate +3 niveles</strong> (máx. nivel 8).' },
+      { n:6, name:'Último Capítulo', desc:'La Ultimate ahora aplica <strong>dos acumulaciones de Quemadura</strong>.' }
+    ]
+},
+{
+    id:15, name:'Koenig', tagline:'"Cuando ella marca el ritmo, todo el server acelera."',
+    element:'aero', rarity:4, role:'Soporte / Batería (Recarga de Energía)', paradigma:'Paradigma del Partner',
+    art:'Personajes 1.0 - tanda 2/Koenig.png',
+    stats:{
+      HP:580, ATQ:280, DEF:170, VEL:110,
+      'Prob. Crítica':'5%', 'Daño Crítico':'50%', 'Rec. Energía':20,
+      'Acierto de Efecto':20, 'Res. a Efectos':10, 'Ef. de Ruptura':30,
+      'Bono Viento':0, 'Bono Curación':0
+    },
+    skills:[
+      {
+        icon:'🗡️', name:'Baquetazo Simple', type:'Ataque Básico',
+        flavor:'Golpea al enemigo con una baqueta, dejando una estela de notas musicales.',
+        desc:'Inflige <strong>(40%–90% del ATQ)</strong> como Daño de Viento a un enemigo.'
+      },
+      {
+        icon:'🔥', name:'Redoble de Energía', type:'Habilidad',
+        flavor:'Koenig toca un redoble frenético en su batería. Las ondas sonoras recargan a sus aliados.',
+        desc:'Inflige <strong>(60%–130% del ATQ)</strong> como Daño de Viento a un enemigo. Otorga <strong>15 puntos de Energía</strong> a todos los aliados (excepto Koenig).'
+      },
+      {
+        icon:'🌟', name:'Gran Final del Festival', type:'Ultimate',
+        flavor:'Salta sobre su batería y golpea todos los platillos a la vez.',
+        desc:'Inflige <strong>(100%–210% del ATQ)</strong> como Daño de Viento a todos los enemigos. Otorga a todos los aliados <strong>+20% de ATQ y +10% de VEL</strong> durante 2 turnos. Avanza la acción de todos los aliados en un <strong>15%</strong>.'
+      },
+      {
+        icon:'🧠', name:'Ritmo Constante', type:'Talento',
+        flavor:'Sin importar lo que pase, Koenig nunca pierde el pulso.',
+        desc:'Al inicio del turno de Koenig, otorga <strong>5 puntos de Energía</strong> a un aliado aleatorio.'
+      },
+    ],
+    passives:[
+      { name:'Tempo Vivo', desc:'Aumenta la VEL de Koenig en un <strong>10%</strong>.' },
+      { name:'Redoble Amplificado', desc:'La Habilidad ahora otorga <strong>20 puntos de Energía</strong> en lugar de 15.' },
+      { name:'Energía Inicial', desc:'Al inicio del combate, otorga <strong>10 puntos de Energía</strong> a todos los aliados.' }
+    ],
+    pings:[
+      { n:1, name:'Canción de Apertura', desc:'Al inicio del combate, otorga <strong>+10% de VEL</strong> a todos los aliados durante 2 turnos.' },
+      { n:2, name:'Ritmo Imparable', desc:'Al usar la Habilidad, los aliados ganan <strong>+15% de ATQ</strong> durante 1 turno.' },
+      { n:3, name:'Maestría del Redoble', desc:'<strong>Habilidad +3 niveles</strong> (máx. nivel 8).' },
+      { n:4, name:'Energía en las Gradas', desc:'La Ultimate ahora otorga <strong>15 puntos de Energía</strong> a todos los aliados.' },
+      { n:5, name:'Ovación Final', desc:'<strong>Ultimate +3 niveles</strong> (máx. nivel 8).' },
+      { n:6, name:'Sinfonía del Server', desc:'El Talento ahora otorga Energía a <strong>dos aliados</strong> en lugar de uno.' }
+    ]
+},
+{
+    id:16, name:'Tako', tagline:'"GG, IRL. La realidad acaba de crashear."',
+    element:'electro', rarity:4, role:'SubDPS / Debuffer', paradigma:'Paradigma del Warn',
+    art:'Personajes 1.0 - tanda 2/Tako.png',
+    stats:{
+      HP:590, ATQ:340, DEF:150, VEL:110,
+      'Prob. Crítica':'5%', 'Daño Crítico':'50%', 'Rec. Energía':20,
+      'Acierto de Efecto':20, 'Res. a Efectos':10, 'Ef. de Ruptura':30,
+      'Bono Rayo':0, 'Bono Curación':0
+    },
+    skills:[
+      {
+        icon:'🗡️', name:'Paquete de Datos', type:'Ataque Básico',
+        flavor:'Un icono de app sale disparado, dejando un rastro de píxeles.',
+        desc:'Inflige <strong>(45%–100% del ATQ)</strong> como Daño de Rayo a un enemigo.'
+      },
+      {
+        icon:'🔥', name:'Crtl + Z (Deshacer)', type:'Habilidad',
+        flavor:'Teclea furiosamente y una onda de estática distorsiona la realidad.',
+        desc:'Inflige <strong>(80%–170% del ATQ)</strong> como Daño de Rayo a un enemigo y adyacentes. Aplica <strong>"Lag"</strong> (2 turnos): reduce la VEL en un <strong>20%</strong>.'
+      },
+      {
+        icon:'🌟', name:'Pantallazo Azul de la Muerte', type:'Ultimate',
+        flavor:'Un enorme mensaje de error inunda el campo de batalla.',
+        desc:'Inflige <strong>(160%–340% del ATQ)</strong> como Daño de Rayo a todos los enemigos. Aplica <strong>"Lag"</strong> a todos (2 turnos). El siguiente ataque de cada enemigo con "Lag" tiene un <strong>50% de probabilidad de fallar</strong> (se consume tras un ataque).'
+      },
+      {
+        icon:'🧠', name:'Error 404', type:'Talento',
+        flavor:'Recolecta datos residuales para seguir hackeando.',
+        desc:'Cuando un enemigo con "Lag" es derrotado, Tako recupera <strong>15 puntos de Energía</strong>.'
+      },
+    ],
+    passives:[
+      { name:'Ping Alto', desc:'Los enemigos con "Lag" también ven reducida su DEF en un <strong>10%</strong>.' },
+      { name:'Overclock', desc:'Aumenta la VEL de Tako en un <strong>10%</strong>.' },
+      { name:'Vulnerabilidad Inicial', desc:'Al inicio del combate, aplica "Lag" a un enemigo aleatorio.' }
+    ],
+    pings:[
+      { n:1, name:'Bug Crítico', desc:'"Lag" ahora reduce la VEL en un <strong>30%</strong>.' },
+      { n:2, name:'Código Malicioso', desc:'El fallo por "Lag" ahora es del <strong>75%</strong>.' },
+      { n:3, name:'Script Mejorado', desc:'<strong>Habilidad +3 niveles</strong> (máx. nivel 8).' },
+      { n:4, name:'Cortafuegos Dañado', desc:'Los enemigos con "Lag" reciben un <strong>15% más de daño de Rayo</strong>.' },
+      { n:5, name:'Crash del Sistema', desc:'<strong>Ultimate +3 niveles</strong> (máx. nivel 8).' },
+      { n:6, name:'Apagado Forzoso', desc:'La Ultimate ahora aplica <strong>Aturdimiento</strong> (1 turno) a los enemigos que ya tenían "Lag".' }
+    ]
+},
+{
+    id:17, name:'Zenkin', tagline:'"Dicen que su cola da suerte... y sus regalos, victoria."',
+    element:'aero', rarity:4, role:'Soporte / Buffer', paradigma:'Paradigma del Boost',
+    art:'Personajes 1.0 - tanda 2/Zenkin.png',
+    stats:{
+      HP:600, ATQ:270, DEF:165, VEL:110,
+      'Prob. Crítica':'5%', 'Daño Crítico':'50%', 'Rec. Energía':20,
+      'Acierto de Efecto':20, 'Res. a Efectos':10, 'Ef. de Ruptura':30,
+      'Bono Viento':0, 'Bono Curación':0
+    },
+    skills:[
+      {
+        icon:'🗡️', name:'Golpe de Garras', type:'Ataque Básico',
+        flavor:'Un zarpazo juguetón que deja una estela verde esmeralda.',
+        desc:'Inflige <strong>(40%–85% del ATQ)</strong> como Daño de Viento a un enemigo.'
+      },
+      {
+        icon:'🔥', name:'¡Regalo Relámpago!', type:'Habilidad',
+        flavor:'Lanza una caja de regalo que explota en confeti y tréboles brillantes.',
+        desc:'Inflige <strong>(70%–150% del ATQ)</strong> como Daño de Viento a un enemigo y adyacentes. Otorga a un aliado aleatorio <strong>+25% de ATQ</strong> durante 2 turnos.'
+      },
+      {
+        icon:'🌟', name:'Lluvia de Tréboles', type:'Ultimate',
+        flavor:'Cajas de regalo con forma de trébol caen como meteoritos verdes.',
+        desc:'Inflige <strong>(100%–220% del ATQ)</strong> como Daño de Viento a todos los enemigos. Otorga a todos los aliados <strong>+20% ATQ, +15% VEL y +15% DEF</strong> durante 2 turnos.'
+      },
+      {
+        icon:'🧠', name:'Cola de la Suerte', type:'Talento',
+        flavor:'Su cola en forma de corazón lanza chispas de buena fortuna.',
+        desc:'Al inicio del turno de Zenkin, otorga <strong>+10% de ATQ</strong> a un aliado aleatorio durante 1 turno.'
+      },
+    ],
+    passives:[
+      { name:'Bendición Prolongada', desc:'Los buffs de Zenkin duran <strong>3 turnos</strong> en lugar de 2.' },
+      { name:'Garra Afilada', desc:'Aumenta el ATQ de Zenkin en un <strong>10%</strong>.' },
+      { name:'Suerte Inicial', desc:'Al inicio del combate, otorga <strong>+15% de ATQ</strong> a todos los aliados durante 2 turnos.' }
+    ],
+    pings:[
+      { n:1, name:'Paquete Prioritario', desc:'El buff de la Habilidad ahora es <strong>+40% de ATQ</strong>.' },
+      { n:2, name:'Envío a Domicilio', desc:'El Talento ahora otorga <strong>+15% de ATQ</strong> en lugar de +10% (durante 1 turno).' },
+      { n:3, name:'Regalo Relámpago', desc:'<strong>Habilidad +3 niveles</strong> (máx. nivel 8).' },
+      { n:4, name:'Devolución Gratis', desc:'Al recibir un buff, el aliado recupera <strong>5 puntos de Energía</strong>.' },
+      { n:5, name:'Lluvia Express', desc:'<strong>Ultimate +3 niveles</strong> (máx. nivel 8).' },
+      { n:6, name:'Caja del Destino', desc:'La Ultimate ahora también otorga <strong>+20% de Daño Crítico</strong> a los aliados.' }
+    ]
+},
+{
+    id:18, name:'Dawn', tagline:'"Dicen que su aliento congela el alma... pero su magia congela el tiempo."',
+    element:'crio', rarity:4, role:'Main DPS', paradigma:'Paradigma del Baneo',
+    art:'Personajes 1.0 - tanda 1/Dawn.png',
+    stats:{
+      HP:500, ATQ:350, DEF:120, VEL:110,
+      'Prob. Crítica':'5%', 'Daño Crítico':'50%', 'Rec. Energía':20,
+      'Acierto de Efecto':20, 'Res. a Efectos':10, 'Ef. de Ruptura':30,
+      'Bono Hielo':0, 'Bono Curación':0
+    },
+    skills:[
+      {
+        icon:'🗡️', name:'Astilla de Hielo', type:'Ataque Básico',
+        flavor:'Lanza una pequeña estaca de hielo que silba al cortar el aire.',
+        desc:'Inflige <strong>(50%–110% del ATQ)</strong> como Daño de Hielo a un enemigo.'
+      },
+      {
+        icon:'🔥', name:'Ráfaga Gélida', type:'Habilidad',
+        flavor:'Una ráfaga de viento helado con fragmentos de hielo envuelve a los enemigos.',
+        desc:'Inflige <strong>(80%–170% del ATQ)</strong> como Daño de Hielo a un enemigo y adyacentes. Aplica <strong>Ralentización</strong> (-20% VEL) durante 2 turnos a los enemigos golpeados.'
+      },
+      {
+        icon:'🌟', name:'Alud de Cristal', type:'Ultimate',
+        flavor:'Dos círculos mágicos se abren y una avalancha de estacas de hielo cae sobre el campo.',
+        desc:'Inflige <strong>(180%–350% del ATQ)</strong> como Daño de Hielo a todos los enemigos. Aplica <strong>Congelación</strong> (Aturdimiento) durante 1 turno a los enemigos que ya estaban Ralentizados.'
+      },
+      {
+        icon:'🧠', name:'Vientos Gélidos', type:'Talento',
+        flavor:'El frío que emana Dawn es más intenso contra quienes ya están tiritando.',
+        desc:'Aumenta el Daño de Hielo de Dawn en un <strong>15%</strong> contra enemigos Ralentizados o Congelados.'
+      },
+    ],
+    passives:[
+      { name:'Escarcha Severa', desc:'La Ralentización ahora reduce la VEL en un <strong>30%</strong>.' },
+      { name:'Ventisca Inminente', desc:'Al inicio del combate, aplica Ralentización a todos los enemigos durante 1 turno.' },
+      { name:'Poder Gélido', desc:'Aumenta el ATQ de Dawn en un <strong>10%</strong>.' }
+    ],
+    pings:[
+      { n:1, name:'Carámbano Afilado', desc:'El Ataque Básico ahora golpea también a un enemigo adyacente.' },
+      { n:2, name:'Frío Cortante', desc:'El daño contra enemigos Ralentizados o Congelados aumenta un <strong>20%</strong>.' },
+      { n:3, name:'Ráfaga Afilada', desc:'<strong>Habilidad +3 niveles</strong> (máx. nivel 8).' },
+      { n:4, name:'Barrera de Hielo', desc:'Al usar la Habilidad, obtiene un <strong>Escudo del 10% de su HP Máximo</strong> durante 2 turnos.' },
+      { n:5, name:'Alud Devastador', desc:'<strong>Ultimate +3 niveles</strong> (máx. nivel 8).' },
+      { n:6, name:'Tormenta Eterna', desc:'La Ultimate ahora siempre aplica <strong>Congelación</strong>, sin necesidad de Ralentización previa.' }
+    ]
+},
+{
+    id:19, name:'Reguta', tagline:'"Diez mil millones por ciento calculado. La victoria es inevitable."',
+    element:'electro', rarity:4, role:'Soporte / Buffer', paradigma:'Paradigma del Partner',
+    art:'Personajes 1.0 - tanda 2/Reguta.png',
+    stats:{
+      HP:620, ATQ:250, DEF:185, VEL:110,
+      'Prob. Crítica':'5%', 'Daño Crítico':'50%', 'Rec. Energía':20,
+      'Acierto de Efecto':20, 'Res. a Efectos':10, 'Ef. de Ruptura':30,
+      'Bono Rayo':0, 'Bono Curación':0
+    },
+    skills:[
+      {
+        icon:'🗡️', name:'Tiza de la Pizarra', type:'Ataque Básico',
+        flavor:'Lanza un pedazo de tiza que deja una pequeña estela eléctrica al impactar.',
+        desc:'Inflige <strong>(40%–85% del ATQ)</strong> como Daño de Rayo a un enemigo.'
+      },
+      {
+        icon:'🔥', name:'Fórmula de la Velocidad', type:'Habilidad',
+        flavor:'Garabatea rápidamente en su bloc y una fórmula matemática envuelve al aliado.',
+        desc:'Otorga a un aliado <strong>+25% de VEL y +15% de ATQ</strong> durante 2 turnos.'
+      },
+      {
+        icon:'🌟', name:'Momento Eureka', type:'Ultimate',
+        flavor:'Una bombilla gigante se enciende y el aliado recibe una descarga de inspiración pura.',
+        desc:'Otorga un <strong>turno extra inmediato</strong> a un aliado. Limpia todos sus debuffs y gana <strong>+30% de ATQ</strong> durante ese turno extra.'
+      },
+      {
+        icon:'🧠', name:'Mente Brillante', type:'Talento',
+        flavor:'Siempre está pensando, siempre encuentra la solución más eficiente.',
+        desc:'Al inicio del turno de Reguta, otorga <strong>5 puntos de Energía</strong> a un aliado aleatorio.'
+      },
+    ],
+    passives:[
+      { name:'Inspiración Matemática', desc:'La Habilidad ahora también otorga <strong>+10% de Daño Crítico</strong> al aliado.' },
+      { name:'Mente Acelerada', desc:'Aumenta la VEL de Reguta en un <strong>10%</strong>.' },
+      { name:'Preparación de Laboratorio', desc:'Al inicio del combate, otorga <strong>10 puntos de Energía</strong> a todos los aliados.' }
+    ],
+    pings:[
+      { n:1, name:'Revisión por Pares', desc:'El buff de VEL de la Habilidad aumenta a <strong>+35%</strong>.' },
+      { n:2, name:'Experimento Exitoso', desc:'Al otorgar un turno extra con la Ultimate, el aliado también gana <strong>+20% de Daño Crítico</strong>.' },
+      { n:3, name:'Teorema Aplicado', desc:'<strong>Habilidad +3 niveles</strong> (máx. nivel 8).' },
+      { n:4, name:'Beca de Investigación', desc:'La Ultimate ahora también otorga <strong>+15% de VEL</strong> a todos los aliados durante 2 turnos.' },
+      { n:5, name:'Artículo Publicado', desc:'<strong>Ultimate +3 niveles</strong> (máx. nivel 8).' },
+      { n:6, name:'Premio Nobel', desc:'La Ultimate ahora otorga turno extra a <strong>dos aliados</strong>: al objetivo principal y al aliado con menor HP.' }
+    ]
+},
+{
+    id:20, name:'Nanaomi', tagline:'"Cada movimiento enemigo es solo un dato más... que puedo ralentizar."',
+    element:'caos', rarity:4, role:'Debuffer / Control de Masas', paradigma:'Paradigma del Mute',
+    art:'Personajes 1.0 - tanda 2/Nanaomi.png',
+    stats:{
+      HP:610, ATQ:300, DEF:170, VEL:110,
+      'Prob. Crítica':'5%', 'Daño Crítico':'50%', 'Rec. Energía':20,
+      'Acierto de Efecto':20, 'Res. a Efectos':10, 'Ef. de Ruptura':30,
+      'Bono Vacío':0, 'Bono Curación':0
+    },
+    skills:[
+      {
+        icon:'🗡️', name:'Orbe Gravitatorio', type:'Ataque Básico',
+        flavor:'Una pequeña esfera oscura que distorsiona el aire a su paso.',
+        desc:'Inflige <strong>(45%–100% del ATQ)</strong> como Daño de Vacío a un enemigo.'
+      },
+      {
+        icon:'🔥', name:'Colapso del Horizonte', type:'Habilidad',
+        flavor:'Comprime la gravedad en su mano y la libera, creando un cono de distorsión.',
+        desc:'Inflige <strong>(80%–170% del ATQ)</strong> como Daño de Vacío a un enemigo y adyacentes. Reduce la VEL de los enemigos golpeados en un <strong>25%</strong> durante 2 turnos.'
+      },
+      {
+        icon:'🌟', name:'Singularidad del Archivo', type:'Ultimate',
+        flavor:'Un agujero negro se abre sobre el campo, succionando la luz.',
+        desc:'Inflige <strong>(150%–320% del ATQ)</strong> como Daño de Vacío a todos los enemigos. Retrasa el turno de todos los enemigos en un <strong>30%</strong> y reduce su VEL en un <strong>20%</strong> durante 2 turnos.'
+      },
+      {
+        icon:'🧠', name:'Ley de Gravitación Universal', type:'Talento',
+        flavor:'Su sola presencia altera la física del campo de batalla.',
+        desc:'Al inicio del combate, reduce la VEL de todos los enemigos en un <strong>10%</strong> durante 2 turnos.'
+      },
+    ],
+    passives:[
+      { name:'Pozo Gravitatorio', desc:'La reducción de VEL de la Habilidad aumenta al <strong>35%</strong>.' },
+      { name:'Masa Curvada', desc:'Los enemigos con VEL reducida también pierden un <strong>10% de DEF</strong>.' },
+      { name:'Precisión Cuántica', desc:'Aumenta el Acierto de Efecto de Nanaomi en un <strong>15%</strong>.' }
+    ],
+    pings:[
+      { n:1, name:'Física Teórica', desc:'La reducción de VEL inicial del Talento aumenta al <strong>15%</strong>.' },
+      { n:2, name:'Ondas Gravitatorias', desc:'El Ataque Básico ahora golpea a un enemigo adicional.' },
+      { n:3, name:'Colapso Controlado', desc:'<strong>Habilidad +3 niveles</strong> (máx. nivel 8).' },
+      { n:4, name:'Repositorio Infinito', desc:'Al usar la Ultimate, recupera <strong>15 puntos de Energía</strong>.' },
+      { n:5, name:'Vacío Absoluto', desc:'<strong>Ultimate +3 niveles</strong> (máx. nivel 8).' },
+      { n:6, name:'El Gran Colapso', desc:'El retraso de turno de la Ultimate aumenta al <strong>50%</strong>.' }
+    ]
+},
+{
+    id:21, name:'Sofi', tagline:'"¿Quieres ver un truco de magia? Solo tengo que tirar de esto..."',
+    element:'fuego', rarity:4, role:'Main DPS / AoE', paradigma:'Paradigma del Raid',
+    art:'Personajes 1.0 - tanda 2/Sofi.png',
+    stats:{
+      HP:550, ATQ:350, DEF:135, VEL:110,
+      'Prob. Crítica':'5%', 'Daño Crítico':'50%', 'Rec. Energía':20,
+      'Acierto de Efecto':20, 'Res. a Efectos':10, 'Ef. de Ruptura':30,
+      'Bono Fuego':0, 'Bono Curación':0
+    },
+    skills:[
+      {
+        icon:'🗡️', name:'Patada Voladora', type:'Ataque Básico',
+        flavor:'Un golpe acrobático con la pierna que deja una estela de chispas.',
+        desc:'Inflige <strong>(50%–110% del ATQ)</strong> como Daño de Fuego a un enemigo.'
+      },
+      {
+        icon:'🔥', name:'Explosión Controlada', type:'Habilidad',
+        flavor:'Lanza una granada casera que detona en el centro del grupo enemigo.',
+        desc:'Inflige <strong>(120%–240% del ATQ)</strong> como Daño de Fuego a todos los enemigos. Sofi pierde un <strong>10% de su HP actual</strong> (mínimo 1 HP).'
+      },
+      {
+        icon:'🌟', name:'Flor de Explosiones', type:'Ultimate',
+        flavor:'Salta al centro y canaliza una serie de explosiones en cadena.',
+        desc:'Inflige <strong>(200%–380% del ATQ)</strong> como Daño de Fuego a todos los enemigos. Si Sofi está por debajo del 50% de HP, ignora un <strong>20% de la DEF</strong> enemiga. Aplica <strong>Quemadura</strong> (30% del ATQ, 2 turnos) a todos.'
+      },
+      {
+        icon:'🧠', name:'Adrenalina Explosiva', type:'Talento',
+        flavor:'Cuanto más daño recibe, más peligrosa se vuelve.',
+        desc:'Aumenta el Daño de Fuego de Sofi en un <strong>15%</strong> cuando su HP está por debajo del 50%.'
+      },
+    ],
+    passives:[
+      { name:'Carga Controlada', desc:'La pérdida de HP de la Habilidad se reduce al <strong>5%</strong>.' },
+      { name:'Segundo Aire', desc:'Al derrotar a un enemigo, recupera un <strong>10% de su HP Máximo</strong>.' },
+      { name:'Furia Explosiva', desc:'Aumenta el ATQ de Sofi en un <strong>10%</strong>.' }
+    ],
+    pings:[
+      { n:1, name:'Explosión en Cadena', desc:'La Habilidad ahora también aplica <strong>Quemadura</strong> al objetivo principal.' },
+      { n:2, name:'Metralla Incendiaria', desc:'La Quemadura de la Ultimate dura <strong>3 turnos</strong> en lugar de 2.' },
+      { n:3, name:'Bomba de Fragmentación', desc:'<strong>Habilidad +3 niveles</strong> (máx. nivel 8).' },
+      { n:4, name:'Absorción de Fuego', desc:'Por debajo del 50% de HP, los ataques de Sofi curan un <strong>10% del daño infligido</strong>.' },
+      { n:5, name:'Apocalipsis Ahora', desc:'<strong>Ultimate +3 niveles</strong> (máx. nivel 8).' },
+      { n:6, name:'La Mecha Final', desc:'Al morir, explota infligiendo un <strong>200% de su ATQ</strong> como Daño de Fuego a todos los enemigos (una vez por batalla).' }
+    ]
+},
+{
+    id:22, name:'Areku', tagline:'"¿Quieres pedir un deseo? Solo tienes que firmar aquí..."',
+    element:'caos', rarity:4, role:'SubDPS / Debuffer', paradigma:'Paradigma del Warn',
+    art:'Personajes 1.0 - tanda 1/Areku.png',
+    stats:{
+      HP:580, ATQ:320, DEF:160, VEL:110,
+      'Prob. Crítica':'5%', 'Daño Crítico':'50%', 'Rec. Energía':20,
+      'Acierto de Efecto':20, 'Res. a Efectos':10, 'Ef. de Ruptura':30,
+      'Bono Vacío':0, 'Bono Curación':0
+    },
+    skills:[
+      {
+        icon:'🗡️', name:'Corte del Aparición', type:'Ataque Básico',
+        flavor:'Un tajo rápido y sucio con su cuchillo, dejando un rastro de tinta negra.',
+        desc:'Inflige <strong>(45%–100% del ATQ)</strong> como Daño de Vacío a un enemigo.'
+      },
+      {
+        icon:'🔥', name:'¡Talismán Sellador!', type:'Habilidad',
+        flavor:'Lanza un ofuda que se pega al enemigo, cubriéndolo con marcas rojas.',
+        desc:'Inflige <strong>(70%–150% del ATQ)</strong> como Daño de Vacío a un enemigo. Aplica un <strong>"Sello"</strong> (3 turnos): -15% DEF y -10% VEL.'
+      },
+      {
+        icon:'🌟', name:'Se Rompió el Séptimo Misterio', type:'Ultimate',
+        flavor:'Las ventanas estallan, los talismanes vuelan y Areku libera su verdadero poder.',
+        desc:'Inflige <strong>(160%–340% del ATQ)</strong> como Daño de Vacío a todos los enemigos. Consume todos los Sellos activos: cada uno añade un <strong>20% de daño adicional</strong> y aplica <strong>"Maldición del Misterio"</strong> (2 turnos, +10% daño de Vacío recibido).'
+      },
+      {
+        icon:'🧠', name:'Presencia Inquietante', type:'Talento',
+        flavor:'Siempre hay un susurro en el pasillo que pone nerviosos a los enemigos.',
+        desc:'Al inicio del turno de Areku, aplica un <strong>Sello</strong> a un enemigo aleatorio que no tenga uno.'
+      },
+    ],
+    passives:[
+      { name:'Sello Debilitador', desc:'El Sello ahora reduce la DEF en un <strong>20%</strong>.' },
+      { name:'Poder del Misterio', desc:'Aumenta el Daño de Vacío de Areku en un <strong>10%</strong>.' },
+      { name:'Aula del Terror', desc:'Al inicio del combate, aplica un Sello a <strong>todos los enemigos</strong>.' }
+    ],
+    pings:[
+      { n:1, name:'Misterio del Reloj', desc:'El Sello ahora dura <strong>4 turnos</strong> en lugar de 3.' },
+      { n:2, name:'Corte del Vínculo', desc:'Los enemigos con Sello reciben un <strong>15% más de daño de Vacío</strong>.' },
+      { n:3, name:'Exorcismo Acelerado', desc:'<strong>Habilidad +3 niveles</strong> (máx. nivel 8).' },
+      { n:4, name:'Travesura del Fantasma', desc:'Al consumir un Sello con la Ultimate, Areku recupera un <strong>10% de su HP Máximo</strong>.' },
+      { n:5, name:'Misterio Revelado', desc:'<strong>Ultimate +3 niveles</strong> (máx. nivel 8).' },
+      { n:6, name:'El Pasillo Infinito', desc:'Al usar la Ultimate, aplica un <strong>Sello</strong> a todos los enemigos después del daño.' }
+    ]
+},
+{
+    id:23, name:'Harriet', tagline:'"¡N-No es como si quisiera ayudarte, b-baka!"',
+    element:'hidro', rarity:4, role:'Soporte / Control de Masas', paradigma:'Paradigma del Mute',
+    art:'Personajes 1.0 - tanda 1/Harriet.png',
+    stats:{
+      HP:640, ATQ:270, DEF:195, VEL:110,
+      'Prob. Crítica':'5%', 'Daño Crítico':'50%', 'Rec. Energía':20,
+      'Acierto de Efecto':20, 'Res. a Efectos':10, 'Ef. de Ruptura':30,
+      'Bono Agua':0, 'Bono Curación':0
+    },
+    skills:[
+      {
+        icon:'🗡️', name:'Golpe de Cuaderno', type:'Ataque Básico',
+        flavor:'Cierra su cuaderno de hechizos y lo lanza con furia contenida.',
+        desc:'Inflige <strong>(40%–85% del ATQ)</strong> como Daño de Agua a un enemigo.'
+      },
+      {
+        icon:'🔥', name:'¡Sonrojada y Furiosa!', type:'Habilidad',
+        flavor:'Se sonroja intensamente y dos pequeños Chibis aparecen para descargar su frustración.',
+        desc:'Invoca 2 <strong>Chibis</strong> que orbitan a su alrededor durante 3 turnos. Al inicio de cada turno de Harriet, cada Chibi aplica un efecto aleatorio a un enemigo: <strong>Chibi ! (Pánico)</strong> -15% VEL 1 turno; <strong>Chibi ?! (Frustración)</strong> -15% DEF 1 turno; <strong>Chibi ? (Confusión)</strong> 30% prob. de Aturdir 1 turno.'
+      },
+      {
+        icon:'🌟', name:'Desastre Mágico Total', type:'Ultimate',
+        flavor:'El gran círculo rúnico se activa y los cuatro Chibis aparecen a la vez.',
+        desc:'Inflige <strong>(120%–260% del ATQ)</strong> como Daño de Agua a todos los enemigos. Invoca los <strong>4 Chibis al mismo tiempo</strong> durante 2 turnos.'
+      },
+      {
+        icon:'🧠', name:'Límite de la Paciencia', type:'Talento',
+        flavor:'Cuando la molestan demasiado, explota.',
+        desc:'Al recibir un golpe crítico, el siguiente ataque de Harriet ignora un <strong>15% de la DEF</strong> del enemigo.'
+      },
+    ],
+    passives:[
+      { name:'Chibis Persistentes', desc:'Los Chibis ahora duran <strong>4 turnos</strong> en lugar de 3.' },
+      { name:'Recarga Emocional', desc:'Al invocar Chibis, Harriet recupera <strong>10 puntos de Energía</strong>.' },
+      { name:'Invocación Inicial', desc:'Al inicio del combate, invoca <strong>1 Chibi</strong> automáticamente.' }
+    ],
+    pings:[
+      { n:1, name:'Invocación Perfecta', desc:'La Habilidad ahora invoca <strong>3 Chibis</strong> en lugar de 2.' },
+      { n:2, name:'Chismes Mágicos', desc:'Los efectos de los Chibis duran <strong>2 turnos</strong> en lugar de 1.' },
+      { n:3, name:'Control de Daños', desc:'<strong>Habilidad +3 niveles</strong> (máx. nivel 8).' },
+      { n:4, name:'Tsundere Defensiva', desc:'Mientras tiene al menos 1 Chibi activo, Harriet recibe un <strong>15% menos de daño</strong>.' },
+      { n:5, name:'Bomba de Sentimientos', desc:'<strong>Ultimate +3 niveles</strong> (máx. nivel 8).' },
+      { n:6, name:'Ataque de las Mini-Harriet', desc:'Al usar la Ultimate, los 4 Chibis aplican sus efectos inmediatamente.' }
+    ]
+},
+{
+    id:24, name:'Alelin', tagline:'"¡TRES... DOS... UNO... ¡FUEGO!"',
+    element:'fuego', rarity:4, role:'Main DPS / AoE', paradigma:'Paradigma del Raid',
+    art:'Personajes 1.0 - tanda 1/Alelin.png',
+    stats:{
+      HP:520, ATQ:350, DEF:130, VEL:110,
+      'Prob. Crítica':'5%', 'Daño Crítico':'50%', 'Rec. Energía':20,
+      'Acierto de Efecto':20, 'Res. a Efectos':10, 'Ef. de Ruptura':30,
+      'Bono Fuego':0, 'Bono Curación':0
+    },
+    skills:[
+      {
+        icon:'🗡️', name:'Plomizo Rosa', type:'Ataque Básico',
+        flavor:'Dispara una bala con su revólver que deja una estela fucsia.',
+        desc:'Inflige <strong>(50%–110% del ATQ)</strong> como Daño de Fuego a un enemigo.'
+      },
+      {
+        icon:'🔥', name:'¡Piñata de Chatarra!', type:'Habilidad',
+        flavor:'Lanza una granada casera que rebota y explota en una lluvia de metralla.',
+        desc:'Inflige <strong>(80%–170% del ATQ)</strong> como Daño de Fuego a un enemigo y adyacentes. Si hay 3+ enemigos en el campo, el daño se repite una vez adicional con un 50% de daño.'
+      },
+      {
+        icon:'🌟', name:'¡Hora del Gran \'Boom\'!', type:'Ultimate',
+        flavor:'Apunta su lanzacohetes al centro de la batalla y vacía el cargador.',
+        desc:'Inflige <strong>(200%–380% del ATQ)</strong> como Daño de Fuego a todos los enemigos. Alelin pierde un <strong>15% de su HP actual</strong> (mínimo 1 HP).'
+      },
+      {
+        icon:'🧠', name:'Demolicionista Experta', type:'Talento',
+        flavor:'Cuanto más caos, más disfruta.',
+        desc:'Aumenta el Daño de Fuego de Alelin en un <strong>5% por cada enemigo en el campo</strong> (máx. +25%).'
+      },
+    ],
+    passives:[
+      { name:'Metralla Repetida', desc:'La Habilidad ahora siempre se repite una vez, sin importar la cantidad de enemigos.' },
+      { name:'Reciclaje Explosivo', desc:'Al derrotar a un enemigo, recupera un <strong>5% de su HP Máximo</strong>.' },
+      { name:'Potencia de Fuego', desc:'Aumenta el ATQ de Alelin en un <strong>10%</strong>.' }
+    ],
+    pings:[
+      { n:1, name:'Sobrecalentamiento', desc:'La Habilidad ahora golpea a <strong>todos los enemigos</strong> en lugar de a un enemigo y adyacentes.' },
+      { n:2, name:'Explosión en Cadena', desc:'Los enemigos derrotados por Alelin explotan, infligiendo un <strong>20% del ATQ</strong> a los enemigos adyacentes.' },
+      { n:3, name:'Fuego Amigo', desc:'<strong>Habilidad +3 niveles</strong> (máx. nivel 8).' },
+      { n:4, name:'Adrenalina Pura', desc:'Por debajo del 50% de HP, el daño de Alelin aumenta un <strong>20%</strong>.' },
+      { n:5, name:'Apocalipsis Ahora', desc:'<strong>Ultimate +3 niveles</strong> (máx. nivel 8).' },
+      { n:6, name:'Prohibido Apagar', desc:'La Ultimate ya no consume HP al usarla.' }
+    ]
+},
+{
+    id:25, name:'Escarlata', tagline:'"Donde su báculo apunta, la noche se llena de esperanza."',
+    element:'celestial', rarity:4, role:'Sanadora / Soporte', paradigma:'Paradigma del Soporte Técnico',
+    art:'Personajes 1.0 - tanda 1/Escarlata.png',
+    stats:{
+      HP:710, ATQ:220, DEF:190, VEL:110,
+      'Prob. Crítica':'5%', 'Daño Crítico':'50%', 'Rec. Energía':20,
+      'Acierto de Efecto':20, 'Res. a Efectos':10, 'Ef. de Ruptura':30,
+      'Bono Luz':0, 'Bono Curación':0
+    },
+    skills:[
+      {
+        icon:'🗡️', name:'Chispa Polar', type:'Ataque Básico',
+        flavor:'Un pequeño destello de luz fría que golpea como un copo de nieve.',
+        desc:'Inflige <strong>(40%–85% del ATQ)</strong> como Daño de Luz a un enemigo.'
+      },
+      {
+        icon:'🔥', name:'Manto de Estrellas', type:'Habilidad',
+        flavor:'Alza su báculo y un haz de luz envuelve al aliado, tejiendo un escudo con la luz de las estrellas.',
+        desc:'Otorga a un aliado un <strong>Escudo</strong> equivalente al <strong>(20%–35%) del HP Máximo de Escarlata</strong> durante 2 turnos.'
+      },
+      {
+        icon:'🌟', name:'Santuario de la Aurora', type:'Ultimate',
+        flavor:'El rosetón dorado se abre por completo. Una lluvia de luz estelar envuelve a todos los aliados.',
+        desc:'Cura a todos los aliados en un <strong>(30%–50%) del HP Máximo de Escarlata + 200</strong>. Otorga a todos los aliados un <strong>Escudo del 15% del HP Máximo de Escarlata</strong> durante 2 turnos.'
+      },
+      {
+        icon:'🧠', name:'Luz Sanadora', type:'Talento',
+        flavor:'Su sola presencia reconforta a los heridos.',
+        desc:'Al inicio del turno de Escarlata, cura al aliado con menor HP un <strong>8% del HP Máximo de Escarlata</strong>.'
+      },
+    ],
+    passives:[
+      { name:'Manto Restaurador', desc:'La Habilidad ahora también cura al aliado un <strong>10% del HP Máximo de Escarlata</strong> antes de aplicar el Escudo.' },
+      { name:'Escudos Duraderos', desc:'Los Escudos de Escarlata duran <strong>3 turnos</strong> en lugar de 2.' },
+      { name:'Vitalidad Celestial', desc:'Aumenta el HP de Escarlata en un <strong>15%</strong>.' }
+    ],
+    pings:[
+      { n:1, name:'Constelación Mayor', desc:'La curación de la Ultimate aumenta un <strong>20%</strong>.' },
+      { n:2, name:'Cúmulo Estelar', desc:'Los aliados con Escudo de Escarlata ganan <strong>+10% de ATQ</strong>.' },
+      { n:3, name:'Maestría Protectora', desc:'<strong>Habilidad +3 niveles</strong> (máx. nivel 8).' },
+      { n:4, name:'Nébula Curativa', desc:'Al romperse un Escudo de Escarlata, el aliado se cura un <strong>10% de su HP Máximo</strong>.' },
+      { n:5, name:'Aurora Eterna', desc:'<strong>Ultimate +3 niveles</strong> (máx. nivel 8).' },
+      { n:6, name:'Corona Boreal', desc:'La Ultimate ahora <strong>revive a un aliado caído</strong> con un 20% de su HP Máximo (una vez por batalla).' }
+    ]
+},
+{
+    id:26, name:'Abril', tagline:'"Un pequeño amigo puede traer la bendición más grande."',
+    element:'hidro', rarity:4, role:'Soporte / Buffer', paradigma:'Paradigma del Boost',
+    art:'Personajes 1.0 - tanda 1/Abril.png',
+    stats:{
+      HP:690, ATQ:250, DEF:180, VEL:110,
+      'Prob. Crítica':'5%', 'Daño Crítico':'50%', 'Rec. Energía':20,
+      'Acierto de Efecto':20, 'Res. a Efectos':10, 'Ef. de Ruptura':30,
+      'Bono Agua':0, 'Bono Curación':0
+    },
+    skills:[
+      {
+        icon:'🗡️', name:'Orbe Zorruno', type:'Ataque Básico',
+        flavor:'Lanza un pequeño fuego fatuo azul que persigue al enemigo.',
+        desc:'Inflige <strong>(45%–100% del ATQ)</strong> como Daño de Agua a un enemigo.'
+      },
+      {
+        icon:'🔥', name:'Favor del Guardián', type:'Habilidad',
+        flavor:'Silba y una cola de zorro hecha de agua envuelve al aliado, llenándolo de energía.',
+        desc:'Otorga a un aliado <strong>+30% de ATQ y +15% de VEL</strong> durante 2 turnos.'
+      },
+      {
+        icon:'🌟', name:'Danza de las Nueve Colas', type:'Ultimate',
+        flavor:'Nueve colas de agua se despliegan y una lluvia de cascabeles dorados cae sobre sus aliados.',
+        desc:'Otorga a todos los aliados <strong>+25% ATQ, +15% VEL y +15% DEF</strong> durante 2 turnos. Cura a todos los aliados un <strong>15% del HP Máximo de Abril</strong>.'
+      },
+      {
+        icon:'🧠', name:'Cola de la Suerte', type:'Talento',
+        flavor:'Su cola se agita y derrama buena fortuna sobre quien más la necesita.',
+        desc:'Al inicio del turno de Abril, otorga <strong>+10% de ATQ</strong> al aliado con mayor ATQ durante 1 turno.'
+      },
+    ],
+    passives:[
+      { name:'Bendición Duradera', desc:'Los buffs de Abril duran <strong>3 turnos</strong> en lugar de 2.' },
+      { name:'Recarga Zoruna', desc:'Al usar la Habilidad, el aliado también recupera <strong>10 puntos de Energía</strong>.' },
+      { name:'Agilidad Felina', desc:'Aumenta la VEL de Abril en un <strong>10%</strong>.' }
+    ],
+    pings:[
+      { n:1, name:'Primera Cola', desc:'La Habilidad ahora otorga <strong>+45% de ATQ</strong> en lugar de +30%.' },
+      { n:2, name:'Travesura Mágica', desc:'La Ultimate ahora también otorga <strong>+20% de Daño Crítico</strong> a los aliados.' },
+      { n:3, name:'Evolución Acelerada', desc:'<strong>Habilidad +3 niveles</strong> (máx. nivel 8).' },
+      { n:4, name:'Guardia Instintiva', desc:'Al recibir un buff de Abril, el aliado gana un <strong>Escudo del 10% del HP Máximo de Abril</strong> durante 1 turno.' },
+      { n:5, name:'Deidad del Cielo', desc:'<strong>Ultimate +3 niveles</strong> (máx. nivel 8).' },
+      { n:6, name:'El Zorro de la Leyenda', desc:'La Ultimate ahora <strong>revive a un aliado caído</strong> con un 20% de su HP Máximo (una vez por batalla).' }
+    ]
+},
+{
+    id:27, name:'AlexTMZ', tagline:'"Su espada es el ancla de la ventisca. Donde se clava, nadie pasa."',
+    element:'crio', rarity:4, role:'Main DPS / Control de Zona', paradigma:'Paradigma del Raid',
+    art:'Personajes 1.0 - tanda 1/AlexTMZ.png',
+    stats:{
+      HP:600, ATQ:350, DEF:185, VEL:110,
+      'Prob. Crítica':'5%', 'Daño Crítico':'50%', 'Rec. Energía':20,
+      'Acierto de Efecto':20, 'Res. a Efectos':10, 'Ef. de Ruptura':30,
+      'Bono Hielo':0, 'Bono Curación':0
+    },
+    skills:[
+      {
+        icon:'🗡️', name:'Tajo Invernal', type:'Ataque Básico',
+        flavor:'Un corte amplio con su mandoble, dejando una estela de escarcha.',
+        desc:'Inflige <strong>(50%–110% del ATQ)</strong> como Daño de Hielo a un enemigo.'
+      },
+      {
+        icon:'🔥', name:'Plantar Estandarte', type:'Habilidad',
+        flavor:'Clava su espada en el suelo y una explosión de hielo brota a su alrededor.',
+        desc:'Inflige <strong>(120%–240% del ATQ)</strong> como Daño de Hielo a todos los enemigos. Aplica <strong>Ralentización</strong> (-20% VEL) a todos los enemigos durante 2 turnos.'
+      },
+      {
+        icon:'🌟', name:'Cataclismo de la Aurora', type:'Ultimate',
+        flavor:'La catedral resuena. Alex libera todo el poder de su espada en una avalancha de cristales.',
+        desc:'Inflige <strong>(200%–380% del ATQ)</strong> como Daño de Hielo a todos los enemigos. Aplica <strong>Congelación</strong> (Aturdimiento, 1 turno) a los enemigos que ya estaban Ralentizados.'
+      },
+      {
+        icon:'🧠', name:'Guardián de la Catedral', type:'Talento',
+        flavor:'Mientras hay enemigos congelados, Alex se mantiene firme.',
+        desc:'Aumenta la DEF de Alex en un <strong>15%</strong> mientras haya al menos un enemigo Ralentizado o Congelado en el campo.'
+      },
+    ],
+    passives:[
+      { name:'Ventisca Severa', desc:'La Ralentización de la Habilidad ahora reduce la VEL en un <strong>30%</strong>.' },
+      { name:'Toque Gélido Inicial', desc:'Al inicio del combate, aplica Ralentización a todos los enemigos durante 1 turno.' },
+      { name:'Poder del Voto', desc:'Aumenta el ATQ de Alex en un <strong>10%</strong>.' }
+    ],
+    pings:[
+      { n:1, name:'Fortaleza Inexpugnable', desc:'La Habilidad ahora golpea dos veces (el segundo golpe hace 50% de daño).' },
+      { n:2, name:'Espada de la Aurora', desc:'El daño contra enemigos Ralentizados o Congelados aumenta un <strong>20%</strong>.' },
+      { n:3, name:'Estandarte del Rey', desc:'<strong>Habilidad +3 niveles</strong> (máx. nivel 8).' },
+      { n:4, name:'Bendición de la Catedral', desc:'Al aplicar Congelación, Alex recupera un <strong>10% de su HP Máximo</strong>.' },
+      { n:5, name:'Apocalipsis Helado', desc:'<strong>Ultimate +3 niveles</strong> (máx. nivel 8).' },
+      { n:6, name:'Voto Eterno', desc:'La Ultimate ahora aplica <strong>Congelación a todos los enemigos</strong>, sin necesidad de Ralentización previa.' }
+    ]
+},
+{
+    id:28, name:'Komato', tagline:'"Entre el hielo y el fuego, su hoja danza sin descanso."',
+    element:'crio', rarity:4, role:'Main DPS / Dual', paradigma:'Paradigma del Baneo',
+    art:'Personajes 1.0 - tanda 2/Komato.png',
+    stats:{
+      HP:570, ATQ:350, DEF:160, VEL:110,
+      'Prob. Crítica':'5%', 'Daño Crítico':'50%', 'Rec. Energía':20,
+      'Acierto de Efecto':20, 'Res. a Efectos':10, 'Ef. de Ruptura':30,
+      'Bono Hielo':0, 'Bono Fuego':0, 'Bono Curación':0
+    },
+    skills:[
+      {
+        icon:'🗡️', name:'Filo del Crepúsculo', type:'Ataque Básico',
+        flavor:'Un tajo rápido con su katana, imbuido con el poder de su postura actual.',
+        desc:'Inflige <strong>(50%–110% del ATQ)</strong> como Daño del elemento actual (Fuego o Hielo) a un enemigo.'
+      },
+      {
+        icon:'🔥', name:'Ruptura Dimensional', type:'Habilidad',
+        flavor:'Canaliza la energía de los dos mundos y libera un tajo que cruza realidades.',
+        desc:'Inflige <strong>(100%–200% del ATQ)</strong> como Daño del elemento actual a un enemigo y adyacentes. Cambia su postura (de Hielo a Fuego, o de Fuego a Hielo).'
+      },
+      {
+        icon:'🌟', name:'Colapso del Binarismo', type:'Ultimate',
+        flavor:'Los dos mundos chocan. Ejecuta un tajo que contiene tanto hielo como fuego.',
+        desc:'Inflige <strong>(200%–380% del ATQ)</strong> como Daño de Hielo y como Daño de Fuego a un enemigo (cada uno se calcula por separado).'
+      },
+      {
+        icon:'🧠', name:'Filo Cambiante', type:'Talento',
+        flavor:'Cada vez que cambia de postura, su espíritu se fortalece.',
+        desc:'Al cambiar de postura con la Habilidad, Komato recupera <strong>15 puntos de Energía</strong> y gana <strong>+20% de Daño</strong> durante 1 turno.'
+      },
+    ],
+    passives:[
+      { name:'Impulso Dual', desc:'Al cambiar de postura, también gana <strong>+10% de VEL</strong> durante 1 turno.' },
+      { name:'Armonía Elemental', desc:'Aumenta el Daño de Hielo y el Daño de Fuego de Komato en un <strong>10%</strong> cada uno.' },
+      { name:'Postura Inicial', desc:'Al inicio del combate, elige su postura inicial y gana <strong>+10% de ATQ</strong> durante 2 turnos.' }
+    ],
+    pings:[
+      { n:1, name:'Penitencia del Hielo', desc:'En Postura Hielo, los ataques aplican <strong>Ralentización</strong> (-15% VEL, 2 turnos).' },
+      { n:2, name:'Ira del Fuego', desc:'En Postura Fuego, los ataques aplican <strong>Quemadura</strong> (30% ATQ, 2 turnos).' },
+      { n:3, name:'Tajo Interdimensional', desc:'<strong>Habilidad +3 niveles</strong> (máx. nivel 8).' },
+      { n:4, name:'Abrazo de la Dualidad', desc:'Al cambiar de postura, el siguiente ataque ignora un <strong>15% de la DEF</strong> enemiga.' },
+      { n:5, name:'Binario Colapsado', desc:'<strong>Ultimate +3 niveles</strong> (máx. nivel 8).' },
+      { n:6, name:'El Tercer Camino', desc:'La Ultimate ahora golpea a <strong>todos los enemigos</strong> en lugar de a uno solo.' }
+    ]
+},
 ];
 
 let fRarity='all', fElem='all', fSearch='';
