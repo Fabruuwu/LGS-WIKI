@@ -142,7 +142,7 @@ const CHARS=[
 ,{
     id:3,name:'Belle',tagline:'"En su presencia los mortales temen"',
     element:'electro',rarity:5,role:'Sub-DPS / Buffer',paradigma:'Paradigma del Legado',
-    art: 'Personajes 1.0 - tanda 1/Belle.png',
+    art: null,
     stats:{HP:350,ATQ:330,DEF:150,VEL:148,'Prob. Crítica':'5%','Daño Crítico':'50%','Rec. Energía':20,'Acierto de Efecto':20,'Res. a Efectos':10,'Ef. de Ruptura':30,'Bono Rayo':0,'Bono Curación':0},
     skills:[
       {icon:'🗡️',name:'Dinamic Warn',type:'Ataque Básico',
