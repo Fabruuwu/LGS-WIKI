@@ -23,7 +23,7 @@ const CHARS=[
   {
     id:1,name:'ReyDNS',tagline:'"El Gatillo del Servidor"',
     element:'fuego',rarity:5,role:'Main DPS',paradigma:'Paradigma de la Artillería',
-    art: 'Personajes 1.0 - tanda 2/ReyDNS.jpg',
+    art:null,
     stats:{HP:420,ATQ:380,DEF:110,VEL:126,'Prob. Crítica':'5%','Daño Crítico':'50%','Rec. Energía':20,'Bono Fuego':0},
     skills:[
       {icon:'🗡️',name:'Tiro de Advertencia',type:'Ataque Básico',
@@ -56,7 +56,7 @@ const CHARS=[
   {
     id:2,name:'Miki',tagline:'"Nada escapa a su cronología... ni los mensajes borrados."',
     element:'caos',rarity:5,role:'Soporte / Control',paradigma:'Paradigma de la Estadística',
-    art: 'Personajes 1.0 - tanda 2/Miki.png',
+    art:null,
     stats:{HP:680,ATQ:180,DEF:260,VEL:112,'Prob. Crítica':'5%','Daño Crítico':'50%','Rec. Energía':20,'Bono Vacío':0},
     skills:[
       {icon:'🗡️',name:'Golpe de Archivo',type:'Ataque Básico',
@@ -84,6 +84,72 @@ const CHARS=[
       {n:4,name:'Modo sigilo',desc:'Al usar Ataque Básico contra un enemigo con debuff, recupera <strong>15% de HP máx</strong>.'},
       {n:5,name:'Actualización de firmware',desc:'<strong>Ultimate +3 niveles</strong> (máx. nivel 8).'},
       {n:6,name:'Baneo permanente',desc:'Al usar la Ultimate, 50% de probabilidad de <strong>aturdir</strong> a los enemigos 1 turno. Si tienen "Slow-Log", sube al <strong>100%</strong>.'},
+    ]
+  }
+,{
+    id:3,name:'Belle',tagline:'"En su presencia los mortales temen"',
+    element:'electro',rarity:5,role:'Sub-DPS / Buffer',paradigma:'Paradigma del Legado',
+    art:null,
+    stats:{HP:350,ATQ:330,DEF:150,VEL:148,'Prob. Crítica':'5%','Daño Crítico':'50%','Rec. Energía':20,'Acierto de Efecto':20,'Res. a Efectos':10,'Ef. de Ruptura':30,'Bono Rayo':0,'Bono Curación':0},
+    skills:[
+      {icon:'🗡️',name:'Dinamic Warn',type:'Ataque Básico',
+       flavor:'Un disparo de advertencia con su sintetizador.',
+       desc:'Inflige <strong>(50%–115% del ATQ)</strong> como Daño de Rayo. Genera 1 <strong>XP</strong> por golpe crítico (máx. 40 acumulaciones, cada una otorga +1% de VEL).'},
+      {icon:'🔥',name:'¡No aprendes?, Mod-Bot!',type:'Habilidad',
+       flavor:'Belle activa a su robot compañero y lo asigna al aliado más poderoso.',
+       desc:'Vincula <strong>Mod-Bot</strong> al aliado con más ATQ. Aumenta su ATQ en <strong>(60%–120%) de la VEL actual de Belle</strong>. Cada vez que ese aliado ataca, Mod-Bot hace un Ataque Conjunto de <strong>(40%–90% del ATQ de Belle)</strong> como Daño de Rayo y le aumenta el Efecto de Ruptura en 20%.'},
+      {icon:'🌟',name:'Sabía que me necesitabas',type:'Ultimate',
+       flavor:'Un drop masivo de graves y luces que satura el campo de batalla.',
+       desc:'Inflige <strong>(150%–320% del ATQ)</strong> como Daño de Rayo a todos. Si Mod-Bot está vinculado, añade daño adicional del 25% de la VEL de Belle. Si VEL > 250, su Efecto de Ruptura iguala su VEL durante la Ultimate. Otorga a aliados <strong>+20% de Recarga de Energía</strong> por 2 turnos.'},
+      {icon:'🧠',name:'Simplemente soy mejor',type:'Talento',
+       flavor:'La DJ no espera, impone el ritmo.',
+       desc:'Empieza con 5 XP. Cuando Belle o el aliado vinculado usan su Habilidad, gana 1 <strong>"Casete"</strong> (máx. 3). Al llegar a 3, lanza un FUA de <strong>(80%–180% del ATQ)</strong> como Daño de Rayo con 50% de prob. de aplicar <strong>Electrocutado</strong> (Daño de Rayo = 25% VEL de Belle al inicio del turno, 10% de prob. de Parálisis) por 2 turnos.'},
+    ],
+    passives:[
+      {name:'No me provoques',desc:'Mientras Mod-Bot esté vinculado, el aliado enlazado gana <strong>+15% de VEL</strong>. Si Belle tiene más de 250 VEL, aplica "Mute": durante 1 ataque, aumenta un Ping aleatorio del aliado (excepto el 6to), una vez por partida.'},
+      {name:'Rebobinado',desc:'Al lanzar el FUA, Belle recupera 10 de Energía y gana 2 XP. Su Efecto de Ruptura aumenta un <strong>0.20% por XP</strong> (máx. +50%).'},
+      {name:'Ataque PE',desc:'Los golpes críticos del aliado vinculado otorgan 1 XP a Belle. El daño de "Electrocutado" aumenta un <strong>30%</strong> contra enemigos con menos del 50% de HP.'},
+    ],
+    pings:[
+      {n:1,name:'Efecto Causa',desc:'Al comenzar el combate, Belle obtiene <strong>2 cargas de Casete</strong> de inmediato.'},
+      {n:2,name:'El rank es visual',desc:'El aliado vinculado obtiene el 50% de las XP de Belle. Al lanzar un FUA, el aliado recupera <strong>5 de Energía</strong>.'},
+      {n:3,name:'Subidón',desc:'<strong>Habilidad +3 niveles</strong> (máx. nivel 8).'},
+      {n:4,name:'Salvavidas de Moderación',desc:'Si el aliado vinculado recibe daño fatal, sobrevive con 1 HP y obtiene un escudo del <strong>40% de la Vida de Belle</strong> por 2 turnos (una vez por batalla).'},
+      {n:5,name:'Alter Ego',desc:'<strong>Ultimate +3 niveles</strong> (máx. nivel 8).'},
+      {n:6,name:'Me considero el mejor',desc:'Tras la Ultimate, entra en <strong>"DJ Suprema"</strong> 2 turnos: el aliado vinculado recibe 100% de la XP de Belle, los FUA se activan también al usar Ultimate, e ignora 20% de la DEF enemiga.'},
+    ]
+  },
+  {
+    id:4,name:'Hawk',tagline:'"Shhh... No pienses. Solo obedece."',
+    element:'caos',rarity:5,role:'Sub-DPS / Debuffer',paradigma:'Paradigma del Warn',
+    art:null,
+    stats:{HP:620,ATQ:380,DEF:170,VEL:118,'Prob. Crítica':'5%','Daño Crítico':'50%','Rec. Energía':20,'Acierto de Efecto':20,'Res. a Efectos':10,'Ef. de Ruptura':30,'Bono Vacío':0,'Bono Curación':0},
+    skills:[
+      {icon:'🗡️',name:'Aguja Mental',type:'Ataque Básico',
+       flavor:'Un pequeño rayo magenta que se clava en la sien del enemigo.',
+       desc:'Inflige <strong>(65%–120% del ATQ)</strong> como Daño de Vacío. Aplica <strong>"Marca de la Mariposa"</strong> por 2 turnos.'},
+      {icon:'🔥',name:'Palabras de Seda',type:'Habilidad',
+       flavor:'Hawk se ajusta las gafas y murmura una orden. Las mariposas obedecen.',
+       desc:'Inflige <strong>(70%–150% del ATQ)</strong> como Daño de Vacío. Si el enemigo tiene "Marca de la Mariposa", la consume para aplicar <strong>Hipnosis</strong> (ataca a sus propios aliados, +15% daño recibido) y <strong>Tela</strong> (Vida Máx -15%, Res. a Efectos -15%) por 2 turnos. Genera 1 <strong>Polvo de Hadas</strong> (máx. 5).'},
+      {icon:'🌟',name:'Vals de las Mil Mariposas',type:'Ultimate',
+       flavor:'Sus alas se despliegan. Una tormenta de polvo hipnótico lo envuelve todo.',
+       desc:'Inflige <strong>(180%–360% del ATQ)</strong> como Daño de Vacío a todos. Consume todo el Polvo de Hadas: por cada acumulación, aumenta todas las stats de Hawk en <strong>10%</strong> por 2 turnos y aplica Hipnosis a un enemigo sin ella. Si ya tenía Hipnosis, su DEF baja 30%. Por 2 turnos, los FUA de Hawk hacen <strong>+40% de daño</strong> y generan 1 Polvo adicional al realizarse.'},
+      {icon:'🧠',name:'Alas de la Dominación',type:'Talento',
+       flavor:'Cada vez que un títere baila, ella aplaude.',
+       desc:'Cuando un aliado ataca a un enemigo con Hipnosis, Hawk realiza un <strong>FUA</strong> de <strong>(60%–130% del ATQ)</strong> como Daño de Vacío (máx. 3 veces por turno). Empieza con 2 Polvo de Hadas. Cada acumulación aumenta el daño de FUA en <strong>12%</strong> (máx. +60%).'},
+    ],
+    passives:[
+      {name:'Voz Melosa',desc:'La Hipnosis y Tela ahora duran <strong>3 turnos</strong> en lugar de 2.'},
+      {name:'Danza de las Almas',desc:'Cuando un enemigo bajo Hipnosis ataca a un aliado enemigo, Hawk obtiene <strong>8 puntos de Energía</strong>.'},
+      {name:'Primer Acto',desc:'Al inicio del combate, aplica <strong>"Marca de la Mariposa"</strong> a 2 enemigos aleatorios.'},
+    ],
+    pings:[
+      {n:1,name:'Audiencia Cautiva',desc:'El límite de Polvo de Hadas aumenta a 6. El bono máximo de FUA es de <strong>+72%</strong>.'},
+      {n:2,name:'Crítica Teatral',desc:'Los enemigos bajo Hipnosis reciben un <strong>25% más de Daño Crítico</strong> de los aliados.'},
+      {n:3,name:'Palabras de Terciopelo',desc:'<strong>Habilidad +3 niveles</strong> (máx. nivel 8).'},
+      {n:4,name:'Beso de la Mariposa',desc:'El FUA del Talento reduce la VEL del enemigo golpeado en un <strong>20%</strong> por 1 turno.'},
+      {n:5,name:'Ovación Final',desc:'<strong>Ultimate +3 niveles</strong> (máx. nivel 8).'},
+      {n:6,name:'Teatro de los Títeres',desc:'Una vez por batalla al usar la Ultimate, activa <strong>"Función Final"</strong>: todos los enemigos reciben 100% de daño verdadero basado en el Acierto de Efecto de Hawk y quedan Aturdidos e Inundados (+30% daño de Rayo) por 1 turno. Con 2+ hipnotizados, el daño sube al <strong>150%</strong>.'},
     ]
   }
 ];
