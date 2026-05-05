@@ -218,6 +218,22 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;display:flex;align-items:cen
   color: #fff;
   box-shadow: 0 0 12px rgba(155, 89, 245, 0.4);
 }
+.count-lbl {
+  margin-left: auto;
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  white-space: nowrap;
+  background: rgba(155, 89, 245, 0.15);
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid rgba(155, 89, 245, 0.4);
+}
+#char-count {
+  color: var(--cyan);
+  font-weight: 700;
+  font-size: 1rem;
+}
 /* ── CARDS PERSONAJES ── */
 .chars-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(165px,1fr));gap:18px;}
 .char-card{position:relative;border-radius:14px;overflow:hidden;cursor:pointer;aspect-ratio:3/4;
