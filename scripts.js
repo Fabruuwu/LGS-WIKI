@@ -23,7 +23,7 @@ const CHARS=[
   {
     id:1, name:'ReyDNS', tagline:'"El Gatillo del Servidor"',
     element:'fuego', rarity:5, role:'Main DPS', paradigma:'Paradigma del Flood',
-    art: 'Personajes 1.0 - tanda 2/ReyDNS.jpg',
+    art:null,
     stats:{
       HP:420, ATQ:400, DEF:110, VEL:120,
       'Prob. Crítica':'5%', 'Daño Crítico':'50%', 'Rec. Energía':20,
@@ -91,7 +91,17 @@ const CHARS=[
         n:6, name:'Aniquilación del Registro',
         desc:'Durante la Ultimate, cada bala sube el <strong>Daño Crítico</strong> de la siguiente en 15%. Si elimina al enemigo, recupera el tambor completo y avanza 100% en la barra de turnos.'
       },
-    ]
+    ],
+    // ═══ NUEVO: Rasgo Único ═══
+    rasgoUnico: {
+      titulo: 'Rasgo Único "Owner"',
+      descripcion: 'Al estar en el equipo con Belle, Miki o Hawk, elige uno de los siguientes efectos antes de la batalla:',
+      efectos: [
+        { aliado: 'Belle', nombre: 'Bala Platinada', desc: '4 de sus balas hacen 40% de Daño Verdadero adicional en base a la VEL de Belle.' },
+        { aliado: 'Miki', nombre: 'Sorteo Ilimitado', desc: 'Al inicio del combate, su HP y DEF aumentan un 15% y restaura un 10% de su HP Máximo durante 3 turnos.' },
+        { aliado: 'Hawk', nombre: 'Mandato', desc: 'Cada 3 turnos, obtiene 3 balas extra que causan un 25% de daño adicional en base al Acierto de Efecto de Hawk.' }
+      ]
+    }
 },
   {
     id:2, name:'Miki', tagline:'"Nada escapa del tarjetón... ni de mi Furina C6"',
@@ -142,7 +152,7 @@ const CHARS=[
 ,{
     id:3,name:'Belle',tagline:'"En su presencia los mortales temen"',
     element:'electro',rarity:5,role:'Sub-DPS / Buffer',paradigma:'Paradigma del Legado',
-    art: null,
+    art: 'Personajes 1.0 - tanda 1/Belle.png',
     stats:{HP:350,ATQ:330,DEF:150,VEL:148,'Prob. Crítica':'5%','Daño Crítico':'50%','Rec. Energía':20,'Acierto de Efecto':20,'Res. a Efectos':10,'Ef. de Ruptura':30,'Bono Rayo':0,'Bono Curación':0},
     skills:[
       {icon:'🗡️',name:'Dinamic Warn',type:'Ataque Básico',
@@ -310,6 +320,21 @@ function openChar(id){
           <div class="sk-desc">${p.desc}</div>
         </div>`).join('')}
       </div>
+      ${c.rasgoUnico ? `
+      <div class="ms">
+        <div class="ms-title">✨ ${c.rasgoUnico.titulo}</div>
+        <div class="rasgo-desc">${c.rasgoUnico.descripcion}</div>
+        <div class="rasgo-grid">
+          ${c.rasgoUnico.efectos.map(e=>`
+            <div class="rasgo-card">
+              <div class="rasgo-ally">${e.aliado}</div>
+              <div class="rasgo-name">${e.nombre}</div>
+              <div class="rasgo-text">${e.desc}</div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+      ` : ''}
       <div class="ms"><div class="ms-title">📡 Pings</div>
         <table class="ptable">
           <thead><tr><th>Ping</th><th>Nombre</th><th>Efecto</th></tr></thead>
