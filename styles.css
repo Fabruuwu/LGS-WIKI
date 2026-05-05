@@ -445,3 +445,29 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;display:flex;align-items:cen
   color: rgba(255,255,255,.65);
   line-height: 1.55;
 }
+/* ── MEJORA VISIBILIDAD DE LOS FILTROS ── */
+.filters {
+  background: rgba(255, 255, 255, 0.07);  /* un poco más claro que antes */
+  border: 1px solid rgba(155, 89, 245, 0.45);
+}
+
+/* Botones inactivos */
+.pill {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Hover */
+.pill:hover {
+  border-color: rgba(155, 89, 245, 0.8);
+  color: #fff;
+  background: rgba(155, 89, 245, 0.15);
+}
+
+/* Botón activo */
+.pill.active {
+  background: rgba(155, 89, 245, 0.3);
+  border-color: var(--violet);
+  color: #fff;
+}
