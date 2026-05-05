@@ -23,7 +23,7 @@ const CHARS=[
   {
     id:1, name:'ReyDNS', tagline:'"El Gatillo del Servidor"',
     element:'fuego', rarity:5, role:'Main DPS', paradigma:'Paradigma del Flood',
-    art:null,
+    art: 'Personajes 1.0 - tanda 2/ReyDNS.jpg',
     stats:{
       HP:420, ATQ:400, DEF:110, VEL:120,
       'Prob. Crítica':'5%', 'Daño Crítico':'50%', 'Rec. Energía':20,
@@ -150,38 +150,95 @@ const CHARS=[
     ]
 }
 ,{
-    id:3,name:'Belle',tagline:'"En su presencia los mortales temen"',
-    element:'electro',rarity:5,role:'Sub-DPS / Buffer',paradigma:'Paradigma del Legado',
-    art: 'Personajes 1.0 - tanda 1/Belle.png',
-    stats:{HP:350,ATQ:330,DEF:150,VEL:148,'Prob. Crítica':'5%','Daño Crítico':'50%','Rec. Energía':20,'Acierto de Efecto':20,'Res. a Efectos':10,'Ef. de Ruptura':30,'Bono Rayo':0,'Bono Curación':0},
+    id:3, name:'Belle', tagline:'"En su presencia los mortales temen"',
+    element:'electro', rarity:5, role:'Sub-DPS / Buffer', paradigma:'Paradigma del Legado',
+    art:null,
+    stats:{
+      HP:350, ATQ:330, DEF:150, VEL:148,
+      'Prob. Crítica':'5%', 'Daño Crítico':'50%', 'Rec. Energía':20,
+      'Acierto de Efecto':20, 'Res. a Efectos':10, 'Ef. de Ruptura':30,
+      'Bono Rayo':0, 'Bono Curación':0
+    },
     skills:[
-      {icon:'🗡️',name:'Dinamic Warn',type:'Ataque Básico',
-       flavor:'Un disparo de advertencia con su sintetizador.',
-       desc:'Inflige <strong>(50%–115% del ATQ)</strong> como Daño de Rayo. Genera 1 <strong>XP</strong> por golpe crítico (máx. 40 acumulaciones, cada una otorga +1% de VEL).'},
-      {icon:'🔥',name:'¡No aprendes?, Mod-Bot!',type:'Habilidad',
-       flavor:'Belle activa a su robot compañero y lo asigna al aliado más poderoso.',
-       desc:'Vincula <strong>Mod-Bot</strong> al aliado con más ATQ. Aumenta su ATQ en <strong>(60%–120%) de la VEL actual de Belle</strong>. Cada vez que ese aliado ataca, Mod-Bot hace un Ataque Conjunto de <strong>(40%–90% del ATQ de Belle)</strong> como Daño de Rayo y le aumenta el Efecto de Ruptura en 20%.'},
-      {icon:'🌟',name:'Sabía que me necesitabas',type:'Ultimate',
-       flavor:'Un drop masivo de graves y luces que satura el campo de batalla.',
-       desc:'Inflige <strong>(150%–320% del ATQ)</strong> como Daño de Rayo a todos. Si Mod-Bot está vinculado, añade daño adicional del 25% de la VEL de Belle. Si VEL > 250, su Efecto de Ruptura iguala su VEL durante la Ultimate. Otorga a aliados <strong>+20% de Recarga de Energía</strong> por 2 turnos.'},
-      {icon:'🧠',name:'Simplemente soy mejor',type:'Talento',
-       flavor:'La DJ no espera, impone el ritmo.',
-       desc:'Empieza con 5 XP. Cuando Belle o el aliado vinculado usan su Habilidad, gana 1 <strong>"Casete"</strong> (máx. 3). Al llegar a 3, lanza un FUA de <strong>(80%–180% del ATQ)</strong> como Daño de Rayo con 50% de prob. de aplicar <strong>Electrocutado</strong> (Daño de Rayo = 25% VEL de Belle al inicio del turno, 10% de prob. de Parálisis) por 2 turnos.'},
+      {
+        icon:'🗡️', name:'Dinamic Warn', type:'Ataque Básico',
+        flavor:'Un disparo de advertencia con su sintetizador.',
+        desc:'Inflige <strong>(50%–115% del ATQ)</strong> como Daño de Rayo. Genera 1 <strong>XP</strong> por golpe crítico (máx. 40 acumulaciones, cada una otorga +1% de VEL).'
+      },
+      {
+        icon:'🔥', name:'¡No aprendes?, Mod-Bot!', type:'Habilidad',
+        flavor:'Belle activa a su robot compañero y lo asigna al aliado más poderoso.',
+        desc:'Vincula <strong>Mod-Bot</strong> al aliado con más ATQ. Aumenta su ATQ en <strong>(60%–120%) de la VEL actual de Belle</strong>. Cada vez que ese aliado ataca, Mod-Bot hace un Ataque Conjunto de <strong>(40%–90% del ATQ de Belle)</strong> como Daño de Rayo y le aumenta el Efecto de Ruptura en 20%.'
+      },
+      {
+        icon:'🌟', name:'Sabía que me necesitabas', type:'Ultimate',
+        flavor:'Un drop masivo de graves y luces que satura el campo de batalla.',
+        desc:'Inflige <strong>(150%–320% del ATQ)</strong> como Daño de Rayo a todos. Si Mod-Bot está vinculado, añade daño adicional del 25% de la VEL de Belle. Si VEL > 250, su Efecto de Ruptura iguala su VEL durante la Ultimate. Otorga a aliados <strong>+20% de Recarga de Energía</strong> por 2 turnos.'
+      },
+      {
+        icon:'🧠', name:'Simplemente soy mejor', type:'Talento',
+        flavor:'La DJ no espera, impone el ritmo.',
+        desc:'Empieza con 5 XP. Cuando Belle o el aliado vinculado usan su Habilidad, gana 1 <strong>"Casete"</strong> (máx. 3). Al llegar a 3, lanza un FUA de <strong>(80%–180% del ATQ)</strong> como Daño de Rayo con 50% de prob. de aplicar <strong>Electrocutado</strong> (Daño de Rayo = 25% VEL de Belle al inicio del turno, 10% de prob. de Parálisis) por 2 turnos.'
+      },
     ],
     passives:[
-      {name:'No me provoques',desc:'Mientras Mod-Bot esté vinculado, el aliado enlazado gana <strong>+15% de VEL</strong>. Si Belle tiene más de 250 VEL, aplica "Mute": durante 1 ataque, aumenta un Ping aleatorio del aliado (excepto el 6to), una vez por partida.'},
-      {name:'Rebobinado',desc:'Al lanzar el FUA, Belle recupera 10 de Energía y gana 2 XP. Su Efecto de Ruptura aumenta un <strong>0.20% por XP</strong> (máx. +50%).'},
-      {name:'Ataque PE',desc:'Los golpes críticos del aliado vinculado otorgan 1 XP a Belle. El daño de "Electrocutado" aumenta un <strong>30%</strong> contra enemigos con menos del 50% de HP.'},
+      {
+        name:'No me provoques',
+        desc:'Mientras Mod-Bot esté vinculado, el aliado enlazado gana <strong>+15% de VEL</strong>. Si Belle tiene más de 250 VEL, aplica "Mute": durante 1 ataque, aumenta un Ping aleatorio del aliado (excepto el 6to), una vez por partida.'
+      },
+      {
+        name:'Rebobinado',
+        desc:'Al lanzar el FUA, Belle recupera 10 de Energía y gana 2 XP. Su Efecto de Ruptura aumenta un <strong>0.20% por XP</strong> (máx. +50%).'
+      },
+      {
+        name:'Ataque PE',
+        desc:'Los golpes críticos del aliado vinculado otorgan 1 XP a Belle. El daño de "Electrocutado" aumenta un <strong>30%</strong> contra enemigos con menos del 50% de HP.'
+      },
     ],
     pings:[
-      {n:1,name:'Efecto Causa',desc:'Al comenzar el combate, Belle obtiene <strong>2 cargas de Casete</strong> de inmediato.'},
-      {n:2,name:'El rank es visual',desc:'El aliado vinculado obtiene el 50% de las XP de Belle. Al lanzar un FUA, el aliado recupera <strong>5 de Energía</strong>.'},
-      {n:3,name:'Subidón',desc:'<strong>Habilidad +3 niveles</strong> (máx. nivel 8).'},
-      {n:4,name:'Salvavidas de Moderación',desc:'Si el aliado vinculado recibe daño fatal, sobrevive con 1 HP y obtiene un escudo del <strong>40% de la Vida de Belle</strong> por 2 turnos (una vez por batalla).'},
-      {n:5,name:'Alter Ego',desc:'<strong>Ultimate +3 niveles</strong> (máx. nivel 8).'},
-      {n:6,name:'Me considero el mejor',desc:'Tras la Ultimate, entra en <strong>"DJ Suprema"</strong> 2 turnos: el aliado vinculado recibe 100% de la XP de Belle, los FUA se activan también al usar Ultimate, e ignora 20% de la DEF enemiga.'},
-    ]
-  },
+      {
+        n:1, name:'Efecto Causa',
+        desc:'Al comenzar el combate, Belle obtiene <strong>2 cargas de Casete</strong> de inmediato.'
+      },
+      {
+        n:2, name:'El rank es visual',
+        desc:'El aliado vinculado obtiene el 50% de las XP de Belle. Al lanzar un FUA, el aliado recupera <strong>5 de Energía</strong>.'
+      },
+      {
+        n:3, name:'Subidón',
+        desc:'<strong>Habilidad +3 niveles</strong> (máx. nivel 8).'
+      },
+      {
+        n:4, name:'Salvavidas de Moderación',
+        desc:'Si el aliado vinculado recibe daño fatal, sobrevive con 1 HP y obtiene un escudo del <strong>40% de la Vida de Belle</strong> por 2 turnos (una vez por batalla).'
+      },
+      {
+        n:5, name:'Alter Ego',
+        desc:'<strong>Ultimate +3 niveles</strong> (máx. nivel 8).'
+      },
+      {
+        n:6, name:'Me considero el mejor',
+        desc:'Tras la Ultimate, entra en <strong>"DJ Suprema"</strong> 2 turnos: el aliado vinculado recibe 100% de la XP de Belle, los FUA se activan también al usar Ultimate, e ignora 20% de la DEF enemiga.'
+      },
+    ],
+    // ═══ NUEVO: Sinergia Especial ═══
+    rasgoUnico: {
+      titulo: 'Sinergia Especial: Quency',
+      descripcion: 'Si Quency está en el campo, Belle obtiene efectos adicionales que potencian su rol de soporte y su capacidad de supervivencia.',
+      efectos: [
+        { 
+          aliado: 'Quency (en campo)', 
+          nombre: 'Propaganda', 
+          desc: 'Belle obtiene <strong>+15% de Probabilidad de Evasión</strong>.' 
+        },
+        { 
+          aliado: 'Quency (al esquivar)', 
+          nombre: 'Kitsune + Propaganda reforzada', 
+          desc: '<strong>Kitsune:</strong> Aumenta la Prob. de Evasión de Belle en un <strong>45%</strong> (acumulable 2 veces). <strong>Propaganda reforzada:</strong> Todos los buffs que Belle genera pasan a ser para <strong>todos los aliados</strong> durante 1 turno (hasta +3% de aumento en los buffs).' 
+        }
+      ]
+    }
+},
   {
     id:4,name:'Hawk',tagline:'"Shhh... No pienses. Solo obedece."',
     element:'caos',rarity:5,role:'Sub-DPS / Debuffer',paradigma:'Paradigma del Warn',
@@ -215,6 +272,121 @@ const CHARS=[
       {n:6,name:'Teatro de los Títeres',desc:'Una vez por batalla al usar la Ultimate, activa <strong>"Función Final"</strong>: todos los enemigos reciben 100% de daño verdadero basado en el Acierto de Efecto de Hawk y quedan Aturdidos e Inundados (+30% daño de Rayo) por 1 turno. Con 2+ hipnotizados, el daño sube al <strong>150%</strong>.'},
     ]
   }
+,{
+    id:5, name:'Fabru', tagline:'"Si el server crashea… es porque él lo hackeó."',
+    element:'electro', rarity:5, role:'Main DPS / Control de Área', paradigma:'Paradigma del Bot (Invocador)',
+    art: 'Personajes 1.0 - tanda 1/Fabru.png',
+    stats:{
+      HP:560, ATQ:390, DEF:130, VEL:122,
+      'Prob. Crítica':'5%', 'Daño Crítico':'50%', 'Rec. Energía':20,
+      'Acierto de Efecto':20, 'Res. a Efectos':10, 'Ef. de Ruptura':30,
+      'Bono Rayo':0, 'Bono Curación':0
+    },
+    skills:[
+      {
+        icon:'🗡️', name:'Lanza de Plasma', type:'Ataque Básico',
+        flavor:'Un rápido disparo de energía desde su lanza que deja un rastro de datos corrompidos.',
+        desc:'Inflige <strong>(50%–110% del ATQ)</strong> como Daño de Rayo a un enemigo. Aplica <strong>"Marca de Hackeo"</strong> durante 2 turnos (los drones priorizan a este enemigo).'
+      },
+      {
+        icon:'🔥', name:'Enjambre de Drones', type:'Habilidad',
+        flavor:'Fabru despliega sus tres cuchillas flotantes sobre el campo de batalla.',
+        desc:'Invoca hasta <strong>3 Drones de Plasma</strong> (máx. 3 activos). Los drones tienen HP igual al <strong>20% del HP Máx. de Fabru</strong> y heredan su ATQ, DEF y VEL. Actúan justo después de Fabru y atacan con <strong>"Corte de Plasma"</strong>: inflige <strong>(40%–80% del ATQ del drone)</strong> como Daño de Rayo, priorizando al enemigo con Marca de Hackeo.'
+      },
+      {
+        icon:'🌟', name:'Overclock del Sistema', type:'Ultimate',
+        flavor:'La interfaz holográfica de Fabru se vuelve roja. Todos los límites de seguridad se desactivan.',
+        desc:'Inflige <strong>(150%–300% del ATQ)</strong> como Daño de Rayo a todos los enemigos. <strong>Sobrecarga</strong> todos los drones activos por 3 turnos: su daño aumenta un 50% y sus ataques golpean en área pequeña. Aplica <strong>"Sistema Caído"</strong> (2 turnos): reduce VEL en 25% y DEF en 20%. Además aplica <strong>"Vulnerabilidad Expuesta"</strong> (1 turno): reduce DEF un 20% adicional (acumulable).'
+      },
+      {
+        icon:'🧠', name:'Red de Datos', type:'Talento',
+        flavor:'Fabru recolecta información del campo de batalla para optimizar sus algoritmos de ataque.',
+        desc:'Cuando un Drone de Plasma ataca, otorga 1 <strong>Paquete de Datos</strong> (máx. 10). Cada Paquete aumenta el Daño de Rayo de Fabru y sus drones en un <strong>3%</strong> (máx. +30%). Fabru puede consumir todos los Paquetes para activar <strong>"Código Raíz"</strong>: su siguiente ataque ignora el 30% de la DEF enemiga y aplica Aturdimiento (1 turno) al objetivo. Si hay drones al consumir, ejecutan un Ataque Conjunto adicional (<strong>60% del ATQ del drone</strong>) contra todos los enemigos con Marca de Hackeo.'
+      },
+    ],
+    passives:[
+      {
+        name:'Firewall Inestable',
+        desc:'Los drones ganan un <strong>20% de la DEF de Fabru</strong> como HP adicional.'
+      },
+      {
+        name:'DDoS de Paquetes',
+        desc:'Al inicio del combate, obtiene <strong>4 Paquetes de Datos</strong>.'
+      },
+      {
+        name:'Protocolo de Respaldo',
+        desc:'Si un drone muere, Fabru recupera <strong>20 puntos de Energía</strong>.'
+      },
+      {
+        name:'Sobrecarga del Sistema (Efecto pasivo)',
+        desc:'Mientras Fabru está en el equipo, los enemigos afectados por <strong>"Sistema Caído"</strong> tienen un <strong>15% de probabilidad de fallar sus ataques</strong> (por lag).'
+      }
+    ],
+    pings:[
+      { n:1, name:'Carga Rápida', desc:'Al invocar drones, estos atacan inmediatamente al desplegarse.' },
+      { n:2, name:'Hackeo Masivo', desc:'Los enemigos con "Sistema Caído" reciben un <strong>20% más de daño</strong> de los drones.' },
+      { n:3, name:'Enjambre Mejorado', desc:'<strong>Habilidad +3 niveles</strong> (máx. nivel 8).' },
+      { n:4, name:'Redundancia de Datos', desc:'Cuando Fabru obtiene Paquetes de Datos, tiene un <strong>50% de probabilidad</strong> de obtener 1 adicional.' },
+      { n:5, name:'Colapso del Servidor', desc:'<strong>Ultimate +3 niveles</strong> (máx. nivel 8).' },
+      { n:6, name:'Acceso Raíz', desc:'Al usar la Ultimate, si hay 3 drones activos, ejecutan inmediatamente su ataque básico contra todos los enemigos (daño adicional sin gastar turno) y aplican Marcas de Hackeo a los supervivientes.' }
+    ]
+}
+,{
+    id:6, name:'Eugenio', tagline:'"¡Girando la rueda... y la suerte está echada!"',
+    element:'fuego', rarity:5, role:'Sub-DPS / Buffer (Soporte Ofensivo con RNG)', paradigma:'Paradigma del Giveaway',
+    art: 'Personajes 1.0 - tanda 1/Eugenio.png',
+    stats:{
+      HP:550, ATQ:290, DEF:155, VEL:117,
+      'Prob. Crítica':'5%', 'Daño Crítico':'50%', 'Rec. Energía':20,
+      'Acierto de Efecto':20, 'Res. a Efectos':10, 'Ef. de Ruptura':30,
+      'Bono Fuego':0, 'Bono Curación':0,
+      'Suerte': '0 (máx. 200)'
+    },
+    skills:[
+      {
+        icon:'🗡️', name:'Lanzamiento de Cartas', type:'Ataque Básico',
+        flavor:'Lanza un naipe con borde cortante, simple pero efectivo.',
+        desc:'Inflige <strong>(50%–110% del ATQ)</strong> como Daño de Fuego a un enemigo. Obtiene <strong>1 Naipe</strong> de su baraja.'
+      },
+      {
+        icon:'🔥', name:'¡Giro de la Ruleta!', type:'Habilidad',
+        flavor:'Eugenio gira una ruleta mágica y lanza una lluvia de naipes explosivos.',
+        desc:'Inflige <strong>(70%–150% del ATQ)</strong> como Daño de Fuego a un enemigo y adyacentes. Roba <strong>Naipes</strong> igual a los efectos negativos activos en todos los enemigos (máx. 5). Al final del turno, si tiene 5 Naipes, aplica la mejor combinación de póker disponible:<br><br>'
+          + '<strong>Escalera Real:</strong> Aplica todos los estados (Quemadura, Electrocutado, etc.) a todos los enemigos por 2 turnos.<br>'
+          + '<strong>Póker:</strong> Copia todas las estadísticas base de un aliado y las suma a las suyas por 2 turnos.<br>'
+          + '<strong>Escalera:</strong> Daño de Ruptura +120% y +70 Suerte.<br>'
+          + '<strong>Trío:</strong> ATQ +80% y 3 ataques adicionales que ignoran DEF y escudos por 1 turno.<br>'
+          + '<strong>Doble Pareja:</strong> Prob. Crítica +35% y Daño Crítico +70% por 1 turno.<br>'
+          + '<strong>Pareja:</strong> Provoca "Burla" y "Solidez" (DEF +45%, escudo del 25% de Vida Máx.) por 2 turnos.<br>'
+          + '<strong>Carta Alta (As):</strong> Si su primer Naipe del turno es un As, +25% a todas sus estadísticas y +45% daño de efectos de tiempo por 2 turnos.'
+      },
+      {
+        icon:'🌟', name:'¡Función de Medianoche!', type:'Ultimate',
+        flavor:'El escenario se ilumina. Todas las Eugenio chibi aparecen y lanzan una lluvia de cartas doradas.',
+        desc:'Eugenio aplica <strong>2 combinaciones diferentes</strong> de su mano actual simultáneamente (las dos mejores disponibles).<br>'
+          + 'Inflige <strong>(120%–250% del ATQ)</strong> como Daño de Fuego a todos los enemigos. Cada Naipe activo en la mano aumenta este daño en un <strong>10% adicional</strong>.'
+      },
+      {
+        icon:'🧠', name:'Naipes del Bufón', type:'Talento',
+        flavor:'La esencia del carnaval: nunca sabes qué carta viene, pero siempre es un espectáculo.',
+        desc:'Comienza el combate con 1 Naipe aleatorio. Al inicio de cada turno, obtiene <strong>+5 de Suerte</strong>. Por cada 15 puntos de Suerte acumulados, roba 1 Naipe adicional al inicio de su turno.<br>'
+          + 'Suerte máxima: 200. Al alcanzar 200 de Suerte, obtiene un <strong>Comodín</strong> que puede usar para elegir cualquier carta en su siguiente mano.'
+      },
+    ],
+    passives:[
+      { name:'Juego de Manos', desc:'Al inicio de su turno, puede descartar su primer Naipe y robar otro al azar.' },
+      { name:'Chuchería', desc:'Al inicio del combate, obtiene un <strong>Comodín</strong>. Puede usarlo una vez por batalla para elegir cualquier Naipe (excepto en el primer turno).' },
+      { name:'Primer Acto', desc:'Evita que su Suerte baje gradualmente entre turnos (sin este baneo, perdería 5 de Suerte por turno si no ataca).' }
+    ],
+    pings:[
+      { n:1, name:'Cartas Marcadas', desc:'Por cada Naipe en la mano, la Suerte aumenta en <strong>0.25% adicional</strong> al inicio de cada turno.' },
+      { n:2, name:'El Público se Rinde', desc:'La Suerte máxima aumenta a <strong>200</strong> y comienza el combate con <strong>30 de Suerte</strong>.' },
+      { n:3, name:'Función Estelar', desc:'<strong>Habilidad +3 niveles</strong> (máx. nivel 8).' },
+      { n:4, name:'Oración Cerrada', desc:'El máximo de Naipes en mano pasa de <strong>5 a 10</strong>.' },
+      { n:5, name:'Bis, Bis', desc:'<strong>Ultimate +3 niveles</strong> (máx. nivel 8).' },
+      { n:6, name:'Truco Final', desc:'Al comenzar un turno, puede elegir la combinación que más le guste durante 1 turno. Luego obtiene al azar 5 Naipes y 1 <strong>Comodín Tocado</strong> (puede elegir "As" incluso en el turno 1).' }
+    ]
+}
 ];
 
 let fRarity='all', fElem='all', fSearch='';
