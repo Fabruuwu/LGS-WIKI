@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tier List · LGS Wiki</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+/* ── TIERLIST WRAP ── */
+.tierlist-wrap{position:relative;z-index:1;padding:100px 40px 60px;max-width:1200px;margin:0 auto;}
+.tl-intro{position:relative;z-index:2;}
+
+.tl-intro{text-align:center;margin-bottom:48px;}
+.tl-desc{color:rgba(255,255,255,.55);font-size:1rem;line-height:1.7;max-width:620px;margin:16px auto 24px;}
+.tl-version{display:inline-block;background:linear-gradient(90deg,rgba(155,89,245,.2),rgba(0,229,255,.2));
+  border:1px solid rgba(0,229,255,.35);border-radius:20px;padding:6px 22px;
+  font-family:'Cinzel Decorative',cursive;font-size:.78rem;letter-spacing:2px;color:var(--cyan);}
+
+/* ── TABLA ── */
+.tl-table{width:100%;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.08);}
+
+/* Cabecera de columnas */
+.tl-header{display:grid;grid-template-columns:80px repeat(4,1fr);background:rgba(255,255,255,.05);}
+.tl-header-cell{padding:14px 10px;text-align:center;font-family:'Cinzel Decorative',cursive;
+  font-size:.7rem;letter-spacing:2px;color:rgba(255,255,255,.6);border-right:1px solid rgba(255,255,255,.06);}
+.tl-header-cell:last-child{border-right:none;}
+.tl-header-cell.col-dps    {color:#ff6b6b;}
+.tl-header-cell.col-subdps {color:#ffaa5c;}
+.tl-header-cell.col-supp   {color:#9b59f5;}
+.tl-header-cell.col-sust   {color:#4fc3f7;}
+
+/* Filas */
+.tl-row{display:grid;grid-template-columns:80px repeat(4,1fr);border-top:1px solid rgba(255,255,255,.05);}
+.tl-row:hover{background:rgba(255,255,255,.02);}
+
+/* Celda de tier */
+.tl-tier{display:flex;align-items:center;justify-content:center;padding:18px 8px;
+  font-family:'Cinzel Decorative',cursive;font-size:1rem;font-weight:900;
+  letter-spacing:1px;border-right:1px solid rgba(255,255,255,.06);
+  position:relative;}
+.tl-tier::after{content:'';position:absolute;inset:0;opacity:.12;}
+
+/* Colores de tier — gradiente rojo → celeste */
+.tier-t0   {color:#ff2020;background:rgba(255,32,32,.18);}
+.tier-t05  {color:#ff5e1a;background:rgba(255,94,26,.14);}
+.tier-t1   {color:#ff9500;background:rgba(255,149,0,.12);}
+.tier-t15  {color:#f5c842;background:rgba(245,200,66,.10);}
+.tier-t2   {color:#a8e063;background:rgba(168,224,99,.09);}
+.tier-t25  {color:#56ccf2;background:rgba(86,204,242,.09);}
+.tier-t3   {color:#9be8ff;background:rgba(155,232,255,.08);}
+
+/* Celda de personajes */
+.tl-cell{display:flex;flex-wrap:wrap;align-items:center;gap:8px;
+  padding:12px 10px;border-right:1px solid rgba(255,255,255,.06);min-height:64px;}
+.tl-cell:last-child{border-right:none;}
+
+/* Placeholder vacío */
+.tl-empty{color:rgba(255,255,255,.1);font-size:.75rem;letter-spacing:1px;font-style:italic;}
+
+/* Chip de personaje */
+.tl-chip{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:4px 10px;
+  font-size:.78rem;font-weight:700;color:#fff;white-space:nowrap;transition:all .2s;cursor:default;}
+.tl-chip:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.25);}
+.tl-chip-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+
+/* Placeholder de personaje */
+.tl-placeholder{width:56px;height:56px;border-radius:10px;border:1px dashed rgba(255,255,255,.15);
+  background:rgba(255,255,255,.03);flex-shrink:0;overflow:hidden;}
+.tl-placeholder img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;}
+.tl-placeholder-empty{width:100%;height:100%;display:flex;align-items:center;justify-content:center;
+  color:rgba(255,255,255,.1);font-size:1.2rem;}
+
+/* ── RESPONSIVE ── */
+@media(max-width:700px){
+  .tierlist-wrap{padding:90px 12px 40px;}
+  .tl-header{grid-template-columns:52px repeat(4,1fr);}
+  .tl-row{grid-template-columns:52px repeat(4,1fr);}
+  .tl-header-cell{font-size:.55rem;padding:10px 4px;}
+  .tl-tier{font-size:.8rem;padding:14px 4px;}
+  .tl-cell{padding:8px 4px;gap:4px;}
+  .tl-chip{font-size:.68rem;padding:3px 7px;gap:4px;}
+  .tl-chip-dot{width:6px;height:6px;}
+}
+</style>
+</head>
+<body data-page="tierlist">
+<div class="bg-layer"></div>
+<nav>
+  <div class="nav-logo" onclick="goTo('home')">LGS</div>
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Menú">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links" id="nav-links">
+    <button class="nav-btn" data-page="home"       onclick="goTo('home');closeMenu()">Inicio</button>
+    <button class="nav-btn" data-page="personajes" onclick="goTo('personajes');closeMenu()">Personajes</button>
+    <button class="nav-btn" data-page="inventario" onclick="goTo('inventario');closeMenu()">Inventario</button>
+    <button class="nav-btn" data-page="tierlist"   onclick="goTo('tierlist');closeMenu()">Tier List</button>
+    <button class="nav-btn" data-page="equipos"    onclick="goTo('equipos');closeMenu()">Equipos</button>
+    <button class="nav-btn" data-page="notas"      onclick="goTo('notas');closeMenu()">Notas</button>
+  </div>
+</nav>
+
+<div class="tierlist-wrap">
+
+  <!-- INTRO -->
+  <div class="tl-intro">
+    <div class="section-badge">✦ Meta ✦</div>
+    <h1 class="section-title">Tier List</h1>
+    <p class="tl-desc">
+      Clasificación de todos los personajes del universo LGS según su rendimiento en el meta actual.
+      Los tiers reflejan el potencial máximo de cada personaje en su rol, considerando habilidades, sinergias y estadísticas base.
+    </p>
+    <div class="tl-version">Tier List General · V1.0</div>
+  </div>
+
+  <!-- TABLA -->
+  <div class="tl-table">
+
+    <!-- Cabecera -->
+    <div class="tl-header">
+      <div class="tl-header-cell"></div>
+      <div class="tl-header-cell col-dps">⚔️ DPS</div>
+      <div class="tl-header-cell col-subdps">🗡️ Sub-DPS</div>
+      <div class="tl-header-cell col-supp">✨ Soporte</div>
+      <div class="tl-header-cell col-sust">💚 Sustain</div>
+    </div>
+
+    <!-- Filas generadas por JS -->
+    <div id="tl-body"></div>
+
+  </div>
+</div>
+
+<script src="scripts.js" defer></script>
+<script>
+// ════════════════════════════════════════
+// DATOS DE LA TIERLIST — editá acá
+// ════════════════════════════════════════
+const TIERLIST = [
+  {
+    tier:'T0', cls:'tier-t0',
+    dps:    [ {id:1} ],
+    subdps: [],
+    supp:   [],
+    sust:   [],
+  },
+  {
+    tier:'T0.5', cls:'tier-t05',
+    dps:    [],
+    subdps: [],
+    supp:   [ {id:2} ],
+    sust:   [],
+  },
+  { tier:'T1',   cls:'tier-t1',  dps:[], subdps:[], supp:[], sust:[] },
+  { tier:'T1.5', cls:'tier-t15', dps:[], subdps:[], supp:[], sust:[] },
+  { tier:'T2',   cls:'tier-t2',  dps:[], subdps:[], supp:[], sust:[] },
+  { tier:'T2.5', cls:'tier-t25', dps:[], subdps:[], supp:[], sust:[] },
+  { tier:'T3',   cls:'tier-t3',  dps:[], subdps:[], supp:[], sust:[] },
+];
+
+// ════════════════════════════════════════
+// RENDER
+// ════════════════════════════════════════
+function chipHTML(entry) {
+  // Si tiene id, es un personaje real
+  if (entry.id) {
+    const c = CHARS.find(x => x.id === entry.id);
+    if (!c) return '';
+    const el = EC[c.element];
+    return `<div class="tl-chip">
+      <div class="tl-chip-dot" style="background:${el.color};box-shadow:0 0 5px ${el.color}"></div>
+      ${c.name}
+    </div>`;
+  }
+  // Si es placeholder con art
+  const inner = entry.art
+    ? `<img src="${entry.art}" alt="">`
+    : `<div class="tl-placeholder-empty">?</div>`;
+  return `<div class="tl-placeholder">${inner}</div>`;
+}
+
+function cellHTML(chars) {
+  if (!chars.length) return `<span class="tl-empty">—</span>`;
+  return chars.map(c => chipHTML(c)).join('');
+}
+
+function renderTierlist() {
+  const body = document.getElementById('tl-body');
+  if (!body) return;
+  body.innerHTML = TIERLIST.map(row => `
+    <div class="tl-row">
+      <div class="tl-tier ${row.cls}">${row.tier}</div>
+      <div class="tl-cell">${cellHTML(row.dps)}</div>
+      <div class="tl-cell">${cellHTML(row.subdps)}</div>
+      <div class="tl-cell">${cellHTML(row.supp)}</div>
+      <div class="tl-cell">${cellHTML(row.sust)}</div>
+    </div>`).join('');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  renderTierlist();
+});
+</script>
+</body>
+</html>

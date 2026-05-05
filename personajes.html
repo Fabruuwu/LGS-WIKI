@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Personajes · LGS Wiki</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="personajes">
+<div class="bg-layer"></div>
+<nav>
+  <div class="nav-logo" onclick="goTo('home')">LGS</div>
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Menú">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links" id="nav-links">
+    <button class="nav-btn" data-page="home"       onclick="goTo('home');closeMenu()">Inicio</button>
+    <button class="nav-btn" data-page="personajes" onclick="goTo('personajes');closeMenu()">Personajes</button>
+    <button class="nav-btn" data-page="inventario" onclick="goTo('inventario');closeMenu()">Inventario</button>
+    <button class="nav-btn" data-page="tierlist"   onclick="goTo('tierlist');closeMenu()">Tier List</button>
+    <button class="nav-btn" data-page="equipos"    onclick="goTo('equipos');closeMenu()">Equipos</button>
+    <button class="nav-btn" data-page="notas"      onclick="goTo('notas');closeMenu()">Notas</button>
+  </div>
+</nav>
+
+<div class="chars-wrap">
+  <div class="section-header">
+    <div class="section-badge">✦ Enciclopedia de Héroes ✦</div>
+    <h2 class="section-title">Personajes</h2>
+    <p class="section-sub">Explorá a los guerreros de la LGS, conocé sus habilidades únicas y dominá el campo de batalla.</p>
+    <div class="hero-divider" style="margin: 20px auto;"></div>
+  </div>
+
+  <div class="filters">
+    <div class="search-wrap">
+      <span class="s-icon">🔍</span>
+      <input type="text" id="search-input" placeholder="Buscar personaje...">
+    </div>
+    <div class="count-lbl"><span id="char-count">0</span> personajes</div>
+  </div>
+
+  <div class="chars-grid" id="chars-grid"></div>
+</div>
+
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal">
+    <button class="modal-close" id="modal-close">✕</button>
+    <div id="modal-content"></div>
+  </div>
+</div>
+<script src="scripts.js" defer></script>
+</body>
+</html>
