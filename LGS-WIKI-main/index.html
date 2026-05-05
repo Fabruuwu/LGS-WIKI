@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LGS Wiki</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="home">
+<div class="bg-layer"></div>
+<nav>
+  <div class="nav-logo" onclick="goTo('home')">LGS</div>
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Menú">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links" id="nav-links">
+    <button class="nav-btn" data-page="home"       onclick="goTo('home');closeMenu()">Inicio</button>
+    <button class="nav-btn" data-page="personajes" onclick="goTo('personajes');closeMenu()">Personajes</button>
+    <button class="nav-btn" data-page="inventario" onclick="goTo('inventario');closeMenu()">Inventario</button>
+    <button class="nav-btn" data-page="tierlist"   onclick="goTo('tierlist');closeMenu()">Tier List</button>
+    <button class="nav-btn" data-page="equipos"    onclick="goTo('equipos');closeMenu()">Equipos</button>
+    <button class="nav-btn" data-page="notas"      onclick="goTo('notas');closeMenu()">Notas</button>
+  </div>
+</nav>
+<div class="home-wrap">
+  <div class="hero-badge">✦ Base de Datos Oficial ✦</div>
+  <h1 class="hero-title">Latam Gaming<br>Society</h1>
+  <p class="hero-sub">— Wiki —</p>
+  <div class="hero-divider"></div>
+  <p class="hero-desc">Tu guía definitiva: explorá personajes, armate el mejor equipo y dominá el meta con la tier list actualizada.</p>
+  <div class="home-cards">
+    <div class="home-card c-chars" onclick="goTo('personajes')">
+      <span class="hcard-icon">⚔️</span>
+      <div class="hcard-title">Personajes</div>
+      <div class="hcard-desc">Explorá habilidades, splash arts y stats de cada personaje</div>
+    </div>
+    <div class="home-card c-tier" onclick="goTo('tierlist')">
+      <span class="hcard-icon">🏆</span>
+      <div class="hcard-title">Tier List</div>
+      <div class="hcard-desc">Rankeo actualizado de todos los personajes del meta</div>
+    </div>
+    <div class="home-card c-inventario" onclick="goTo('inventario')">
+      <span class="hcard-icon">🎒</span>
+      <div class="hcard-title">Inventario LGS</div>
+      <div class="hcard-desc">Recuerdos, objetos y mensajes para tu colección</div>
+    </div>
+    <div class="home-card c-teams" onclick="goTo('equipos')">
+      <span class="hcard-icon">🛡️</span>
+      <div class="hcard-title">Equipos</div>
+      <div class="hcard-desc">Composiciones recomendadas y sinergias para cada contenido</div>
+    </div>
+    <div class="home-card c-notas" onclick="goTo('notas')">
+      <span class="hcard-icon">📋</span>
+      <div class="hcard-title">Notas</div>
+      <div class="hcard-desc">Historial de buffs, nerfs y reworks de cada parche</div>
+    </div>
+  </div>
+  <div class="home-stats">
+    <div><div class="hstat-num">2</div><div class="hstat-label">Personajes</div></div>
+    <div><div class="hstat-num">5</div><div class="hstat-label">Secciones</div></div>
+    <div><div class="hstat-num">∞</div><div class="hstat-label">Builds</div></div>
+  </div>
+</div>
+<script src="scripts.js" defer></script>
+</body>
+</html>

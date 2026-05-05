@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inventario LGS · LGS Wiki</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="inventario">
+<div class="bg-layer"></div>
+<nav>
+  <div class="nav-logo" onclick="goTo('home')">LGS</div>
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Menú">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links" id="nav-links">
+    <button class="nav-btn" data-page="home"       onclick="goTo('home');closeMenu()">Inicio</button>
+    <button class="nav-btn" data-page="personajes" onclick="goTo('personajes');closeMenu()">Personajes</button>
+    <button class="nav-btn" data-page="inventario" onclick="goTo('inventario');closeMenu()">Inventario</button>
+    <button class="nav-btn" data-page="tierlist"   onclick="goTo('tierlist');closeMenu()">Tier List</button>
+    <button class="nav-btn" data-page="equipos"    onclick="goTo('equipos');closeMenu()">Equipos</button>
+    <button class="nav-btn" data-page="notas"      onclick="goTo('notas');closeMenu()">Notas</button>
+  </div>
+</nav>
+<div class="inventory-wrap">
+  <div class="section-header">
+    <div class="section-badge">✦ Inventario LGS ✦</div>
+    <h2 class="section-title">Inventario</h2>
+    <p class="section-sub">Recuerdos, objetos y mensajes para tu mundo LGS</p>
+  </div>
+  <div class="inventory-grid">
+    <article class="inventory-card">
+      <div class="inventory-card-media inventory-card-media-recuerdos">
+        <span>Recuerdos</span>
+      </div>
+      <div class="inventory-card-body">
+        <div class="inventory-card-title">Recuerdos</div>
+        <p class="inventory-card-desc">Espacio para colocar imágenes de momentos clave, eventos y colecciones de recuerdos dentro del universo LGS.</p>
+        <div class="inventory-card-notice">Añade aquí banners, capturas o ilustraciones relacionadas con tus recuerdos.</div>
+      </div>
+    </article>
+    <article class="inventory-card">
+      <div class="inventory-card-media inventory-card-media-objetos">
+        <span>Objetos</span>
+      </div>
+      <div class="inventory-card-body">
+        <div class="inventory-card-title">Objetos</div>
+        <p class="inventory-card-desc">Lugar para subir imágenes de objetos especiales, ítems de colección y equipamiento de tu inventario.</p>
+        <div class="inventory-card-notice">Perfecto para inventario de rarezas, objetos de evento o decoración temática.</div>
+      </div>
+    </article>
+    <article class="inventory-card">
+      <div class="inventory-card-media inventory-card-media-mensajes">
+        <span>Mensajes</span>
+      </div>
+      <div class="inventory-card-body">
+        <div class="inventory-card-title">Mensajes</div>
+        <p class="inventory-card-desc">Sección para imágenes de notas, mensajes especiales o capturas de chats y contenido social.</p>
+        <div class="inventory-card-notice">Usa este espacio para guardar comunicación memorable en formato visual.</div>
+      </div>
+    </article>
+  </div>
+</div>
+<script src="scripts.js" defer></script>
+</body>
+</html>
