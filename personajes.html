@@ -36,6 +36,37 @@
       <span class="s-icon">🔍</span>
       <input type="text" id="search-input" placeholder="Buscar personaje...">
     </div>
+
+    <!-- Filtro de Rareza -->
+    <div class="fg">
+      <div class="fl">Rareza</div>
+      <div class="fp" id="rarity-filters">
+        <button class="pill active" data-rarity="all">Todas</button>
+        <button class="pill" data-rarity="5">5★</button>
+        <button class="pill" data-rarity="4">4★</button>
+      </div>
+    </div>
+
+    <div class="fdiv"></div>
+
+    <!-- Filtro de Elemento -->
+    <div class="fg">
+      <div class="fl">Elemento</div>
+      <div class="fp" id="elem-filters">
+        <button class="pill active" data-elem="all">Todos</button>
+        <button class="pill" data-elem="fuego"><span class="edot" style="background:var(--fuego)"></span>Fuego</button>
+        <button class="pill" data-elem="hidro"><span class="edot" style="background:var(--hidro)"></span>Agua</button>
+        <button class="pill" data-elem="aero"><span class="edot" style="background:var(--aero)"></span>Viento</button>
+        <button class="pill" data-elem="electro"><span class="edot" style="background:var(--electro)"></span>Rayo</button>
+        <button class="pill" data-elem="crio"><span class="edot" style="background:var(--crio)"></span>Hielo</button>
+        <button class="pill" data-elem="geo"><span class="edot" style="background:var(--geo)"></span>Tierra</button>
+        <button class="pill" data-elem="flora"><span class="edot" style="background:var(--flora)"></span>Naturaleza</button>
+        <button class="pill" data-elem="celestial"><span class="edot" style="background:var(--celestial)"></span>Luz</button>
+        <button class="pill" data-elem="umbral"><span class="edot" style="background:var(--umbral)"></span>Oscuridad</button>
+        <button class="pill" data-elem="caos"><span class="edot" style="background:var(--caos)"></span>Vacío</button>
+      </div>
+    </div>
+
     <div class="count-lbl"><span id="char-count">0</span> personajes</div>
   </div>
 
