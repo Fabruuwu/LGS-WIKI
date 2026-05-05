@@ -7,7 +7,8 @@
 <link rel="stylesheet" href="styles.css">
 <style>
 /* ── TIERLIST WRAP ── */
-.tierlist-wrap{padding:100px 40px 60px;max-width:1200px;margin:0 auto;}
+.tierlist-wrap{position:relative;z-index:1;padding:100px 40px 60px;max-width:1200px;margin:0 auto;}
+.tl-intro{position:relative;z-index:2;}
 
 .tl-intro{text-align:center;margin-bottom:48px;}
 .tl-desc{color:rgba(255,255,255,.55);font-size:1rem;line-height:1.7;max-width:620px;margin:16px auto 24px;}
@@ -62,6 +63,13 @@
   font-size:.78rem;font-weight:700;color:#fff;white-space:nowrap;transition:all .2s;cursor:default;}
 .tl-chip:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.25);}
 .tl-chip-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+
+/* Placeholder de personaje */
+.tl-placeholder{width:52px;height:68px;border-radius:10px;border:1px dashed rgba(255,255,255,.15);
+  background:rgba(255,255,255,.03);flex-shrink:0;overflow:hidden;}
+.tl-placeholder img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;}
+.tl-placeholder-empty{width:100%;height:100%;display:flex;align-items:center;justify-content:center;
+  color:rgba(255,255,255,.1);font-size:1.2rem;}
 
 /* ── RESPONSIVE ── */
 @media(max-width:700px){
@@ -154,19 +162,27 @@ const TIERLIST = [
 // ════════════════════════════════════════
 // RENDER
 // ════════════════════════════════════════
-function chipHTML(id) {
-  const c = CHARS.find(x => x.id === id);
-  if (!c) return '';
-  const el = EC[c.element];
-  return `<div class="tl-chip">
-    <div class="tl-chip-dot" style="background:${el.color};box-shadow:0 0 5px ${el.color}"></div>
-    ${c.name}
-  </div>`;
+function chipHTML(entry) {
+  // Si tiene id, es un personaje real
+  if (entry.id) {
+    const c = CHARS.find(x => x.id === entry.id);
+    if (!c) return '';
+    const el = EC[c.element];
+    return `<div class="tl-chip">
+      <div class="tl-chip-dot" style="background:${el.color};box-shadow:0 0 5px ${el.color}"></div>
+      ${c.name}
+    </div>`;
+  }
+  // Si es placeholder con art
+  const inner = entry.art
+    ? `<img src="${entry.art}" alt="">`
+    : `<div class="tl-placeholder-empty">?</div>`;
+  return `<div class="tl-placeholder">${inner}</div>`;
 }
 
 function cellHTML(chars) {
   if (!chars.length) return `<span class="tl-empty">—</span>`;
-  return chars.map(c => chipHTML(c.id)).join('');
+  return chars.map(c => chipHTML(c)).join('');
 }
 
 function renderTierlist() {
