@@ -21,75 +21,128 @@ const GRAD={
 
 const CHARS=[
   {
-    id:1,name:'ReyDNS',tagline:'"El Gatillo del Servidor"',
-    element:'fuego',rarity:5,role:'Main DPS',paradigma:'Paradigma de la Artillería',
-    art:null,
-    stats:{HP:420,ATQ:380,DEF:110,VEL:126,'Prob. Crítica':'5%','Daño Crítico':'50%','Rec. Energía':20,'Bono Fuego':0},
+    id:1, name:'ReyDNS', tagline:'"El Gatillo del Servidor"',
+    element:'fuego', rarity:5, role:'Main DPS', paradigma:'Paradigma del Flood',
+    art: 'Personajes 1.0 - tanda 2/ReyDNS.jpg',
+    stats:{
+      HP:420, ATQ:400, DEF:110, VEL:120,
+      'Prob. Crítica':'5%', 'Daño Crítico':'50%', 'Rec. Energía':20,
+      'Acierto de Efecto':20, 'Res. a Efectos':10, 'Ef. de Ruptura':30,
+      'Bono Fuego':0, 'Bono Curación':0
+    },
     skills:[
-      {icon:'🗡️',name:'Tiro de Advertencia',type:'Ataque Básico',
-       flavor:'ReyDNS dispara un tiro rápido con su revólver, consumiendo 1 bala del tambor.',
-       desc:'Inflige <strong>(50%–110% del ATQ)</strong> como Daño Piro a un solo enemigo.'},
-      {icon:'🔥',name:'Fuego a Discreción',type:'Habilidad',
-       flavor:'Gasta 3 balas consecutivas contra un solo objetivo con postura de ejecución.',
-       desc:'Inflige <strong>(130%–280% del ATQ)</strong> como Daño Piro. Si alguna bala es una <strong>"Bala de Ban"</strong> (N°6 o N°12), el daño final aumenta en <strong>(20%–45%)</strong> adicional.'},
-      {icon:'🌟',name:'Limpieza de Servidor (Wipe)',type:'Ultimate',
-       flavor:'El juicio final del Owner. Vacía todas las balas restantes sobre un solo enemigo.',
-       desc:'Cada bala inflige <strong>(40%–90% del ATQ)</strong> como Daño Piro. Con 6+ balas gana <strong>+30%–75% de Daño Crítico</strong>. Al finalizar, recarga el tambor con <strong>12 balas nuevas</strong>.'},
-      {icon:'🧠',name:'La Ruleta del Administrador',type:'Talento',
-       flavor:'El Owner no sigue las reglas de energía. Tiene un Tambor de 12 Balas.',
-       desc:'La <strong>Bala N°6 y N°12</strong> son Golpes Críticos garantizados e ignoran <strong>(15%–40%) de la DEF</strong>. Con 0 balas, pierde su turno para recargar y obtiene escudo del <strong>(10%–25%) de HP máx</strong>.'},
+      {
+        icon:'🗡️', name:'Tiro de Advertencia', type:'Ataque Básico',
+        flavor:'ReyDNS dispara un tiro rápido con su revólver, consumiendo 1 bala del tambor.',
+        desc:'Inflige <strong>(50%–110% del ATQ)</strong> como Daño Piro a un solo enemigo.'
+      },
+      {
+        icon:'🔥', name:'Fuego a Discreción', type:'Habilidad',
+        flavor:'Gasta 3 balas consecutivas contra un solo objetivo con postura de ejecución.',
+        desc:'Inflige un total de <strong>(130%–280% del ATQ)</strong> como Daño Piro. Si alguna de las balas es una <strong>"Bala de Ban"</strong> (N°6 o N°12), el daño final aumenta en <strong>(20%–45%)</strong> adicional.'
+      },
+      {
+        icon:'🌟', name:'Limpieza de Servidor (Wipe)', type:'Ultimate',
+        flavor:'El juicio final del Owner. Vacía todas las balas restantes sobre un solo enemigo.',
+        desc:'Cada bala inflige <strong>(50%–100% del ATQ)</strong> como Daño Piro. Con 6+ balas gana <strong>+30%–75% de Daño Crítico</strong>. Al finalizar, recarga el tambor con <strong>12 balas nuevas</strong>.'
+      },
+      {
+        icon:'🧠', name:'La Ruleta del Administrador', type:'Talento',
+        flavor:'El Owner no sigue las reglas de energía. Tiene un Tambor de 12 Balas.',
+        desc:'<strong>Balas de Ban (N°6 y N°12):</strong> siempre son Golpes Críticos garantizados e ignoran <strong>(15%–40%) de la DEF</strong>. Si empieza su turno con 0 balas, pierde la acción para recargar <strong>12 balas</strong> y obtiene un escudo del <strong>(10%–20%) de su Vida Máx.</strong> por 1 turno.'
+      },
     ],
     passives:[
-      {name:'Dedo en el Gatillo',desc:'Una "Bala de Ban" retrasa el siguiente turno del enemigo en un <strong>15%</strong>.'},
-      {name:'Inercia de Plomo',desc:'Por cada bala normal que acierta, gana <strong>+2% de VEL</strong> (se resetea al inicio de su siguiente turno).'},
-      {name:'Privilegios de Owner',desc:'Entra al combate con el tambor lleno. Su primera acción avanza su turno en un <strong>30%</strong> adicional.'},
+      {
+        name:'Dedo en el Gatillo',
+        desc:'Una "Bala de Ban" retrasa el siguiente turno del enemigo en un <strong>15%</strong>.'
+      },
+      {
+        name:'Inercia de Plomo',
+        desc:'Por cada bala normal que acierta, gana <strong>+2% de VEL</strong> (se resetea al inicio de su siguiente turno).'
+      },
+      {
+        name:'Privilegios de Owner',
+        desc:'Entra al combate con el tambor lleno. Su primera acción avanza su turno en un <strong>25%</strong> adicional. Desbloquea <strong>"Mantra"</strong>: inflige el <strong>15% del ATQ total del equipo</strong> como Daño de Fuego a un enemigo (CD: 5 turnos). ReyDNS queda Imposibilitado 1 turno tras usarlo.'
+      },
     ],
     pings:[
-      {n:1,name:'Acceso Directo',desc:'Obtiene un turno adicional inmediato. Su primer Ataque Básico no consume balas.'},
-      {n:2,name:'Ban de IP',desc:'Las "Balas de Ban" aplican <strong>Quemadura Severa</strong>: +40% de daño Fuego de todos los aliados por 2 turnos.'},
-      {n:3,name:'Jerarquía Elevada',desc:'<strong>Habilidad +3 niveles</strong> (máx. nivel 8).'},
-      {n:4,name:'Protocolo de Emergencia',desc:'Al caer bajo el 30% de HP, recarga 6 balas y activa el escudo del Talento sin perder turno. (CD: 3 turnos)'},
-      {n:5,name:'Decreto Supremo',desc:'<strong>Ultimate +3 niveles</strong> (máx. nivel 8).'},
-      {n:6,name:'Aniquilación del Registro',desc:'Durante la Ultimate, cada bala sube el <strong>Daño Crítico</strong> de la siguiente en 15%. Si elimina al enemigo, recupera el tambor completo y avanza 100% en la barra de turnos.'},
+      {
+        n:1, name:'Acceso Directo',
+        desc:'Obtiene un turno adicional inmediato. Su primer Ataque Básico no consume balas.'
+      },
+      {
+        n:2, name:'Ban de IP',
+        desc:'Las "Balas de Ban" aplican <strong>Quemadura Severa</strong>: +40% de daño Fuego de todos los aliados por 2 turnos. Si el enemigo ya tiene la marca, la bala ignora un <strong>20% adicional de su DEF</strong>.'
+      },
+      {
+        n:3, name:'Jerarquía Elevada',
+        desc:'<strong>Habilidad +3 niveles</strong> (máx. nivel 8).'
+      },
+      {
+        n:4, name:'Protocolo de Emergencia',
+        desc:'Al caer bajo el 30% de HP, recarga 6 balas y activa el escudo del Talento sin perder turno. (CD: 3 turnos).'
+      },
+      {
+        n:5, name:'Decreto Supremo',
+        desc:'<strong>Ultimate +3 niveles</strong> (máx. nivel 8).'
+      },
+      {
+        n:6, name:'Aniquilación del Registro',
+        desc:'Durante la Ultimate, cada bala sube el <strong>Daño Crítico</strong> de la siguiente en 15%. Si elimina al enemigo, recupera el tambor completo y avanza 100% en la barra de turnos.'
+      },
     ]
-  },
+},
   {
-    id:2,name:'Miki',tagline:'"Nada escapa a su cronología... ni los mensajes borrados."',
-    element:'caos',rarity:5,role:'Soporte / Control',paradigma:'Paradigma de la Estadística',
-    art:null,
-    stats:{HP:680,ATQ:180,DEF:260,VEL:112,'Prob. Crítica':'5%','Daño Crítico':'50%','Rec. Energía':20,'Bono Vacío':0},
+    id:2, name:'Miki', tagline:'"Nada escapa del tarjetón... ni de mi Furina C6"',
+    element:'caos', rarity:5, role:'Soporte / Control', paradigma:'Paradigma del Legado',
+    art: 'Personajes 1.0 - tanda 2/Miki.png',
+    stats:{
+      HP:650, ATQ:180, DEF:300, VEL:115,
+      'Prob. Crítica':'5%', 'Daño Crítico':'50%', 'Rec. Energía':20,
+      'Acierto de Efecto':20, 'Res. a Efectos':10, 'Ef. de Ruptura':30,
+      'Bono Vacío':0, 'Bono Curación':0
+    },
     skills:[
-      {icon:'🗡️',name:'Golpe de Archivo',type:'Ataque Básico',
-       flavor:'Un toque firme con su llave dorada que adelanta sus asuntos pendientes.',
-       desc:'Inflige <strong>(45%–95% de su DEF)</strong> como Daño de Vacío. Avanza su acción propia en <strong>10%</strong>.'},
-      {icon:'🔥',name:'Muteo Temporal',type:'Habilidad',
-       flavor:'Activa el protocolo de silencio. El objetivo entra en "Slow-Log".',
-       desc:'85% de probabilidad base de aplicar <strong>"Slow-Log"</strong> por 2 turnos: reduce VEL en <strong>(15%–35%)</strong> e inflige <strong>(20%–40% de la DEF de Miki)</strong> al inicio de cada turno.'},
-      {icon:'🌟',name:'Reinicio de Instancia',type:'Ultimate',
-       flavor:'El reloj astronómico da marcha atrás. Una ola de color sepia inunda el campo.',
-       desc:'Retrasa la acción de todos los enemigos en <strong>(25%–55%)</strong>. Aumenta VEL de aliados en <strong>(15%–30%)</strong> por 2 turnos. Inflige <strong>(110%–210% de su DEF)</strong> como Daño de Vacío a todos.'},
-      {icon:'🧠',name:'Agenda del Moderador',type:'Talento',
-       flavor:'Miki sabe exactamente cuándo intervenir.',
-       desc:'Cuando un aliado usa su <strong>Habilidad</strong>, Miki gana 1 "Engranaje" (máx. 5). Al llegar a 5, ejecuta un <strong>FUA</strong>: <strong>(60%–130% de su DEF)</strong> como Daño de Vacío. El objetivo reduce su Resistencia a Efectos en <strong>20%</strong> por 2 turnos.'},
+      {
+        icon:'🗡️', name:'Golpe de Top Up', type:'Ataque Básico',
+        flavor:'Un toque firme con su llave dorada que adelanta sus asuntos pendientes.',
+        desc:'Inflige <strong>(75%–105% de su DEF)</strong> como Daño de Vacío. Avanza su acción propia en <strong>10%</strong>.'
+      },
+      {
+        icon:'🔥', name:'Muteo Temporal', type:'Habilidad',
+        flavor:'Activa el protocolo de silencio. El objetivo entra en "Slow-Log".',
+        desc:'85% de probabilidad base de aplicar <strong>"Slow-Log"</strong> por 2 turnos: reduce VEL en <strong>(15%–25%)</strong> e inflige <strong>(30%–40% de la DEF de Miki)</strong> al inicio de cada turno.'
+      },
+      {
+        icon:'🌟', name:'Reinicio de Tienda', type:'Ultimate',
+        flavor:'El reloj astronómico da marcha atrás. Una ola de color sepia inunda el campo.',
+        desc:'Retrasa la acción de todos los enemigos en <strong>(25%–55%)</strong>. Aumenta DEF, VIDA, ATQ, Prob. Crítica y Daño Crítico de todos los aliados en <strong>(15%–30%)</strong> por 1 turno. Inflige <strong>(110%–210% de su DEF)</strong> como Daño de Vacío a todos.'
+      },
+      {
+        icon:'🧠', name:'Agenda del Moderador', type:'Talento',
+        flavor:'Miki sabe exactamente cuándo intervenir.',
+        desc:'Cuando un aliado (excepto Miki) usa su Habilidad, Miki gana 1 "Engranaje" (máx. 5). Al llegar a 5, ejecuta un <strong>FUA</strong>: <strong>(60%–130% de su DEF)</strong> como Daño de Vacío. El objetivo reduce su Resistencia a Efectos en <strong>20%</strong> por 2 turnos.'
+      },
     ],
     passives:[
-      {name:'Guía de estilo',desc:'Aumenta el <strong>Acierto de Efecto</strong> de Miki en un <strong>15%</strong>.'},
-      {name:'Copia de seguridad',desc:'Al inicio del turno de Miki, limpia <strong>1 debuff</strong> de un aliado aleatorio.'},
-      {name:'Términos del servicio',desc:'Los enemigos con <strong>"Slow-Log"</strong> reducen su <strong>ATQ</strong> en un 10%.'},
+      { name:'Guía de estilo', desc:'Aumenta el <strong>Acierto de Efecto</strong> de Miki en un <strong>15%</strong>.' },
+      { name:'Copia de seguridad', desc:'Al inicio del turno de Miki, limpia <strong>1 debuff</strong> de un aliado aleatorio.' },
+      { name:'Términos del servicio', desc:'Los enemigos con <strong>"Slow-Log"</strong> reducen su <strong>ATQ</strong> en un 10%.' },
     ],
     pings:[
-      {n:1,name:'Hilo de bienvenida',desc:'Otorga a todo el equipo <strong>+15% de Recarga de Energía</strong> durante los primeros 3 turnos.'},
-      {n:2,name:'Atajos del teclado',desc:'El Talento ahora requiere <strong>4 cargas</strong> en lugar de 5 para el FUA.'},
-      {n:3,name:'Archivo expandido',desc:'<strong>Habilidad +3 niveles</strong> (máx. nivel 8).'},
-      {n:4,name:'Modo sigilo',desc:'Al usar Ataque Básico contra un enemigo con debuff, recupera <strong>15% de HP máx</strong>.'},
-      {n:5,name:'Actualización de firmware',desc:'<strong>Ultimate +3 niveles</strong> (máx. nivel 8).'},
-      {n:6,name:'Baneo permanente',desc:'Al usar la Ultimate, 50% de probabilidad de <strong>aturdir</strong> a los enemigos 1 turno. Si tienen "Slow-Log", sube al <strong>100%</strong>.'},
+      { n:1, name:'Hilo de bienvenida', desc:'Otorga a todo el equipo <strong>+15% de Recarga de Energía</strong> durante los primeros 3 turnos.' },
+      { n:2, name:'Atajos del teclado', desc:'El Talento ahora requiere <strong>4 cargas</strong> en lugar de 5 para el FUA.' },
+      { n:3, name:'Archivo expandido', desc:'<strong>Habilidad +3 niveles</strong> (máx. nivel 8).' },
+      { n:4, name:'Modo sigilo', desc:'Al usar Ataque Básico contra un enemigo con debuff, recupera <strong>15% de HP máx</strong>.' },
+      { n:5, name:'Actualización de firmware', desc:'<strong>Ultimate +3 niveles</strong> (máx. nivel 8).' },
+      { n:6, name:'Baneo permanente', desc:'Al usar la Ultimate, 50% de probabilidad de <strong>aturdir</strong> a los enemigos 1 turno. Si tienen "Slow-Log", sube al <strong>100%</strong>.' },
     ]
-  }
+}
 ,{
     id:3,name:'Belle',tagline:'"En su presencia los mortales temen"',
     element:'electro',rarity:5,role:'Sub-DPS / Buffer',paradigma:'Paradigma del Legado',
-    art:null,
+    art: 'Personajes 1.0 - tanda 1/Belle.png',
     stats:{HP:350,ATQ:330,DEF:150,VEL:148,'Prob. Crítica':'5%','Daño Crítico':'50%','Rec. Energía':20,'Acierto de Efecto':20,'Res. a Efectos':10,'Ef. de Ruptura':30,'Bono Rayo':0,'Bono Curación':0},
     skills:[
       {icon:'🗡️',name:'Dinamic Warn',type:'Ataque Básico',
@@ -122,7 +175,7 @@ const CHARS=[
   {
     id:4,name:'Hawk',tagline:'"Shhh... No pienses. Solo obedece."',
     element:'caos',rarity:5,role:'Sub-DPS / Debuffer',paradigma:'Paradigma del Warn',
-    art:null,
+    art: 'Personajes 1.0 - tanda 1/Hawk.png',
     stats:{HP:620,ATQ:380,DEF:170,VEL:118,'Prob. Crítica':'5%','Daño Crítico':'50%','Rec. Energía':20,'Acierto de Efecto':20,'Res. a Efectos':10,'Ef. de Ruptura':30,'Bono Vacío':0,'Bono Curación':0},
     skills:[
       {icon:'🗡️',name:'Aguja Mental',type:'Ataque Básico',
