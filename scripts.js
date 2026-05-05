@@ -1556,22 +1556,45 @@ document.addEventListener('DOMContentLoaded',()=>{
   // Hamburguesa
   document.getElementById('nav-hamburger')?.addEventListener('click', toggleMenu);
 
-  // Filtros personajes
-  document.getElementById('rarity-filters')?.addEventListener('click',e=>{
-    const p=e.target.closest('.pill'); if(!p) return;
-    document.querySelectorAll('#rarity-filters .pill').forEach(x=>x.classList.remove('active'));
-    p.classList.add('active'); fRarity=p.dataset.rarity; renderCards();
-  });
+ // Filtros personajes
 
-  document.getElementById('elem-filters')?.addEventListener('click',e=>{
-    const p=e.target.closest('.pill'); if(!p) return;
-    document.querySelectorAll('#elem-filters .pill').forEach(x=>x.classList.remove('active'));
-    p.classList.add('active'); fElem=p.dataset.elem; renderCards();
-  });
+// ── Buscador inteligente (nombre, elemento:xx, rareza:xx) ──
+document.getElementById('search-input')?.addEventListener('input', e => {
+  const raw = e.target.value.trim();
+  
+  // Reiniciamos los filtros a sus valores por defecto
+  fRarity = 'all';
+  fElem = 'all';
+  fSearch = '';
 
-  document.getElementById('search-input')?.addEventListener('input',e=>{
-    fSearch=e.target.value; renderCards();
-  });
+  if (raw) {
+    // Separa por espacios y analiza cada token
+    const tokens = raw.split(/\s+/);
+    const nameParts = [];
+
+    tokens.forEach(token => {
+      // ¿Es un filtro de elemento?
+      const elemMatch = token.match(/^(elemento|elem):(.+)$/i);
+      if (elemMatch) {
+        fElem = elemMatch[2].toLowerCase();
+        return;
+      }
+      // ¿Es un filtro de rareza?
+      const rarityMatch = token.match(/^(rareza|rarity):(.+)$/i);
+      if (rarityMatch) {
+        const val = rarityMatch[2].toLowerCase();
+        fRarity = (val === 'all' ? 'all' : val); // acepta "all", "5", "4", etc.
+        return;
+      }
+      // Si no es un comando, es parte del nombre
+      nameParts.push(token);
+    });
+
+    fSearch = nameParts.join(' ');
+  }
+
+  renderCards();
+});
 
   // Modal
   document.getElementById('modal-close')?.addEventListener('click', closeModal);
