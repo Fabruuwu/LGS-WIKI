@@ -415,6 +415,11 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('tl-modal-overlay')?.addEventListener('click', (e) => {
     if (e.target === e.currentTarget) closeTierModal();
   });
+
+  // ✅ Cerrar con tecla Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeTierModal();
+  });
 });
 
 function openTierModal(id, imgSrc) {
