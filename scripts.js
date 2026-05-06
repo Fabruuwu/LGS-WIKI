@@ -1471,6 +1471,14 @@ function renderCards(){
 }
 
 // ── Modal ──
+function applyTooltips(desc) {
+  let html = desc;
+  for (const [term, explanation] of Object.entries(EFFECT_TOOLTIPS)) {
+    // Reemplaza el término exacto (evitando etiquetas HTML internas)
+    html = html.replaceAll(term, `<span class="effect-tooltip" data-tooltip="${explanation}">${term}</span>`);
+  }
+  return html;
+}
 function openChar(id){
   const c=CHARS.find(x=>x.id===id); if(!c) return;
   const el=EC[c.element];
@@ -1505,7 +1513,7 @@ function openChar(id){
         ${c.skills.map(s=>`<div class="skill-card">
           <div class="sk-head"><span class="sk-icon">${s.icon}</span><span class="sk-name">${s.name}</span><span class="sk-type">${s.type}</span></div>
           <div class="sk-flavor">${s.flavor}</div>
-          <div class="sk-desc">${s.desc}</div>
+          <div class="sk-desc">${applyTooltips(s.desc)}</div>
         </div>`).join('')}
       </div>
       <div class="ms"><div class="ms-title">🔨 Baneos Pasivos</div>
@@ -1556,9 +1564,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   // Hamburguesa
   document.getElementById('nav-hamburger')?.addEventListener('click', toggleMenu);
 
- // Filtros personajes
-
-// ── Buscador inteligente (nombre, elemento:xx, rareza:xx) ──
+  // ── Buscador inteligente (nombre, elemento:xx, rareza:xx) ──
 document.getElementById('search-input')?.addEventListener('input', e => {
   const raw = e.target.value.trim();
   
@@ -1603,5 +1609,20 @@ document.getElementById('search-input')?.addEventListener('input', e => {
   });
   document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeModal(); });
 
+  // 👆 Tooltips de efectos (click en móvil)
+  document.body.addEventListener('click', (e) => {
+    if (e.target.classList.contains('effect-tooltip')) {
+      e.target.classList.toggle('show-tooltip');
+    }
+  });
+
   renderCards();
 });
+// ── Datos de Habilidades de Personajes ──
+const EFFECT_TOOLTIPS = {
+  "Bala de Ban": "Munición especial en los tambores N°6 o N°12. Siempre es Golpe Crítico e ignora parte de la DEF.",
+  "Quemadura Severa": "Debuff que aumenta el daño de Fuego recibido por el enemigo en un 40% durante 2 turnos.",
+  "Tambor de 12 Balas": "Recurso propio de ReyDNS. Comienza con 12 balas y las consume al atacar. Si llega a 0, recarga perdiendo un turno.",
+  "Mantra": "Habilidad especial desbloqueada por el Baneo 3. Inflige daño de Fuego basado en el ATQ total del equipo.",
+  "Bala de Ban (N°6 o N°12)": "Balas con poder de administrador que garantizan crítico e ignoran DEF."
+};
