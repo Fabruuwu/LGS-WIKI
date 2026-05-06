@@ -20,7 +20,7 @@ const GRAD={
 };
 
 const CHARS=[
-  {
+{
     id:1, name:'ReyDNS', tagline:'"El Gatillo del Servidor"',
     element:'fuego', rarity:5, role:'Main DPS', paradigma:'Paradigma del Flood',
     art: 'Personajes 1.0 - tanda 2/ReyDNS.jpg',
@@ -39,7 +39,7 @@ const CHARS=[
       {
         icon:'🔥', name:'Fuego a Discreción', type:'Habilidad',
         flavor:'Gasta 3 balas consecutivas contra un solo objetivo con postura de ejecución.',
-        desc:'Inflige un total de <strong>(130%–280% del ATQ)</strong> como Daño Piro. Si alguna de las balas es una <strong>"Bala de Ban"</strong> (N°6 o N°12), el daño final aumenta en <strong>(20%–45%)</strong> adicional.'
+        desc:'Inflige un total de <strong>(130%–280% del ATQ)</strong> como Daño Piro. Si alguna de las balas es una <strong>"Bala de Ban"</strong>, el daño final aumenta en <strong>(20%–45%)</strong> adicional.'
       },
       {
         icon:'🌟', name:'Limpieza de Servidor (Wipe)', type:'Ultimate',
@@ -49,7 +49,7 @@ const CHARS=[
       {
         icon:'🧠', name:'La Ruleta del Administrador', type:'Talento',
         flavor:'El Owner no sigue las reglas de energía. Tiene un Tambor de 12 Balas.',
-        desc:'<strong>Balas de Ban (N°6 y N°12):</strong> siempre son Golpes Críticos garantizados e ignoran <strong>(15%–40%) de la DEF</strong>. Si empieza su turno con 0 balas, pierde la acción para recargar <strong>12 balas</strong> y obtiene un escudo del <strong>(10%–20%) de su Vida Máx.</strong> por 1 turno.'
+        desc:'<strong>Balas de Ban</strong> ignoran <strong>(15%–40%) de la DEF</strong>. Si empieza su turno con 0 balas, pierde la acción para recargar <strong>12 balas</strong> y obtiene un escudo del <strong>(10%–20%) de su Vida Máx.</strong> por 1 turno.'
       },
     ],
     passives:[
@@ -63,7 +63,7 @@ const CHARS=[
       },
       {
         name:'Privilegios de Owner',
-        desc:'Entra al combate con el tambor lleno. Su primera acción avanza su turno en un <strong>25%</strong> adicional. Desbloquea <strong>"Mantra"</strong>: inflige el <strong>15% del ATQ total del equipo</strong> como Daño de Fuego a un enemigo (CD: 5 turnos). ReyDNS queda Imposibilitado 1 turno tras usarlo.'
+        desc:'Entra al combate con el tambor lleno. Su primera acción avanza su turno en un <strong>25%</strong> adicional. Desbloquea <strong>"Mantra"</strong> (CD: 5 turnos). ReyDNS queda Imposibilitado 1 turno tras usarlo.'
       },
     ],
     pings:[
@@ -73,7 +73,7 @@ const CHARS=[
       },
       {
         n:2, name:'Ban de IP',
-        desc:'Las "Balas de Ban" aplican <strong>Quemadura Severa</strong>: +40% de daño Fuego de todos los aliados por 2 turnos. Si el enemigo ya tiene la marca, la bala ignora un <strong>20% adicional de su DEF</strong>.'
+        desc:'Las "Balas de Ban" aplican <strong>Quemadura Severa</strong>. Si el enemigo ya tiene la marca, la bala ignora un <strong>20% adicional de su DEF</strong>.'
       },
       {
         n:3, name:'Jerarquía Elevada',
@@ -92,7 +92,6 @@ const CHARS=[
         desc:'Durante la Ultimate, cada bala sube el <strong>Daño Crítico</strong> de la siguiente en 15%. Si elimina al enemigo, recupera el tambor completo y avanza 100% en la barra de turnos.'
       },
     ],
-    // ═══ NUEVO: Rasgo Único ═══
     rasgoUnico: {
       titulo: 'Rasgo Único "Owner"',
       descripcion: 'Al estar en el equipo con Belle, Miki o Hawk, elige uno de los siguientes efectos antes de la batalla:',
