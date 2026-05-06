@@ -1519,7 +1519,7 @@ function openChar(id){
       <div class="ms"><div class="ms-title">🔨 Baneos Pasivos</div>
         ${c.passives.map(p=>`<div class="skill-card">
           <div class="sk-head"><span class="sk-name">${p.name}</span></div>
-          <div class="sk-desc">${p.desc}</div>
+          <div class="sk-desc">${applyTooltips(p.desc)}</div>
         </div>`).join('')}
       </div>
       ${c.rasgoUnico ? `
@@ -1543,7 +1543,7 @@ function openChar(id){
           <tbody>${c.pings.map(p=>`<tr>
             <td class="pnum">${p.n}</td>
             <td class="pname">${p.name}</td>
-            <td class="pdesc">${p.desc}</td>
+            <td class="pdesc">${applyTooltips(p.desc)}</td>
           </tr>`).join('')}</tbody>
         </table>
       </div>
