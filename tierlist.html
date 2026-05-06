@@ -8,9 +8,7 @@
 <style>
 /* ── TIERLIST WRAP ── */
 .tierlist-wrap{position:relative;z-index:1;padding:100px 40px 60px;max-width:1200px;margin:0 auto;}
-.tl-intro{position:relative;z-index:2;}
-
-.tl-intro{text-align:center;margin-bottom:48px;}
+.tl-intro{position:relative;z-index:2;text-align:center;margin-bottom:48px;}
 .tl-desc{color:rgba(255,255,255,.55);font-size:1rem;line-height:1.7;max-width:620px;margin:16px auto 24px;}
 .tl-version{display:inline-block;background:linear-gradient(90deg,rgba(155,89,245,.2),rgba(0,229,255,.2));
   border:1px solid rgba(0,229,255,.35);border-radius:20px;padding:6px 22px;
@@ -50,26 +48,81 @@
 .tier-t3   {color:#9be8ff;background:rgba(155,232,255,.08);}
 
 /* Celda de personajes */
-.tl-cell{display:flex;flex-wrap:wrap;align-items:center;gap:8px;
-  padding:12px 10px;border-right:1px solid rgba(255,255,255,.06);min-height:64px;}
+.tl-cell{display:flex;flex-wrap:wrap;align-items:flex-start;gap:10px;
+  padding:12px 10px;border-right:1px solid rgba(255,255,255,.06);min-height:80px;}
 .tl-cell:last-child{border-right:none;}
 
 /* Placeholder vacío */
 .tl-empty{color:rgba(255,255,255,.1);font-size:.75rem;letter-spacing:1px;font-style:italic;}
 
-/* Chip de personaje */
-.tl-chip{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.06);
-  border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:4px 10px;
-  font-size:.78rem;font-weight:700;color:#fff;white-space:nowrap;transition:all .2s;cursor:default;}
-.tl-chip:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.25);}
-.tl-chip-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
-
-/* Placeholder de personaje */
-.tl-placeholder{width:56px;height:56px;border-radius:10px;border:1px dashed rgba(255,255,255,.15);
-  background:rgba(255,255,255,.03);flex-shrink:0;overflow:hidden;}
-.tl-placeholder img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;}
-.tl-placeholder-empty{width:100%;height:100%;display:flex;align-items:center;justify-content:center;
-  color:rgba(255,255,255,.1);font-size:1.2rem;}
+/* ═══ NUEVA TARJETA DE TIERLIST ═══ */
+.tl-card {
+  width: 110px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform .2s, box-shadow .2s;
+  cursor: default;
+}
+.tl-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,.4);
+}
+.tl-card-art {
+  width: 100%;
+  height: 80px;
+  position: relative;
+  overflow: hidden;
+  background-size: cover;
+  background-position: top center;
+}
+.tl-card-art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+.tl-card-art-bg {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tl-card-elem {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.3);
+  z-index: 2;
+}
+.tl-card-body {
+  padding: 6px 8px;
+  background: rgba(10,10,26,.8);
+  border-top: 1px solid rgba(255,255,255,.06);
+  text-align: center;
+}
+.tl-card-name {
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: .6rem;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.tl-card-elname {
+  font-size: .55rem;
+  color: rgba(255,255,255,.35);
+  letter-spacing: 1px;
+  margin-top: 2px;
+}
 
 /* ── RESPONSIVE ── */
 @media(max-width:700px){
@@ -78,9 +131,11 @@
   .tl-row{grid-template-columns:52px repeat(4,1fr);}
   .tl-header-cell{font-size:.55rem;padding:10px 4px;}
   .tl-tier{font-size:.8rem;padding:14px 4px;}
-  .tl-cell{padding:8px 4px;gap:4px;}
-  .tl-chip{font-size:.68rem;padding:3px 7px;gap:4px;}
-  .tl-chip-dot{width:6px;height:6px;}
+  .tl-cell{padding:8px 4px;gap:6px;}
+  .tl-card { width: 90px; }
+  .tl-card-art { height: 65px; }
+  .tl-card-name { font-size: .55rem; }
+  .tl-card-elname { font-size: .5rem; }
 }
 </style>
 </head>
@@ -135,7 +190,7 @@
 <script src="scripts.js" defer></script>
 <script>
 // ════════════════════════════════════════
-// DATOS DE LA TIERLIST — editá acá
+// DATOS DE LA TIERLIST — IRÁS RELLENANDO
 // ════════════════════════════════════════
 const TIERLIST = [
   {
@@ -160,29 +215,38 @@ const TIERLIST = [
 ];
 
 // ════════════════════════════════════════
-// RENDER
+// FUNCIONES DE RENDER
 // ════════════════════════════════════════
-function chipHTML(entry) {
-  // Si tiene id, es un personaje real
+function cardHTML(entry) {
   if (entry.id) {
     const c = CHARS.find(x => x.id === entry.id);
     if (!c) return '';
     const el = EC[c.element];
-    return `<div class="tl-chip">
-      <div class="tl-chip-dot" style="background:${el.color};box-shadow:0 0 5px ${el.color}"></div>
-      ${c.name}
-    </div>`;
+    const artHtml = c.art
+      ? `<img src="${c.art}" alt="${c.name}">`
+      : `<div class="tl-card-art-bg" style="background:${GRAD[c.element]};"></div>`;
+    return `
+      <div class="tl-card">
+        <div class="tl-card-art">
+          ${artHtml}
+          <div class="tl-card-elem" style="background:${el.color};box-shadow:0 0 5px ${el.color};"></div>
+        </div>
+        <div class="tl-card-body">
+          <div class="tl-card-name">${c.name}</div>
+          <div class="tl-card-elname">${el.label}</div>
+        </div>
+      </div>`;
   }
-  // Si es placeholder con art
+  // Si fuera un placeholder genérico (sin id)
   const inner = entry.art
     ? `<img src="${entry.art}" alt="">`
-    : `<div class="tl-placeholder-empty">?</div>`;
-  return `<div class="tl-placeholder">${inner}</div>`;
+    : `<div class="tl-card-art-bg" style="background:rgba(255,255,255,.05);"><span style="color:rgba(255,255,255,.2);">?</span></div>`;
+  return `<div class="tl-card"><div class="tl-card-art">${inner}</div></div>`;
 }
 
 function cellHTML(chars) {
   if (!chars.length) return `<span class="tl-empty">—</span>`;
-  return chars.map(c => chipHTML(c)).join('');
+  return chars.map(c => cardHTML(c)).join('');
 }
 
 function renderTierlist() {
@@ -201,6 +265,3 @@ function renderTierlist() {
 document.addEventListener('DOMContentLoaded', () => {
   renderTierlist();
 });
-</script>
-</body>
-</html>
