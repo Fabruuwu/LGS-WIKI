@@ -198,7 +198,7 @@
 
 .tl-modal-body-row .tl-modal-img {
   flex: 1;
-  height: 360px;                   /* más alto que antes (350px) */
+  height: 420px;                   /* más alto que antes (350px) */
   min-height: 300px;
   position: relative;
 }
@@ -234,15 +234,66 @@
 /* ── RESPONSIVE ── */
 @media(max-width:700px){
   .tierlist-wrap{padding:90px 12px 40px;}
-  .tl-header{grid-template-columns:52px repeat(4,1fr);}
-  .tl-row{grid-template-columns:52px repeat(4,1fr);}
-  .tl-header-cell{font-size:.55rem;padding:10px 4px;}
-  .tl-tier{font-size:.8rem;padding:14px 4px;}
-  .tl-cell{padding:8px 4px;gap:6px;}
-  .tl-card { width: 90px; }
-  .tl-card-art { height: 65px; }
-  .tl-card-name { font-size: .55rem; }
-  .tl-card-elname { font-size: .5rem; }
+
+  /* Ocultar cabecera original */
+  .tl-header { display: none; }
+
+  /* Fila: ahora es un contenedor vertical para cada tier */
+  .tl-row {
+    display: block;
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 14px;
+    margin-bottom: 24px;
+    padding: 16px 12px;
+    background: rgba(255,255,255,.02);
+  }
+
+  /* Tier: se convierte en título centrado */
+  .tl-tier {
+    display: block;
+    text-align: center;
+    font-size: 1.5rem;
+    padding: 8px;
+    margin-bottom: 16px;
+    background: transparent;
+    border: none;
+    font-weight: 900;
+  }
+
+  /* Celda: una por rol, apiladas verticalmente */
+  .tl-cell {
+    display: block;
+    border: none;
+    padding: 10px 0;
+    margin-bottom: 12px;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+  }
+  .tl-cell:last-child { border-bottom: none; }
+
+  /* Etiqueta del rol (usando el atributo data-rol) */
+  .tl-cell::before {
+    content: attr(data-rol);
+    display: block;
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    color: var(--cyan);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+
+  /* Las tarjetas se ajustan al ancho */
+  .tl-card {
+    width: 100%;
+    max-width: 220px;
+    margin: 0 auto;
+  }
+  .tl-card-art { height: 100px; }
+  .tl-card-name { font-size: 0.7rem; }
+  .tl-card-elname { font-size: 0.6rem; }
+
+  /* Ocultamos la línea separadora entre celdas (ya la pusimos con border-bottom) */
+  .tl-cell { border-right: none; }
 }
 </style>
 </head>
@@ -389,10 +440,10 @@ function renderTierlist() {
   body.innerHTML = TIERLIST.map(row => `
     <div class="tl-row">
       <div class="tl-tier ${row.cls}">${row.tier}</div>
-      <div class="tl-cell">${cellHTML(row.dps)}</div>
-      <div class="tl-cell">${cellHTML(row.subdps)}</div>
-      <div class="tl-cell">${cellHTML(row.supp)}</div>
-      <div class="tl-cell">${cellHTML(row.sust)}</div>
+      <div class="tl-cell" data-rol="DPS">${cellHTML(row.dps)}</div>
+      <div class="tl-cell" data-rol="Sub-DPS">${cellHTML(row.subdps)}</div>
+      <div class="tl-cell" data-rol="Soporte">${cellHTML(row.supp)}</div>
+      <div class="tl-cell" data-rol="Sustain">${cellHTML(row.sust)}</div>
     </div>`).join('');
 }
 
