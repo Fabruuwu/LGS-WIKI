@@ -195,16 +195,16 @@
 const TIERLIST = [
   {
     tier:'T0', cls:'tier-t0',
-    dps:    [ {id:1} ],
-    subdps: [],
-    supp:   [],
-    sust:   [],
+    dps:    [ {id:1, img:''} ],                      // ReyDNS · pon aquí la ruta de su carta
+    subdps: [ {id:4, img:''}, {id:3, img:''} ],     // Hawk, Belle
+    supp:   [ {id:3, img:''}, {id:2, img:''} ],     // Belle, Miki
+    sust:   [ {id:25, img:''}, {id:13, img:''} ],   // Escarlata, Poberto
   },
   {
     tier:'T0.5', cls:'tier-t05',
-    dps:    [],
-    subdps: [],
-    supp:   [ {id:2} ],
+    dps:    [ {id:5, img:''}, {id:12, img:''} ],    // Fabru, iKayto
+    subdps: [ {id:10, img:''} ],                    // Quency
+    supp:   [ {id:7, img:''}, {id:19, img:''} ],    // Kyou, Reguta
     sust:   [],
   },
   { tier:'T1',   cls:'tier-t1',  dps:[], subdps:[], supp:[], sust:[] },
@@ -222,8 +222,10 @@ function cardHTML(entry) {
     const c = CHARS.find(x => x.id === entry.id);
     if (!c) return '';
     const el = EC[c.element];
-    const artHtml = c.art
-      ? `<img src="${c.art}" alt="${c.name}">`
+    // Prioridad: 1) imagen explícita en entry.img 2) tierArt en el personaje 3) splash art
+    const imgSrc = entry.img || c.tierArt || c.art;
+    const artHtml = imgSrc
+      ? `<img src="${imgSrc}" alt="${c.name}">`
       : `<div class="tl-card-art-bg" style="background:${GRAD[c.element]};"></div>`;
     return `
       <div class="tl-card">
@@ -237,7 +239,7 @@ function cardHTML(entry) {
         </div>
       </div>`;
   }
-  // Si fuera un placeholder genérico (sin id)
+  // Placeholder genérico sin id
   const inner = entry.art
     ? `<img src="${entry.art}" alt="">`
     : `<div class="tl-card-art-bg" style="background:rgba(255,255,255,.05);"><span style="color:rgba(255,255,255,.2);">?</span></div>`;
