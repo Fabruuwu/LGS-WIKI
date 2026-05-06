@@ -102,7 +102,7 @@ const CHARS=[
       ]
     }
 },
-  {
+{
     id:2, name:'Miki', tagline:'"Nada escapa del tarjetón... ni de mi Furina C6"',
     element:'caos', rarity:5, role:'Soporte / Control', paradigma:'Paradigma del Legado',
     art: 'Personajes 1.0 - tanda 2/Miki.png',
@@ -121,7 +121,7 @@ const CHARS=[
       {
         icon:'🔥', name:'Muteo Temporal', type:'Habilidad',
         flavor:'Activa el protocolo de silencio. El objetivo entra en "Slow-Log".',
-        desc:'85% de probabilidad base de aplicar <strong>"Slow-Log"</strong> por 2 turnos: reduce VEL en <strong>(15%–25%)</strong> e inflige <strong>(30%–40% de la DEF de Miki)</strong> al inicio de cada turno.'
+        desc:'85% de probabilidad base de aplicar <strong>"Slow-Log"</strong> por 2 turnos.'
       },
       {
         icon:'🌟', name:'Reinicio de Tienda', type:'Ultimate',
@@ -131,7 +131,7 @@ const CHARS=[
       {
         icon:'🧠', name:'Agenda del Moderador', type:'Talento',
         flavor:'Miki sabe exactamente cuándo intervenir.',
-        desc:'Cuando un aliado (excepto Miki) usa su Habilidad, Miki gana 1 "Engranaje" (máx. 5). Al llegar a 5, ejecuta un <strong>FUA</strong>: <strong>(60%–130% de su DEF)</strong> como Daño de Vacío. El objetivo reduce su Resistencia a Efectos en <strong>20%</strong> por 2 turnos.'
+        desc:'Cuando un aliado (excepto Miki) usa su Habilidad, Miki gana 1 <strong>"Engranaje"</strong> (máx. 5). Al llegar a 5, ejecuta un <strong>FUA</strong>: <strong>(60%–130% de su DEF)</strong> como Daño de Vacío. El objetivo reduce su Resistencia a Efectos en <strong>20%</strong> por 2 turnos.'
       },
     ],
     passives:[
@@ -141,7 +141,7 @@ const CHARS=[
     ],
     pings:[
       { n:1, name:'Hilo de bienvenida', desc:'Otorga a todo el equipo <strong>+15% de Recarga de Energía</strong> durante los primeros 3 turnos.' },
-      { n:2, name:'Atajos del teclado', desc:'El Talento ahora requiere <strong>4 cargas</strong> en lugar de 5 para el FUA.' },
+      { n:2, name:'Atajos del teclado', desc:'El Talento ahora requiere <strong>4 cargas</strong> en lugar de 5 para el <strong>FUA</strong>.' },
       { n:3, name:'Archivo expandido', desc:'<strong>Habilidad +3 niveles</strong> (máx. nivel 8).' },
       { n:4, name:'Modo sigilo', desc:'Al usar Ataque Básico contra un enemigo con debuff, recupera <strong>15% de HP máx</strong>.' },
       { n:5, name:'Actualización de firmware', desc:'<strong>Ultimate +3 niveles</strong> (máx. nivel 8).' },
@@ -1620,8 +1620,11 @@ document.getElementById('search-input')?.addEventListener('input', e => {
 // ── Datos de Habilidades de Personajes ──
 const EFFECT_TOOLTIPS = {
   "Bala de Ban": "Munición especial en los tambores N°6 o N°12. Siempre es Golpe Crítico e ignora parte de la DEF.",
-  "Quemadura Severa": "Debuff que aumenta el daño de Fuego recibido por el enemigo en un 40% durante 2 turnos.",
+  "Quemadura Severa": "Aumenta el daño de Fuego recibido por el enemigo en un 40% durante 2 turnos.",
   "Tambor de 12 Balas": "Recurso propio de ReyDNS. Comienza con 12 balas y las consume al atacar. Si llega a 0, recarga perdiendo un turno.",
-  "Mantra": "Habilidad especial desbloqueada por el Baneo 3. Inflige daño de Fuego basado en el ATQ total del equipo.",
-  "Bala de Ban (N°6 o N°12)": "Balas con poder de administrador que garantizan crítico e ignoran DEF."
+  "Mantra": "Inflige daño de Fuego basado en el ATQ total del equipo.",
+  "Bala de Ban (N°6 o N°12)": "Balas que garantizan crítico e ignoran DEF.",
+  "Slow-Log": "Debuff que reduce la VEL del objetivo en (15%–25%) y le inflige (30%–40% de la DEF de Miki) al inicio de cada turno.",
+  "Engranaje": "Acumulación que Miki obtiene cuando un aliado usa su Habilidad (máx. 5). Al llegar a 5, los consume para ejecutar un FUA.",
+  "FUA": "Ataque Adicional (Follow-Up Attack) que se ejecuta automáticamente al cumplir ciertas condiciones."
 };
