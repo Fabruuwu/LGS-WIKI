@@ -6,7 +6,6 @@
 <title>Tier List · LGS Wiki</title>
 <link rel="stylesheet" href="styles.css">
 <style>
-/* ── TIERLIST WRAP ── */
 .tierlist-wrap{position:relative;z-index:1;padding:100px 40px 60px;max-width:1200px;margin:0 auto;}
 .tl-intro{position:relative;z-index:2;text-align:center;margin-bottom:48px;}
 .tl-desc{color:rgba(255,255,255,.55);font-size:1rem;line-height:1.7;max-width:620px;margin:16px auto 24px;}
@@ -14,128 +13,60 @@
   border:1px solid rgba(0,229,255,.35);border-radius:20px;padding:6px 22px;
   font-family:'Cinzel Decorative',cursive;font-size:.78rem;letter-spacing:2px;color:var(--cyan);}
 
-/* ── TABLA ── */
 .tl-table{width:100%;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.08);}
-
-/* Cabecera de columnas */
 .tl-header{display:grid;grid-template-columns:80px repeat(4,1fr);background:rgba(255,255,255,.05);}
 .tl-header-cell{padding:14px 10px;text-align:center;font-family:'Cinzel Decorative',cursive;
   font-size:.7rem;letter-spacing:2px;color:rgba(255,255,255,.6);border-right:1px solid rgba(255,255,255,.06);}
 .tl-header-cell:last-child{border-right:none;}
-.tl-header-cell.col-dps    {color:#ff6b6b;}
-.tl-header-cell.col-subdps {color:#ffaa5c;}
-.tl-header-cell.col-supp   {color:#9b59f5;}
-.tl-header-cell.col-sust   {color:#4fc3f7;}
+.tl-header-cell.col-dps{color:#ff6b6b;}
+.tl-header-cell.col-subdps{color:#ffaa5c;}
+.tl-header-cell.col-supp{color:#9b59f5;}
+.tl-header-cell.col-sust{color:#4fc3f7;}
 
-/* Filas */
 .tl-row{display:grid;grid-template-columns:80px repeat(4,1fr);border-top:1px solid rgba(255,255,255,.05);}
 .tl-row:hover{background:rgba(255,255,255,.02);}
-
-/* Celda de tier */
 .tl-tier{display:flex;align-items:center;justify-content:center;padding:18px 8px;
   font-family:'Cinzel Decorative',cursive;font-size:1rem;font-weight:900;
-  letter-spacing:1px;border-right:1px solid rgba(255,255,255,.06);
-  position:relative;}
-.tl-tier::after{content:'';position:absolute;inset:0;opacity:.12;}
+  letter-spacing:1px;border-right:1px solid rgba(255,255,255,.06);}
+.tier-t0  {color:#ff2020;background:rgba(255,32,32,.18);}
+.tier-t05 {color:#ff5e1a;background:rgba(255,94,26,.14);}
+.tier-t1  {color:#ff9500;background:rgba(255,149,0,.12);}
+.tier-t15 {color:#f5c842;background:rgba(245,200,66,.10);}
+.tier-t2  {color:#a8e063;background:rgba(168,224,99,.09);}
+.tier-t25 {color:#56ccf2;background:rgba(86,204,242,.09);}
+.tier-t3  {color:#9be8ff;background:rgba(155,232,255,.08);}
 
-/* Colores de tier — gradiente rojo → celeste */
-.tier-t0   {color:#ff2020;background:rgba(255,32,32,.18);}
-.tier-t05  {color:#ff5e1a;background:rgba(255,94,26,.14);}
-.tier-t1   {color:#ff9500;background:rgba(255,149,0,.12);}
-.tier-t15  {color:#f5c842;background:rgba(245,200,66,.10);}
-.tier-t2   {color:#a8e063;background:rgba(168,224,99,.09);}
-.tier-t25  {color:#56ccf2;background:rgba(86,204,242,.09);}
-.tier-t3   {color:#9be8ff;background:rgba(155,232,255,.08);}
-
-/* Celda de personajes */
 .tl-cell{display:flex;flex-wrap:wrap;align-items:flex-start;gap:10px;
   padding:12px 10px;border-right:1px solid rgba(255,255,255,.06);min-height:80px;}
 .tl-cell:last-child{border-right:none;}
-
-/* Placeholder vacío */
 .tl-empty{color:rgba(255,255,255,.1);font-size:.75rem;letter-spacing:1px;font-style:italic;}
 
-/* ═══ NUEVA TARJETA DE TIERLIST ═══ */
-.tl-card {
-  width: 110px;
-  background: rgba(255,255,255,.04);
-  border: 1px solid rgba(255,255,255,.1);
-  border-radius: 10px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transition: transform .2s, box-shadow .2s;
-  cursor: default;
-}
-.tl-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0,0,0,.4);
-}
-.tl-card-art {
-  width: 100%;
-  height: 80px;
-  position: relative;
-  overflow: hidden;
-  background-size: cover;
-  background-position: top center;
-}
-.tl-card-art img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top center;
-  display: block;
-}
-.tl-card-art-bg {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.tl-card-elem {
-  position: absolute;
-  top: 5px;
-  left: 5px;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  border: 1px solid rgba(255,255,255,.3);
-  z-index: 2;
-}
-.tl-card-body {
-  padding: 6px 8px;
-  background: rgba(10,10,26,.8);
-  border-top: 1px solid rgba(255,255,255,.06);
-  text-align: center;
-}
-.tl-card-name {
-  font-family: 'Cinzel Decorative', cursive;
-  font-size: .6rem;
-  color: #fff;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.tl-card-elname {
-  font-size: .55rem;
-  color: rgba(255,255,255,.35);
-  letter-spacing: 1px;
-  margin-top: 2px;
-}
+/* Tarjeta */
+.tl-card{width:110px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);
+  border-radius:10px;overflow:hidden;display:flex;flex-direction:column;
+  transition:transform .2s,box-shadow .2s;cursor:default;}
+.tl-card:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(0,0,0,.4);}
+.tl-card-art{width:100%;height:80px;position:relative;overflow:hidden;}
+.tl-card-art img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;}
+.tl-card-art-bg{width:100%;height:100%;display:flex;align-items:center;justify-content:center;
+  font-size:1.4rem;color:rgba(255,255,255,.15);}
+.tl-card-elem{position:absolute;top:5px;left:5px;width:10px;height:10px;
+  border-radius:50%;border:1px solid rgba(255,255,255,.3);z-index:2;}
+.tl-card-body{padding:6px 8px;background:rgba(10,10,26,.8);
+  border-top:1px solid rgba(255,255,255,.06);text-align:center;}
+.tl-card-name{font-family:'Cinzel Decorative',cursive;font-size:.6rem;color:#fff;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.tl-card-elname{font-size:.55rem;color:rgba(255,255,255,.35);letter-spacing:1px;margin-top:2px;}
 
-/* ── RESPONSIVE ── */
 @media(max-width:700px){
   .tierlist-wrap{padding:90px 12px 40px;}
-  .tl-header{grid-template-columns:52px repeat(4,1fr);}
-  .tl-row{grid-template-columns:52px repeat(4,1fr);}
+  .tl-header,.tl-row{grid-template-columns:52px repeat(4,1fr);}
   .tl-header-cell{font-size:.55rem;padding:10px 4px;}
   .tl-tier{font-size:.8rem;padding:14px 4px;}
   .tl-cell{padding:8px 4px;gap:6px;}
-  .tl-card { width: 90px; }
-  .tl-card-art { height: 65px; }
-  .tl-card-name { font-size: .55rem; }
-  .tl-card-elname { font-size: .5rem; }
+  .tl-card{width:80px;}
+  .tl-card-art{height:60px;}
+  .tl-card-name{font-size:.52rem;}
 }
 </style>
 </head>
@@ -157,22 +88,14 @@
 </nav>
 
 <div class="tierlist-wrap">
-
-  <!-- INTRO -->
   <div class="tl-intro">
     <div class="section-badge">✦ Meta ✦</div>
     <h1 class="section-title">Tier List</h1>
-    <p class="tl-desc">
-      Clasificación de todos los personajes del universo LGS según su rendimiento en el meta actual.
-      Los tiers reflejan el potencial máximo de cada personaje en su rol, considerando habilidades, sinergias y estadísticas base.
-    </p>
+    <p class="tl-desc">Clasificación de todos los personajes del universo LGS según su rendimiento en el meta actual. Los tiers reflejan el potencial máximo de cada personaje en su rol, considerando habilidades, sinergias y estadísticas base.</p>
     <div class="tl-version">Tier List General · V1.0</div>
   </div>
 
-  <!-- TABLA -->
   <div class="tl-table">
-
-    <!-- Cabecera -->
     <div class="tl-header">
       <div class="tl-header-cell"></div>
       <div class="tl-header-cell col-dps">⚔️ DPS</div>
@@ -180,31 +103,31 @@
       <div class="tl-header-cell col-supp">✨ Soporte</div>
       <div class="tl-header-cell col-sust">💚 Sustain</div>
     </div>
-
-    <!-- Filas generadas por JS -->
     <div id="tl-body"></div>
-
   </div>
 </div>
 
-<script src="scripts.js"></script>
-<script>
-// ════════════════════════════════════════
-// DATOS DE LA TIERLIST — IRÁS RELLENANDO
-// ════════════════════════════════════════
+<!-- scripts.js PRIMERO, luego el script de tierlist -->
+<script src="scripts.js" defer></script>
+<script defer>
 const TIERLIST = [
   {
     tier:'T0', cls:'tier-t0',
-    dps:    [ {id:1, img:'Personajes 1.0 De frente/ReyDNS.jpg'} ],                      // ReyDNS · pon aquí la ruta de su carta
-    subdps: [ {id:4, img:'Personajes 1.0 De frente/Hawk.jpg'}, {id:3, img:'Personajes 1.0 De frente/Belle.jpg'} ],     // Hawk, Belle
-    supp:   [ {id:3, img:'Personajes 1.0 De frente/Belle.jpg'}, {id:2, img:'Personajes 1.0 De frente/Miki.jpg'} ],     // Belle, Miki
-    sust:   [ {id:25, img:'Personajes 1.0 De frente/Escarlata.jpg'}, {id:13, img:'Personajes 1.0 De frente/Poberto.jpg'} ],   // Escarlata, Poberto
+    dps:    [ {id:1,  img:'Personajes 1.0 De frente/ReyDNS.jpg'} ],
+    subdps: [ {id:4,  img:'Personajes 1.0 De frente/Hawk.jpg'},
+              {id:3,  img:'Personajes 1.0 De frente/Belle.jpg'} ],
+    supp:   [ {id:3,  img:'Personajes 1.0 De frente/Belle.jpg'},
+              {id:2,  img:'Personajes 1.0 De frente/Miki.jpg'} ],
+    sust:   [ {img:'Personajes 1.0 De frente/Escarlata.jpg'},
+              {img:'Personajes 1.0 De frente/Poberto.jpg'} ],
   },
   {
     tier:'T0.5', cls:'tier-t05',
-    dps:    [ {id:5, img:'Personajes 1.0 De frente/Fabru.jpg'}, {id:12, img:'Personajes 1.0 De frente/iKayto.jpg'} ],    // Fabru, iKayto
-    subdps: [ {id:10, img:'Personajes 1.0 De frente/Quency.jpg'} ],                    // Quency
-    supp:   [ {id:7, img:'Personajes 1.0 De frente/Kyou.jpg'}, {id:19, img:'Personajes 1.0 De frente/Reguta.jpg'} ],    // Kyou, Reguta
+    dps:    [ {id:5,  img:'Personajes 1.0 De frente/Fabru.jpg'},
+              {img:'Personajes 1.0 De frente/iKayto.jpg'} ],
+    subdps: [ {img:'Personajes 1.0 De frente/Quency.jpg'} ],
+    supp:   [ {img:'Personajes 1.0 De frente/Kyou.jpg'},
+              {img:'Personajes 1.0 De frente/Reguta.jpg'} ],
     sust:   [],
   },
   { tier:'T1',   cls:'tier-t1',  dps:[], subdps:[], supp:[], sust:[] },
@@ -214,36 +137,29 @@ const TIERLIST = [
   { tier:'T3',   cls:'tier-t3',  dps:[], subdps:[], supp:[], sust:[] },
 ];
 
-// ════════════════════════════════════════
-// FUNCIONES DE RENDER
-// ════════════════════════════════════════
 function cardHTML(entry) {
-  if (entry.id) {
-    const c = CHARS.find(x => x.id === entry.id);
-    if (!c) return '';
-    const el = EC[c.element];
-    // Prioridad: 1) imagen explícita en entry.img 2) tierArt en el personaje 3) splash art
-    const imgSrc = entry.img || c.tierArt || c.art;
-    const artHtml = imgSrc
-      ? `<img src="${imgSrc}" alt="${c.name}">`
-      : `<div class="tl-card-art-bg" style="background:${GRAD[c.element]};"></div>`;
-    return `
-      <div class="tl-card">
-        <div class="tl-card-art">
-          ${artHtml}
-          <div class="tl-card-elem" style="background:${el.color};box-shadow:0 0 5px ${el.color};"></div>
-        </div>
-        <div class="tl-card-body">
-          <div class="tl-card-name">${c.name}</div>
-          <div class="tl-card-elname">${el.label}</div>
-        </div>
-      </div>`;
-  }
-  // Placeholder genérico sin id
-  const inner = entry.art
-    ? `<img src="${entry.art}" alt="">`
-    : `<div class="tl-card-art-bg" style="background:rgba(255,255,255,.05);"><span style="color:rgba(255,255,255,.2);">?</span></div>`;
-  return `<div class="tl-card"><div class="tl-card-art">${inner}</div></div>`;
+  const c = entry.id ? CHARS.find(x => x.id === entry.id) : null;
+  const el = c ? EC[c.element] : null;
+  const imgSrc = entry.img || (c ? c.art : null);
+
+  const artHtml = imgSrc
+    ? `<img src="${imgSrc}" alt="${c ? c.name : ''}">`
+    : `<div class="tl-card-art-bg" style="${c ? 'background:'+GRAD[c.element] : 'background:rgba(255,255,255,.04)'}">?</div>`;
+
+  const elemDot = el
+    ? `<div class="tl-card-elem" style="background:${el.color};box-shadow:0 0 5px ${el.color};"></div>`
+    : '';
+
+  const body = c ? `
+    <div class="tl-card-body">
+      <div class="tl-card-name">${c.name}</div>
+      <div class="tl-card-elname">${el.label}</div>
+    </div>` : '';
+
+  return `<div class="tl-card">
+    <div class="tl-card-art">${artHtml}${elemDot}</div>
+    ${body}
+  </div>`;
 }
 
 function cellHTML(chars) {
@@ -267,3 +183,6 @@ function renderTierlist() {
 document.addEventListener('DOMContentLoaded', () => {
   renderTierlist();
 });
+</script>
+</body>
+</html>
