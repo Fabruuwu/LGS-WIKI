@@ -57,7 +57,7 @@
   display: flex;
   flex-direction: column;
   transition: transform .2s, box-shadow .2s;
-  cursor: default;
+  cursor: pointer; /* cambio para indicar clickeable */
 }
 .tl-card:hover {
   transform: translateY(-3px);
@@ -118,6 +118,69 @@
   margin-top: 2px;
 }
 
+/* ── MODAL DE TIERLIST ── */
+.tl-modal-overlay {
+  position: fixed; inset: 0; z-index: 1000;
+  background: rgba(0,0,0,.85); backdrop-filter: blur(6px);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none; transition: opacity .25s;
+}
+.tl-modal-overlay.open { opacity: 1; pointer-events: all; }
+
+.tl-modal-card {
+  width: 280px;
+  background: #0f0f24;
+  border: 1px solid rgba(155,89,245,.4);
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  transform: translateY(20px);
+  transition: transform .25s;
+}
+.tl-modal-overlay.open .tl-modal-card { transform: translateY(0); }
+
+.tl-modal-close {
+  position: absolute; top: 10px; right: 10px; z-index: 10;
+  background: rgba(0,0,0,.6); border: 1px solid rgba(255,255,255,.2);
+  color: #fff; width: 30px; height: 30px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; font-size: 1rem; transition: background .2s;
+}
+.tl-modal-close:hover { background: rgba(255,79,163,.6); }
+
+.tl-modal-img {
+  position: relative;
+  width: 100%; height: 350px;
+  overflow: hidden;
+}
+.tl-modal-img img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: top center;
+  display: block;
+}
+.tl-modal-elem {
+  position: absolute; top: 10px; left: 10px;
+  width: 14px; height: 14px; border-radius: 50%;
+  border: 2px solid rgba(255,255,255,.3);
+  z-index: 2;
+}
+.tl-modal-rarity {
+  position: absolute; top: 10px; right: 10px;
+  background: rgba(0,0,0,.55); border-radius: 12px;
+  padding: 4px 10px; backdrop-filter: blur(4px);
+  color: var(--gold); font-size: 0.9rem;
+  letter-spacing: 2px; z-index: 2;
+}
+.tl-modal-name {
+  padding: 14px;
+  background: rgba(10,10,26,.9);
+  margin: 0;
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 1.1rem; color: #fff;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
 /* ── RESPONSIVE ── */
 @media(max-width:700px){
   .tierlist-wrap{padding:90px 12px 40px;}
@@ -170,6 +233,19 @@
       <div class="tl-header-cell col-sust">💚 Sustain</div>
     </div>
     <div id="tl-body"></div>
+  </div>
+</div>
+
+<!-- Modal de la tierlist (fuera del flujo principal) -->
+<div class="tl-modal-overlay" id="tl-modal-overlay">
+  <div class="tl-modal-card">
+    <button class="tl-modal-close" id="tl-modal-close">✕</button>
+    <div class="tl-modal-img">
+      <img id="tl-modal-img" src="" alt="">
+      <div class="tl-modal-elem" id="tl-modal-elem"></div>
+      <div class="tl-modal-rarity" id="tl-modal-rarity"></div>
+    </div>
+    <div class="tl-modal-name" id="tl-modal-name"></div>
   </div>
 </div>
 
@@ -230,8 +306,9 @@ function cardHTML(entry) {
     const artHtml = imgSrc
       ? `<img src="${imgSrc}" alt="${c.name}">`
       : `<div class="tl-card-art-bg" style="background:${GRAD[c.element]};"></div>`;
+    // Agregamos data-atributos para el modal
     return `
-      <div class="tl-card">
+      <div class="tl-card" data-id="${c.id}" data-img="${imgSrc || ''}">
         <div class="tl-card-art">
           ${artHtml}
           <div class="tl-card-elem" style="background:${el.color};box-shadow:0 0 5px ${el.color};"></div>
@@ -267,9 +344,43 @@ function renderTierlist() {
     </div>`).join('');
 }
 
+// ════════════════════════════════════════
+// MODAL DE LA TIERLIST
+// ════════════════════════════════════════
 document.addEventListener('DOMContentLoaded', () => {
   renderTierlist();
+
+  // Evento delegado en el cuerpo de la tabla
+  document.getElementById('tl-body')?.addEventListener('click', (e) => {
+    const card = e.target.closest('.tl-card');
+    if (!card) return;
+    const id = parseInt(card.dataset.id);
+    const imgSrc = card.dataset.img;
+    if (id && imgSrc) openTierModal(id, imgSrc);
+  });
+
+  document.getElementById('tl-modal-close')?.addEventListener('click', closeTierModal);
+  document.getElementById('tl-modal-overlay')?.addEventListener('click', (e) => {
+    if (e.target === e.currentTarget) closeTierModal();
+  });
 });
+
+function openTierModal(id, imgSrc) {
+  const c = CHARS.find(x => x.id === id);
+  if (!c) return;
+  const el = EC[c.element];
+  document.getElementById('tl-modal-img').src = imgSrc;
+  const elemBadge = document.getElementById('tl-modal-elem');
+  elemBadge.style.background = el.color;
+  elemBadge.style.boxShadow = `0 0 8px ${el.color}`;
+  document.getElementById('tl-modal-rarity').innerHTML = stars(c.rarity);
+  document.getElementById('tl-modal-name').textContent = c.name;
+  document.getElementById('tl-modal-overlay').classList.add('open');
+}
+
+function closeTierModal() {
+  document.getElementById('tl-modal-overlay').classList.remove('open');
+}
 </script>
 </body>
 </html>
