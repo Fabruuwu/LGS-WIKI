@@ -422,6 +422,10 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+function closeTierModal() {
+  document.getElementById('tl-modal-overlay').classList.remove('open');
+}
+
 function openTierModal(id, imgSrc) {
   const c = CHARS.find(x => x.id === id);
   if (!c) return;
