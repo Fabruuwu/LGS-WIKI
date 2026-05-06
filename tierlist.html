@@ -235,64 +235,67 @@
 @media(max-width:700px){
   .tierlist-wrap{padding:90px 12px 40px;}
 
-  /* Ocultar cabecera original */
+  /* Ocultamos la cabecera de columnas */
   .tl-header { display: none; }
 
-  /* Fila: ahora es un contenedor vertical para cada tier */
+  /* Fila: ahora es un bloque contenedor del tier */
   .tl-row {
     display: block;
     border: 1px solid rgba(255,255,255,.1);
     border-radius: 14px;
-    margin-bottom: 24px;
-    padding: 16px 12px;
+    margin-bottom: 30px;
+    padding: 18px 14px;
     background: rgba(255,255,255,.02);
   }
 
-  /* Tier: se convierte en título centrado */
+  /* Tier: título grande centrado */
   .tl-tier {
     display: block;
     text-align: center;
-    font-size: 1.5rem;
-    padding: 8px;
-    margin-bottom: 16px;
+    font-size: 1.8rem;
+    padding: 6px;
+    margin-bottom: 20px;
     background: transparent;
     border: none;
     font-weight: 900;
   }
 
-  /* Celda: una por rol, apiladas verticalmente */
+  /* Celda: una por categoría, apiladas */
   .tl-cell {
-    display: block;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: flex-start;
     border: none;
     padding: 10px 0;
-    margin-bottom: 12px;
+    margin-bottom: 16px;
     border-bottom: 1px solid rgba(255,255,255,.08);
   }
   .tl-cell:last-child { border-bottom: none; }
 
-  /* Etiqueta del rol (usando el atributo data-rol) */
+  /* Etiqueta del rol (sale del data-rol) */
   .tl-cell::before {
     content: attr(data-rol);
     display: block;
+    width: 100%;
     font-family: 'Cinzel Decorative', cursive;
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     letter-spacing: 2px;
     color: var(--cyan);
     margin-bottom: 8px;
     text-transform: uppercase;
   }
 
-  /* Las tarjetas se ajustan al ancho */
+  /* Tarjetas más anchas y centradas */
   .tl-card {
-    width: 100%;
-    max-width: 220px;
-    margin: 0 auto;
+    width: calc(50% - 8px);
+    max-width: 180px;
   }
-  .tl-card-art { height: 100px; }
+  .tl-card-art { height: 110px; }
   .tl-card-name { font-size: 0.7rem; }
   .tl-card-elname { font-size: 0.6rem; }
 
-  /* Ocultamos la línea separadora entre celdas (ya la pusimos con border-bottom) */
+  /* Aseguramos que el borde lateral no moleste */
   .tl-cell { border-right: none; }
 }
 </style>
