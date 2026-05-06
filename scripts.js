@@ -362,8 +362,8 @@ const CHARS=[
       { n:5, name:'Bis, Bis', desc:'<strong>Ultimate +3 niveles</strong> (máx. nivel 8).' },
       { n:6, name:'Truco Final', desc:'Al comenzar un turno, puede elegir la combinación que más le guste durante 1 turno. Luego obtiene 5 <strong>Naipes</strong> aleatorios y 1 <strong>"Comodín Tocado"</strong> (puede elegir "As" incluso en el turno 1).' }
     ]
-}
-,{
+},
+{
     id:7, name:'Kyou', tagline:'"Sabe más de ti que tú mismo. Y lo usa."',
     element:'electro', rarity:5, role:'Soporte / Debuffer', paradigma:'Paradigma del Warn',
     art: 'Personajes 1.0 - tanda 2/Kyou.png',
@@ -377,36 +377,36 @@ const CHARS=[
       {
         icon:'🗡️', name:'Pulso de Datos', type:'Ataque Básico',
         flavor:'Dispara un paquete de información corrupta desde su tablet. Un spoiler duele.',
-        desc:'Inflige <strong>(45%–95% del ATQ)</strong> como Daño de Rayo a un enemigo. Aplica <strong>"Marca de Vulnerabilidad"</strong> durante 2 turnos: el objetivo recibe un 10% más de daño de todas las fuentes.'
+        desc:'Inflige <strong>(45%–95% del ATQ)</strong> como Daño de Rayo. Aplica <strong>"Marca de Vulnerabilidad"</strong> durante 2 turnos.'
       },
       {
         icon:'🔥', name:'Filtración Selectiva', type:'Habilidad',
         flavor:'Kyou hackea los sistemas enemigos y expone sus puntos débiles a todo el equipo.',
-        desc:'Inflige <strong>(40%–90% del ATQ)</strong> como Daño de Rayo a un enemigo. Aplica <strong>"Vulnerabilidad Expuesta"</strong> durante 2 turnos: reduce la DEF del objetivo en <strong>(20%–35%)</strong>. Si el enemigo ya tenía "Marca de Vulnerabilidad", extiende la duración de todos los debuffs activos en ese enemigo en 1 turno.'
+        desc:'Inflige <strong>(40%–90% del ATQ)</strong> como Daño de Rayo. Aplica <strong>"Vulnerabilidad Expuesta"</strong> durante 2 turnos. Si el enemigo ya tenía <strong>"Marca de Vulnerabilidad"</strong>, extiende la duración de todos sus debuffs en 1 turno.'
       },
       {
         icon:'🌟', name:'Mega Filtración', type:'Ultimate',
         flavor:'Todos los hologramas se activan a la vez. Una explosión de datos clasificados inunda el campo.',
-        desc:'Inflige <strong>(120%–260% del ATQ)</strong> como Daño de Rayo a todos los enemigos. Aplica <strong>"Secreto al Descubierto"</strong> (2 turnos): los enemigos reciben un 15% más de daño de todos los elementos. Aplica instantáneamente <strong>"Filtración de Datos"</strong>: el próximo ataque que reciba cada enemigo inflige un 30% más de daño (se consume tras un golpe).'
+        desc:'Inflige <strong>(120%–260% del ATQ)</strong> como Daño de Rayo a todos. Aplica <strong>"Secreto al Descubierto"</strong> (2 turnos) y <strong>"Filtración de Datos"</strong>.'
       },
       {
         icon:'🧠', name:'Información Clasificada', type:'Talento',
         flavor:'Kyou registra cada acción enemiga y convierte los secretos en armas para el equipo.',
-        desc:'Cuando un enemigo afectado por un debuff de Kyou recibe daño de un aliado, Kyou obtiene 1 <strong>Expediente</strong> (máx. 5). Por cada Expediente, el Daño de Rayo de todo el equipo aumenta en un <strong>4%</strong> (máx. +20%). Al usar su Habilidad, puede consumir hasta 3 Expedientes para aplicar debuffs adicionales aleatorios: <strong>Ralentización</strong> (-20% VEL, 1 turno), <strong>Ceguera</strong> (50% de fallar ataques, 1 turno) o <strong>Quemadura de Datos</strong> (30% del ATQ de Kyou al inicio del turno, 1 turno).'
+        desc:'Cuando un enemigo con debuff de Kyou recibe daño de un aliado, Kyou obtiene 1 <strong>"Expediente"</strong> (máx. 5). Pasiva: +4% Daño de Rayo del equipo por Expediente (máx. +20%). Al usar la Habilidad, puede consumir hasta 3 Expedientes y aplicar debuffs adicionales: <strong>Ralentización</strong>, <strong>Ceguera</strong> o <strong>Quemadura de Datos</strong>.'
       },
     ],
     passives:[
-      { name:'Acceso Remoto', desc:'Al inicio del combate, aplica "Marca de Vulnerabilidad" a un enemigo aleatorio.' },
+      { name:'Acceso Remoto', desc:'Al inicio del combate, aplica <strong>"Marca de Vulnerabilidad"</strong> a un enemigo aleatorio.' },
       { name:'Cortafuegos Débil', desc:'Los enemigos con debuffs infligen un <strong>10% menos de daño</strong> a Kyou.' },
-      { name:'Dato Filtrado', desc:'Cuando un enemigo muere con la "Marca de Vulnerabilidad", Kyou obtiene 1 Expediente.' }
+      { name:'Dato Filtrado', desc:'Cuando un enemigo muere con <strong>"Marca de Vulnerabilidad"</strong>, Kyou obtiene 1 <strong>"Expediente"</strong>.' }
     ],
     pings:[
-      { n:1, name:'Datos en Tiempo Real', desc:'Al inicio del combate, Kyou obtiene 2 Expedientes y el límite máximo pasa a <strong>6</strong>.' },
-      { n:2, name:'Informe Detallado', desc:'Los enemigos con "Vulnerabilidad Expuesta" reciben un <strong>20% más de daño de Rayo</strong>.' },
+      { n:1, name:'Datos en Tiempo Real', desc:'Al inicio del combate, Kyou obtiene 2 <strong>"Expedientes"</strong> y el límite máximo pasa a <strong>6</strong>.' },
+      { n:2, name:'Informe Detallado', desc:'Los enemigos con <strong>"Vulnerabilidad Expuesta"</strong> reciben un <strong>20% más de daño de Rayo</strong>.' },
       { n:3, name:'Análisis Avanzado', desc:'<strong>Habilidad +3 niveles</strong> (máx. nivel 8).' },
-      { n:4, name:'Correo Masivo', desc:'Cuando la Ultimate aplica "Filtración de Datos", también aplica "Marca de Vulnerabilidad" a todos los enemigos.' },
+      { n:4, name:'Correo Masivo', desc:'Cuando la Ultimate aplica <strong>"Filtración de Datos"</strong>, también aplica <strong>"Marca de Vulnerabilidad"</strong> a todos los enemigos.' },
       { n:5, name:'Informe Final', desc:'<strong>Ultimate +3 niveles</strong> (máx. nivel 8).' },
-      { n:6, name:'Filtración Total', desc:'La Ultimate ahora consume todos los Expedientes. Por cada uno, el daño de la Ultimate aumenta un <strong>15%</strong> y aplica un debuff aleatorio del Talento a cada enemigo.' }
+      { n:6, name:'Filtración Total', desc:'La Ultimate ahora consume todos los <strong>"Expedientes"</strong>. Por cada uno, el daño de la Ultimate aumenta un <strong>15%</strong> y aplica un debuff aleatorio del Talento a cada enemigo.' }
     ]
 },
 {
@@ -423,36 +423,36 @@ const CHARS=[
       {
         icon:'🗡️', name:'Estocada Silente', type:'Ataque Básico',
         flavor:'Un golpe rápido con la espada de hielo, tan silencioso como un muteo.',
-        desc:'Inflige <strong>(50%–115% del ATQ)</strong> como Daño de Hielo a un enemigo. Si el enemigo ya está Ralentizado o Congelado, genera 1 acumulación de <strong>"Rosa Gélida"</strong> (máx. 3).'
+        desc:'Inflige <strong>(50%–115% del ATQ)</strong> como Daño de Hielo. Si el enemigo está <strong>Ralentizado</strong> o <strong>Congelado</strong>, genera 1 <strong>"Rosa Gélida"</strong> (máx. 3).'
       },
       {
         icon:'🔥', name:'Vórtice de Pétalos', type:'Habilidad',
         flavor:'Ttlim gira su espada creando un remolino de pétalos de rosa congelados.',
-        desc:'Inflige <strong>(90%–200% del ATQ)</strong> como Daño de Hielo a un enemigo y adyacentes. 80% de prob. base de aplicar <strong>Ralentización</strong> (2 turnos, -25% VEL). Si ya estaba Ralentizado, 50% de prob. de aplicar <strong>Congelación</strong> (Aturdimiento 1 turno; al descongelarse recibe 20% del ATQ de Ttlim como daño adicional).'
+        desc:'Inflige <strong>(90%–200% del ATQ)</strong> como Daño de Hielo a un enemigo y adyacentes. 80% de prob. base de aplicar <strong>Ralentización</strong> (2 turnos). Si ya estaba Ralentizado, 50% de prob. de aplicar <strong>Congelación</strong>.'
       },
       {
         icon:'🌟', name:'Sentencia del Templo Helado', type:'Ultimate',
         flavor:'Ttlim clava la espada en el suelo. El templo responde con grietas de luz azul.',
-        desc:'Inflige <strong>(160%–350% del ATQ)</strong> como Daño de Hielo a todos los enemigos. Si hay enemigos Ralentizados o Congelados, +30% de daño y los <strong>Congela a todos</strong> durante 1 turno. Crea un <strong>Campo Congelado</strong> (2 turnos): -15% VEL y +15% daño de Hielo recibido dentro de él.'
+        desc:'Inflige <strong>(160%–350% del ATQ)</strong> como Daño de Hielo a todos los enemigos. Si hay enemigos <strong>Ralentizados</strong> o <strong>Congelados</strong>, +30% de daño y los <strong>Congela</strong> a todos (1 turno). Crea un <strong>"Campo Congelado"</strong> (2 turnos) que reduce VEL y aumenta el daño de Hielo recibido.'
       },
       {
         icon:'🧠', name:'Rosas de la Condena', type:'Talento',
         flavor:'Convertir el silencio en una sentencia hermosa y letal.',
-        desc:'Cada vez que Ttlim aplica Ralentización o Congelación (o rompe Congelación), obtiene 1 <strong>"Rosa Gélida"</strong> (máx. 3). Al alcanzar 3, su siguiente ataque las consume para: aumentar su daño en <strong>(30%–65%)</strong>, ignorar 20% de la DEF del objetivo y extender 1 turno los debuffs de Hielo activos en los enemigos golpeados.'
+        desc:'Al aplicar <strong>Ralentización</strong> o <strong>Congelación</strong> obtiene 1 <strong>"Rosa Gélida"</strong> (máx. 3). Al llegar a 3, su siguiente ataque las consume: daño aumentado, ignora 20% DEF y extiende 1 turno los debuffs de Hielo.'
       },
     ],
     passives:[
-      { name:'Escarcha Persistente', desc:'Los enemigos Ralentizados por Ttlim reducen su ATQ en un <strong>10%</strong>.' },
+      { name:'Escarcha Persistente', desc:'Los enemigos <strong>Ralentizados</strong> por Ttlim reducen su ATQ en un <strong>10%</strong>.' },
       { name:'Silencio en el Templo', desc:'Al inicio del combate, aplica <strong>Ralentización</strong> (1 turno) a todos los enemigos (no genera Rosas Gélidas).' },
-      { name:'Hoja Eterna', desc:'Cuando Ttlim consume Rosas Gélidas, recupera <strong>10 puntos de Energía</strong>.' }
+      { name:'Hoja Eterna', desc:'Al consumir <strong>"Rosas Gélidas"</strong>, recupera <strong>10 puntos de Energía</strong>.' }
     ],
     pings:[
-      { n:1, name:'Bienvenida Helada', desc:'Al aplicar Congelación con la Habilidad, el daño de descongelación aumenta un <strong>50%</strong> y genera 1 Rosa Gélida adicional.' },
-      { n:2, name:'Grieta Rúnica', desc:'El Campo Congelado de la Ultimate ahora dura <strong>3 turnos</strong> y reduce la DEF de los enemigos dentro en un <strong>15%</strong>.' },
+      { n:1, name:'Bienvenida Helada', desc:'Al aplicar <strong>Congelación</strong> con la Habilidad, el daño de descongelación aumenta un <strong>50%</strong> y genera 1 <strong>"Rosa Gélida"</strong> adicional.' },
+      { n:2, name:'Grieta Rúnica', desc:'El <strong>"Campo Congelado"</strong> ahora dura <strong>3 turnos</strong> y reduce la DEF enemiga en un <strong>15%</strong>.' },
       { n:3, name:'Mandato del Silencio', desc:'<strong>Habilidad +3 niveles</strong> (máx. nivel 8).' },
-      { n:4, name:'Guardia del Templo', desc:'Con 2+ Rosas Gélidas, Ttlim recibe <strong>20% menos de daño</strong>. Al consumirlas, ese bono se transfiere al aliado con menos HP por 2 turnos.' },
+      { n:4, name:'Guardia del Templo', desc:'Con 2+ <strong>"Rosas Gélidas"</strong>, Ttlim recibe <strong>20% menos de daño</strong>. Al consumirlas, el bono pasa al aliado con menos HP por 2 turnos.' },
       { n:5, name:'Cero Absoluto', desc:'<strong>Ultimate +3 niveles</strong> (máx. nivel 8).' },
-      { n:6, name:'Eco de la Rosa Eterna', desc:'Cuando un enemigo muere congelado o ralentizado, Ttlim obtiene <strong>3 Rosas Gélidas</strong> de inmediato y avanza su siguiente acción un 50%.' }
+      { n:6, name:'Eco de la Rosa Eterna', desc:'Cuando un enemigo muere <strong>Congelado</strong> o <strong>Ralentizado</strong>, Ttlim obtiene <strong>3 "Rosas Gélidas"</strong> y avanza su siguiente acción un 50%.' }
     ]
 },
 {
@@ -469,36 +469,36 @@ const CHARS=[
       {
         icon:'🗡️', name:'Estocada de Asfalto', type:'Ataque Básico',
         flavor:'Un golpe seco con la lanza que deja una marca resplandeciente.',
-        desc:'Inflige <strong>(50%–120% del ATQ)</strong> como Daño de Fuego a un enemigo. Aplica <strong>"Marca del Fragmento"</strong> (2 turnos): el enemigo recibe un 10% más de daño de Fuego de todo el equipo.'
+        desc:'Inflige <strong>(50%–120% del ATQ)</strong> como Daño de Fuego. Aplica <strong>"Marca del Fragmento"</strong> (2 turnos).'
       },
       {
         icon:'🔥', name:'Emboscada Abrasadora', type:'Habilidad',
         flavor:'Cris salta y estrella la lanza contra el suelo, haciendo temblar los escombros.',
-        desc:'Inflige <strong>(110%–240% del ATQ)</strong> como Daño de Fuego a un enemigo y adyacentes. Si el objetivo principal tiene "Marca del Fragmento", esta explota causando <strong>(30%–70% del ATQ)</strong> adicional y aplica <strong>"Quemadura"</strong> (2 turnos). La explosión genera 1 <strong>Fragmento de Espejo</strong>.'
+        desc:'Inflige <strong>(110%–240% del ATQ)</strong> como Daño de Fuego a un enemigo y adyacentes. Si el objetivo tiene <strong>"Marca del Fragmento"</strong>, esta explota causando daño adicional y aplica <strong>"Quemadura"</strong>. Genera 1 <strong>"Fragmento de Espejo"</strong>.'
       },
       {
         icon:'🌟', name:'Tormenta de Cristal y Fuego', type:'Ultimate',
         flavor:'La cadena de la lanza se extiende. Cris gira creando un torbellino de llamas y espejos rotos.',
-        desc:'Inflige <strong>(180%–350% del ATQ)</strong> como Daño de Fuego a todos los enemigos. Consume todos los <strong>Fragmentos de Espejo</strong>: por cada uno, el daño de este ataque aumenta un <strong>15%</strong>. Si consume 3+, ignora un <strong>30% de la DEF</strong> enemiga.'
+        desc:'Inflige <strong>(180%–350% del ATQ)</strong> como Daño de Fuego a todos. Consume todos los <strong>"Fragmentos de Espejo"</strong>: +15% daño por cada uno. Si consume 3+, ignora el <strong>30% de la DEF</strong> enemiga.'
       },
       {
         icon:'🧠', name:'Reflejos del Fin', type:'Talento',
         flavor:'El caos de la batalla alimenta su poder. Cada grieta, cada enemigo roto, es un arma.',
-        desc:'Cris acumula hasta 5 <strong>Fragmentos de Espejo</strong>. Obtiene 1 Fragmento cada vez que: cualquier enemigo muere, o un aliado rompe un escudo enemigo. Cada Fragmento aumenta el Daño Crítico de Cris en un <strong>4%</strong> (máx. 20%). Al iniciar el combate, si hay 2+ enemigos, obtiene 2 Fragmentos.'
+        desc:'Acumula hasta 5 <strong>"Fragmentos de Espejo"</strong>. Obtiene 1 al morir un enemigo o romper un escudo. Cada Fragmento otorga +4% Daño Crítico (máx. +20%). Al inicio del combate, si hay 2+ enemigos, obtiene 2 Fragmentos.'
       },
     ],
     passives:[
-      { name:'Calles en Llamas', desc:'Los enemigos con "Quemadura" infligen un <strong>10% menos de ATQ</strong>.' },
-      { name:'Escombros Filosos', desc:'Cuando un enemigo muere con "Marca del Fragmento", los enemigos adyacentes reciben un <strong>15% del ATQ</strong> de Cris como daño.' },
-      { name:'Cadena de Supervivencia', desc:'Al recibir un ataque letal, Cris consume 3 Fragmentos de Espejo (si los tiene) para sobrevivir con 1 HP y ganar un turno extra. Una vez por batalla.' }
+      { name:'Calles en Llamas', desc:'Los enemigos con <strong>"Quemadura"</strong> infligen un <strong>10% menos de ATQ</strong>.' },
+      { name:'Escombros Filosos', desc:'Al morir un enemigo con <strong>"Marca del Fragmento"</strong>, los enemigos adyacentes reciben un <strong>15% del ATQ</strong> de Cris como daño.' },
+      { name:'Cadena de Supervivencia', desc:'Al recibir un ataque letal, consume 3 <strong>"Fragmentos de Espejo"</strong> (si los tiene) para sobrevivir con 1 HP y ganar un turno extra (una vez por batalla).' }
     ],
     pings:[
-      { n:1, name:'Grafiti de Batalla', desc:'Al iniciar el combate, aplica "Marca del Fragmento" a todos los enemigos.' },
-      { n:2, name:'Rabia Callejera', desc:'Los Fragmentos de Espejo ahora aumentan el Daño Crítico en un <strong>6%</strong> cada uno (máx. 30%).' },
+      { n:1, name:'Grafiti de Batalla', desc:'Al iniciar el combate, aplica <strong>"Marca del Fragmento"</strong> a todos los enemigos.' },
+      { n:2, name:'Rabia Callejera', desc:'Los <strong>"Fragmentos de Espejo"</strong> ahora aumentan el Daño Crítico en un <strong>6%</strong> cada uno (máx. 30%).' },
       { n:3, name:'Lanza Forajida', desc:'<strong>Habilidad +3 niveles</strong> (máx. nivel 8).' },
-      { n:4, name:'¡A Reventarlo!', desc:'Al romper la "Marca del Fragmento" con la Habilidad, obtienes <strong>2 Fragmentos</strong> en lugar de 1.' },
+      { n:4, name:'¡A Reventarlo!', desc:'Al romper la <strong>"Marca del Fragmento"</strong> con la Habilidad, obtienes <strong>2 "Fragmentos de Espejo"</strong> en lugar de 1.' },
       { n:5, name:'Juicio Final de Calle', desc:'<strong>Ultimate +3 niveles</strong> (máx. nivel 8).' },
-      { n:6, name:'El Chat Arde Contigo', desc:'Si al lanzar la Ultimate se consumen 3+ Fragmentos, otorga <strong>+20% de Daño de Fuego</strong> a los aliados durante 2 turnos.' }
+      { n:6, name:'El Chat Arde Contigo', desc:'Si la Ultimate consume 3+ <strong>"Fragmentos"</strong>, otorga <strong>+20% de Daño de Fuego</strong> a los aliados durante 2 turnos.' }
     ]
 },
 {
@@ -515,44 +515,44 @@ const CHARS=[
       {
         icon:'🗡️', name:'Corte Primaveral', type:'Ataque Básico',
         flavor:'Un tajo rápido con la katana, tan sutil que solo se ven los pétalos caer.',
-        desc:'Inflige <strong>(60%–120% del ATQ)</strong> como Daño de Viento a un enemigo. Si Quency ha esquivado un ataque en este turno, aplica <strong>"Marca de Sakura"</strong> (2 turnos): el enemigo recibe un 15% más de daño de todos los aliados.'
+        desc:'Inflige <strong>(60%–120% del ATQ)</strong> como Daño de Viento. Si ha esquivado este turno, aplica <strong>"Marca de Sakura"</strong> (2 turnos).'
       },
       {
         icon:'🔥', name:'Esquiva del Conejo', type:'Habilidad',
         flavor:'Quency adopta una postura baja, lista para saltar en cualquier dirección.',
-        desc:'Quency obtiene <strong>"Esquiva Inaudito"</strong> (1 turno): +5% Prob. de Evasión por cada enemigo en el campo. Aumenta su VEL en <strong>(15%–30%)</strong> durante 2 turnos. Si el enemigo tiene Marca de Sakura, activa un <strong>Contraataque Relámpago</strong> instantáneo: inflige <strong>(80%–170% del ATQ)</strong> como Daño de Viento y elimina la Marca.'
+        desc:'Obtiene <strong>"Esquiva Inaudito"</strong> (1 turno): +5% Evasión por enemigo. +VEL durante 2 turnos. Si el enemigo tiene <strong>"Marca de Sakura"</strong>, ejecuta un <strong>"Contraataque Relámpago"</strong> que la elimina.'
       },
       {
         icon:'🌟', name:'Tormenta de Sakura', type:'Ultimate',
         flavor:'Quency desenvaina su katana en un instante. Una explosión de pétalos envuelve todo el campo.',
-        desc:'Inflige <strong>(150%–330% del ATQ)</strong> como Daño de Viento a todos los enemigos. Aplica <strong>"Ceguera Floral"</strong> (1 turno): 50% de prob. de fallar ataques contra cualquier aliado. Si usó Esquiva del Conejo en el turno anterior, el daño de esta Ultimate aumenta un <strong>25%</strong>.'
+        desc:'Inflige <strong>(150%–330% del ATQ)</strong> como Daño de Viento a todos. Aplica <strong>"Ceguera Floral"</strong> (1 turno, 50% fallo). Si usó Esquiva del Conejo el turno anterior, +25% daño.'
       },
       {
         icon:'🧠', name:'Reflejos de Conejo', type:'Talento',
         flavor:'Quency no solo es rápida, es inalcanzable. Cada ataque fallido la vuelve más letal.',
-        desc:'Quency tiene un <strong>15% de Prob. de Evasión</strong> base (se suma a otras fuentes). Al esquivar un ataque, obtiene 1 <strong>"Pétalo"</strong> (máx. 5). Cada Pétalo aumenta su Daño Crítico en <strong>6%</strong> (máx. +30%). Con 3 Pétalos, su Ataque Básico se vuelve <strong>"Corte de Conejo"</strong> (golpea 2 veces, cada uno puede aplicar Marca de Sakura). Con 5 Pétalos, los consume y activa automáticamente un Contraataque Relámpago contra un enemigo aleatorio (prioriza Marca de Sakura).'
+        desc:'15% Evasión base. Al esquivar, obtiene 1 <strong>"Pétalo"</strong> (máx. 5). Cada Pétalo +6% Daño Crítico. Con 3, su Ataque Básico se convierte en <strong>"Corte de Conejo"</strong> (golpea 2 veces). Con 5, los consume y ejecuta un <strong>"Contraataque Relámpago"</strong> automático.'
       },
     ],
     passives:[
-      { name:'Orejas Alerta', desc:'Aumenta la Prob. de Evasión base del Talento a <strong>20%</strong>.' },
-      { name:'Cola de Algodón', desc:'Cuando Quency esquiva un ataque, recupera un <strong>5% de su HP Máximo</strong>.' },
-      { name:'Salto Primaveral', desc:'Al inicio del combate obtiene <strong>"Relieve"</strong>: redirige el primer golpe letal que la dejaría entre 40% y 100% de HP al aliado con mayor vida (una vez por batalla).' }
+      { name:'Orejas Alerta', desc:'La Evasión base del Talento aumenta a <strong>20%</strong>.' },
+      { name:'Cola de Algodón', desc:'Al esquivar un ataque, recupera un <strong>5% de su HP Máximo</strong>.' },
+      { name:'Salto Primaveral', desc:'Al inicio del combate obtiene <strong>"Relieve"</strong>: redirige el primer golpe letal (40-100% HP) al aliado con más vida (una vez por batalla).' }
     ],
     pings:[
-      { n:1, name:'Zanahoria Energética', desc:'Al esquivar un ataque, recupera <strong>10 puntos de Energía</strong> en lugar de 5.' },
-      { n:2, name:'Conejo Blanco', desc:'El daño del Contraataque Relámpago aumenta un <strong>20%</strong> y ahora aplica automáticamente Marca de Sakura.' },
+      { n:1, name:'Zanahoria Energética', desc:'Al esquivar, recupera <strong>10 puntos de Energía</strong> en lugar de 5.' },
+      { n:2, name:'Conejo Blanco', desc:'El <strong>"Contraataque Relámpago"</strong> aumenta su daño un <strong>20%</strong> y aplica automáticamente <strong>"Marca de Sakura"</strong>.' },
       { n:3, name:'Maestría con la Katana', desc:'<strong>Habilidad +3 niveles</strong> (máx. nivel 8).' },
-      { n:4, name:'Pétalos Curativos', desc:'Cuando Quency o un aliado esquiva un ataque gracias a la Ceguera Floral de su Ultimate, Quency se cura un <strong>10% de su HP Máximo</strong>.' },
+      { n:4, name:'Pétalos Curativos', desc:'Al esquivar por <strong>"Ceguera Floral"</strong>, Quency se cura un <strong>10% de su HP Máximo</strong>.' },
       { n:5, name:'Flor del Destino', desc:'<strong>Ultimate +3 niveles</strong> (máx. nivel 8).' },
-      { n:6, name:'Santuario del Conejo', desc:'Al inicio del combate obtiene 3 Pétalos. Al usar la Ultimate, otorga <strong>Esquiva Total</strong> a todo el equipo durante 1 ataque y activa un Contraataque Relámpago adicional.' }
+      { n:6, name:'Santuario del Conejo', desc:'Al inicio obtiene 3 <strong>"Pétalos"</strong>. La Ultimate otorga <strong>Esquiva Total</strong> al equipo (1 ataque) y un <strong>"Contraataque Relámpago"</strong> adicional.' }
     ],
     rasgoUnico: {
       titulo: 'Sinergia Especial: Belle',
       descripcion: 'Si Belle está en el campo, Quency obtiene "Fiesta": +5% de Prob. de Evasión durante 3 turnos. Además, obtiene los siguientes efectos:',
       efectos: [
         { aliado: 'Belle (en campo)', nombre: 'Fiesta (base)', desc: '+5% de Prob. de Evasión durante 3 turnos.' },
-        { aliado: 'Belle (Warn)', nombre: 'Warn', desc: 'Los contraataques de Quency infligen un <strong>25% más de daño</strong>.' },
-        { aliado: 'Belle (Remove)', nombre: 'Remove', desc: 'Remueve todos los debuffs de los enemigos. Por cada uno removido, Quency gana <strong>+5% Evasión y +5% Daño Crítico</strong> (máx. +20% Evasión y +45% Daño Crítico).' },
+        { aliado: 'Belle (Warn)', nombre: 'Warn', desc: 'Los <strong>"Contraataques Relámpago"</strong> de Quency infligen un <strong>25% más de daño</strong>.' },
+        { aliado: 'Belle (Remove)', nombre: 'Remove', desc: 'Remueve todos los debuffs enemigos. Por cada uno, Quency gana <strong>+5% Evasión y +5% Daño Crítico</strong> (máx. +20% Evasión y +45% Daño Crítico).' },
         { aliado: 'Belle (Aislado)', nombre: 'Aislado', desc: 'Aplica Evasión a un enemigo. Quency gana <strong>+70% de ATQ y +10% de recuperación de vida</strong> durante su siguiente ataque (incluye contraataques).' }
       ]
     }
@@ -571,36 +571,36 @@ const CHARS=[
       {
         icon:'🗡️', name:'Filo del Escriba', type:'Ataque Básico',
         flavor:'Un tajo con su espada que inscribe una runa efímera.',
-        desc:'Inflige <strong>(55%–120% del ATQ)</strong> como Daño de Luz a un enemigo. Si el enemigo tiene "Fisura Rúnica", Eydis obtiene +15% de Prob. Crítica para este ataque.'
+        desc:'Inflige <strong>(55%–120% del ATQ)</strong> como Daño de Luz. Si el enemigo tiene <strong>"Fisura Rúnica"</strong>, Eydis gana +15% Prob. Crítica.'
       },
       {
         icon:'🔥', name:'Sentencia Rúnica', type:'Habilidad',
         flavor:'Eydis alza su mano izquierda y un círculo rúnico dispara un haz que agrieta la realidad.',
-        desc:'Inflige <strong>(80%–170% del ATQ)</strong> como Daño de Luz a un enemigo y aplica <strong>"Fisura Rúnica"</strong> (2 turnos): -15% DEF. Al recibir un golpe crítico, la fisura detona causando <strong>(25%–55% del ATQ de Eydis)</strong> en área pequeña y se elimina. Si ya tenía Fisura Rúnica, el daño de aplicación aumenta un 30%.'
+        desc:'Inflige <strong>(80%–170% del ATQ)</strong> como Daño de Luz y aplica <strong>"Fisura Rúnica"</strong> (2 turnos). Si ya la tenía, +30% daño.'
       },
       {
         icon:'🌟', name:'Colapso del Templo', type:'Ultimate',
         flavor:'El suelo tiembla, los escombros flotan y las runas estallan en una explosión de luz.',
-        desc:'Inflige <strong>(180%–390% del ATQ)</strong> como Daño de Luz a todos los enemigos. Aplica <strong>"Fisura Rúnica Avanzada"</strong> (2 turnos): puede detonar hasta 2 veces (cada detonación quita una carga). Los aliados ganan +15% Prob. Crítica contra enemigos con Fisura Rúnica durante 2 turnos.'
+        desc:'Inflige <strong>(180%–390% del ATQ)</strong> como Daño de Luz a todos. Aplica <strong>"Fisura Rúnica Avanzada"</strong> (2 detonaciones) y +15% Prob. Crítica a los aliados contra enemigos con Fisura.'
       },
       {
         icon:'🧠', name:'Ecos de las Ruinas', type:'Talento',
         flavor:'Las palabras grabadas en piedra reclaman su precio.',
-        desc:'Cuando un enemigo recibe daño de una detonación de Fisura Rúnica, Eydis obtiene 1 <strong>Piedra Rúnica</strong> (máx. 3). Cada carga aumenta el daño de las detonaciones un <strong>5%</strong> (máx. +15%). Con 3 cargas, su siguiente Ataque Básico se vuelve <strong>"Golpe de Ruptura"</strong>: inflige <strong>(100%–210% del ATQ)</strong> como Daño de Luz, ignora 40% de la DEF y aplica Fisura Rúnica.'
+        desc:'Al detonar una Fisura Rúnica, obtiene 1 <strong>"Piedra Rúnica"</strong> (máx. 3). +5% daño de detonación por carga. Con 3 cargas, su siguiente Ataque Básico se convierte en <strong>"Golpe de Ruptura"</strong>.'
       },
     ],
     passives:[
-      { name:'Escritura Precisa', desc:'Al aplicar Fisura Rúnica, reduce la Resistencia a Efectos del enemigo en un <strong>15%</strong> durante 1 turno.' },
-      { name:'Runa Persistente', desc:'Cuando una Fisura Rúnica se detona, el enemigo mantiene una reducción de DEF del <strong>5%</strong> durante 1 turno adicional.' },
-      { name:'Templo Vigilante', desc:'Al inicio del combate, Eydis obtiene <strong>1 carga de Piedra Rúnica</strong>.' }
+      { name:'Escritura Precisa', desc:'Al aplicar <strong>"Fisura Rúnica"</strong>, reduce la Resistencia a Efectos del enemigo en un <strong>15%</strong> durante 1 turno.' },
+      { name:'Runa Persistente', desc:'Cuando una <strong>"Fisura Rúnica"</strong> se detona, el enemigo mantiene una reducción de DEF del <strong>5%</strong> durante 1 turno adicional.' },
+      { name:'Templo Vigilante', desc:'Al inicio del combate, Eydis obtiene <strong>1 carga de "Piedra Rúnica"</strong>.' }
     ],
     pings:[
-      { n:1, name:'Manuscrito Olvidado', desc:'Al aplicar Fisura Rúnica con la Habilidad, Eydis recupera <strong>15 puntos de Energía</strong>.' },
-      { n:2, name:'Ecos Resonantes', desc:'Las detonaciones de Fisura Rúnica ahora golpean en área mayor y aplican <strong>"Aturdimiento"</strong> (1 turno) a enemigos secundarios con 30% de probabilidad.' },
+      { n:1, name:'Manuscrito Olvidado', desc:'Al aplicar <strong>"Fisura Rúnica"</strong> con la Habilidad, recupera <strong>15 puntos de Energía</strong>.' },
+      { n:2, name:'Ecos Resonantes', desc:'Las detonaciones de <strong>"Fisura Rúnica"</strong> ahora golpean en área mayor y aplican <strong>"Aturdimiento"</strong> (1 turno) a enemigos secundarios (30% prob.).' },
       { n:3, name:'Pluma del Escriba', desc:'<strong>Habilidad +3 niveles</strong> (máx. nivel 8).' },
-      { n:4, name:'Columna Sagrada', desc:'Al iniciar el combate, aplica Fisura Rúnica a <strong>2 enemigos aleatorios</strong>.' },
+      { n:4, name:'Columna Sagrada', desc:'Al inicio, aplica <strong>"Fisura Rúnica"</strong> a <strong>2 enemigos aleatorios</strong>.' },
       { n:5, name:'Legado de Piedra', desc:'<strong>Ultimate +3 niveles</strong> (máx. nivel 8).' },
-      { n:6, name:'Ruina del Canal Secreto', desc:'Las Fisuras Rúnicas de la Ultimate ahora pueden detonar <strong>3 veces</strong> en lugar de 2, y cada detonación adicional aumenta el daño en un <strong>20%</strong>.' }
+      { n:6, name:'Ruina del Canal Secreto', desc:'Las <strong>"Fisuras Rúnicas Avanzadas"</strong> ahora pueden detonar <strong>3 veces</strong>, y cada detonación adicional aumenta el daño un <strong>20%</strong>.' }
     ]
 },
 {
@@ -617,36 +617,36 @@ const CHARS=[
       {
         icon:'🗡️', name:'Corte del Alba', type:'Ataque Básico',
         flavor:'Un tajo con la katana derecha que deja una estela de escarcha.',
-        desc:'Inflige <strong>(50%–115% del ATQ)</strong> como Daño de Hielo a un enemigo. Aplica <strong>"Escarcha"</strong> (2 turnos, máx. 2 acumulaciones): los enemigos con Escarcha reciben un 15% más de daño de Hielo por acumulación.'
+        desc:'Inflige <strong>(50%–115% del ATQ)</strong> como Daño de Hielo. Aplica <strong>"Escarcha"</strong> (2 turnos, máx. 2 acumulaciones).'
       },
       {
         icon:'🔥', name:'Paso de la Grulla', type:'Habilidad',
         flavor:'iKayto ejecuta un giro elegante, golpeando con ambas katanas a su paso.',
-        desc:'Inflige <strong>(60%–130% del ATQ)</strong> como Daño de Hielo a todos los enemigos. Elige una postura para el siguiente turno: <strong>Postura Alta (Vuelo)</strong>: +20% VEL y +15% Prob. Crítica. <strong>Postura Baja (Raíz)</strong>: +30% Daño de Hielo y -20% daño recibido. Si ya tenía una postura activa, activa un <strong>FUA</strong> con la katana izquierda: inflige <strong>(40%–85% del ATQ)</strong> en área pequeña (consume la postura anterior).'
+        desc:'Inflige <strong>(60%–130% del ATQ)</strong> como Daño de Hielo a todos. Elige <strong>"Postura Alta"</strong> o <strong>"Postura Baja"</strong>. Si ya tenía una postura, activa un <strong>FUA</strong> y la consume.'
       },
       {
         icon:'🌟', name:'Vals de la Aurora Boreal', type:'Ultimate',
         flavor:'El cielo nocturno se refleja en el hielo. iKayto danza entre explosiones de luz polar.',
-        desc:'Inflige <strong>(170%–350% del ATQ)</strong> como Daño de Hielo a todos los enemigos. Por cada acumulación de Escarcha en los enemigos, el daño de esta Ultimate aumenta un <strong>8%</strong>. Consume todas las Escarchas y, por cada una, aplica <strong>Congelación</strong> (Aturdimiento 1 turno) a un enemigo aleatorio (priorizando los que tengan más acumulaciones).'
+        desc:'Inflige <strong>(170%–350% del ATQ)</strong> como Daño de Hielo a todos. +8% daño por acumulación de <strong>"Escarcha"</strong> en el campo. Consume todas las Escarchas y aplica <strong>"Congelación"</strong> aleatoria.'
       },
       {
         icon:'🧠', name:'Espíritu de la Danza', type:'Talento',
         flavor:'Cada combate es una coreografía que iKayto perfecciona.',
-        desc:'iKayto tiene un medidor de <strong>"Compasses"</strong> (máx. 3). Al inicio del combate elige una postura inicial (Alta o Baja). Obtiene 1 Compás al cambiar de postura voluntariamente o al ejecutar un FUA. Al alcanzar 3 Compases, su siguiente ataque se convierte en <strong>"Danza del Vacío Helado"</strong>: inflige un 130% del daño original, aplica 2 acumulaciones de Escarcha a todos los enemigos golpeados y reinicia los Compases a 0.'
+        desc:'Medidor de <strong>"Compases"</strong> (máx. 3). Elige postura inicial. Gana 1 Compás al cambiar de postura o ejecutar un <strong>FUA</strong>. Con 3 Compases, el siguiente ataque se convierte en <strong>"Danza del Vacío Helado"</strong>.'
       },
     ],
     passives:[
-      { name:'Flor de Escarcha', desc:'Las acumulaciones de Escarcha ahora reducen la DEF del enemigo en un <strong>5% adicional</strong> por acumulación.' },
+      { name:'Flor de Escarcha', desc:'Las acumulaciones de <strong>"Escarcha"</strong> reducen la DEF enemiga un <strong>5% adicional</strong> por acumulación.' },
       { name:'Grulla en el Viento', desc:'Al cambiar de postura, iKayto recupera un <strong>10% de su HP Máximo</strong>.' },
-      { name:'Escudo de la Aurora', desc:'Al iniciar el combate, obtiene un escudo del <strong>20% de su HP Máximo</strong> que se refresca cada vez que usa la Ultimate.' }
+      { name:'Escudo de la Aurora', desc:'Al inicio del combate, obtiene un escudo del <strong>20% de su HP Máximo</strong> que se refresca al usar la Ultimate.' }
     ],
     pings:[
-      { n:1, name:'Preludio Helado', desc:'Al iniciar el combate, aplica 1 acumulación de Escarcha a todos los enemigos.' },
-      { n:2, name:'Danza Eterna', desc:'Los Compases ahora se acumulan hasta <strong>4</strong>. Al alcanzar el cuarto, la Danza del Vacío Helado no consume Compases (se mantienen en 4 hasta el siguiente uso, luego se reinician a 0).' },
+      { n:1, name:'Preludio Helado', desc:'Al inicio, aplica 1 acumulación de <strong>"Escarcha"</strong> a todos los enemigos.' },
+      { n:2, name:'Danza Eterna', desc:'Los <strong>"Compases"</strong> ahora se acumulan hasta <strong>4</strong>. El cuarto uso de <strong>"Danza del Vacío Helado"</strong> no los consume (se reinician después).' },
       { n:3, name:'Maestría de la Cimitarra', desc:'<strong>Habilidad +3 niveles</strong> (máx. nivel 8).' },
-      { n:4, name:'Armonía Boreal', desc:'En Postura Alta, sus ataques ignoran un <strong>10% de la DEF</strong>. En Postura Baja, sana un <strong>5% del daño infligido</strong>.' },
+      { n:4, name:'Armonía Boreal', desc:'En <strong>"Postura Alta"</strong>, ignora <strong>10% DEF</strong>. En <strong>"Postura Baja"</strong>, sana un <strong>5% del daño infligido</strong>.' },
       { n:5, name:'Clímax de la Aurora', desc:'<strong>Ultimate +3 niveles</strong> (máx. nivel 8).' },
-      { n:6, name:'Espejismo de la Nieve', desc:'Al usar la Ultimate con 3+ Compases, activa Danza del Vacío Helado sin consumir el ataque original (la Ultimate aplica ambos daños por separado).' }
+      { n:6, name:'Espejismo de la Nieve', desc:'Con 3+ <strong>"Compases"</strong>, la Ultimate activa simultáneamente <strong>"Danza del Vacío Helado"</strong> sin consumirla.' }
     ]
 },
 {
@@ -1640,4 +1640,44 @@ const EFFECT_TOOLTIPS = {
   "Doble Pareja": "Combinación de póker. Prob. Crítica +35% y Daño Crítico +70% durante ese turno.",
   "Pareja": "Combinación de póker. Provoca 'Burla' y otorga 'Solidez' (DEF +45%, escudo del 25% de Vida Máx.).",
   "Carta Alta": "Combinación de póker. Si el primer Naipe es un As, +25% a todas las estadísticas y +45% daño de efectos de tiempo.",
+
+  // Kyou
+"Marca de Vulnerabilidad": "Debuff que hace que el objetivo reciba un 10% más de daño de todas las fuentes durante 2 turnos.",
+"Vulnerabilidad Expuesta": "Debuff que reduce la DEF del objetivo en (20%–35%) durante 2 turnos.",
+"Secreto al Descubierto": "Debuff que hace que los enemigos reciban un 15% más de daño de todos los elementos durante 2 turnos.",
+"Filtración de Datos": "Efecto instantáneo: el próximo ataque recibido por el enemigo inflige un 30% más de daño (se consume tras un golpe).",
+"Expediente": "Acumulación de Kyou (máx. 5/6). Aumenta el Daño de Rayo del equipo en un 4% por carga. Puede consumirse para añadir debuffs aleatorios.",
+
+// Ttlim (y otros)
+"Ralentización": "Estado que reduce la VEL del enemigo en un porcentaje (varía según la fuente).",
+"Congelación": "Estado que aturde al enemigo durante 1 turno. Al descongelarse, puede recibir daño adicional.",
+"Rosa Gélida": "Acumulación de Ttlim (máx. 3). Se obtiene al aplicar Ralentización o Congelación. Consumir 3 potencia su siguiente ataque.",
+"Campo Congelado": "Zona creada por Ttlim (2-3 turnos): los enemigos dentro pierden 15% VEL y reciben +15% daño de Hielo.",
+
+// Cris
+"Marca del Fragmento": "Debuff que hace que el enemigo reciba un 10% más de daño de Fuego de todo el equipo durante 2 turnos.",
+"Fragmento de Espejo": "Acumulación de Cris (máx. 5). Aumenta su Daño Crítico en un 4% por carga. Se obtiene al morir enemigos o romper escudos.",
+"Quemadura": "Debuff de Daño en el tiempo que inflige un porcentaje del ATQ como Daño de Fuego durante X turnos.",
+
+// Quency
+"Marca de Sakura": "Debuff que hace que el enemigo reciba un 15% más de daño de todos los aliados durante 2 turnos.",
+"Esquiva Inaudito": "Buff de Quency que otorga +5% Prob. de Evasión por cada enemigo en el campo durante 1 turno.",
+"Contraataque Relámpago": "Ataque adicional de Quency que inflige Daño de Viento y consume la Marca de Sakura.",
+"Ceguera Floral": "Debuff que otorga un 50% de probabilidad de fallar ataques contra cualquier aliado durante 1 turno.",
+"Pétalo": "Acumulación de Quency (máx. 5). Aumenta su Daño Crítico en un 6% por carga. Con 3/5 acumulaciones desbloquea efectos adicionales.",
+"Corte de Conejo": "Versión mejorada del Ataque Básico de Quency que golpea 2 veces.",
+"Relieve": "Efecto del Baneo 3 que redirige el primer golpe letal que la dejaría entre 40% y 100% de HP al aliado con mayor vida (una vez por batalla).",
+
+// Eydis
+"Fisura Rúnica": "Debuff que reduce la DEF en un 15%. Al recibir un golpe crítico, detona causando daño adicional en área y se elimina (versiones avanzadas pueden detonar múltiples veces).",
+"Fisura Rúnica Avanzada": "Variante de Fisura Rúnica que puede detonar hasta 2-3 veces antes de desaparecer.",
+"Piedra Rúnica": "Acumulación de Eydis (máx. 3). Aumenta el daño de las detonaciones de Fisura Rúnica en un 5% por carga. Con 3, el Ataque Básico se transforma en Golpe de Ruptura.",
+"Golpe de Ruptura": "Ataque potenciado de Eydis que consume Piedras Rúnicas, ignora 40% de DEF, inflige alto daño y aplica Fisura Rúnica.",
+
+// iKayto
+"Escarcha": "Debuff que hace que el enemigo reciba un 15% más de daño de Hielo por acumulación (máx. 2 acumulaciones).",
+"Postura Alta": "Estado de iKayto que aumenta VEL (+20%) y Prob. Crítica (+15%).",
+"Postura Baja": "Estado de iKayto que aumenta Daño de Hielo (+30%) y reduce el daño recibido (-20%).",
+"Compases": "Medidor de iKayto (máx. 3-4). Se obtiene al cambiar de postura o ejecutar FUA. Al alcanzar el máximo, su siguiente ataque se convierte en Danza del Vacío Helado.",
+"Danza del Vacío Helado": "Ataque potenciado de iKayto que inflige un 130% del daño original, aplica 2 acumulaciones de Escarcha a todos los enemigos y reinicia los Compases.",
 };
