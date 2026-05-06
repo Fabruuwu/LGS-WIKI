@@ -177,13 +177,13 @@ const CHARS=[
       {
         icon:'🧠', name:'Simplemente soy mejor', type:'Talento',
         flavor:'La DJ no espera, impone el ritmo.',
-        desc:'Empieza con 5 XP. Cuando Belle o el aliado vinculado usan su Habilidad, gana 1 <strong>"Casete"</strong> (máx. 3). Al llegar a 3, lanza un FUA de <strong>(80%–180% del ATQ)</strong> como Daño de Rayo con 50% de prob. de aplicar <strong>Electrocutado</strong> (Daño de Rayo = 25% VEL de Belle al inicio del turno, 10% de prob. de Parálisis) por 2 turnos.'
+        desc:'Empieza con 5 XP. Cuando Belle o el aliado vinculado usan su Habilidad, gana 1 <strong>"Casete"</strong> (máx. 3). Al llegar a 3, lanza un <strong>FUA</strong> de <strong>(80%–180% del ATQ)</strong> como Daño de Rayo con 50% de prob. de aplicar <strong>"Electrocutado"</strong> por 2 turnos.'
       },
     ],
     passives:[
       {
         name:'No me provoques',
-        desc:'Mientras Mod-Bot esté vinculado, el aliado enlazado gana <strong>+15% de VEL</strong>. Si Belle tiene más de 250 VEL, aplica "Mute": durante 1 ataque, aumenta un Ping aleatorio del aliado (excepto el 6to), una vez por partida.'
+        desc:'Mientras Mod-Bot esté vinculado, el aliado enlazado gana <strong>+15% de VEL</strong>. Si Belle tiene más de 250 VEL, aplica <strong>"Mute"</strong>: durante 1 ataque, aumenta un Ping aleatorio del aliado (excepto el 6to), una vez por partida.'
       },
       {
         name:'Rebobinado',
@@ -191,13 +191,13 @@ const CHARS=[
       },
       {
         name:'Ataque PE',
-        desc:'Los golpes críticos del aliado vinculado otorgan 1 XP a Belle. El daño de "Electrocutado" aumenta un <strong>30%</strong> contra enemigos con menos del 50% de HP.'
+        desc:'Los golpes críticos del aliado vinculado otorgan 1 XP a Belle. El daño de <strong>"Electrocutado"</strong> aumenta un <strong>30%</strong> contra enemigos con menos del 50% de HP.'
       },
     ],
     pings:[
       {
         n:1, name:'Efecto Causa',
-        desc:'Al comenzar el combate, Belle obtiene <strong>2 cargas de Casete</strong> de inmediato.'
+        desc:'Al comenzar el combate, Belle obtiene <strong>2 cargas de "Casete"</strong> de inmediato.'
       },
       {
         n:2, name:'El rank es visual',
@@ -220,27 +220,18 @@ const CHARS=[
         desc:'Tras la Ultimate, entra en <strong>"DJ Suprema"</strong> 2 turnos: el aliado vinculado recibe 100% de la XP de Belle, los FUA se activan también al usar Ultimate, e ignora 20% de la DEF enemiga.'
       },
     ],
-    // ═══ NUEVO: Sinergia Especial ═══
     rasgoUnico: {
       titulo: 'Sinergia Especial: Quency',
-      descripcion: 'Si Quency está en el campo, Belle obtiene efectos adicionales que potencian su rol de soporte y su capacidad de supervivencia.',
+      descripcion: 'Si Quency está en el campo, Belle obtiene "Propaganda": +15% de Prob. de Evasión. Si Quency esquiva, obtiene "Kitsune" y refuerza "Propaganda".',
       efectos: [
-        { 
-          aliado: 'Quency (en campo)', 
-          nombre: 'Propaganda', 
-          desc: 'Belle obtiene <strong>+15% de Probabilidad de Evasión</strong>.' 
-        },
-        { 
-          aliado: 'Quency (al esquivar)', 
-          nombre: 'Kitsune + Propaganda reforzada', 
-          desc: '<strong>Kitsune:</strong> Aumenta la Prob. de Evasión de Belle en un <strong>45%</strong> (acumulable 2 veces). <strong>Propaganda reforzada:</strong> Todos los buffs que Belle genera pasan a ser para <strong>todos los aliados</strong> durante 1 turno (hasta +3% de aumento en los buffs).' 
-        }
+        { aliado: 'Quency (en campo)', nombre: 'Propaganda', desc: '+15% de Prob. de Evasión para Belle.' },
+        { aliado: 'Quency (al esquivar)', nombre: 'Kitsune + Propaganda reforzada', desc: '<strong>Kitsune:</strong> Aumenta la Evasión de Belle en <strong>45%</strong> (acumulable 2 veces). <strong>Propaganda reforzada:</strong> Todos los buffs de Belle pasan a todos los aliados durante 1 turno (hasta +3% de aumento).' }
       ]
     }
 },
-  {
-    id:4,name:'Hawk',tagline:'"Shhh... No pienses. Solo obedece."',
-    element:'caos',rarity:5,role:'Sub-DPS / Debuffer',paradigma:'Paradigma del Warn',
+{
+    id:4, name:'Hawk', tagline:'"Shhh... No pienses. Solo obedece."',
+    element:'caos', rarity:5, role:'SubDPS / Debuffer', paradigma:'Paradigma del Warn',
     art: 'Personajes 1.0 - tanda 1/Hawk.png',
     stats:{HP:620,ATQ:380,DEF:170,VEL:118,'Prob. Crítica':'5%','Daño Crítico':'50%','Rec. Energía':20,'Acierto de Efecto':20,'Res. a Efectos':10,'Ef. de Ruptura':30,'Bono Vacío':0,'Bono Curación':0},
     skills:[
@@ -249,28 +240,28 @@ const CHARS=[
        desc:'Inflige <strong>(65%–120% del ATQ)</strong> como Daño de Vacío. Aplica <strong>"Marca de la Mariposa"</strong> por 2 turnos.'},
       {icon:'🔥',name:'Palabras de Seda',type:'Habilidad',
        flavor:'Hawk se ajusta las gafas y murmura una orden. Las mariposas obedecen.',
-       desc:'Inflige <strong>(70%–150% del ATQ)</strong> como Daño de Vacío. Si el enemigo tiene "Marca de la Mariposa", la consume para aplicar <strong>Hipnosis</strong> (ataca a sus propios aliados, +15% daño recibido) y <strong>Tela</strong> (Vida Máx -15%, Res. a Efectos -15%) por 2 turnos. Genera 1 <strong>Polvo de Hadas</strong> (máx. 5).'},
+       desc:'Inflige <strong>(70%–150% del ATQ)</strong> como Daño de Vacío. Si el enemigo tiene <strong>"Marca de la Mariposa"</strong>, la consume para aplicar <strong>"Hipnosis"</strong> y <strong>"Tela"</strong> por 2 turnos. Genera 1 <strong>"Polvo de Hadas"</strong> (máx. 5).'},
       {icon:'🌟',name:'Vals de las Mil Mariposas',type:'Ultimate',
        flavor:'Sus alas se despliegan. Una tormenta de polvo hipnótico lo envuelve todo.',
-       desc:'Inflige <strong>(180%–360% del ATQ)</strong> como Daño de Vacío a todos. Consume todo el Polvo de Hadas: por cada acumulación, aumenta todas las stats de Hawk en <strong>10%</strong> por 2 turnos y aplica Hipnosis a un enemigo sin ella. Si ya tenía Hipnosis, su DEF baja 30%. Por 2 turnos, los FUA de Hawk hacen <strong>+40% de daño</strong> y generan 1 Polvo adicional al realizarse.'},
+       desc:'Inflige <strong>(180%–360% del ATQ)</strong> como Daño de Vacío a todos. Consume todo el <strong>"Polvo de Hadas"</strong>: por cada acumulación, aumenta todas las stats de Hawk en <strong>10%</strong> por 2 turnos y aplica <strong>"Hipnosis"</strong> a un enemigo sin ella. Si ya tenía Hipnosis, su DEF baja 30%. Por 2 turnos, los <strong>FUA</strong> de Hawk hacen <strong>+40% de daño</strong> y generan 1 Polvo adicional al realizarse.'},
       {icon:'🧠',name:'Alas de la Dominación',type:'Talento',
        flavor:'Cada vez que un títere baila, ella aplaude.',
-       desc:'Cuando un aliado ataca a un enemigo con Hipnosis, Hawk realiza un <strong>FUA</strong> de <strong>(60%–130% del ATQ)</strong> como Daño de Vacío (máx. 3 veces por turno). Empieza con 2 Polvo de Hadas. Cada acumulación aumenta el daño de FUA en <strong>12%</strong> (máx. +60%).'},
+       desc:'Cuando un aliado ataca a un enemigo con <strong>"Hipnosis"</strong>, Hawk realiza un <strong>FUA</strong> de <strong>(60%–130% del ATQ)</strong> como Daño de Vacío (máx. 3 veces por turno). Empieza con 2 <strong>"Polvo de Hadas"</strong>. Cada acumulación aumenta el daño de FUA en <strong>12%</strong> (máx. +60%).'},
     ],
     passives:[
-      {name:'Voz Melosa',desc:'La Hipnosis y Tela ahora duran <strong>3 turnos</strong> en lugar de 2.'},
-      {name:'Danza de las Almas',desc:'Cuando un enemigo bajo Hipnosis ataca a un aliado enemigo, Hawk obtiene <strong>8 puntos de Energía</strong>.'},
+      {name:'Voz Melosa',desc:'La <strong>"Hipnosis"</strong> y <strong>"Tela"</strong> ahora duran <strong>3 turnos</strong> en lugar de 2.'},
+      {name:'Danza de las Almas',desc:'Cuando un enemigo bajo <strong>"Hipnosis"</strong> ataca a un aliado enemigo, Hawk obtiene <strong>8 puntos de Energía</strong>.'},
       {name:'Primer Acto',desc:'Al inicio del combate, aplica <strong>"Marca de la Mariposa"</strong> a 2 enemigos aleatorios.'},
     ],
     pings:[
-      {n:1,name:'Audiencia Cautiva',desc:'El límite de Polvo de Hadas aumenta a 6. El bono máximo de FUA es de <strong>+72%</strong>.'},
-      {n:2,name:'Crítica Teatral',desc:'Los enemigos bajo Hipnosis reciben un <strong>25% más de Daño Crítico</strong> de los aliados.'},
+      {n:1,name:'Audiencia Cautiva',desc:'El límite de <strong>"Polvo de Hadas"</strong> aumenta a 6. El bono máximo de FUA es de <strong>+72%</strong>.'},
+      {n:2,name:'Crítica Teatral',desc:'Los enemigos bajo <strong>"Hipnosis"</strong> reciben un <strong>25% más de Daño Crítico</strong> de los aliados.'},
       {n:3,name:'Palabras de Terciopelo',desc:'<strong>Habilidad +3 niveles</strong> (máx. nivel 8).'},
-      {n:4,name:'Beso de la Mariposa',desc:'El FUA del Talento reduce la VEL del enemigo golpeado en un <strong>20%</strong> por 1 turno.'},
+      {n:4,name:'Beso de la Mariposa',desc:'El <strong>FUA</strong> del Talento reduce la VEL del enemigo golpeado en un <strong>20%</strong> por 1 turno.'},
       {n:5,name:'Ovación Final',desc:'<strong>Ultimate +3 niveles</strong> (máx. nivel 8).'},
       {n:6,name:'Teatro de los Títeres',desc:'Una vez por batalla al usar la Ultimate, activa <strong>"Función Final"</strong>: todos los enemigos reciben 100% de daño verdadero basado en el Acierto de Efecto de Hawk y quedan Aturdidos e Inundados (+30% daño de Rayo) por 1 turno. Con 2+ hipnotizados, el daño sube al <strong>150%</strong>.'},
     ]
-  }
+}
 ,{
     id:5, name:'Fabru', tagline:'"Si el server crashea… es porque él lo hackeó."',
     element:'electro', rarity:5, role:'Main DPS / Control de Área', paradigma:'Paradigma del Bot (Invocador)',
@@ -285,7 +276,7 @@ const CHARS=[
       {
         icon:'🗡️', name:'Lanza de Plasma', type:'Ataque Básico',
         flavor:'Un rápido disparo de energía desde su lanza que deja un rastro de datos corrompidos.',
-        desc:'Inflige <strong>(50%–110% del ATQ)</strong> como Daño de Rayo a un enemigo. Aplica <strong>"Marca de Hackeo"</strong> durante 2 turnos (los drones priorizan a este enemigo).'
+        desc:'Inflige <strong>(50%–110% del ATQ)</strong> como Daño de Rayo a un enemigo. Aplica <strong>"Marca de Hackeo"</strong> durante 2 turnos.'
       },
       {
         icon:'🔥', name:'Enjambre de Drones', type:'Habilidad',
@@ -300,37 +291,25 @@ const CHARS=[
       {
         icon:'🧠', name:'Red de Datos', type:'Talento',
         flavor:'Fabru recolecta información del campo de batalla para optimizar sus algoritmos de ataque.',
-        desc:'Cuando un Drone de Plasma ataca, otorga 1 <strong>Paquete de Datos</strong> (máx. 10). Cada Paquete aumenta el Daño de Rayo de Fabru y sus drones en un <strong>3%</strong> (máx. +30%). Fabru puede consumir todos los Paquetes para activar <strong>"Código Raíz"</strong>: su siguiente ataque ignora el 30% de la DEF enemiga y aplica Aturdimiento (1 turno) al objetivo. Si hay drones al consumir, ejecutan un Ataque Conjunto adicional (<strong>60% del ATQ del drone</strong>) contra todos los enemigos con Marca de Hackeo.'
+        desc:'Cuando un Drone de Plasma ataca, otorga 1 <strong>"Paquete de Datos"</strong> (máx. 10). Cada Paquete aumenta el Daño de Rayo de Fabru y sus drones en un <strong>3%</strong> (máx. +30%). Fabru puede consumir todos los Paquetes para activar <strong>"Código Raíz"</strong>: su siguiente ataque ignora el 30% de la DEF enemiga y aplica Aturdimiento (1 turno). Si hay drones, ejecutan Ataque Conjunto adicional (>60% del ATQ del drone) contra enemigos con Marca de Hackeo.'
       },
     ],
     passives:[
-      {
-        name:'Firewall Inestable',
-        desc:'Los drones ganan un <strong>20% de la DEF de Fabru</strong> como HP adicional.'
-      },
-      {
-        name:'DDoS de Paquetes',
-        desc:'Al inicio del combate, obtiene <strong>4 Paquetes de Datos</strong>.'
-      },
-      {
-        name:'Protocolo de Respaldo',
-        desc:'Si un drone muere, Fabru recupera <strong>20 puntos de Energía</strong>.'
-      },
-      {
-        name:'Sobrecarga del Sistema (Efecto pasivo)',
-        desc:'Mientras Fabru está en el equipo, los enemigos afectados por <strong>"Sistema Caído"</strong> tienen un <strong>15% de probabilidad de fallar sus ataques</strong> (por lag).'
-      }
+      { name:'Firewall Inestable', desc:'Los drones ganan un <strong>20% de la DEF de Fabru</strong> como HP adicional.' },
+      { name:'DDoS de Paquetes', desc:'Al inicio del combate, obtiene <strong>4 "Paquetes de Datos"</strong>.' },
+      { name:'Protocolo de Respaldo', desc:'Si un drone muere, Fabru recupera <strong>20 puntos de Energía</strong>.' },
+      { name:'Sobrecarga del Sistema', desc:'Mientras Fabru está en el equipo, los enemigos con <strong>"Sistema Caído"</strong> tienen un <strong>15% de prob. de fallar ataques</strong>.' }
     ],
     pings:[
       { n:1, name:'Carga Rápida', desc:'Al invocar drones, estos atacan inmediatamente al desplegarse.' },
-      { n:2, name:'Hackeo Masivo', desc:'Los enemigos con "Sistema Caído" reciben un <strong>20% más de daño</strong> de los drones.' },
+      { n:2, name:'Hackeo Masivo', desc:'Los enemigos con <strong>"Sistema Caído"</strong> reciben un <strong>20% más de daño</strong> de los drones.' },
       { n:3, name:'Enjambre Mejorado', desc:'<strong>Habilidad +3 niveles</strong> (máx. nivel 8).' },
-      { n:4, name:'Redundancia de Datos', desc:'Cuando Fabru obtiene Paquetes de Datos, tiene un <strong>50% de probabilidad</strong> de obtener 1 adicional.' },
+      { n:4, name:'Redundancia de Datos', desc:'Cuando Fabru obtiene <strong>"Paquetes de Datos"</strong>, tiene un <strong>50% de prob.</strong> de obtener 1 adicional.' },
       { n:5, name:'Colapso del Servidor', desc:'<strong>Ultimate +3 niveles</strong> (máx. nivel 8).' },
-      { n:6, name:'Acceso Raíz', desc:'Al usar la Ultimate, si hay 3 drones activos, ejecutan inmediatamente su ataque básico contra todos los enemigos (daño adicional sin gastar turno) y aplican Marcas de Hackeo a los supervivientes.' }
+      { n:6, name:'Acceso Raíz', desc:'Al usar la Ultimate, si hay 3 drones activos, ejecutan inmediatamente su ataque básico contra todos los enemigos y aplican <strong>"Marca de Hackeo"</strong> a los supervivientes.' }
     ]
-}
-,{
+},
+{
     id:6, name:'Eugenio', tagline:'"¡Girando la rueda... y la suerte está echada!"',
     element:'fuego', rarity:5, role:'Sub-DPS / Buffer (Soporte Ofensivo con RNG)', paradigma:'Paradigma del Giveaway',
     art: 'Personajes 1.0 - tanda 1/Eugenio.png',
@@ -350,43 +329,41 @@ const CHARS=[
       {
         icon:'🔥', name:'¡Giro de la Ruleta!', type:'Habilidad',
         flavor:'Eugenio gira una ruleta mágica y lanza una lluvia de naipes explosivos.',
-        desc:'Inflige <strong>(70%–150% del ATQ)</strong> como Daño de Fuego a un enemigo y adyacentes. Roba <strong>Naipes</strong> igual a los efectos negativos activos en todos los enemigos (máx. 5). Al final del turno, si tiene 5 Naipes, aplica la mejor combinación de póker disponible:<br><br>'
+        desc:'Inflige <strong>(70%–150% del ATQ)</strong> como Daño de Fuego a un enemigo y adyacentes. Roba <strong>Naipes</strong> igual a los efectos negativos activos en todos los enemigos (máx. 5). Al final del turno, si tiene 5 Naipes, forma la mejor combinación de póker y aplica su efecto.<br><br>'
           + '<strong>Escalera Real:</strong> Aplica todos los estados (Quemadura, Electrocutado, etc.) a todos los enemigos por 2 turnos.<br>'
           + '<strong>Póker:</strong> Copia todas las estadísticas base de un aliado y las suma a las suyas por 2 turnos.<br>'
           + '<strong>Escalera:</strong> Daño de Ruptura +120% y +70 Suerte.<br>'
           + '<strong>Trío:</strong> ATQ +80% y 3 ataques adicionales que ignoran DEF y escudos por 1 turno.<br>'
           + '<strong>Doble Pareja:</strong> Prob. Crítica +35% y Daño Crítico +70% por 1 turno.<br>'
           + '<strong>Pareja:</strong> Provoca "Burla" y "Solidez" (DEF +45%, escudo del 25% de Vida Máx.) por 2 turnos.<br>'
-          + '<strong>Carta Alta (As):</strong> Si su primer Naipe del turno es un As, +25% a todas sus estadísticas y +45% daño de efectos de tiempo por 2 turnos.'
+          + '<strong>Carta Alta:</strong> Si su primer Naipe del turno es un As, +25% a todas sus estadísticas y +45% daño de efectos de tiempo por 2 turnos.'
       },
       {
         icon:'🌟', name:'¡Función de Medianoche!', type:'Ultimate',
         flavor:'El escenario se ilumina. Todas las Eugenio chibi aparecen y lanzan una lluvia de cartas doradas.',
-        desc:'Eugenio aplica <strong>2 combinaciones diferentes</strong> de su mano actual simultáneamente (las dos mejores disponibles).<br>'
-          + 'Inflige <strong>(120%–250% del ATQ)</strong> como Daño de Fuego a todos los enemigos. Cada Naipe activo en la mano aumenta este daño en un <strong>10% adicional</strong>.'
+        desc:'Eugenio aplica <strong>2 combinaciones diferentes</strong> de su mano actual simultáneamente (las dos mejores disponibles). Inflige <strong>(120%–250% del ATQ)</strong> como Daño de Fuego a todos los enemigos. Cada <strong>Naipe</strong> activo aumenta este daño en un <strong>10% adicional</strong>.'
       },
       {
         icon:'🧠', name:'Naipes del Bufón', type:'Talento',
         flavor:'La esencia del carnaval: nunca sabes qué carta viene, pero siempre es un espectáculo.',
-        desc:'Comienza el combate con 1 Naipe aleatorio. Al inicio de cada turno, obtiene <strong>+5 de Suerte</strong>. Por cada 15 puntos de Suerte acumulados, roba 1 Naipe adicional al inicio de su turno.<br>'
-          + 'Suerte máxima: 200. Al alcanzar 200 de Suerte, obtiene un <strong>Comodín</strong> que puede usar para elegir cualquier carta en su siguiente mano.'
+        desc:'Comienza con 1 <strong>Naipe</strong> aleatorio. Al inicio de cada turno obtiene <strong>+5 de Suerte</strong>. Por cada 15 puntos de <strong>Suerte</strong> acumulados, roba 1 Naipe adicional. Suerte máxima: 200. Al alcanzar 200, obtiene un <strong>"Comodín"</strong> para elegir cualquier carta en su siguiente mano.'
       },
     ],
     passives:[
-      { name:'Juego de Manos', desc:'Al inicio de su turno, puede descartar su primer Naipe y robar otro al azar.' },
-      { name:'Chuchería', desc:'Al inicio del combate, obtiene un <strong>Comodín</strong>. Puede usarlo una vez por batalla para elegir cualquier Naipe (excepto en el primer turno).' },
-      { name:'Primer Acto', desc:'Evita que su Suerte baje gradualmente entre turnos (sin este baneo, perdería 5 de Suerte por turno si no ataca).' }
+      { name:'Juego de Manos', desc:'Al inicio de su turno, puede descartar su primer <strong>Naipe</strong> y robar otro al azar.' },
+      { name:'Chuchería', desc:'Al inicio del combate obtiene un <strong>"Comodín"</strong>. Puede usarlo una vez por batalla (excepto en el primer turno).' },
+      { name:'Primer Acto', desc:'Evita que su <strong>Suerte</strong> baje entre turnos (sin este baneo, perdería 5 de Suerte por turno si no ataca).' }
     ],
     pings:[
-      { n:1, name:'Cartas Marcadas', desc:'Por cada Naipe en la mano, la Suerte aumenta en <strong>0.25% adicional</strong> al inicio de cada turno.' },
-      { n:2, name:'El Público se Rinde', desc:'La Suerte máxima aumenta a <strong>200</strong> y comienza el combate con <strong>30 de Suerte</strong>.' },
+      { n:1, name:'Cartas Marcadas', desc:'Por cada <strong>Naipe</strong> en la mano, la <strong>Suerte</strong> aumenta un <strong>0.25% adicional</strong> al inicio de cada turno.' },
+      { n:2, name:'El Público se Rinde', desc:'La <strong>Suerte</strong> máxima aumenta a <strong>200</strong> y comienza con <strong>30 de Suerte</strong>.' },
       { n:3, name:'Función Estelar', desc:'<strong>Habilidad +3 niveles</strong> (máx. nivel 8).' },
-      { n:4, name:'Oración Cerrada', desc:'El máximo de Naipes en mano pasa de <strong>5 a 10</strong>.' },
+      { n:4, name:'Oración Cerrada', desc:'El máximo de <strong>Naipes</strong> en mano pasa de <strong>5 a 10</strong>.' },
       { n:5, name:'Bis, Bis', desc:'<strong>Ultimate +3 niveles</strong> (máx. nivel 8).' },
-      { n:6, name:'Truco Final', desc:'Al comenzar un turno, puede elegir la combinación que más le guste durante 1 turno. Luego obtiene al azar 5 Naipes y 1 <strong>Comodín Tocado</strong> (puede elegir "As" incluso en el turno 1).' }
+      { n:6, name:'Truco Final', desc:'Al comenzar un turno, puede elegir la combinación que más le guste durante 1 turno. Luego obtiene 5 <strong>Naipes</strong> aleatorios y 1 <strong>"Comodín Tocado"</strong> (puede elegir "As" incluso en el turno 1).' }
     ]
-},
-{
+}
+,{
     id:7, name:'Kyou', tagline:'"Sabe más de ti que tú mismo. Y lo usa."',
     element:'electro', rarity:5, role:'Soporte / Debuffer', paradigma:'Paradigma del Warn',
     art: 'Personajes 1.0 - tanda 2/Kyou.png',
@@ -1619,12 +1596,48 @@ document.getElementById('search-input')?.addEventListener('input', e => {
 });
 // ── Datos de Habilidades de Personajes ──
 const EFFECT_TOOLTIPS = {
+  // Anteriores
   "Bala de Ban": "Munición especial en los tambores N°6 o N°12. Siempre es Golpe Crítico e ignora parte de la DEF.",
   "Quemadura Severa": "Aumenta el daño de Fuego recibido por el enemigo en un 40% durante 2 turnos.",
   "Tambor de 12 Balas": "Recurso propio de ReyDNS. Comienza con 12 balas y las consume al atacar. Si llega a 0, recarga perdiendo un turno.",
   "Mantra": "Inflige daño de Fuego basado en el ATQ total del equipo.",
-  "Bala de Ban (N°6 o N°12)": "Balas que garantizan crítico e ignoran DEF.",
-  "Slow-Log": "Debuff que reduce la VEL del objetivo en (15%–25%) y le inflige (30%–40% de la DEF de Miki) al inicio de cada turno.",
+  "Slow-Log": "Debuff que reduce la VEL del objetivo en (15%–25%) y le inflige daño en base al (30%–40% de la DEF de Miki) al inicio de cada turno.",
   "Engranaje": "Acumulación que Miki obtiene cuando un aliado usa su Habilidad (máx. 5). Al llegar a 5, los consume para ejecutar un FUA.",
-  "FUA": "Ataque Adicional (Follow-Up Attack) que se ejecuta automáticamente al cumplir ciertas condiciones."
+  "FUA": "Ataque Adicional que se ejecuta automáticamente al cumplir ciertas condiciones.",
+
+  // Hawk
+  "Marca de la Mariposa": "Marca aplicada por Hawk durante 2 turnos. Al consumirla, aplica Hipnosis y Tela.",
+  "Hipnosis": "Debuff que obliga al enemigo a atacar a sus aliados. Recibe +15% daño de todas las fuentes.",
+  "Tela": "Debuff que reduce la Vida Máxima (-15%) y la Resistencia a Efectos (-15%) del enemigo.",
+  "Polvo de Hadas": "Acumulación que potencia los FUA de Hawk (+12% por carga, máx. 5). Se obtiene al usar la Habilidad y se consume con la Ultimate.",
+  "Función Final": "Inflige daño verdadero masivo y aplica Aturdimiento e Inundado a todos los enemigos.",
+
+  // Belle
+  "XP": "Acumulación de Belle (máx. 40). Cada carga otorga +1% de VEL. Se obtiene con golpes críticos.",
+  "Mod-Bot": "Robot compañero que se vincula al aliado con más ATQ. Realiza Ataques Conjuntos y potencia al aliado.",
+  "Casete": "Carga que Belle obtiene al usar habilidades (máx. 3). Al llegar a 3, activa un FUA global con probabilidad de Electrocutado.",
+  "Electrocutado": "Debuff que inflige Daño de Rayo (25% VEL de Belle) al inicio del turno. 10% de prob. de causar Parálisis (inmoviliza 1 turno).",
+  "DJ Suprema": "El aliado vinculado recibe el 100% de su XP y los FUA se activan también con Ultimate.",
+  "Mute": "Aumenta un Ping aleatorio del aliado vinculado durante 1 ataque (excepto el 6to).",
+
+  // Fabru
+  "Marca de Hackeo": "Marca aplicada por Fabru. Los drones priorizan atacar a este enemigo.",
+  "Drones de Plasma": "Invocaciones de Fabru (máx. 3). Heredan estadísticas y atacan con Corte de Plasma.",
+  "Corte de Plasma": "Ataque básico de los drones. Inflige (40%–80%) del ATQ del drone como Daño de Rayo.",
+  "Sistema Caído": "Debuff que reduce VEL (-25%) y DEF (-20%) durante 2 turnos. Los enemigos afectados tienen 15% de prob. de fallar ataques.",
+  "Vulnerabilidad Expuesta": "Debuff que reduce DEF un 20% adicional durante 1 turno. Se acumula con Sistema Caído.",
+  "Paquete de Datos": "Aumenta el Daño de Rayo de él y sus drones en +3% por carga.",
+  "Código Raíz": "Habilidad que consume todos los Paquetes de Datos. El siguiente ataque ignora 30% DEF y aplica Aturdimiento.",
+
+  // Eugenio
+  "Naipe": "Carta que Eugenio roba al inicio del turno o con ataques. Forma combinaciones de póker.",
+  "Comodín": "Carta especial que permite elegir cualquier Naipe. Se obtiene al alcanzar 200 de Suerte o con el Baneo 2.",
+  "Suerte": "Estadística especial de Eugenio (máx. 200). Aumenta al inicio de cada turno y potencia sus habilidades.",
+  "Escalera Real": "Combinación de póker. Aplica todos los estados (Quemadura, Electrocutado, etc.) a todos los enemigos por 2 turnos.",
+  "Póker": "Combinación de póker. Copia las estadísticas base de un aliado y las suma a las suyas por 2 turnos.",
+  "Escalera": "Combinación de póker. Daño de Ruptura +120% y +70 de Suerte.",
+  "Trío": "Combinación de póker. ATQ +80% y 3 ataques adicionales que ignoran DEF y escudos.",
+  "Doble Pareja": "Combinación de póker. Prob. Crítica +35% y Daño Crítico +70% durante ese turno.",
+  "Pareja": "Combinación de póker. Provoca 'Burla' y otorga 'Solidez' (DEF +45%, escudo del 25% de Vida Máx.).",
+  "Carta Alta": "Combinación de póker. Si el primer Naipe es un As, +25% a todas las estadísticas y +45% daño de efectos de tiempo.",
 };
