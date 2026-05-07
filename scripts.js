@@ -73,7 +73,7 @@ const CHARS=[
       },
       {
         n:2, name:'Ban de IP',
-        desc:'Las "Balas de Ban" aplican <strong>Quemadura Severa</strong>. Si el enemigo ya tiene la marca, la bala ignora un <strong>20% adicional de su DEF</strong>.'
+        desc:'Las "Balas de Ban" aplican <strong>Quemado extremo</strong>. Si el enemigo ya tiene la marca, la bala ignora un <strong>20% adicional de su DEF</strong>.'
       },
       {
         n:3, name:'Jerarquía Elevada',
@@ -1598,7 +1598,7 @@ document.getElementById('search-input')?.addEventListener('input', e => {
 const EFFECT_TOOLTIPS = {
   // Anteriores
   "Bala de Ban": "Munición especial en los tambores N°6 o N°12. Siempre es Golpe Crítico e ignora parte de la DEF.",
-  "Quemadura Severa": "Aumenta el daño de Fuego recibido por el enemigo en un 40% durante 2 turnos.",
+  "Quemado extremo": "Aumenta el daño de Fuego recibido por el enemigo en un 40% durante 2 turnos.",
   "Tambor de 12 Balas": "Recurso propio de ReyDNS. Comienza con 12 balas y las consume al atacar. Si llega a 0, recarga perdiendo un turno.",
   "Mantra": "Inflige daño de Fuego basado en el ATQ total del equipo.",
   "Slow-Log": "Debuff que reduce la VEL del objetivo en (15%–25%) y le inflige daño en base al (30%–40% de la DEF de Miki) al inicio de cada turno.",
@@ -1648,18 +1648,18 @@ const EFFECT_TOOLTIPS = {
   "Filtración de Datos": "Efecto instantáneo: el próximo ataque recibido por el enemigo inflige un 30% más de daño (se consume tras un golpe).",
   "Expediente": "Acumulación de Kyou (máx. 5/6). Aumenta el Daño de Rayo del equipo en un 4% por carga. Puede consumirse para añadir debuffs aleatorios.",
 
- // Ttlim (y otros)
+  // Ttlim (y otros)
   "Ralentización": "Estado que reduce la VEL del enemigo en un porcentaje (varía según la fuente).",
   "Congelación": "Estado que aturde al enemigo durante 1 turno. Al descongelarse, puede recibir daño adicional.",
   "Rosa Gélida": "Acumulación de Ttlim (máx. 3). Se obtiene al aplicar Ralentización o Congelación. Consumir 3 potencia su siguiente ataque.",
   "Campo Congelado": "Zona creada por Ttlim (2-3 turnos): los enemigos dentro pierden 15% VEL y reciben +15% daño de Hielo.",
 
- // Cris
+  // Cris
   "Marca del Fragmento": "Debuff que hace que el enemigo reciba un 10% más de daño de Fuego de todo el equipo durante 2 turnos.",
   "Fragmento de Espejo": "Acumulación de Cris (máx. 5). Aumenta su Daño Crítico en un 4% por carga. Se obtiene al morir enemigos o romper escudos.",
   "Quemadura": "Debuff de Daño en el tiempo que inflige un porcentaje del ATQ como Daño de Fuego durante X turnos.",
 
- // Quency
+  // Quency
   "Marca de Sakura": "Debuff que hace que el enemigo reciba un 15% más de daño de todos los aliados durante 2 turnos.",
   "Esquiva Inaudito": "Buff de Quency que otorga +5% Prob. de Evasión por cada enemigo en el campo durante 1 turno.",
   "Contraataque Relámpago": "Ataque adicional de Quency que inflige Daño de Viento y consume la Marca de Sakura.",
@@ -1668,13 +1668,13 @@ const EFFECT_TOOLTIPS = {
   "Corte de Conejo": "Versión mejorada del Ataque Básico de Quency que golpea 2 veces.",
   "Relieve": "Efecto del Baneo 3 que redirige el primer golpe letal que la dejaría entre 40% y 100% de HP al aliado con mayor vida (una vez por batalla).",
 
- // Eydis
+  // Eydis
   "Fisura Rúnica": "Debuff que reduce la DEF en un 15%. Al recibir un golpe crítico, detona causando daño adicional en área y se elimina (versiones avanzadas pueden detonar múltiples veces).",
   "Fisura Rúnica Avanzada": "Variante de Fisura Rúnica que puede detonar hasta 2-3 veces antes de desaparecer.",
   "Piedra Rúnica": "Acumulación de Eydis (máx. 3). Aumenta el daño de las detonaciones de Fisura Rúnica en un 5% por carga. Con 3, el Ataque Básico se transforma en Golpe de Ruptura.",
   "Golpe de Ruptura": "Ataque potenciado de Eydis que consume Piedras Rúnicas, ignora 40% de DEF, inflige alto daño y aplica Fisura Rúnica.",
 
- // iKayto
+  // iKayto
   "Escarcha": "Debuff que hace que el enemigo reciba un 15% más de daño de Hielo por acumulación (máx. 2 acumulaciones).",
   "Postura Alta": "Estado de iKayto que aumenta VEL (+20%) y Prob. Crítica (+15%).",
   "Postura Baja": "Estado de iKayto que aumenta Daño de Hielo (+30%) y reduce el daño recibido (-20%).",
