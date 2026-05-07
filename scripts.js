@@ -1585,12 +1585,46 @@ document.getElementById('search-input')?.addEventListener('input', e => {
   });
   document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeModal(); });
 
-  // 👆 Tooltips de efectos (click en móvil)
+  // ── Tooltip flotante (click / touch) ──
+  const tooltipGlobal = document.getElementById('global-tooltip');
+
+  function showTooltip(text, x, y) {
+    tooltipGlobal.textContent = text;
+    tooltipGlobal.classList.add('visible');
+    // Ajustar posición para que no se salga de la pantalla
+    const rect = tooltipGlobal.getBoundingClientRect();
+    let left = x - rect.width / 2;
+    let top = y - rect.height - 8;
+    if (left < 8) left = 8;
+    if (left + rect.width > window.innerWidth - 8) left = window.innerWidth - rect.width - 8;
+    if (top < 8) top = y + 20; // mostrar debajo si no cabe arriba
+    tooltipGlobal.style.left = left + 'px';
+    tooltipGlobal.style.top = top + 'px';
+  }
+
+  function hideTooltip() {
+    tooltipGlobal.classList.remove('visible');
+  }
+
   document.body.addEventListener('click', (e) => {
-    if (e.target.classList.contains('effect-tooltip')) {
-      e.target.classList.toggle('show-tooltip');
+    const target = e.target.closest('.effect-tooltip');
+    if (target) {
+      e.preventDefault();
+      const text = target.getAttribute('data-tooltip');
+      if (text) {
+        const rect = target.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const topY = rect.top;
+        showTooltip(text, centerX, topY);
+      }
+    } else {
+      hideTooltip();
     }
   });
+
+  // Ocultar al hacer scroll o redimensionar
+  window.addEventListener('scroll', hideTooltip, { passive: true });
+  window.addEventListener('resize', hideTooltip);
 
   renderCards();
 });
