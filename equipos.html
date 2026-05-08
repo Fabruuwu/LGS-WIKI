@@ -17,10 +17,25 @@
 
 /* ── LISTA DE EQUIPOS ── */
 .equipo-card{
-  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);
-  border-radius:16px;padding:20px;margin-bottom:22px;
-  display:flex;align-items:center;gap:20px;
+  background: rgba(10,10,20,0.85); /* fondo oscuro bien visible */
+  border: 1px solid rgba(155,89,245,0.35); /* borde violeta */
+  border-radius:16px;
+  padding:20px;
+  margin-bottom:22px;
+  display:flex;
+  align-items:center;
+  justify-content: center; /* centra horizontalmente chars + barra */
+  gap:30px;
   transition:border-color .3s,box-shadow .3s;
+}
+.equipo-card:hover{
+  border-color:var(--violet);
+  box-shadow:0 8px 24px rgba(0,0,0,.6);
+  background: rgba(15,15,30,0.9); /* ligeramente más claro al pasar */
+}
+.equipo-chars{
+  max-width: 480px; /* evita que las cartas se separen demasiado */
+  justify-content: center;
 }
 .equipo-card:hover{border-color:var(--violet);box-shadow:0 8px 24px rgba(0,0,0,.4);}
 .equipo-chars{display:flex;gap:12px;flex:1;flex-wrap:wrap;}
