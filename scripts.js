@@ -1585,27 +1585,51 @@ document.getElementById('search-input')?.addEventListener('input', e => {
   });
   document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeModal(); });
 
-  // ── Tooltip flotante (click / touch) ──
+  // ── Tooltip flotante (hover + click) ──
   const tooltipGlobal = document.getElementById('global-tooltip');
+  let tooltipFixed = false; // se fija al hacer click
 
   function showTooltip(text, x, y) {
     tooltipGlobal.textContent = text;
     tooltipGlobal.classList.add('visible');
-    // Ajustar posición para que no se salga de la pantalla
     const rect = tooltipGlobal.getBoundingClientRect();
     let left = x - rect.width / 2;
     let top = y - rect.height - 8;
     if (left < 8) left = 8;
     if (left + rect.width > window.innerWidth - 8) left = window.innerWidth - rect.width - 8;
-    if (top < 8) top = y + 20; // mostrar debajo si no cabe arriba
+    if (top < 8) top = y + 20;
     tooltipGlobal.style.left = left + 'px';
     tooltipGlobal.style.top = top + 'px';
   }
 
   function hideTooltip() {
-    tooltipGlobal.classList.remove('visible');
+    if (!tooltipFixed) {
+      tooltipGlobal.classList.remove('visible');
+    }
   }
 
+  // Hover (PC)
+  document.body.addEventListener('mouseover', (e) => {
+    const target = e.target.closest('.effect-tooltip');
+    if (target) {
+      const text = target.getAttribute('data-tooltip');
+      if (text) {
+        const rect = target.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const topY = rect.top;
+        showTooltip(text, centerX, topY);
+      }
+    }
+  });
+
+  document.body.addEventListener('mouseout', (e) => {
+    const target = e.target.closest('.effect-tooltip');
+    if (target && !tooltipFixed) {
+      hideTooltip();
+    }
+  });
+
+  // Click (móvil / fijar)
   document.body.addEventListener('click', (e) => {
     const target = e.target.closest('.effect-tooltip');
     if (target) {
@@ -1616,16 +1640,17 @@ document.getElementById('search-input')?.addEventListener('input', e => {
         const centerX = rect.left + rect.width / 2;
         const topY = rect.top;
         showTooltip(text, centerX, topY);
+        tooltipFixed = true; // queda fijo hasta click fuera
       }
     } else {
+      tooltipFixed = false;
       hideTooltip();
     }
   });
 
   // Ocultar al hacer scroll o redimensionar
-  window.addEventListener('scroll', hideTooltip, { passive: true });
-  window.addEventListener('resize', hideTooltip);
-
+  window.addEventListener('scroll', () => { tooltipFixed = false; hideTooltip(); }, { passive: true });
+  window.addEventListener('resize', () => { tooltipFixed = false; hideTooltip(); });
   renderCards();
 });
 // ── Datos de Habilidades de Personajes ──
