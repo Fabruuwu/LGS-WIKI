@@ -6,7 +6,6 @@
 <title>Mensajes · LGS Wiki</title>
 <link rel="stylesheet" href="styles.css">
 <style>
-/* ── FORO DE MENSAJES ── */
 .messages-wrap {
   max-width: 800px; margin: 100px auto 40px; padding: 0 20px;
 }
@@ -17,14 +16,17 @@
 .new-msg-box input, .new-msg-box textarea {
   width: 100%; background: rgba(255,255,255,0.06); border: 1px solid rgba(155,89,245,0.3);
   border-radius: 10px; padding: 10px 14px; color: #fff; font-family:'Rajdhani',sans-serif;
-  font-size:.92rem; margin-bottom:10px; outline:none;
+  font-size:.92rem; margin-bottom:10px; outline:none; display:block;
 }
+.new-msg-box input::placeholder, .new-msg-box textarea::placeholder { color:rgba(255,255,255,.35); }
 .new-msg-box input:focus, .new-msg-box textarea:focus { border-color: var(--violet); }
 .btn-send {
   background: linear-gradient(90deg, var(--violet), #9b59f5); border: none;
   color: #fff; padding: 10px 20px; border-radius: 20px; font-weight: bold;
   cursor: pointer; font-family: 'Rajdhani', sans-serif; font-size: 1rem;
+  transition: opacity .2s;
 }
+.btn-send:hover { opacity: .85; }
 .msg-list { display: flex; flex-direction: column; gap: 14px; }
 .msg-card {
   background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
@@ -36,7 +38,7 @@
 .msg-time { font-size: .7rem; color: rgba(255,255,255,0.4); text-align: right; }
 .msg-replies { font-size: .8rem; color: var(--violet); margin-top: 8px; }
 
-/* Modal de respuestas */
+/* Modal */
 .modal-messages {
   position: fixed; inset: 0; z-index: 1000; background: rgba(0,0,0,0.8);
   backdrop-filter: blur(6px); display: flex; align-items: center; justify-content: center;
@@ -49,12 +51,13 @@
   padding: 20px; position: relative;
 }
 .modal-close-btn {
-  position: absolute; top: 10px; right: 10px; background: none; border: none;
-  color: #fff; font-size: 1.5rem; cursor: pointer;
+  position: absolute; top: 10px; right: 10px; background: rgba(0,0,0,.5);
+  border: 1px solid rgba(255,255,255,.2); color: #fff; font-size: 1.1rem;
+  width:30px; height:30px; border-radius:50%; cursor: pointer;
+  display:flex; align-items:center; justify-content:center;
 }
-.reply-item {
-  border-bottom: 1px solid rgba(255,255,255,.06); padding: 10px 0;
-}
+.modal-close-btn:hover { background: rgba(255,79,163,.5); }
+.reply-item { border-bottom: 1px solid rgba(255,255,255,.06); padding: 10px 0; }
 .reply-author { font-weight: 700; color: var(--gold); }
 .reply-text { color: #ddd; font-size: .85rem; margin: 4px 0; }
 .reply-time { font-size: .7rem; color: rgba(255,255,255,.4); text-align: right; }
@@ -62,8 +65,10 @@
 .reply-form input, .reply-form textarea {
   width: 100%; background: rgba(255,255,255,0.06); border: 1px solid rgba(155,89,245,0.3);
   border-radius: 10px; padding: 8px 12px; color: #fff; font-family:'Rajdhani',sans-serif;
-  font-size:.85rem; margin-bottom:6px; outline:none;
+  font-size:.85rem; margin-bottom:6px; outline:none; display:block;
 }
+.reply-form input::placeholder, .reply-form textarea::placeholder { color:rgba(255,255,255,.35); }
+.msg-loading { color:rgba(255,255,255,.3); text-align:center; padding:40px 0; font-style:italic; }
 </style>
 </head>
 <body data-page="mensajes">
@@ -84,147 +89,150 @@
 </nav>
 
 <div class="messages-wrap">
-  <h1 class="section-title" style="text-align:center;">💬 Mensajes del Server</h1>
+  <div class="section-header" style="text-align:center;margin-bottom:32px;">
+    <div class="section-badge">✦ Comunidad ✦</div>
+    <h1 class="section-title">💬 Mensajes del Server</h1>
+    <p class="section-sub">Dejá tu mensaje · Respondé a otros</p>
+  </div>
+
   <div class="new-msg-box">
     <input type="text" id="msg-author" placeholder="Tu nombre" maxlength="30">
-    <textarea id="msg-text" rows="3" placeholder="Escribe tu mensaje..."></textarea>
+    <textarea id="msg-text" rows="3" placeholder="Escribí tu mensaje..."></textarea>
     <button class="btn-send" id="btn-send">Enviar Mensaje</button>
   </div>
-  <div id="msg-list" class="msg-list"></div>
+
+  <div id="msg-list" class="msg-list">
+    <div class="msg-loading">Cargando mensajes...</div>
+  </div>
 </div>
 
-<!-- Modal para respuestas -->
+<!-- Modal respuestas -->
 <div class="modal-messages" id="reply-modal">
   <div class="modal-content">
-    <button class="modal-close-btn" onclick="cerrarModal()">✕</button>
+    <button class="modal-close-btn" id="modal-close-btn">✕</button>
     <div id="modal-msg-content"></div>
     <div id="modal-replies"></div>
     <div class="reply-form">
       <input type="text" id="reply-author" placeholder="Tu nombre">
-      <textarea id="reply-text" rows="2" placeholder="Escribe tu respuesta..."></textarea>
+      <textarea id="reply-text" rows="2" placeholder="Escribí tu respuesta..."></textarea>
       <button class="btn-send" id="btn-reply">Responder</button>
     </div>
   </div>
 </div>
 
+<!-- scripts.js primero (sin type=module, solo defer) -->
 <script src="scripts.js" defer></script>
-<div id="global-tooltip"></div>
 
-<!-- Firebase -->
+<!-- Firebase como módulo -->
 <script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
-  import { getFirestore, collection, addDoc, query, orderBy, onSnapshot, serverTimestamp, getDoc, updateDoc, doc } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-firestore.js";
+import { initializeApp }    from "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
+import { getFirestore, collection, addDoc, query, orderBy,
+         onSnapshot, serverTimestamp, getDoc, updateDoc, doc }
+  from "https://www.gstatic.com/firebasejs/12.13.0/firebase-firestore.js";
 
-  // ⚠️ TU PROPIA CONFIGURACIÓN
-  const firebaseConfig = {
-    apiKey: "AIzaSyAg6nLimbuLd5uE9GQX9pc0n3jOS-TouQo",
-    authDomain: "lgs-mensajes-wiki.firebaseapp.com",
-    projectId: "lgs-mensajes-wiki",
-    storageBucket: "lgs-mensajes-wiki.firebasestorage.app",
-    messagingSenderId: "162237301913",
-    appId: "1:162237301913:web:bc6080ccae40134e7be408",
-    measurementId: "G-EXXB76RQT5"
-  };
+const firebaseConfig = {
+  apiKey: "AIzaSyAg6nLimbuLd5uE9GQX9pc0n3jOS-TouQo",
+  authDomain: "lgs-mensajes-wiki.firebaseapp.com",
+  projectId: "lgs-mensajes-wiki",
+  storageBucket: "lgs-mensajes-wiki.firebasestorage.app",
+  messagingSenderId: "162237301913",
+  appId: "1:162237301913:web:bc6080ccae40134e7be408"
+};
 
-  const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
-  const mensajesRef = collection(db, "mensajes");
+const app = initializeApp(firebaseConfig);
+const db  = getFirestore(app);
+const mensajesRef = collection(db, "mensajes");
 
-  // Enviar mensaje principal
-  document.getElementById('btn-send').addEventListener('click', async () => {
-    const autor = document.getElementById('msg-author').value.trim();
-    const texto = document.getElementById('msg-text').value.trim();
-    if (!autor || !texto) return alert('Completa ambos campos');
-    await addDoc(mensajesRef, {
-      autor, texto,
-      timestamp: serverTimestamp(),
-      respuestas: []
-    });
-    document.getElementById('msg-author').value = '';
-    document.getElementById('msg-text').value = '';
+let mensajeActualId = null;
+
+// ── Cerrar modal ──
+function cerrarModal() {
+  document.getElementById('reply-modal').classList.remove('open');
+  mensajeActualId = null;
+}
+// Exponer globalmente por si hace falta
+window.cerrarModal = cerrarModal;
+
+// ── Abrir modal ──
+function abrirModal(id, data) {
+  mensajeActualId = id;
+  document.getElementById('modal-msg-content').innerHTML = `
+    <div class="msg-author" style="color:var(--cyan)">${data.autor}</div>
+    <div class="msg-text">${data.texto}</div>
+    <hr style="border-color:rgba(255,255,255,0.1);margin:10px 0;">
+  `;
+  const repliesDiv = document.getElementById('modal-replies');
+  repliesDiv.innerHTML = '';
+  (data.respuestas || []).forEach(r => {
+    const d = document.createElement('div');
+    d.className = 'reply-item';
+    d.innerHTML = `
+      <div class="reply-author">${r.autor}</div>
+      <div class="reply-text">${r.texto}</div>
+      <div class="reply-time">${r.fecha}</div>`;
+    repliesDiv.appendChild(d);
   });
+  document.getElementById('reply-modal').classList.add('open');
+}
 
-  // Mostrar mensajes en tiempo real
-  const q = query(mensajesRef, orderBy('timestamp', 'desc'));
-  onSnapshot(q, (snapshot) => {
-    const lista = document.getElementById('msg-list');
-    lista.innerHTML = '';
-    snapshot.forEach(docSnap => {
-      const data = docSnap.data();
-      const fecha = data.timestamp?.toDate().toLocaleString() || 'Recién';
-      const respuestasCount = data.respuestas ? data.respuestas.length : 0;
-      const div = document.createElement('div');
-      div.className = 'msg-card';
-      div.innerHTML = `
-        <div class="msg-author">${data.autor}</div>
-        <div class="msg-text">${data.texto}</div>
-        <div class="msg-time">${fecha}</div>
-        <div class="msg-replies">${respuestasCount} respuestas</div>
-      `;
-      div.addEventListener('click', () => abrirModal(docSnap.id, data));
-      lista.appendChild(div);
-    });
-  });
+// ── Enviar mensaje principal ──
+document.getElementById('btn-send').addEventListener('click', async () => {
+  const autor = document.getElementById('msg-author').value.trim();
+  const texto = document.getElementById('msg-text').value.trim();
+  if (!autor || !texto) return alert('Completá ambos campos');
+  await addDoc(mensajesRef, { autor, texto, timestamp: serverTimestamp(), respuestas: [] });
+  document.getElementById('msg-author').value = '';
+  document.getElementById('msg-text').value = '';
+});
 
-  // Modal de respuestas
-  let mensajeActualId = null;
-  function abrirModal(id, data) {
-    mensajeActualId = id;
-    document.getElementById('modal-msg-content').innerHTML = `
-      <div class="msg-author" style="color:var(--cyan)">${data.autor}</div>
-      <div class="msg-text">${data.texto}</div>
-      <hr style="border-color:rgba(255,255,255,0.1); margin:10px 0;">
-    `;
-    const repliesDiv = document.getElementById('modal-replies');
-    repliesDiv.innerHTML = '';
-    if (data.respuestas) {
-      data.respuestas.forEach(r => {
-        const divR = document.createElement('div');
-        divR.className = 'reply-item';
-        divR.innerHTML = `
-          <div class="reply-author">${r.autor}</div>
-          <div class="reply-text">${r.texto}</div>
-          <div class="reply-time">${r.fecha}</div>
-        `;
-        repliesDiv.appendChild(divR);
-      });
-    }
-    document.getElementById('reply-modal').classList.add('open');
+// ── Mensajes en tiempo real ──
+const q = query(mensajesRef, orderBy('timestamp', 'desc'));
+onSnapshot(q, snap => {
+  const lista = document.getElementById('msg-list');
+  lista.innerHTML = '';
+  if (snap.empty) {
+    lista.innerHTML = '<div class="msg-loading">Aún no hay mensajes. ¡Sé el primero!</div>';
+    return;
   }
-
-  window.cerrarModal = () => {
-    document.getElementById('reply-modal').classList.remove('open');
-    mensajeActualId = null;
-  };
-
-  // Enviar respuesta
-  document.getElementById('btn-reply').addEventListener('click', async () => {
-    const autor = document.getElementById('reply-author').value.trim();
-    const texto = document.getElementById('reply-text').value.trim();
-    if (!autor || !texto || !mensajeActualId) return alert('Completa los campos');
-    
-    const docRef = doc(db, "mensajes", mensajeActualId);
-    const docSnap = await getDoc(docRef);
-    
-    if (docSnap.exists()) {
-      const data = docSnap.data();
-      const respuestas = data.respuestas || [];
-      respuestas.push({ autor, texto, fecha: new Date().toLocaleString() });
-      await updateDoc(docRef, { respuestas });
-      
-      document.getElementById('reply-author').value = '';
-      document.getElementById('reply-text').value = '';
-      
-      // Recargar el modal con los datos actualizados
-      const updatedSnap = await getDoc(docRef);
-      abrirModal(mensajeActualId, updatedSnap.data());
-    }
+  snap.forEach(docSnap => {
+    const data = docSnap.data();
+    const fecha = data.timestamp?.toDate().toLocaleString('es-AR') || 'Recién';
+    const nResp = (data.respuestas || []).length;
+    const div = document.createElement('div');
+    div.className = 'msg-card';
+    div.innerHTML = `
+      <div class="msg-author">${data.autor}</div>
+      <div class="msg-text">${data.texto}</div>
+      <div class="msg-time">${fecha}</div>
+      <div class="msg-replies">💬 ${nResp} respuesta${nResp !== 1 ? 's' : ''}</div>`;
+    div.addEventListener('click', () => abrirModal(docSnap.id, data));
+    lista.appendChild(div);
   });
+});
 
-  // Cerrar modal al hacer clic fuera
-  document.getElementById('reply-modal').addEventListener('click', (e) => {
-    if (e.target === e.currentTarget) cerrarModal();
-  });
+// ── Enviar respuesta ──
+document.getElementById('btn-reply').addEventListener('click', async () => {
+  const autor = document.getElementById('reply-author').value.trim();
+  const texto = document.getElementById('reply-text').value.trim();
+  if (!autor || !texto || !mensajeActualId) return alert('Completá los campos');
+  const docRef  = doc(db, "mensajes", mensajeActualId);
+  const docSnap = await getDoc(docRef);
+  if (!docSnap.exists()) return;
+  const respuestas = [...(docSnap.data().respuestas || []),
+    { autor, texto, fecha: new Date().toLocaleString('es-AR') }];
+  await updateDoc(docRef, { respuestas });
+  document.getElementById('reply-author').value = '';
+  document.getElementById('reply-text').value = '';
+  const updated = await getDoc(docRef);
+  abrirModal(mensajeActualId, updated.data());
+});
+
+// ── Cerrar modal ──
+document.getElementById('modal-close-btn').addEventListener('click', cerrarModal);
+document.getElementById('reply-modal').addEventListener('click', e => {
+  if (e.target === e.currentTarget) cerrarModal();
+});
+document.addEventListener('keydown', e => { if (e.key === 'Escape') cerrarModal(); });
 </script>
 </body>
 </html>
