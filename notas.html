@@ -94,7 +94,9 @@
   </div>
 
   <!-- SELECTOR DE VERSIÓN -->
-  <div class="version-tabs" id="version-tabs"></div>
+<div class="version-tabs" id="version-tabs">
+  <button class="vtab" id="btn-v2">1.0 V2</button>
+</div>
 
   <!-- BLOQUES POR VERSIÓN (generados por JS) -->
   <div id="patch-blocks"></div>
@@ -244,10 +246,39 @@ function togglePChar(card) {
   card.classList.toggle('open');
 }
 
+// ── Modal de la V2 ──
 document.addEventListener('DOMContentLoaded', () => {
-  renderPatches();
-});
+  const btnV2 = document.getElementById('btn-v2');
+  const overlay = document.getElementById('v2-modal-overlay');
+  const closeBtn = document.getElementById('v2-modal-close');
+
+  function openV2Modal() {
+    overlay.classList.add('open');
+  }
+  function closeV2Modal() {
+    overlay.classList.remove('open');
+  }
+
+  btnV2.addEventListener('click', openV2Modal);
+  closeBtn.addEventListener('click', closeV2Modal);
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) closeV2Modal();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && overlay.classList.contains('open')) closeV2Modal();
+  });
+});  renderPatches();
 </script>
 <div id="global-tooltip"></div>
+<!-- Modal V2 -->
+<div class="tl-modal-overlay" id="v2-modal-overlay">
+  <div class="tl-modal-card">
+    <button class="tl-modal-close" id="v2-modal-close">✕</button>
+    <div class="tl-modal-header">Notas de la V2 - Version 1.0</div>
+    <div class="tl-modal-body" style="padding:20px; text-align:center; color:rgba(255,255,255,0.5);">
+      Próximamente...
+    </div>
+  </div>
+</div>
 </body>
 </html>
