@@ -28,7 +28,7 @@
 .tl-modal-overlay.open { opacity: 1; pointer-events: all; }
 
 .tl-modal-card {
-  width: 480px; max-width: 94vw;
+  width: 520px; max-width: 94vw;
   background: #0f0f24;
   border: 1px solid rgba(155,89,245,.4);
   border-radius: 16px; overflow: hidden;
@@ -115,6 +115,50 @@
   border-radius: 50%;
   flex-shrink: 0;
 }
+
+/* ── Modal de cambios ── */
+.char-changes-summary {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.7);
+}
+.char-changes-summary span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.char-changes-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.8);
+}
+.char-changes-table th {
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 0.65rem;
+  letter-spacing: 1.5px;
+  color: rgba(255,255,255,0.5);
+  text-transform: uppercase;
+  padding: 6px 8px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  text-align: left;
+}
+.char-changes-table td {
+  padding: 5px 8px;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  vertical-align: middle;
+}
+.char-change-buff { color: #2ed573; font-weight: 700; }
+.char-change-nerf { color: #ff4757; font-weight: 700; }
+.char-change-indicator {
+  display: inline-block;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  margin-right: 4px;
+}
 </style>
 </head>
 <body data-page="notas">
@@ -190,9 +234,7 @@
   <div class="tl-modal-card">
     <button class="tl-modal-close" id="char-modal-close">✕</button>
     <div class="tl-modal-header" id="char-modal-header">Personaje</div>
-    <div style="padding:20px; text-align:center; color:rgba(255,255,255,0.5);" id="char-modal-body">
-      Próximamente...
-    </div>
+    <div id="char-modal-body"></div>
   </div>
 </div>
 
@@ -210,11 +252,66 @@ document.addEventListener('DOMContentLoaded', () => {
   const charModalHeader = document.getElementById('char-modal-header');
   const charModalBody = document.getElementById('char-modal-body');
 
-  // Función para abrir modal de personaje
+  // ══════════════════════════════════════════
+  // DATOS DE CAMBIOS POR PERSONAJE (V1)
+  // ══════════════════════════════════════════
+  const cambiosPorPersonaje = {
+    1: [ // ReyDNS
+      { atributo: 'ATQ', antes: '380', ahora: '🟢 400', tipo: 'buff' },
+      { atributo: 'VEL', antes: '126', ahora: '🟢 142', tipo: 'buff' },
+      { atributo: 'ATQ Anécdota', antes: '230', ahora: '🟢 250', tipo: 'buff' },
+      { atributo: 'Pasiva Anécdota (bono stats)', antes: '+15 VEL solo a él', ahora: '🟢 +10 a todas las stats base del equipo', tipo: 'buff' },
+      { atributo: 'Pasiva Anécdota (daño consecutivo)', antes: '+6% (máx 4, +24%)', ahora: '🔴 +5% (máx 5, +25%)', tipo: 'nerf' },
+      { atributo: 'Ultimate (daño por bala)', antes: '40%-90%', ahora: '🟢 50%-100%', tipo: 'buff' },
+      { atributo: 'Baneo 3 (avance inicial)', antes: '30%', ahora: '🔴 25%', tipo: 'nerf' },
+      { atributo: 'Baneo 3 (nuevo)', antes: 'No tenía', ahora: '🟢 "Mantra"', tipo: 'buff' },
+      { atributo: 'Rasgo Único', antes: 'No tenía', ahora: '🟢 Sinergias con Belle, Miki y Hawk', tipo: 'buff' },
+      { atributo: 'Recarga Forzada (escudo)', antes: '10%-25%', ahora: '🔴 10%-20%', tipo: 'nerf' }
+    ]
+  };
+
+  // Función para abrir modal de personaje con cambios
   function openCharModal(char) {
     if (!char) return;
-    charModalHeader.textContent = char.name + ' - ' + (EC[char.element]?.label || '');
-    charModalBody.innerHTML = 'Próximamente...<br>(cambios de la V1)';
+    const el = EC[char.element];
+    charModalHeader.innerHTML = `
+      <span class="char-elem-dot" style="background:${el?.color || '#fff'}; box-shadow: 0 0 5px ${el?.color || '#fff'}; display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; vertical-align: middle;"></span>
+      ${char.name} - ${el?.label || ''}
+    `;
+
+    const cambios = cambiosPorPersonaje[char.id];
+    if (cambios && cambios.length > 0) {
+      const buffs = cambios.filter(c => c.tipo === 'buff').length;
+      const nerfs = cambios.filter(c => c.tipo === 'nerf').length;
+      const reworks = cambios.filter(c => c.tipo === 'rework').length;
+
+      let html = `
+        <div style="padding:12px 16px;">
+          <div class="char-changes-summary">
+            <span style="color:#2ed573;">🟢 ${buffs} Buffs</span>
+            <span style="color:#ff4757;">🔴 ${nerfs} Nerfs</span>
+            <span style="color:var(--cyan);">🔵 ${reworks} Reworks</span>
+          </div>
+          <table class="char-changes-table">
+            <thead><tr><th>Atributo / Habilidad</th><th>Antes</th><th>Ahora</th></tr></thead>
+            <tbody>
+      `;
+
+      cambios.forEach(c => {
+        const colorClass = c.tipo === 'buff' ? 'char-change-buff' : (c.tipo === 'nerf' ? 'char-change-nerf' : '');
+        html += `<tr>
+          <td>${c.atributo}</td>
+          <td style="color:rgba(255,255,255,0.6);">${c.antes}</td>
+          <td class="${colorClass}">${c.ahora}</td>
+        </tr>`;
+      });
+
+      html += `</tbody></table></div>`;
+      charModalBody.innerHTML = html;
+    } else {
+      charModalBody.innerHTML = '<div style="padding:20px; text-align:center; color:rgba(255,255,255,0.5);">Próximamente...<br>(cambios de la V1)</div>';
+    }
+
     charModal.classList.add('open');
   }
 
