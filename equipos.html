@@ -140,6 +140,40 @@
 <script src="scripts.js" defer></script>
 
 <script defer>
+// ════════════════════════════════════════
+// MAPEO DE CARTAS (Tierlist) POR ID
+// ════════════════════════════════════════
+const CARTA_IMG = {
+  1: 'Personajes 1.0 De frente/ReyDNSCarta.jpg',
+  2: 'Personajes 1.0 De frente/MikiCarta.jpg',
+  3: 'Personajes 1.0 De frente/BelleCarta.jpg',
+  4: 'Personajes 1.0 De frente/HawkCarta.jpg',
+  5: 'Personajes 1.0 De frente/FabruCarta.jpg',
+  6: 'Personajes 1.0 De frente/EugenioCarta.jpg',
+  7: 'Personajes 1.0 De frente/KyouCarta.jpg',
+  8: 'Personajes 1.0 De frente/TtlimCarta.jpg',
+  9: 'Personajes 1.0 De frente/CrisCarta.jpg',
+  10: 'Personajes 1.0 De frente/QuencyCarta.jpg',
+  11: 'Personajes 1.0 De frente/EydisCarta.jpg',
+  12: 'Personajes 1.0 De frente/iKaytoCarta.jpg',
+  13: 'Personajes 1.0 De frente/PobertoCarta.jpg',
+  14: 'Personajes 1.0 De frente/YanfeiCarta.jpg',
+  15: 'Personajes 1.0 De frente/KoenigCarta.jpg',
+  16: 'Personajes 1.0 De frente/TakoCarta.jpg',
+  17: 'Personajes 1.0 De frente/ZenkinCarta.jpg',
+  18: 'Personajes 1.0 De frente/DawnCarta.jpg',
+  19: 'Personajes 1.0 De frente/RegutaCarta.jpg',
+  20: 'Personajes 1.0 De frente/NanaomiCarta.jpg',
+  21: 'Personajes 1.0 De frente/SofiCarta.jpg',
+  22: 'Personajes 1.0 De frente/ArekuCarta.jpg',
+  23: 'Personajes 1.0 De frente/HarrietCarta.jpg',
+  24: 'Personajes 1.0 De frente/AlelinCarta.jpg',
+  25: 'Personajes 1.0 De frente/EscarlataCarta.jpg',
+  26: 'Personajes 1.0 De frente/AbrilCarta.jpg',
+  27: 'Personajes 1.0 De frente/AlexTMZCarta.jpg',
+  28: 'Personajes 1.0 De frente/KomatoCarta.jpg'
+};
+
 const EQUIPOS = [
   { chars:[1,3,4,13], dmg:14200 },
   { chars:[5,4,7,13], dmg:13500 },
@@ -175,8 +209,10 @@ function renderEquipos() {
         </div>`;
       }
       const el = EC[c.element];
-      const artHtml = c.art
-        ? `<img src="${c.art}" alt="${c.name}">`
+      // 🃏 Usamos la imagen de carta si existe; si no, el splash art; si no, gradiente
+      const imgSrc = CARTA_IMG[id] || c.art;
+      const artHtml = imgSrc
+        ? `<img src="${imgSrc}" alt="${c.name}">`
         : `<div class="eq-card-art-bg" style="background:${GRAD[c.element]};"></div>`;
       return `
         <div class="eq-card">
