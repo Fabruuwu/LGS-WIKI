@@ -191,7 +191,6 @@
   <div class="version-tabs">
     <button class="vtab" id="btn-v1">Notas Parche V1 - 1.0</button>
     <button class="vtab" id="btn-v2">Notas Parche V2 - 1.0</button>
-    <button class="vtab" id="btn-v3">Notas Parche V3 - 1.0</button>
   </div>
 
   <!-- Contenedor dinámico para la versión activa -->
@@ -257,16 +256,100 @@ document.addEventListener('DOMContentLoaded', () => {
   // ══════════════════════════════════════════
   const cambiosPorPersonaje = {
     1: [ // ReyDNS
-      { atributo: 'ATQ', antes: '380', ahora: '🟢 400', tipo: 'buff' },
-      { atributo: 'VEL', antes: '126', ahora: '🟢 142', tipo: 'buff' },
-      { atributo: 'ATQ Anécdota', antes: '230', ahora: '🟢 250', tipo: 'buff' },
-      { atributo: 'Pasiva Anécdota (bono stats)', antes: '+15 VEL solo a él', ahora: '🟢 +10 a todas las stats base del equipo', tipo: 'buff' },
-      { atributo: 'Pasiva Anécdota (daño consecutivo)', antes: '+6% (máx 4, +24%)', ahora: '🔴 +5% (máx 5, +25%)', tipo: 'nerf' },
-      { atributo: 'Ultimate (daño por bala)', antes: '40%-90%', ahora: '🟢 50%-100%', tipo: 'buff' },
-      { atributo: 'Baneo 3 (avance inicial)', antes: '30%', ahora: '🔴 25%', tipo: 'nerf' },
-      { atributo: 'Baneo 3 (nuevo)', antes: 'No tenía', ahora: '🟢 "Mantra"', tipo: 'buff' },
-      { atributo: 'Rasgo Único', antes: 'No tenía', ahora: '🟢 Sinergias con Belle, Miki y Hawk', tipo: 'buff' },
-      { atributo: 'Recarga Forzada (escudo)', antes: '10%-25%', ahora: '🔴 10%-20%', tipo: 'nerf' }
+      { atributo: 'ATQ', antes: '380', ahora: '400', tipo: 'buff' },
+      { atributo: 'VEL', antes: '126', ahora: '142', tipo: 'buff' },
+      { atributo: 'ATQ Anécdota', antes: '230', ahora: '250', tipo: 'buff' },
+      { atributo: 'Pasiva Anécdota (bono stats)', antes: '+15 VEL solo a él', ahora: '+10 a todas las stats base del equipo', tipo: 'rework' },
+      { atributo: 'Pasiva Anécdota (daño consecutivo)', antes: '+6% (máx 4, +24%)', ahora: '+5% (máx 5, +25%)', tipo: 'rework' },
+      { atributo: 'Ultimate (daño por bala)', antes: '40%-90%', ahora: '50%-100%', tipo: 'buff' },
+      { atributo: 'Baneo 3 (avance inicial)', antes: '30%', ahora: '25%', tipo: 'nerf' },
+      { atributo: 'Baneo 3 (nuevo)', antes: 'No tenía', ahora: '"Mantra"', tipo: 'rework' },
+      { atributo: 'Rasgo Único', antes: 'No tenía', ahora: 'Sinergias con Belle, Miki y Hawk', tipo: 'rework' },
+      { atributo: 'Recarga Forzada (escudo)', antes: '10%-25%', ahora: '10%-20%', tipo: 'nerf' }
+    ],
+    3: [ // Belle
+      { atributo: 'HP', antes: '750', ahora: '350', tipo: 'nerf' },
+      { atributo: 'ATQ', antes: '400', ahora: '330', tipo: 'nerf' },
+      { atributo: 'VEL', antes: '148', ahora: '148 (sin cambios)', tipo: 'neutral' },
+      { atributo: 'Habilidad', antes: 'Solo daño', ahora: 'Daño +20% Ruptura al aliado', tipo: 'buff' },
+      { atributo: 'Ultimate', antes: 'Sin efecto extra', ahora: 'Efecto de Ruptura = VEL si >250', tipo: 'buff' },
+      { atributo: 'Talento (Electrocutado)', antes: 'Sin Parálisis', ahora: '10% de Parálisis', tipo: 'buff' },
+      { atributo: 'Baneo 1', antes: 'Solo +15% VEL', ahora: '+15% VEL + "Mute" si >250 VEL', tipo: 'buff' },
+      { atributo: 'Baneo 2', antes: 'Sin Ruptura', ahora: '+0.20% Ruptura por XP (máx 50%)', tipo: 'buff' },
+      { atributo: 'Baneo 3', antes: 'Mismo efecto', ahora: 'Renombrado "Ataque PE"', tipo: 'rework' },
+      { atributo: 'Sinergia Quency', antes: 'No tenía', ahora: 'Propaganda, Kitsune, buffs a todo el equipo', tipo: 'rework' }
+    ],
+    4: [ // Hawk
+      { atributo: 'HP', antes: '560', ahora: '620', tipo: 'buff' },
+      { atributo: 'ATQ', antes: '345', ahora: '380', tipo: 'buff' },
+      { atributo: 'DEF', antes: '155', ahora: '170', tipo: 'buff' },
+      { atributo: 'VEL', antes: '112', ahora: '140', tipo: 'buff' },
+      { atributo: 'Rareza Anécdota', antes: '4★', ahora: '5★', tipo: 'buff' },
+      { atributo: 'ATQ Anécdota', antes: '205', ahora: '250', tipo: 'buff' },
+      { atributo: 'HP Anécdota', antes: '75', ahora: '100', tipo: 'buff' },
+      { atributo: 'Pasiva Anécdota (DEF)', antes: '-15% DEF, 1 turno', ahora: '-20% DEF, 2 turnos', tipo: 'buff' },
+      { atributo: 'Pasiva Anécdota (nueva)', antes: 'No', ahora: '+3 Energía al dañar hipnotizados', tipo: 'buff' },
+      { atributo: 'Ataque Básico', antes: '45%-100%', ahora: '65%-120%', tipo: 'buff' },
+      { atributo: 'Habilidad', antes: 'Sin Tela', ahora: 'Aplica "Tela" junto con Hipnosis', tipo: 'buff' },
+      { atributo: 'Ultimate (daño)', antes: '160%-340%', ahora: '180%-360%', tipo: 'buff' },
+      { atributo: 'Ultimate (buff stats)', antes: 'No', ahora: '+10% stats por Polvo consumido', tipo: 'buff' },
+      { atributo: 'Ultimate (reducción DEF)', antes: 'No', ahora: '-30% DEF si ya tenía Hipnosis', tipo: 'buff' },
+      { atributo: 'Talento (máx Polvo)', antes: '3', ahora: '5', tipo: 'buff' },
+      { atributo: 'Talento (FUA/turno)', antes: '2', ahora: '3', tipo: 'buff' },
+      { atributo: 'Talento (daño FUA)', antes: '50%-110%', ahora: '60%-130%', tipo: 'buff' },
+      { atributo: 'Talento (bono Polvo)', antes: '+10% (máx +30%)', ahora: '+12% (máx +60%)', tipo: 'buff' },
+      { atributo: 'Talento (Polvo inicial)', antes: '1', ahora: '2', tipo: 'buff' },
+      { atributo: 'Baneo 2 (Energía)', antes: '5', ahora: '8', tipo: 'buff' },
+      { atributo: 'Baneo 3 (Marcas)', antes: '1 enemigo', ahora: '2 enemigos', tipo: 'buff' },
+      { atributo: 'Ping 1 (límite Polvo)', antes: '4 (máx +40%)', ahora: '6 (máx +72%)', tipo: 'buff' },
+      { atributo: 'Ping 2 (Daño Crítico)', antes: '+20%', ahora: '+25%', tipo: 'buff' },
+      { atributo: 'Ping 4 (reducción VEL)', antes: '15%', ahora: '20%', tipo: 'buff' },
+      { atributo: 'Ping 6', antes: 'Aturdir si 3+ hipnotizados', ahora: '"Función Final"', tipo: 'rework' }
+    ],
+    5: [ // Fabru
+      { atributo: 'ATQ', antes: '370', ahora: '390', tipo: 'buff' },
+      { atributo: 'VEL', antes: '122', ahora: '140', tipo: 'buff' },
+      { atributo: 'ATQ Anécdota', antes: '235', ahora: '250', tipo: 'buff' },
+      { atributo: 'Pasiva Anécdota (ATQ)', antes: '+12%', ahora: '+15%', tipo: 'buff' },
+      { atributo: 'Pasiva Anécdota (Energía)', antes: '+5%', ahora: '+8%', tipo: 'buff' },
+      { atributo: 'Drones (herencia)', antes: 'ATQ y VEL', ahora: 'ATQ, DEF y VEL', tipo: 'buff' },
+      { atributo: 'Drones (daño)', antes: '30%-70%', ahora: '40%-80%', tipo: 'buff' },
+      { atributo: 'Ultimate (daño)', antes: '120%-260%', ahora: '150%-300%', tipo: 'buff' },
+      { atributo: 'Ultimate (Sobrecarga)', antes: '2 turnos', ahora: '3 turnos', tipo: 'buff' },
+      { atributo: 'Ultimate (nuevo)', antes: 'No', ahora: 'Vulnerabilidad Expuesta (-20% DEF)', tipo: 'buff' },
+      { atributo: 'Talento (bono Paquete)', antes: '+2% (máx +20%)', ahora: '+3% (máx +30%)', tipo: 'buff' },
+      { atributo: 'Talento (Código Raíz)', antes: 'Automático', ahora: 'Manual', tipo: 'rework' },
+      { atributo: 'Efecto pasivo nuevo', antes: 'No', ahora: '15% fallo enemigos con Sistema Caído', tipo: 'rework' },
+      { atributo: 'Baneo 2 (Paquetes)', antes: '3', ahora: '4', tipo: 'buff' },
+      { atributo: 'Baneo 3 (Energía)', antes: '15', ahora: '20', tipo: 'buff' },
+      { atributo: 'Ping 2 (daño drones)', antes: '+15%', ahora: '+20%', tipo: 'buff' }
+    ],
+    2: [ // Miki
+      { atributo: 'HP', antes: '580', ahora: '650', tipo: 'buff' },
+      { atributo: 'DEF', antes: '360', ahora: '300', tipo: 'nerf' },
+      { atributo: 'VEL', antes: '112', ahora: '115', tipo: 'buff' },
+      { atributo: 'Anécdota (Tarjeta)', antes: 'No', ahora: '+3% DEF y Acierto por acumulación (máx 30%)', tipo: 'rework' },
+      { atributo: 'Anécdota (Energía)', antes: '5', ahora: '10', tipo: 'buff' },
+      { atributo: 'Ataque Básico', antes: '45%-95% DEF', ahora: '75%-105% DEF', tipo: 'buff' },
+      { atributo: 'Habilidad (daño)', antes: '20%-40% DEF', ahora: '30%-40% DEF', tipo: 'buff' },
+      { atributo: 'Ultimate (buff)', antes: 'Solo VEL y DEF', ahora: 'DEF, VIDA, ATQ, PROB y CRIT', tipo: 'buff' },
+      { atributo: 'Ping 2', antes: 'Sin reducción', ahora: 'FUA con 4 cargas', tipo: 'buff' }
+    ],
+    6: [ // Eugenio
+      { atributo: 'Rareza', antes: '4★', ahora: '5★ Promocional', tipo: 'rework' },
+      { atributo: 'ATQ Anécdota', antes: '180', ahora: '200', tipo: 'buff' },
+      { atributo: 'Pasiva Anécdota', antes: '+15% ATQ', ahora: '+20% ATQ', tipo: 'buff' },
+      { atributo: 'Talento (Suerte)', antes: 'Sin límite claro', ahora: 'Máx 200 (con Ping 2)', tipo: 'rework' },
+      { atributo: 'Habilidad (Escalera)', antes: 'No', ahora: 'Roba Naipes según debuffs enemigos', tipo: 'rework' },
+      { atributo: 'Habilidad (Combinaciones)', antes: 'Sin combinaciones', ahora: '7 jugadas de póker', tipo: 'rework' },
+      { atributo: 'Ultimate', antes: 'Daño simple', ahora: 'Combina 2 jugadas simultáneas', tipo: 'rework' },
+      { atributo: 'Baneo 1', antes: 'Sin cambios', ahora: 'Descarta y roba un Naipe', tipo: 'buff' },
+      { atributo: 'Baneo 2', antes: 'Sin Comodín', ahora: 'Comodín una vez por batalla', tipo: 'buff' },
+      { atributo: 'Baneo 3', antes: 'Sin protección', ahora: 'Evita bajada de Suerte', tipo: 'buff' },
+      { atributo: 'Ping 1', antes: 'Sin bonus', ahora: '+0.25% Suerte por Naipe', tipo: 'buff' },
+      { atributo: 'Ping 2', antes: 'Sin mejora', ahora: 'Suerte máx 200, empieza con 30', tipo: 'buff' },
+      { atributo: 'Ping 4', antes: 'Sin aumento', ahora: 'Mano de 5 a 10 Naipes', tipo: 'buff' },
+      { atributo: 'Ping 6', antes: 'Sin elección', ahora: 'Elige combinación + Comodín Tocado', tipo: 'buff' }
     ]
   };
 
