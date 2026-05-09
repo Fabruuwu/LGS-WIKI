@@ -17,7 +17,7 @@
 .vtab.active{background:rgba(155,89,245,.22);border-color:var(--violet);color:#fff;}
 
 /* ════════════════════════════════════════
-   ESTILOS DEL MODAL
+   ESTILOS DEL MODAL (GENÉRICO)
 ════════════════════════════════════════ */
 .tl-modal-overlay {
   position: fixed; inset: 0; z-index: 1000;
@@ -55,6 +55,66 @@
   text-align: center; letter-spacing: 1px;
   border-bottom: 1px solid rgba(255,255,255,.05);
 }
+
+/* ── Sección de cambios de personaje ── */
+.patch-content {
+  margin-top: 24px;
+  display: none;
+}
+.patch-content.active {
+  display: block;
+}
+.patch-chars-title {
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 1.1rem;
+  color: var(--cyan);
+  letter-spacing: 2px;
+  text-align: center;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+.char-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px;
+}
+.char-card-small {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  padding: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+}
+.char-card-small:hover {
+  border-color: var(--violet);
+  background: rgba(155,89,245,0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+.char-card-small .char-name {
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 0.8rem;
+  color: #fff;
+  margin-bottom: 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.char-card-small .char-elem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.5);
+}
+.char-card-small .char-elem-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
 </style>
 </head>
 <body data-page="notas">
@@ -89,9 +149,12 @@
     <button class="vtab" id="btn-v2">Notas Parche V2 - 1.0</button>
     <button class="vtab" id="btn-v3">Notas Parche V3 - 1.0</button>
   </div>
+
+  <!-- Contenedor dinámico para la versión activa -->
+  <div id="patch-content" class="patch-content"></div>
 </div>
 
-<!-- Modales -->
+<!-- Modales de versión (vacío por ahora) -->
 <div class="tl-modal-overlay" id="v1-modal-overlay">
   <div class="tl-modal-card">
     <button class="tl-modal-close" id="v1-modal-close">✕</button>
@@ -122,35 +185,116 @@
   </div>
 </div>
 
+<!-- Modal para personaje individual (se reutiliza) -->
+<div class="tl-modal-overlay" id="char-modal-overlay">
+  <div class="tl-modal-card">
+    <button class="tl-modal-close" id="char-modal-close">✕</button>
+    <div class="tl-modal-header" id="char-modal-header">Personaje</div>
+    <div style="padding:20px; text-align:center; color:rgba(255,255,255,0.5);" id="char-modal-body">
+      Próximamente...
+    </div>
+  </div>
+</div>
+
 <script src="scripts.js" defer></script>
 <script>
-// ── Configuración de los tres modales ──
+// ── Configuración de modales de versión y del contenido dinámico ──
 document.addEventListener('DOMContentLoaded', () => {
-  function setupModal(btnId, overlayId, closeBtnId) {
-    const btn = document.getElementById(btnId);
-    const overlay = document.getElementById(overlayId);
-    const closeBtn = document.getElementById(closeBtnId);
+  // Referencias
+  const patchContent = document.getElementById('patch-content');
+  const btnV1 = document.getElementById('btn-v1');
+  const btnV2 = document.getElementById('btn-v2');
+  const btnV3 = document.getElementById('btn-v3');
+  const charModal = document.getElementById('char-modal-overlay');
+  const charModalClose = document.getElementById('char-modal-close');
+  const charModalHeader = document.getElementById('char-modal-header');
+  const charModalBody = document.getElementById('char-modal-body');
 
-    function open() {
-      overlay.classList.add('open');
-    }
-    function close() {
-      overlay.classList.remove('open');
+  // Función para abrir modal de personaje
+  function openCharModal(char) {
+    if (!char) return;
+    charModalHeader.textContent = char.name + ' - ' + (EC[char.element]?.label || '');
+    charModalBody.innerHTML = 'Próximamente...<br>(cambios de la V1)';
+    charModal.classList.add('open');
+  }
+
+  // Cerrar modal de personaje
+  function closeCharModal() {
+    charModal.classList.remove('open');
+  }
+
+  charModalClose.addEventListener('click', closeCharModal);
+  charModal.addEventListener('click', (e) => {
+    if (e.target === charModal) closeCharModal();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && charModal.classList.contains('open')) closeCharModal();
+  });
+
+  // Generar la cuadrícula de personajes para V1
+  function renderV1Content() {
+    if (!CHARS || !EC) {
+      patchContent.innerHTML = '<p style="color:rgba(255,255,255,0.4); text-align:center;">Cargando datos de personajes...</p>';
+      return;
     }
 
-    btn.addEventListener('click', open);
-    closeBtn.addEventListener('click', close);
-    overlay.addEventListener('click', (e) => {
-      if (e.target === overlay) close();
+    let html = '<div class="patch-chars-title">Cambios en Personajes</div>';
+    html += '<div class="char-grid">';
+
+    CHARS.forEach(char => {
+      const el = EC[char.element];
+      html += `
+        <div class="char-card-small" data-id="${char.id}">
+          <div class="char-name">${char.name}</div>
+          <div class="char-elem">
+            <span class="char-elem-dot" style="background:${el?.color || '#fff'}; box-shadow: 0 0 5px ${el?.color || '#fff'};"></span>
+            ${el?.label || char.element}
+          </div>
+        </div>
+      `;
     });
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && overlay.classList.contains('open')) close();
+
+    html += '</div>';
+    patchContent.innerHTML = html;
+
+    // Agregar eventos a las tarjetas
+    document.querySelectorAll('.char-card-small').forEach(card => {
+      card.addEventListener('click', () => {
+        const id = parseInt(card.dataset.id);
+        const character = CHARS.find(c => c.id === id);
+        if (character) openCharModal(character);
+      });
     });
   }
 
-  setupModal('btn-v1', 'v1-modal-overlay', 'v1-modal-close');
-  setupModal('btn-v2', 'v2-modal-overlay', 'v2-modal-close');
-  setupModal('btn-v3', 'v3-modal-overlay', 'v3-modal-close');
+  // Manejo de clicks en botones de versión
+  function setActiveButton(activeBtn) {
+    [btnV1, btnV2, btnV3].forEach(b => b.classList.remove('active'));
+    if (activeBtn) activeBtn.classList.add('active');
+  }
+
+  btnV1.addEventListener('click', () => {
+    setActiveButton(btnV1);
+    patchContent.classList.add('active');
+    renderV1Content();
+  });
+
+  btnV2.addEventListener('click', () => {
+    setActiveButton(btnV2);
+    patchContent.classList.remove('active');
+    patchContent.innerHTML = '';
+    // Aquí en el futuro se cargará el contenido de V2
+  });
+
+  btnV3.addEventListener('click', () => {
+    setActiveButton(btnV3);
+    patchContent.classList.remove('active');
+    patchContent.innerHTML = '';
+    // Aquí en el futuro se cargará el contenido de V3
+  });
+
+  // Inicialmente oculto
+  patchContent.classList.remove('active');
 });
 </script>
 <div id="global-tooltip"></div>
