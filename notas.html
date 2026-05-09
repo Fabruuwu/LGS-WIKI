@@ -16,58 +16,8 @@
 .vtab:hover{border-color:rgba(155,89,245,.5);color:#fff;}
 .vtab.active{background:rgba(155,89,245,.22);border-color:var(--violet);color:#fff;}
 
-/* ── Bloque de versión ── */
-.patch-block{display:none;}
-.patch-block.active{display:block;}
-
-/* Cambios generales */
-.general-card{background:rgba(255,255,255,.03);border:1px solid rgba(0,229,255,.18);
-  border-radius:14px;padding:20px 24px;margin-bottom:32px;}
-.general-title{font-family:'Cinzel Decorative',cursive;font-size:.78rem;color:var(--cyan);
-  letter-spacing:3px;text-transform:uppercase;margin-bottom:14px;padding-bottom:8px;
-  border-bottom:1px solid rgba(0,229,255,.12);}
-.change-list{display:flex;flex-direction:column;gap:8px;}
-.change-item{display:flex;align-items:flex-start;gap:10px;font-size:.9rem;
-  color:rgba(255,255,255,.7);line-height:1.5;}
-.change-tag{font-size:.68rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
-  border-radius:6px;padding:2px 8px;white-space:nowrap;flex-shrink:0;margin-top:1px;}
-.tag-buff   {background:rgba(46,213,115,.15);color:#2ed573;border:1px solid rgba(46,213,115,.3);}
-.tag-nerf   {background:rgba(255,71,87,.15); color:#ff4757;border:1px solid rgba(255,71,87,.3);}
-.tag-rework {background:rgba(0,229,255,.15); color:var(--cyan);border:1px solid rgba(0,229,255,.3);}
-.tag-nuevo  {background:rgba(245,200,66,.15);color:var(--gold);border:1px solid rgba(245,200,66,.3);}
-.tag-fix    {background:rgba(155,89,245,.15);color:var(--violet);border:1px solid rgba(155,89,245,.3);}
-
-/* ── Grid de personajes ── */
-.patch-chars-title{font-family:'Cinzel Decorative',cursive;font-size:.78rem;color:var(--pink);
-  letter-spacing:3px;text-transform:uppercase;margin-bottom:16px;padding-bottom:8px;
-  border-bottom:1px solid rgba(255,79,163,.12);}
-.patch-chars-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;}
-
-/* Card personaje en notas */
-.pchar-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);
-  border-radius:12px;overflow:hidden;cursor:pointer;transition:border-color .25s,box-shadow .25s;}
-.pchar-card:hover{border-color:rgba(155,89,245,.4);box-shadow:0 8px 30px rgba(0,0,0,.3);}
-.pchar-card.open{border-color:rgba(155,89,245,.5);}
-
-.pchar-header{display:flex;align-items:center;gap:12px;padding:14px 16px;}
-.pchar-dot{width:11px;height:11px;border-radius:50%;flex-shrink:0;}
-.pchar-name{font-family:'Cinzel Decorative',cursive;font-size:.78rem;color:#fff;letter-spacing:.5px;flex:1;}
-.pchar-role{font-size:.7rem;color:rgba(255,255,255,.35);letter-spacing:1px;}
-.pchar-arrow{font-size:.7rem;color:rgba(255,255,255,.3);transition:transform .25s;margin-left:auto;}
-.pchar-card.open .pchar-arrow{transform:rotate(180deg);}
-.pchar-changes-count{font-size:.68rem;background:rgba(155,89,245,.2);border:1px solid rgba(155,89,245,.3);
-  border-radius:10px;padding:1px 7px;color:var(--violet);font-weight:700;}
-
-/* Cambios del personaje (colapsable) */
-.pchar-body{max-height:0;overflow:hidden;transition:max-height .35s ease;}
-.pchar-card.open .pchar-body{max-height:600px;}
-.pchar-body-inner{padding:0 16px 14px;border-top:1px solid rgba(255,255,255,.06);padding-top:12px;}
-
-/* Sin cambios en esta versión */
-.no-changes{font-size:.82rem;color:rgba(255,255,255,.25);font-style:italic;text-align:center;padding:8px 0;}
-
 /* ════════════════════════════════════════
-   ESTILOS DEL MODAL (AGREGADOS)
+   ESTILOS DEL MODAL
 ════════════════════════════════════════ */
 .tl-modal-overlay {
   position: fixed; inset: 0; z-index: 1000;
@@ -133,29 +83,35 @@
     <p class="section-sub">Buffs · Nerfs · Reworks · Fixes</p>
   </div>
 
-  <!-- SELECTOR DE VERSIÓN -->
-  <div class="version-tabs" id="version-tabs">
-    <button class="vtab" id="btn-v2">1.0 V2</button>
-    <!-- NUEVO BOTÓN V3 -->
+  <!-- BOTONES DE VERSIÓN -->
+  <div class="version-tabs">
+    <button class="vtab" id="btn-v1">Notas Parche V1 - 1.0</button>
+    <button class="vtab" id="btn-v2">Notas Parche V2 - 1.0</button>
     <button class="vtab" id="btn-v3">Notas Parche V3 - 1.0</button>
   </div>
-
-  <!-- BLOQUES POR VERSIÓN (generados por JS) -->
-  <div id="patch-blocks"></div>
 </div>
 
-<!-- Modal V2 -->
-<div class="tl-modal-overlay" id="v2-modal-overlay">
+<!-- Modales -->
+<div class="tl-modal-overlay" id="v1-modal-overlay">
   <div class="tl-modal-card">
-    <button class="tl-modal-close" id="v2-modal-close">✕</button>
-    <div class="tl-modal-header">Notas de la V2 - Version 1.0</div>
+    <button class="tl-modal-close" id="v1-modal-close">✕</button>
+    <div class="tl-modal-header">Notas Parche V1 - Version 1.0</div>
     <div style="padding:20px; text-align:center; color:rgba(255,255,255,0.5);">
       Próximamente...
     </div>
   </div>
 </div>
 
-<!-- NUEVO Modal V3 -->
+<div class="tl-modal-overlay" id="v2-modal-overlay">
+  <div class="tl-modal-card">
+    <button class="tl-modal-close" id="v2-modal-close">✕</button>
+    <div class="tl-modal-header">Notas Parche V2 - Version 1.0</div>
+    <div style="padding:20px; text-align:center; color:rgba(255,255,255,0.5);">
+      Próximamente...
+    </div>
+  </div>
+</div>
+
 <div class="tl-modal-overlay" id="v3-modal-overlay">
   <div class="tl-modal-card">
     <button class="tl-modal-close" id="v3-modal-close">✕</button>
@@ -168,192 +124,33 @@
 
 <script src="scripts.js" defer></script>
 <script>
-// ══════════════════════════════════════════
-// DATOS DE PARCHES — Editá acá para agregar
-// ══════════════════════════════════════════
-const PATCHES = [
-  {
-    version: 'V1.0',
-    fecha: '01/05/2025',
-    general: [
-      { tag: 'nuevo',  texto: 'Lanzamiento oficial del juego. ¡Bienvenidos al universo LGS!' },
-      { tag: 'nuevo',  texto: 'Se añaden los primeros 2 personajes: ReyDNS y Miki.' },
-      { tag: 'nuevo',  texto: 'Sistema de Paradigmas implementado: cada personaje tiene una vía de combate única.' },
-      { tag: 'nuevo',  texto: 'Mecánica de Tambor de Balas introducida para ReyDNS.' },
-    ],
-    personajes: [
-      {
-        id: 1,
-        cambios: [
-          { tag: 'nuevo', texto: 'ReyDNS agregado al roster. Rol: Main DPS · Elemento: Fuego.' },
-          { tag: 'nuevo', texto: 'Habilidad "Fuego a Discreción" disponible desde el inicio.' },
-        ]
-      },
-      {
-        id: 2,
-        cambios: [
-          { tag: 'nuevo', texto: 'Miki agregada al roster. Rol: Soporte/Control · Elemento: Vacío.' },
-          { tag: 'nuevo', texto: 'Mecánica de Engranajes implementada en su Talento.' },
-        ]
-      }
-    ]
-  },
-  {
-    version: 'V1.1',
-    fecha: '15/05/2025',
-    general: [
-      { tag: 'fix',    texto: 'Corregido bug donde los turnos se saltaban al usar Ultimate seguida de Habilidad.' },
-      { tag: 'rework', texto: 'Sistema de velocidad rebalanceado: la fórmula de orden de turno fue ajustada.' },
-      { tag: 'buff',   texto: 'La Resistencia a Efectos base de todos los personajes aumentó de 10 a 15.' },
-    ],
-    personajes: [
-      {
-        id: 1,
-        cambios: [
-          { tag: 'nerf',  texto: 'ATQ base reducido de 380 a 360.' },
-          { tag: 'buff',  texto: 'Las "Balas de Ban" ahora ignoran un 5% adicional de DEF en todos los niveles.' },
-          { tag: 'fix',   texto: 'Corregido bug donde "Privilegios de Owner" no activaba correctamente en ciertas condiciones.' },
-        ]
-      },
-      {
-        id: 2,
-        cambios: [
-          { tag: 'buff',   texto: 'HP base aumentado de 680 a 720.' },
-          { tag: 'rework', texto: '"Muteo Temporal" ahora tiene 90% de probabilidad base (antes 85%).' },
-        ]
-      }
-    ]
-  }
-];
-
-// ══════════════════════════════════════════
-// RENDERIZADO
-// ══════════════════════════════════════════
-const TAG_LABELS = {
-  buff:'Buff', nerf:'Nerf', rework:'Rework', nuevo:'Nuevo', fix:'Fix'
-};
-
-function renderPatches() {
-  const tabsEl   = document.getElementById('version-tabs');
-  const blocksEl = document.getElementById('patch-blocks');
-
-  const sorted = [...PATCHES].reverse();
-  sorted.forEach((patch, i) => {
-    const tab = document.createElement('button');
-    tab.className = 'vtab' + (i === 0 ? ' active' : '');
-    tab.textContent = patch.version + ' — ' + patch.fecha;
-    tab.dataset.v = patch.version;
-    tab.addEventListener('click', () => switchVersion(patch.version));
-    tabsEl.appendChild(tab);
-  });
-
-  sorted.forEach((patch, i) => {
-    const block = document.createElement('div');
-    block.className = 'patch-block' + (i === 0 ? ' active' : '');
-    block.dataset.v = patch.version;
-
-    const generalHTML = patch.general.map(c => `
-      <div class="change-item">
-        <span class="change-tag tag-${c.tag}">${TAG_LABELS[c.tag]}</span>
-        <span>${c.texto}</span>
-      </div>`).join('');
-
-    const charsHTML = patch.personajes.map(pc => {
-      const char = CHARS.find(c => c.id === pc.id);
-      if (!char) return '';
-      const el = EC[char.element];
-      const changesHTML = pc.cambios.length
-        ? pc.cambios.map(c => `
-            <div class="change-item">
-              <span class="change-tag tag-${c.tag}">${TAG_LABELS[c.tag]}</span>
-              <span>${c.texto}</span>
-            </div>`).join('')
-        : '<div class="no-changes">Sin cambios en esta versión.</div>';
-
-      return `
-        <div class="pchar-card" onclick="togglePChar(this)">
-          <div class="pchar-header">
-            <div class="pchar-dot" style="background:${el.color};box-shadow:0 0 7px ${el.color}"></div>
-            <div class="pchar-name">${char.name}</div>
-            <div class="pchar-role">${char.role}</div>
-            <span class="pchar-changes-count">${pc.cambios.length} cambios</span>
-            <span class="pchar-arrow">▼</span>
-          </div>
-          <div class="pchar-body">
-            <div class="pchar-body-inner change-list">${changesHTML}</div>
-          </div>
-        </div>`;
-    }).join('');
-
-    block.innerHTML = `
-      <div class="general-card">
-        <div class="general-title">🌐 Cambios Generales</div>
-        <div class="change-list">${generalHTML}</div>
-      </div>
-      <div class="patch-chars-title">⚔️ Cambios de Personajes</div>
-      <div class="patch-chars-grid">${charsHTML}</div>`;
-
-    blocksEl.appendChild(block);
-  });
-}
-
-function switchVersion(v) {
-  document.querySelectorAll('.vtab').forEach(t => t.classList.toggle('active', t.dataset.v === v));
-  document.querySelectorAll('.patch-block').forEach(b => b.classList.toggle('active', b.dataset.v === v));
-}
-
-function togglePChar(card) {
-  card.classList.toggle('open');
-}
-
-// ── Modales de V2 y V3 ──
+// ── Configuración de los tres modales ──
 document.addEventListener('DOMContentLoaded', () => {
-  // Renderizar los parches
-  renderPatches();
+  function setupModal(btnId, overlayId, closeBtnId) {
+    const btn = document.getElementById(btnId);
+    const overlay = document.getElementById(overlayId);
+    const closeBtn = document.getElementById(closeBtnId);
 
-  // Configurar modal V2
-  const btnV2 = document.getElementById('btn-v2');
-  const overlayV2 = document.getElementById('v2-modal-overlay');
-  const closeBtnV2 = document.getElementById('v2-modal-close');
-
-  function openV2Modal() {
-    overlayV2.classList.add('open');
-  }
-  function closeV2Modal() {
-    overlayV2.classList.remove('open');
-  }
-
-  btnV2.addEventListener('click', openV2Modal);
-  closeBtnV2.addEventListener('click', closeV2Modal);
-  overlayV2.addEventListener('click', (e) => {
-    if (e.target === overlayV2) closeV2Modal();
-  });
-
-  // NUEVO: Configurar modal V3
-  const btnV3 = document.getElementById('btn-v3');
-  const overlayV3 = document.getElementById('v3-modal-overlay');
-  const closeBtnV3 = document.getElementById('v3-modal-close');
-
-  function openV3Modal() {
-    overlayV3.classList.add('open');
-  }
-  function closeV3Modal() {
-    overlayV3.classList.remove('open');
-  }
-
-  btnV3.addEventListener('click', openV3Modal);
-  closeBtnV3.addEventListener('click', closeV3Modal);
-  overlayV3.addEventListener('click', (e) => {
-    if (e.target === overlayV3) closeV3Modal();
-  });
-
-  // Escape cierra ambos modales
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      if (overlayV2.classList.contains('open')) closeV2Modal();
-      if (overlayV3.classList.contains('open')) closeV3Modal();
+    function open() {
+      overlay.classList.add('open');
     }
-  });
+    function close() {
+      overlay.classList.remove('open');
+    }
+
+    btn.addEventListener('click', open);
+    closeBtn.addEventListener('click', close);
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) close();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && overlay.classList.contains('open')) close();
+    });
+  }
+
+  setupModal('btn-v1', 'v1-modal-overlay', 'v1-modal-close');
+  setupModal('btn-v2', 'v2-modal-overlay', 'v2-modal-close');
+  setupModal('btn-v3', 'v3-modal-overlay', 'v3-modal-close');
 });
 </script>
 <div id="global-tooltip"></div>
