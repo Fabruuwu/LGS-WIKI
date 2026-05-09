@@ -218,16 +218,6 @@
   </div>
 </div>
 
-<div class="tl-modal-overlay" id="v3-modal-overlay">
-  <div class="tl-modal-card">
-    <button class="tl-modal-close" id="v3-modal-close">✕</button>
-    <div class="tl-modal-header">Notas Parche V3 - Version 1.0</div>
-    <div style="padding:20px; text-align:center; color:rgba(255,255,255,0.5);">
-      Próximamente...
-    </div>
-  </div>
-</div>
-
 <!-- Modal para personaje individual (se reutiliza) -->
 <div class="tl-modal-overlay" id="char-modal-overlay">
   <div class="tl-modal-card">
@@ -245,7 +235,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const patchContent = document.getElementById('patch-content');
   const btnV1 = document.getElementById('btn-v1');
   const btnV2 = document.getElementById('btn-v2');
-  const btnV3 = document.getElementById('btn-v3');
   const charModal = document.getElementById('char-modal-overlay');
   const charModalClose = document.getElementById('char-modal-close');
   const charModalHeader = document.getElementById('char-modal-header');
@@ -266,6 +255,17 @@ document.addEventListener('DOMContentLoaded', () => {
       { atributo: 'Baneo 3 (nuevo)', antes: 'No tenía', ahora: '"Mantra"', tipo: 'rework' },
       { atributo: 'Rasgo Único', antes: 'No tenía', ahora: 'Sinergias con Belle, Miki y Hawk', tipo: 'rework' },
       { atributo: 'Recarga Forzada (escudo)', antes: '10%-25%', ahora: '10%-20%', tipo: 'nerf' }
+    ],
+    2: [ // Miki
+      { atributo: 'HP', antes: '580', ahora: '650', tipo: 'buff' },
+      { atributo: 'DEF', antes: '360', ahora: '300', tipo: 'nerf' },
+      { atributo: 'VEL', antes: '112', ahora: '115', tipo: 'buff' },
+      { atributo: 'Anécdota (Tarjeta)', antes: 'No', ahora: '+3% DEF y Acierto por acumulación (máx 30%)', tipo: 'rework' },
+      { atributo: 'Anécdota (Energía)', antes: '5', ahora: '10', tipo: 'buff' },
+      { atributo: 'Ataque Básico', antes: '45%-95% DEF', ahora: '75%-105% DEF', tipo: 'buff' },
+      { atributo: 'Habilidad (daño)', antes: '20%-40% DEF', ahora: '30%-40% DEF', tipo: 'buff' },
+      { atributo: 'Ultimate (buff)', antes: 'Solo VEL y DEF', ahora: 'DEF, VIDA, ATQ, PROB y CRIT', tipo: 'buff' },
+      { atributo: 'Ping 2', antes: 'Sin reducción', ahora: 'FUA con 4 cargas', tipo: 'buff' }
     ],
     3: [ // Belle
       { atributo: 'HP', antes: '750', ahora: '350', tipo: 'nerf' },
@@ -324,17 +324,6 @@ document.addEventListener('DOMContentLoaded', () => {
       { atributo: 'Baneo 3 (Energía)', antes: '15', ahora: '20', tipo: 'buff' },
       { atributo: 'Ping 2 (daño drones)', antes: '+15%', ahora: '+20%', tipo: 'buff' }
     ],
-    2: [ // Miki
-      { atributo: 'HP', antes: '580', ahora: '650', tipo: 'buff' },
-      { atributo: 'DEF', antes: '360', ahora: '300', tipo: 'nerf' },
-      { atributo: 'VEL', antes: '112', ahora: '115', tipo: 'buff' },
-      { atributo: 'Anécdota (Tarjeta)', antes: 'No', ahora: '+3% DEF y Acierto por acumulación (máx 30%)', tipo: 'rework' },
-      { atributo: 'Anécdota (Energía)', antes: '5', ahora: '10', tipo: 'buff' },
-      { atributo: 'Ataque Básico', antes: '45%-95% DEF', ahora: '75%-105% DEF', tipo: 'buff' },
-      { atributo: 'Habilidad (daño)', antes: '20%-40% DEF', ahora: '30%-40% DEF', tipo: 'buff' },
-      { atributo: 'Ultimate (buff)', antes: 'Solo VEL y DEF', ahora: 'DEF, VIDA, ATQ, PROB y CRIT', tipo: 'buff' },
-      { atributo: 'Ping 2', antes: 'Sin reducción', ahora: 'FUA con 4 cargas', tipo: 'buff' }
-    ],
     6: [ // Eugenio
       { atributo: 'Rareza', antes: '4★', ahora: '5★ Promocional', tipo: 'rework' },
       { atributo: 'ATQ Anécdota', antes: '180', ahora: '200', tipo: 'buff' },
@@ -350,6 +339,60 @@ document.addEventListener('DOMContentLoaded', () => {
       { atributo: 'Ping 2', antes: 'Sin mejora', ahora: 'Suerte máx 200, empieza con 30', tipo: 'buff' },
       { atributo: 'Ping 4', antes: 'Sin aumento', ahora: 'Mano de 5 a 10 Naipes', tipo: 'buff' },
       { atributo: 'Ping 6', antes: 'Sin elección', ahora: 'Elige combinación + Comodín Tocado', tipo: 'buff' }
+    ],
+    7: [ // Kyou
+      { atributo: 'ATQ', antes: '350', ahora: '340', tipo: 'nerf' },
+      { atributo: 'VEL', antes: '136', ahora: '112', tipo: 'nerf' },
+      { atributo: 'ATQ Anécdota', antes: '230', ahora: '220', tipo: 'nerf' },
+      { atributo: 'Pasiva Anécdota (Acierto)', antes: '+18%', ahora: '+15%', tipo: 'nerf' },
+      { atributo: 'Pasiva Anécdota (daño)', antes: '20% ATQ', ahora: '15% ATQ', tipo: 'nerf' },
+      { atributo: 'Ultimate (daño)', antes: '130%-280%', ahora: '120%-260%', tipo: 'nerf' },
+      { atributo: 'Ultimate (Secreto)', antes: '+20% daño', ahora: '+15%', tipo: 'nerf' },
+      { atributo: 'Ultimate (Filtración)', antes: '+40% daño', ahora: '+30%', tipo: 'nerf' },
+      { atributo: 'Talento (máx Expedientes)', antes: '6', ahora: '5', tipo: 'nerf' },
+      { atributo: 'Talento (bono Rayo)', antes: '+5% (máx +30%)', ahora: '+4% (máx +20%)', tipo: 'nerf' },
+      { atributo: 'Talento (consumo máx)', antes: '4', ahora: '3', tipo: 'nerf' },
+      { atributo: 'Talento (Ralentización)', antes: '-25%', ahora: '-20%', tipo: 'nerf' },
+      { atributo: 'Talento (Quemadura)', antes: '40%', ahora: '30%', tipo: 'nerf' },
+      { atributo: 'Talento (Silencio)', antes: 'Sí', ahora: 'Eliminado', tipo: 'nerf' },
+      { atributo: 'Baneo 1 (Marcas)', antes: '2 enemigos', ahora: '1 enemigo', tipo: 'nerf' },
+      { atributo: 'Baneo 3 (Expedientes)', antes: '2', ahora: '1', tipo: 'nerf' },
+      { atributo: 'Ping 1 (Expedientes)', antes: '3 (máx 7)', ahora: '2 (máx 6)', tipo: 'nerf' },
+      { atributo: 'Ping 2 (daño Rayo)', antes: '+25%', ahora: '+20%', tipo: 'nerf' },
+      { atributo: 'Ping 6 (daño Ultimate)', antes: '+20%', ahora: '+15%', tipo: 'nerf' }
+    ],
+    8: [], // Ttlim: sin cambios
+    9: [ // Cris
+      { atributo: 'ATQ', antes: '390', ahora: '370', tipo: 'nerf' },
+      { atributo: 'VEL', antes: '121', ahora: '110', tipo: 'nerf' },
+      { atributo: 'Pasiva Anécdota (ATQ)', antes: '+18%', ahora: '+15%', tipo: 'nerf' },
+      { atributo: 'Pasiva Anécdota (Daño Crítico)', antes: '+15% (máx +30%)', ahora: '+12% (máx +24%)', tipo: 'nerf' },
+      { atributo: 'Ultimate (daño)', antes: '180%-390%', ahora: '180%-350%', tipo: 'nerf' },
+      { atributo: 'Ping 6 (Daño Fuego)', antes: '+25%', ahora: '+20%', tipo: 'nerf' }
+    ],
+    10: [ // Quency
+      { atributo: 'ATQ', antes: '450', ahora: '380', tipo: 'nerf' },
+      { atributo: 'VEL', antes: '100', ahora: '100 (sin cambios)', tipo: 'neutral' },
+      { atributo: 'Acierto', antes: '30', ahora: '20', tipo: 'nerf' },
+      { atributo: 'Resistencia', antes: '30', ahora: '10', tipo: 'nerf' },
+      { atributo: 'Ruptura', antes: '35', ahora: '30', tipo: 'nerf' },
+      { atributo: 'Bono Viento', antes: '15%', ahora: '0%', tipo: 'nerf' },
+      { atributo: 'ATQ Anécdota', antes: '300', ahora: '250', tipo: 'nerf' },
+      { atributo: 'Sinergia Belle', antes: 'No', ahora: '"Fiesta", "Warn", "Remove", "Aislado"', tipo: 'rework' }
+    ],
+    11: [ // Eydis
+      { atributo: 'HP', antes: '700', ahora: '660', tipo: 'nerf' },
+      { atributo: 'DEF', antes: '200', ahora: '195', tipo: 'nerf' }
+    ],
+    12: [ // iKayto
+      { atributo: 'ATQ', antes: '375', ahora: '360', tipo: 'nerf' },
+      { atributo: 'VEL', antes: '125', ahora: '112', tipo: 'nerf' },
+      { atributo: 'ATQ Anécdota', antes: '250', ahora: '220', tipo: 'nerf' },
+      { atributo: 'Pasiva Anécdota (Daño Hielo)', antes: '+15%', ahora: '+12%', tipo: 'nerf' },
+      { atributo: 'Pasiva Anécdota (ignorar DEF)', antes: '20%', ahora: '15%', tipo: 'nerf' },
+      { atributo: 'Ultimate (daño)', antes: '180%-380%', ahora: '170%-350%', tipo: 'nerf' },
+      { atributo: 'Ultimate (bono Escarcha)', antes: '+10%', ahora: '+8%', tipo: 'nerf' },
+      { atributo: 'Danza del Vacío', antes: '150%', ahora: '130%', tipo: 'nerf' }
     ]
   };
 
@@ -363,7 +406,13 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
 
     const cambios = cambiosPorPersonaje[char.id];
-    if (cambios && cambios.length > 0) {
+    if (cambios) {
+      if (cambios.length === 0) {
+        charModalBody.innerHTML = '<div style="padding:20px; text-align:center; color:rgba(255,255,255,0.5);">Sin cambios en esta versión.</div>';
+        charModal.classList.add('open');
+        return;
+      }
+
       const buffs = cambios.filter(c => c.tipo === 'buff').length;
       const nerfs = cambios.filter(c => c.tipo === 'nerf').length;
       const reworks = cambios.filter(c => c.tipo === 'rework').length;
@@ -449,7 +498,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Manejo de clicks en botones de versión
   function setActiveButton(activeBtn) {
-    [btnV1, btnV2, btnV3].forEach(b => b.classList.remove('active'));
+    [btnV1, btnV2].forEach(b => b.classList.remove('active'));
     if (activeBtn) activeBtn.classList.add('active');
   }
 
@@ -464,13 +513,6 @@ document.addEventListener('DOMContentLoaded', () => {
     patchContent.classList.remove('active');
     patchContent.innerHTML = '';
     // Aquí en el futuro se cargará el contenido de V2
-  });
-
-  btnV3.addEventListener('click', () => {
-    setActiveButton(btnV3);
-    patchContent.classList.remove('active');
-    patchContent.innerHTML = '';
-    // Aquí en el futuro se cargará el contenido de V3
   });
 
   // Inicialmente oculto
