@@ -233,15 +233,14 @@ function renderEquipos() {
         <div class="equipo-chars">${charsHTML}</div>
         <div class="equipo-extra"><!-- espacio libre --></div>
         <div class="equipo-dmg-bar">
-          <div class="dmg-percent">${signo}${relativo}%</div>
-          <div class="bar-bg"><div class="bar-fill" style="width:${barWidth}%"></div></div>
+<div class="dmg-percent" style="color:${relativo > 0 ? '#69f0ae' : (relativo < 0 ? '#ff5252' : 'var(--gold)')}">${signo}${relativo}%</div>          <div class="bar-bg"><div class="bar-fill" style="width:${barWidth}%"></div></div>
           <div class="dmg-number">${equipo.dmg.toLocaleString()} DMG</div>
         </div>
       </div>`;
   }).join('');
 }
-
 document.addEventListener('DOMContentLoaded', renderEquipos);
+
 </script>
 </body>
 </html>
