@@ -136,6 +136,8 @@
   <!-- SELECTOR DE VERSIÓN -->
   <div class="version-tabs" id="version-tabs">
     <button class="vtab" id="btn-v2">1.0 V2</button>
+    <!-- NUEVO BOTÓN V3 -->
+    <button class="vtab" id="btn-v3">Notas Parche V3 - 1.0</button>
   </div>
 
   <!-- BLOQUES POR VERSIÓN (generados por JS) -->
@@ -147,6 +149,17 @@
   <div class="tl-modal-card">
     <button class="tl-modal-close" id="v2-modal-close">✕</button>
     <div class="tl-modal-header">Notas de la V2 - Version 1.0</div>
+    <div style="padding:20px; text-align:center; color:rgba(255,255,255,0.5);">
+      Próximamente...
+    </div>
+  </div>
+</div>
+
+<!-- NUEVO Modal V3 -->
+<div class="tl-modal-overlay" id="v3-modal-overlay">
+  <div class="tl-modal-card">
+    <button class="tl-modal-close" id="v3-modal-close">✕</button>
+    <div class="tl-modal-header">Notas Parche V3 - Version 1.0</div>
     <div style="padding:20px; text-align:center; color:rgba(255,255,255,0.5);">
       Próximamente...
     </div>
@@ -293,30 +306,53 @@ function togglePChar(card) {
   card.classList.toggle('open');
 }
 
-// ── Modal de la V2 ──
+// ── Modales de V2 y V3 ──
 document.addEventListener('DOMContentLoaded', () => {
   // Renderizar los parches
   renderPatches();
 
-  // Configurar el modal
+  // Configurar modal V2
   const btnV2 = document.getElementById('btn-v2');
-  const overlay = document.getElementById('v2-modal-overlay');
-  const closeBtn = document.getElementById('v2-modal-close');
+  const overlayV2 = document.getElementById('v2-modal-overlay');
+  const closeBtnV2 = document.getElementById('v2-modal-close');
 
   function openV2Modal() {
-    overlay.classList.add('open');
+    overlayV2.classList.add('open');
   }
   function closeV2Modal() {
-    overlay.classList.remove('open');
+    overlayV2.classList.remove('open');
   }
 
   btnV2.addEventListener('click', openV2Modal);
-  closeBtn.addEventListener('click', closeV2Modal);
-  overlay.addEventListener('click', (e) => {
-    if (e.target === overlay) closeV2Modal();
+  closeBtnV2.addEventListener('click', closeV2Modal);
+  overlayV2.addEventListener('click', (e) => {
+    if (e.target === overlayV2) closeV2Modal();
   });
+
+  // NUEVO: Configurar modal V3
+  const btnV3 = document.getElementById('btn-v3');
+  const overlayV3 = document.getElementById('v3-modal-overlay');
+  const closeBtnV3 = document.getElementById('v3-modal-close');
+
+  function openV3Modal() {
+    overlayV3.classList.add('open');
+  }
+  function closeV3Modal() {
+    overlayV3.classList.remove('open');
+  }
+
+  btnV3.addEventListener('click', openV3Modal);
+  closeBtnV3.addEventListener('click', closeV3Modal);
+  overlayV3.addEventListener('click', (e) => {
+    if (e.target === overlayV3) closeV3Modal();
+  });
+
+  // Escape cierra ambos modales
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && overlay.classList.contains('open')) closeV2Modal();
+    if (e.key === 'Escape') {
+      if (overlayV2.classList.contains('open')) closeV2Modal();
+      if (overlayV3.classList.contains('open')) closeV3Modal();
+    }
   });
 });
 </script>
