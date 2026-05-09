@@ -393,9 +393,121 @@ document.addEventListener('DOMContentLoaded', () => {
       { atributo: 'Ultimate (daño)', antes: '180%-380%', ahora: '170%-350%', tipo: 'nerf' },
       { atributo: 'Ultimate (bono Escarcha)', antes: '+10%', ahora: '+8%', tipo: 'nerf' },
       { atributo: 'Danza del Vacío', antes: '150%', ahora: '130%', tipo: 'nerf' }
+    ],
+    13: [ // Poberto
+      { atributo: 'Mecánica general', antes: 'Invocaba un Conejo Mecánico', ahora: 'Eliminado todo', tipo: 'rework' },
+      { atributo: 'Habilidad', antes: 'Invocaba al conejo', ahora: '"Manto del Guardián" (escudo a un aliado)', tipo: 'rework' },
+      { atributo: 'Ultimate', antes: 'Explotaba al conejo', ahora: '"Protectora del Bosque" (escudo y DEF a todos)', tipo: 'rework' },
+      { atributo: 'Talento', antes: 'Gestionaba la máscara', ahora: '"Guardiana Seria" (escudo inicial a todo el equipo)', tipo: 'rework' },
+      { atributo: 'Baneos', antes: 'Efectos anteriores', ahora: 'Simplificados: +DEF, +duración escudos, cura pasiva', tipo: 'rework' }
+    ],
+    14: [ // Yanfei
+      { atributo: 'Mecánica general', antes: 'Acumulaba Sabiduría', ahora: 'Eliminado', tipo: 'rework' },
+      { atributo: 'Habilidad', antes: 'Consumía 5 cargas', ahora: 'Simplificada: daño y Quemadura', tipo: 'rework' },
+      { atributo: 'Ultimate', antes: 'Buff al equipo y Quemadura en básicos', ahora: 'Simplificada: daño, Quemadura en área, +15% ATQ', tipo: 'rework' },
+      { atributo: 'Talento', antes: 'Gestión de Sabiduría', ahora: '"Sabia de las Llamas" (Energía al morir Quemado)', tipo: 'rework' },
+      { atributo: 'Baneos', antes: 'Efectos anteriores', ahora: 'Simplificados: extienden Quemadura, +Daño Fuego, Quemadura inicial', tipo: 'rework' }
+    ],
+    15: [ // Koenig
+      { atributo: 'Mecánica general', antes: 'Acumulaba Tempo y lo perdía al recibir daño', ahora: 'Eliminado', tipo: 'rework' },
+      { atributo: 'Habilidad', antes: 'Requiere 3 Tempo', ahora: 'Simplificada: siempre da 15 de Energía', tipo: 'rework' },
+      { atributo: 'Ultimate', antes: 'Similar', ahora: 'Se mantiene', tipo: 'neutral' },
+      { atributo: 'Talento', antes: 'Gestión de Tempo', ahora: '"Ritmo Constante" (siempre da 5 de Energía)', tipo: 'rework' },
+      { atributo: 'Baneos', antes: 'Efectos anteriores', ahora: 'Simplificados: +VEL, +Energía, Energía inicial', tipo: 'rework' }
+    ],
+    16: [ // Tako
+      { atributo: 'Mecánica general', antes: 'Acumulaba Fragmentación y "Rompía" enemigos', ahora: 'Eliminado', tipo: 'rework' },
+      { atributo: 'Habilidad', antes: 'Fragmentación y explosión a 3 stacks', ahora: 'Simplificada: daño y "Lag" (-20% VEL)', tipo: 'rework' },
+      { atributo: 'Ultimate', antes: 'Rompía enemigos y Sistema Corrupto', ahora: 'Simplificada: daño, "Lag" a todos y 50% fallo', tipo: 'rework' },
+      { atributo: 'Talento', antes: '"Error 404" con Fragmentación', ahora: '"Error 404" (Energía al derrotar con "Lag")', tipo: 'rework' },
+      { atributo: 'Baneos', antes: 'Efectos anteriores', ahora: 'Simplificados: "Lag" reduce DEF, +VEL, "Lag" inicial', tipo: 'rework' }
+    ],
+    17: [ // Zenkin
+      { atributo: 'Mecánica general', antes: 'Acumulaba Suerte y Paquetes Sorpresa', ahora: 'Eliminado', tipo: 'rework' },
+      { atributo: 'Habilidad', antes: '3 Suertes y Marca del Gato', ahora: 'Simplificada: daño y +25% ATQ aleatorio', tipo: 'rework' },
+      { atributo: 'Ultimate', antes: '3 Paquetes Sorpresa aleatorios', ahora: 'Simplificada: daño y buffs fijos (+20% ATQ, +15% VEL, +15% DEF)', tipo: 'rework' },
+      { atributo: 'Talento', antes: '"Caja de las Sorpresas" con RNG', ahora: '"Cola de la Suerte" (+10% ATQ a un aliado)', tipo: 'rework' },
+      { atributo: 'Baneos', antes: 'Efectos anteriores', ahora: 'Simplificados: extienden buffs, +ATQ, buff inicial', tipo: 'rework' }
+    ],
+    18: [ // Dawn
+      { atributo: 'Mecánica general', antes: 'Acumulaba Carámbanos y los perdía al recibir daño', ahora: 'Eliminado', tipo: 'rework' },
+      { atributo: 'Habilidad', antes: 'Generaba 2 Carámbanos', ahora: 'Simplificada: daño en área y Ralentización (-20% VEL)', tipo: 'rework' },
+      { atributo: 'Ultimate', antes: '4 Carámbanos y ventana sin consumo', ahora: 'Simplificada: daño en área, Congelación si Ralentizado', tipo: 'rework' },
+      { atributo: 'Talento', antes: '"Danza de los Carámbanos"', ahora: '"Vientos Gélidos" (+15% Daño Hielo vs Ralentizados/Congelados)', tipo: 'rework' },
+      { atributo: 'Baneos', antes: 'Efectos anteriores', ahora: 'Simplificados: +Ralentización, Ralentización inicial, +ATQ', tipo: 'rework' }
+    ],
+    19: [ // Reguta
+      { atributo: 'Mecánica general', antes: 'Acumulaba Planes y los perdía al recibir críticos', ahora: 'Eliminado', tipo: 'rework' },
+      { atributo: 'Habilidad', antes: 'Aceleración Mental con VEL y Habilidad de Equipo', ahora: 'Simplificada: +25% VEL y +15% ATQ', tipo: 'rework' },
+      { atributo: 'Ultimate', antes: 'Consumía Planes para escudos', ahora: 'Simplificada: turno extra, limpia debuffs, +30% ATQ', tipo: 'rework' },
+      { atributo: 'Talento', antes: '"El Plan Perfecto"', ahora: '"Mente Brillante" (siempre da 5 de Energía)', tipo: 'rework' },
+      { atributo: 'Baneos', antes: 'Efectos anteriores', ahora: 'Simplificados: +Daño Crítico, +VEL, Energía inicial', tipo: 'rework' }
+    ],
+    20: [ // Nanaomi
+      { atributo: 'Mecánica general', antes: 'Acumulaba Energía Gravitatoria', ahora: 'Eliminado', tipo: 'rework' },
+      { atributo: 'Habilidad', antes: 'Consumía Energía Gravitatoria', ahora: 'Simplificada: daño en área, -25% VEL fijo', tipo: 'rework' },
+      { atributo: 'Ultimate', antes: 'Generaba cargas, Horizonte de Sucesos', ahora: 'Simplificada: daño, retraso 30%, -20% VEL', tipo: 'rework' },
+      { atributo: 'Talento', antes: '"Ley de Gravitación Universal"', ahora: '-10% VEL a todos al inicio', tipo: 'rework' },
+      { atributo: 'Baneos', antes: 'Efectos anteriores', ahora: 'Simplificados: -35% VEL, -DEF, +Acierto', tipo: 'rework' }
+    ],
+    21: [ // Sofi
+      { atributo: 'Mecánica general', antes: 'Estado "Demonio Bomba" con Pólvora', ahora: 'Simplificada', tipo: 'rework' },
+      { atributo: 'Habilidad', antes: 'Activaba Demonio Bomba', ahora: '"Explosión Controlada" (daño en área, -10% HP)', tipo: 'rework' },
+      { atributo: 'Ultimate', antes: 'Consumía Pólvora, Quemadura', ahora: 'Simplificada: daño masivo, ignora 20% DEF si HP <50%, Quemadura', tipo: 'rework' },
+      { atributo: 'Talento', antes: '"Seguro de Granada"', ahora: '"Adrenalina Explosiva" (+15% Daño Fuego si HP <50%)', tipo: 'rework' },
+      { atributo: 'Baneos', antes: 'Efectos anteriores', ahora: 'Simplificados: -5% HP, cura al matar, +ATQ', tipo: 'rework' }
+    ],
+    22: [ // Areku
+      { atributo: 'Mecánica general', antes: 'Acumulaba Orbes Espirituales y FUA a 4', ahora: 'Eliminado', tipo: 'rework' },
+      { atributo: 'Habilidad', antes: 'Generaba Orbes al atacar Sellados', ahora: 'Simplificada: daño y "Sello" (-15% DEF, -10% VEL)', tipo: 'rework' },
+      { atributo: 'Ultimate', antes: '4 Orbes y FUA', ahora: 'Simplificada: daño, consume Sellos, "Maldición del Misterio"', tipo: 'rework' },
+      { atributo: 'Talento', antes: '"Espíritu del Pasillo" con Orbes', ahora: '"Presencia Inquietante" (Sello automático al inicio de su turno)', tipo: 'rework' },
+      { atributo: 'Baneos', antes: 'Efectos anteriores', ahora: 'Simplificados: Sello -20% DEF, +Daño Vacío, Sello inicial', tipo: 'rework' }
+    ],
+    23: [ // Harriet
+      { atributo: 'Mecánica general', antes: 'Acumulaba Frustración al recibir críticos', ahora: 'Simplificada', tipo: 'rework' },
+      { atributo: 'Habilidad', antes: 'Invocaba 2 Chibis aleatorios', ahora: 'Simplificada: 2 Chibis que aplican efectos automáticos', tipo: 'rework' },
+      { atributo: 'Ultimate', antes: 'Consumía Frustración, 4 Chibis, Caos Emocional', ahora: 'Simplificada: daño e invoca 4 Chibis por 2 turnos', tipo: 'rework' },
+      { atributo: 'Talento', antes: '"Límite de la Paciencia"', ahora: 'Al recibir crítico, siguiente ataque ignora 15% DEF', tipo: 'rework' },
+      { atributo: 'Baneos', antes: 'Efectos anteriores', ahora: 'Simplificados: +duración Chibis, +Energía al invocar, 1 Chibi inicial', tipo: 'rework' }
+    ],
+    24: [ // Alelin
+      { atributo: 'Mecánica general', antes: 'Acumulaba Calor con umbrales', ahora: 'Eliminado', tipo: 'rework' },
+      { atributo: 'Habilidad', antes: 'Generaba 3 de Calor, rebotaba con 7+', ahora: 'Simplificada: daño en área, se repite si 3+ enemigos', tipo: 'rework' },
+      { atributo: 'Ultimate', antes: '5 de Calor y escalaba con exceso', ahora: 'Simplificada: daño masivo, -15% HP', tipo: 'rework' },
+      { atributo: 'Talento', antes: '"¡Sobrecalentada!" con umbrales', ahora: '"Demolicionista Experta" (+5% Daño Fuego por enemigo)', tipo: 'rework' },
+      { atributo: 'Baneos', antes: 'Efectos anteriores', ahora: 'Simplificados: repetición siempre, cura al matar, +ATQ', tipo: 'rework' }
+    ],
+    25: [ // Escarlata
+      { atributo: 'Mecánica general', antes: 'Acumulaba Luces Estelares', ahora: 'Simplificada', tipo: 'rework' },
+      { atributo: 'Habilidad', antes: 'Consumía Luces Estelares, Inmunidad', ahora: 'Simplificada: escudo del 20-35% de su HP', tipo: 'rework' },
+      { atributo: 'Ultimate', antes: '4 Luces Estelares, Aurora Protectora', ahora: 'Simplificada: cura masiva, escudo 15% HP a todos', tipo: 'rework' },
+      { atributo: 'Talento', antes: '"Firmamento de Piedad"', ahora: '"Luz Sanadora" (cura 8% HP al de menos vida)', tipo: 'rework' },
+      { atributo: 'Baneos', antes: 'Efectos anteriores', ahora: 'Simplificados: +cura en Habilidad, +duración escudos, +HP', tipo: 'rework' }
+    ],
+    26: [ // Abril
+      { atributo: 'Mecánica general', antes: 'Invocaba un Zorro Celestial con 3 fases', ahora: 'Eliminado', tipo: 'rework' },
+      { atributo: 'Habilidad', antes: 'Invocaba o alimentaba al zorro', ahora: '"Favor del Guardián" (+30% ATQ, +15% VEL)', tipo: 'rework' },
+      { atributo: 'Ultimate', antes: 'Evolucionaba al zorro, Favor del Zorro', ahora: '"Danza de las Nueve Colas" (+25% ATQ, +15% VEL, +15% DEF, cura)', tipo: 'rework' },
+      { atributo: 'Talento', antes: '"Las Nueve Colas del Destino"', ahora: '"Cola de la Suerte" (+10% ATQ al de mayor ATQ)', tipo: 'rework' },
+      { atributo: 'Baneos', antes: 'Efectos anteriores', ahora: 'Simplificados: +duración buffs, +Energía, +VEL', tipo: 'rework' }
+    ],
+    27: [ // AlexTMZ
+      { atributo: 'Mecánica general', antes: 'Territorio de Escarcha con buffs y daño pasivo', ahora: 'Eliminado', tipo: 'rework' },
+      { atributo: 'Habilidad', antes: 'Creaba Territorio de Escarcha', ahora: 'Simplificada: daño en área, Ralentización (-20% VEL)', tipo: 'rework' },
+      { atributo: 'Ultimate', antes: 'Consumía Territorio, Voto del Centinela', ahora: 'Simplificada: daño masivo, Congelación si Ralentizado', tipo: 'rework' },
+      { atributo: 'Talento', antes: '"Guardián de la Catedral" con Juramento', ahora: '+15% DEF mientras haya Ralentizados/Congelados', tipo: 'rework' },
+      { atributo: 'Baneos', antes: 'Efectos anteriores', ahora: 'Simplificados: +Ralentización, Ralentización inicial, +ATQ', tipo: 'rework' }
+    ],
+    28: [ // Komato
+      { atributo: 'Mecánica general', antes: 'Acumulaba Ecos y Danza del Vacío Helado', ahora: 'Simplificado', tipo: 'rework' },
+      { atributo: 'Habilidad', antes: 'Generaba 2 Ecos, cambiaba postura', ahora: 'Simplificada: daño en área, cambia de postura', tipo: 'rework' },
+      { atributo: 'Ultimate', antes: 'Doble elemento, consumía Ecos, Armonía', ahora: 'Simplificada: daño de doble elemento a un enemigo', tipo: 'rework' },
+      { atributo: 'Talento', antes: '"Ecos del Yo"', ahora: '"Filo Cambiante" (Energía y Daño al cambiar postura)', tipo: 'rework' },
+      { atributo: 'Baneos', antes: 'Efectos anteriores', ahora: 'Simplificados: +VEL al cambiar, +Daño Hielo/Fuego, +ATQ inicial', tipo: 'rework' }
     ]
   };
-
+  
   // Función para abrir modal de personaje con cambios
   function openCharModal(char) {
     if (!char) return;
