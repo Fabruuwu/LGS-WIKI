@@ -25,244 +25,143 @@ const CHARS=[
     element:'fuego', rarity:5, role:'Main DPS', paradigma:'Paradigma del Flood',
     art: 'Personajes 1.0 - tanda 2/ReyDNS.jpg',
     stats:{
-      HP:420, ATQ:400, DEF:110, VEL:120,
-      'Prob. Crítica':'5%', 'Daño Crítico':'50%', 'Rec. Energía':20,
-      'Acierto de Efecto':20, 'Res. a Efectos':10, 'Ef. de Ruptura':30,
-      'Bono Fuego':0, 'Bono Curación':0
+      'PV MAX':45, 'PM MAX':12, 'ATQ':10, 'DEFENSA':10,
+      'ATQ MÁGICO':6, 'DEF MÁGICA':6, 'AGILIDAD':12, 'SUERTE':6
     },
     skills:[
       {
-        icon:'🗡️', name:'Tiro de Advertencia', type:'Ataque Básico',
-        flavor:'ReyDNS dispara un tiro rápido con su revólver, consumiendo 1 bala del tambor.',
-        desc:'Inflige <strong>(50%–110% del ATQ)</strong> como Daño Piro a un solo enemigo.'
+        icon:'🗡️', name:'Tiro de Advertencia', type:'Nivel 1',
+        flavor:'Un disparo rápido que causa daño básico. Si tiene una \'Bala de Ban\' cargada, el tiro se potencia y la consume.',
+        desc:'Recupera +20 PT y +15 PM.<br>Inflige <strong>100% del ATQ</strong> como Daño de Fuego a un enemigo.<br>Si tiene al menos 1 carga de <strong>"Bala de Ban"</strong>, el daño se duplica (200%) y consume 1 carga.'
       },
       {
-        icon:'🔥', name:'Fuego a Discreción', type:'Habilidad',
-        flavor:'Gasta 3 balas consecutivas contra un solo objetivo con postura de ejecución.',
-        desc:'Inflige un total de <strong>(130%–280% del ATQ)</strong> como Daño Piro. Si alguna de las balas es una <strong>"Bala de Ban"</strong>, el daño final aumenta en <strong>(20%–45%)</strong> adicional.'
+        icon:'💫', name:'Fuego a Discreción', type:'Nivel 3',
+        flavor:'Ráfaga de disparos que quema al enemigo. Puede potenciarse con una \'Bala de Ban\' para hacer más daño y alargar la quemadura.',
+        desc:'Gasta -20 PM y recupera +15 PT.<br>Inflige <strong>200% del ATQ</strong> como Daño de Fuego a un enemigo.<br>Aplica <strong>"Quemadura"</strong> durante 2 turnos.<br>Si gasta 1 carga de <strong>"Bala de Ban"</strong>, el daño base aumenta a 300% y la Quemadura dura 1 turno extra.'
       },
       {
-        icon:'🌟', name:'Limpieza de Servidor (Wipe)', type:'Ultimate',
-        flavor:'El juicio final del Owner. Vacía todas las balas restantes sobre un solo enemigo.',
-        desc:'Cada bala inflige <strong>(50%–100% del ATQ)</strong> como Daño Piro. Con 6+ balas gana <strong>+30%–75% de Daño Crítico</strong>. Al finalizar, recarga el tambor con <strong>12 balas nuevas</strong>.'
+        icon:'🌟', name:'Limpieza de Servidor (Wipe)', type:'Nivel 5',
+        flavor:'Vacía el cargador en un devastador ataque de área. Mientras más \'Balas de Ban\' tenga, más letal será el golpe.',
+        desc:'Gasta -100 PT.<br>Inflige <strong>350% del ATQ</strong> como Daño de Fuego a TODOS los enemigos.<br>Ignora el 20% de la DEF enemiga.<br>Por cada carga de <strong>"Bala de Ban"</strong>, el daño total aumenta un 50% adicional (consume todas las cargas).'
       },
       {
-        icon:'🧠', name:'La Ruleta del Administrador', type:'Talento',
-        flavor:'El Owner no sigue las reglas de energía. Tiene un Tambor de 12 Balas.',
-        desc:'<strong>Balas de Ban</strong> ignoran <strong>(15%–40%) de la DEF</strong>. Si empieza su turno con 0 balas, pierde la acción para recargar <strong>12 balas</strong> y obtiene un escudo del <strong>(10%–20%) de su Vida Máx.</strong> por 1 turno.'
-      },
+        icon:'🔥', name:'La Ruleta del Administrador', type:'Nivel 30',
+        flavor:'Recarga una \'Bala de Ban\' al instante, permitiéndole potenciar sus próximos ataques.',
+        desc:'Gasta -20 PM y recupera +15 PT.<br>Se aplica el estado <strong>"Balas de Ban"</strong> sobre sí mismo, recuperando 1 carga (máx. 3).'
+      }
     ],
-    passives:[
-      {
-        name:'Dedo en el Gatillo',
-        desc:'Una "Bala de Ban" retrasa el siguiente turno del enemigo en un <strong>15%</strong>.'
-      },
-      {
-        name:'Inercia de Plomo',
-        desc:'Por cada bala normal que acierta, gana <strong>+2% de VEL</strong> (se resetea al inicio de su siguiente turno).'
-      },
-      {
-        name:'Privilegios de Owner',
-        desc:'Entra al combate con el tambor lleno. Su primera acción avanza su turno en un <strong>25%</strong> adicional. Desbloquea <strong>"Mantra"</strong> (CD: 5 turnos). ReyDNS queda Imposibilitado 1 turno tras usarlo.'
-      },
-    ],
-    pings:[
-      {
-        n:1, name:'Acceso Directo',
-        desc:'Obtiene un turno adicional inmediato. Su primer Ataque Básico no consume balas.'
-      },
-      {
-        n:2, name:'Ban de IP',
-        desc:'Las "Balas de Ban" aplican <strong>Quemado extremo</strong>. Si el enemigo ya tiene la marca, la bala ignora un <strong>20% adicional de su DEF</strong>.'
-      },
-      {
-        n:3, name:'Jerarquía Elevada',
-        desc:'<strong>Habilidad +3 niveles</strong> (máx. nivel 8).'
-      },
-      {
-        n:4, name:'Protocolo de Emergencia',
-        desc:'Al caer bajo el 30% de HP, recarga 6 balas y activa el escudo del Talento sin perder turno. (CD: 3 turnos).'
-      },
-      {
-        n:5, name:'Decreto Supremo',
-        desc:'<strong>Ultimate +3 niveles</strong> (máx. nivel 8).'
-      },
-      {
-        n:6, name:'Aniquilación del Registro',
-        desc:'Durante la Ultimate, cada bala sube el <strong>Daño Crítico</strong> de la siguiente en 15%. Si elimina al enemigo, recupera el tambor completo y avanza 100% en la barra de turnos.'
-      },
-    ],
-    rasgoUnico: {
-      titulo: 'Rasgo Único "Owner"',
-      descripcion: 'Al estar en el equipo con Belle, Miki o Hawk, elige uno de los siguientes efectos antes de la batalla:',
-      efectos: [
-        { aliado: 'Belle', nombre: 'Bala Platinada', desc: '4 de sus balas hacen 40% de Daño Verdadero adicional en base a la VEL de Belle.' },
-        { aliado: 'Miki', nombre: 'Sorteo Ilimitado', desc: 'Al inicio del combate, su HP y DEF aumentan un 15% y restaura un 10% de su HP Máximo durante 3 turnos.' },
-        { aliado: 'Hawk', nombre: 'Mandato', desc: 'Cada 3 turnos, obtiene 3 balas extra que causan un 25% de daño adicional en base al Acierto de Efecto de Hawk.' }
-      ]
-    }
+    passives:[],
+    pings:[],
+    rasgoUnico: null
 },
 {
     id:2, name:'Miki', tagline:'"Nada escapa del tarjetón... ni de mi Furina C6"',
     element:'caos', rarity:5, role:'Soporte / Control', paradigma:'Paradigma del Legado',
     art: 'Personajes 1.0 - tanda 2/Miki.png',
     stats:{
-      HP:650, ATQ:180, DEF:300, VEL:115,
-      'Prob. Crítica':'5%', 'Daño Crítico':'50%', 'Rec. Energía':20,
-      'Acierto de Efecto':20, 'Res. a Efectos':10, 'Ef. de Ruptura':30,
-      'Bono Vacío':0, 'Bono Curación':0
+      'PV MAX':50, 'PM MAX':20, 'ATQ':6, 'DEFENSA':20,
+      'ATQ MÁGICO':4, 'DEF MÁGICA':14, 'AGILIDAD':12, 'SUERTE':6
     },
     skills:[
       {
-        icon:'🗡️', name:'Golpe de Top Up', type:'Ataque Básico',
-        flavor:'Un toque firme con su llave dorada que adelanta sus asuntos pendientes.',
-        desc:'Inflige <strong>(75%–105% de su DEF)</strong> como Daño de Vacío. Avanza su acción propia en <strong>10%</strong>.'
+        icon:'🗡️', name:'Golpe de Top Up', type:'Nivel 1',
+        flavor:'Un golpe firme que daña en base a su defensa y acelera su propia recarga de Ultimate.',
+        desc:'Recupera +20 PT y +15 PM.<br>Inflige <strong>100% de su DEF</strong> como Daño de Vacío a un enemigo.<br>Otorga a Miki +10 PT adicionales.'
       },
       {
-        icon:'🔥', name:'Muteo Temporal', type:'Habilidad',
-        flavor:'Activa el protocolo de silencio. El objetivo entra en "Slow-Log".',
-        desc:'85% de probabilidad base de aplicar <strong>"Slow-Log"</strong> por 2 turnos.'
+        icon:'💫', name:'Muteo Temporal', type:'Nivel 3',
+        flavor:'Aplica un estado de ralentización y drenaje de vida, reduciendo la velocidad y el ataque del enemigo mientras lo daña por turnos.',
+        desc:'Gasta -20 PM y recupera +15 PT.<br>Inflige <strong>200% de su DEF</strong> como Daño de Vacío a un enemigo.<br>Aplica <strong>"Slow-Log"</strong> al enemigo durante 2 turnos.'
       },
       {
-        icon:'🌟', name:'Reinicio de Tienda', type:'Ultimate',
-        flavor:'El reloj astronómico da marcha atrás. Una ola de color sepia inunda el campo.',
-        desc:'Retrasa la acción de todos los enemigos en <strong>(25%–55%)</strong>. Aumenta DEF, VIDA, ATQ, Prob. Crítica y Daño Crítico de todos los aliados en <strong>(15%–30%)</strong> por 1 turno. Inflige <strong>(110%–210% de su DEF)</strong> como Daño de Vacío a todos.'
+        icon:'🌟', name:'Reinicio de Tienda', type:'Nivel 5',
+        flavor:'Un poderoso ataque de área que ralentiza a todos los enemigos y fortalece a todo el equipo.',
+        desc:'Gasta -100 PT.<br>Inflige <strong>280% de su DEF</strong> como Daño de Vacío a TODOS los enemigos.<br>Aplica -30% AGILIDAD a todos los enemigos durante 2 turnos.<br>Aumenta ATQ y DEF de todos los aliados en un 20% durante 2 turnos.'
       },
       {
-        icon:'🧠', name:'Agenda del Moderador', type:'Talento',
-        flavor:'Miki sabe exactamente cuándo intervenir.',
-        desc:'Cuando un aliado (excepto Miki) usa su Habilidad, Miki gana 1 <strong>"Engranaje"</strong> (máx. 5). Al llegar a 5, ejecuta un <strong>FUA</strong>: <strong>(60%–130% de su DEF)</strong> como Daño de Vacío. El objetivo reduce su Resistencia a Efectos en <strong>20%</strong> por 2 turnos.'
-      },
+        icon:'🔥', name:'Corte de Crédito', type:'Nivel 30',
+        flavor:'Activa una póliza de protección personal, reduciendo a la mitad todo el daño recibido por un tiempo.',
+        desc:'Gasta -20 PM y recupera +15 PT.<br>Se aplica el estado <strong>"Escudo de Crédito"</strong> a sí misma durante 2 turnos.'
+      }
     ],
-    passives:[
-      { name:'Guía de estilo', desc:'Aumenta el <strong>Acierto de Efecto</strong> de Miki en un <strong>15%</strong>.' },
-      { name:'Copia de seguridad', desc:'Al inicio del turno de Miki, limpia <strong>1 debuff</strong> de un aliado aleatorio.' },
-      { name:'Términos del servicio', desc:'Los enemigos con <strong>"Slow-Log"</strong> reducen su <strong>ATQ</strong> en un 10%.' },
-    ],
-    pings:[
-      { n:1, name:'Hilo de bienvenida', desc:'Otorga a todo el equipo <strong>+15% de Recarga de Energía</strong> durante los primeros 3 turnos.' },
-      { n:2, name:'Atajos del teclado', desc:'El Talento ahora requiere <strong>4 cargas</strong> en lugar de 5 para el <strong>FUA</strong>.' },
-      { n:3, name:'Archivo expandido', desc:'<strong>Habilidad +3 niveles</strong> (máx. nivel 8).' },
-      { n:4, name:'Modo sigilo', desc:'Al usar Ataque Básico contra un enemigo con debuff, recupera <strong>15% de HP máx</strong>.' },
-      { n:5, name:'Actualización de firmware', desc:'<strong>Ultimate +3 niveles</strong> (máx. nivel 8).' },
-      { n:6, name:'Baneo permanente', desc:'Al usar la Ultimate, 50% de probabilidad de <strong>aturdir</strong> a los enemigos 1 turno. Si tienen "Slow-Log", sube al <strong>100%</strong>.' },
-    ]
-}
-,{
-    id:3, name:'Belle', tagline:'"En su presencia los mortales temen"',
-    element:'electro', rarity:5, role:'Sub-DPS / Buffer', paradigma:'Paradigma del Legado',
-    art: 'Personajes 1.0 - tanda 1/Belle.png',
-    stats:{
-      HP:350, ATQ:330, DEF:150, VEL:148,
-      'Prob. Crítica':'5%', 'Daño Crítico':'50%', 'Rec. Energía':20,
-      'Acierto de Efecto':20, 'Res. a Efectos':10, 'Ef. de Ruptura':30,
-      'Bono Rayo':0, 'Bono Curación':0
-    },
-    skills:[
-      {
-        icon:'🗡️', name:'Dinamic Warn', type:'Ataque Básico',
-        flavor:'Un disparo de advertencia con su sintetizador.',
-        desc:'Inflige <strong>(50%–115% del ATQ)</strong> como Daño de Rayo. Genera 1 <strong>XP</strong> por golpe crítico (máx. 40 acumulaciones, cada una otorga +1% de VEL).'
-      },
-      {
-        icon:'🔥', name:'¡No aprendes?, Mod-Bot!', type:'Habilidad',
-        flavor:'Belle activa a su robot compañero y lo asigna al aliado más poderoso.',
-        desc:'Vincula <strong>Mod-Bot</strong> al aliado con más ATQ. Aumenta su ATQ en <strong>(60%–120%) de la VEL actual de Belle</strong>. Cada vez que ese aliado ataca, Mod-Bot hace un Ataque Conjunto de <strong>(40%–90% del ATQ de Belle)</strong> como Daño de Rayo y le aumenta el Efecto de Ruptura en 20%.'
-      },
-      {
-        icon:'🌟', name:'Sabía que me necesitabas', type:'Ultimate',
-        flavor:'Un drop masivo de graves y luces que satura el campo de batalla.',
-        desc:'Inflige <strong>(150%–320% del ATQ)</strong> como Daño de Rayo a todos. Si Mod-Bot está vinculado, añade daño adicional del 25% de la VEL de Belle. Si VEL > 250, su Efecto de Ruptura iguala su VEL durante la Ultimate. Otorga a aliados <strong>+20% de Recarga de Energía</strong> por 2 turnos.'
-      },
-      {
-        icon:'🧠', name:'Simplemente soy mejor', type:'Talento',
-        flavor:'La DJ no espera, impone el ritmo.',
-        desc:'Empieza con 5 XP. Cuando Belle o el aliado vinculado usan su Habilidad, gana 1 <strong>"Casete"</strong> (máx. 3). Al llegar a 3, lanza un <strong>FUA</strong> de <strong>(80%–180% del ATQ)</strong> como Daño de Rayo con 50% de prob. de aplicar <strong>"Electrocutado"</strong> por 2 turnos.'
-      },
-    ],
-    passives:[
-      {
-        name:'No me provoques',
-        desc:'Mientras Mod-Bot esté vinculado, el aliado enlazado gana <strong>+15% de VEL</strong>. Si Belle tiene más de 250 VEL, aplica <strong>"Mute"</strong>: durante 1 ataque, aumenta un Ping aleatorio del aliado (excepto el 6to), una vez por partida.'
-      },
-      {
-        name:'Rebobinado',
-        desc:'Al lanzar el FUA, Belle recupera 10 de Energía y gana 2 XP. Su Efecto de Ruptura aumenta un <strong>0.20% por XP</strong> (máx. +50%).'
-      },
-      {
-        name:'Ataque PE',
-        desc:'Los golpes críticos del aliado vinculado otorgan 1 XP a Belle. El daño de <strong>"Electrocutado"</strong> aumenta un <strong>30%</strong> contra enemigos con menos del 50% de HP.'
-      },
-    ],
-    pings:[
-      {
-        n:1, name:'Efecto Causa',
-        desc:'Al comenzar el combate, Belle obtiene <strong>2 cargas de "Casete"</strong> de inmediato.'
-      },
-      {
-        n:2, name:'El rank es visual',
-        desc:'El aliado vinculado obtiene el 50% de las XP de Belle. Al lanzar un FUA, el aliado recupera <strong>5 de Energía</strong>.'
-      },
-      {
-        n:3, name:'Subidón',
-        desc:'<strong>Habilidad +3 niveles</strong> (máx. nivel 8).'
-      },
-      {
-        n:4, name:'Salvavidas de Moderación',
-        desc:'Si el aliado vinculado recibe daño fatal, sobrevive con 1 HP y obtiene un escudo del <strong>40% de la Vida de Belle</strong> por 2 turnos (una vez por batalla).'
-      },
-      {
-        n:5, name:'Alter Ego',
-        desc:'<strong>Ultimate +3 niveles</strong> (máx. nivel 8).'
-      },
-      {
-        n:6, name:'Me considero el mejor',
-        desc:'Tras la Ultimate, entra en <strong>"DJ Suprema"</strong> 2 turnos: el aliado vinculado recibe 100% de la XP de Belle, los FUA se activan también al usar Ultimate, e ignora 20% de la DEF enemiga.'
-      },
-    ],
-    rasgoUnico: {
-      titulo: 'Sinergia Especial: Quency',
-      descripcion: 'Si Quency está en el campo, Belle obtiene "Propaganda": +15% de Prob. de Evasión. Si Quency esquiva, obtiene "Kitsune" y refuerza "Propaganda".',
-      efectos: [
-        { aliado: 'Quency (en campo)', nombre: 'Propaganda', desc: '+15% de Prob. de Evasión para Belle.' },
-        { aliado: 'Quency (al esquivar)', nombre: 'Kitsune + Propaganda reforzada', desc: '<strong>Kitsune:</strong> Aumenta la Evasión de Belle en <strong>45%</strong> (acumulable 2 veces). <strong>Propaganda reforzada:</strong> Todos los buffs de Belle pasan a todos los aliados durante 1 turno (hasta +3% de aumento).' }
-      ]
-    }
+    passives:[],
+    pings:[],
+    rasgoUnico: null
 },
 {
     id:4, name:'Hawk', tagline:'"Shhh... No pienses. Solo obedece."',
     element:'caos', rarity:5, role:'SubDPS / Debuffer', paradigma:'Paradigma del Warn',
     art: 'Personajes 1.0 - tanda 1/Hawk.png',
-    stats:{HP:620,ATQ:380,DEF:170,VEL:118,'Prob. Crítica':'5%','Daño Crítico':'50%','Rec. Energía':20,'Acierto de Efecto':20,'Res. a Efectos':10,'Ef. de Ruptura':30,'Bono Vacío':0,'Bono Curación':0},
+    stats:{
+      'PV MAX':45, 'PM MAX':20, 'ATQ':10, 'DEFENSA':8,
+      'ATQ MÁGICO':5, 'DEF MÁGICA':6, 'AGILIDAD':12, 'SUERTE':6
+    },
     skills:[
-      {icon:'🗡️',name:'Aguja Mental',type:'Ataque Básico',
-       flavor:'Un pequeño rayo magenta que se clava en la sien del enemigo.',
-       desc:'Inflige <strong>(65%–120% del ATQ)</strong> como Daño de Vacío. Aplica <strong>"Marca de la Mariposa"</strong> por 2 turnos.'},
-      {icon:'🔥',name:'Palabras de Seda',type:'Habilidad',
-       flavor:'Hawk se ajusta las gafas y murmura una orden. Las mariposas obedecen.',
-       desc:'Inflige <strong>(70%–150% del ATQ)</strong> como Daño de Vacío. Si el enemigo tiene <strong>"Marca de la Mariposa"</strong>, la consume para aplicar <strong>"Hipnosis"</strong> y <strong>"Tela"</strong> por 2 turnos. Genera 1 <strong>"Polvo de Hadas"</strong> (máx. 5).'},
-      {icon:'🌟',name:'Vals de las Mil Mariposas',type:'Ultimate',
-       flavor:'Sus alas se despliegan. Una tormenta de polvo hipnótico lo envuelve todo.',
-       desc:'Inflige <strong>(180%–360% del ATQ)</strong> como Daño de Vacío a todos. Consume todo el <strong>"Polvo de Hadas"</strong>: por cada acumulación, aumenta todas las stats de Hawk en <strong>10%</strong> por 2 turnos y aplica <strong>"Hipnosis"</strong> a un enemigo sin ella. Si ya tenía Hipnosis, su DEF baja 30%. Por 2 turnos, los <strong>FUA</strong> de Hawk hacen <strong>+40% de daño</strong> y generan 1 Polvo adicional al realizarse.'},
-      {icon:'🧠',name:'Alas de la Dominación',type:'Talento',
-       flavor:'Cada vez que un títere baila, ella aplaude.',
-       desc:'Cuando un aliado ataca a un enemigo con <strong>"Hipnosis"</strong>, Hawk realiza un <strong>FUA</strong> de <strong>(60%–130% del ATQ)</strong> como Daño de Vacío (máx. 3 veces por turno). Empieza con 2 <strong>"Polvo de Hadas"</strong>. Cada acumulación aumenta el daño de FUA en <strong>12%</strong> (máx. +60%).'},
+      {
+        icon:'🗡️', name:'Aguja Mental', type:'Nivel 1',
+        flavor:'Un pequeño rayo de energía que marca al enemigo, preparándolo para ser controlado.',
+        desc:'Recupera +20 PT y +15 PM.<br>Inflige <strong>100% del ATQ</strong> como Daño de Vacío a un enemigo.<br>Aplica <strong>"Marca de la Mariposa"</strong> al enemigo durante 2 turnos.'
+      },
+      {
+        icon:'💫', name:'Hilos de Control', type:'Nivel 3',
+        flavor:'Susurra una orden que intenta dominar la mente del enemigo. Si tiene la \'Marca de la Mariposa\', la hipnosis es un éxito asegurado.',
+        desc:'Gasta -20 PM y recupera +15 PT.<br>Inflige <strong>150% del ATQ</strong> como Daño de Vacío a un enemigo.<br>Intenta aplicar <strong>"Hipnosis"</strong> durante 2 turnos (prob. base 30%).<br>Si el enemigo tiene <strong>"Marca de la Mariposa"</strong>, la probabilidad es del 100%.'
+      },
+      {
+        icon:'🌟', name:'Vals de las Mil Mariposas', type:'Nivel 5',
+        flavor:'Una tormenta de mariposas que arrasa con todos los enemigos. Si está bajo el efecto de \'Polvo de Hadas\', el daño se vuelve devastador.',
+        desc:'Gasta -100 PT.<br>Inflige <strong>300% del ATQ</strong> como Daño de Vacío a TODOS los enemigos.<br>Si tiene <strong>"Polvo de Hadas"</strong>, el daño aumenta un 30% adicional.<br>Aplica <strong>"Hipnosis"</strong> a un enemigo aleatorio.'
+      },
+      {
+        icon:'🔥', name:'Polvo de Hadas', type:'Nivel 30',
+        flavor:'Un aura de empoderamiento que aumenta considerablemente su poder de ataque y su velocidad durante varios turnos.',
+        desc:'Gasta -20 PM y recupera +15 PT.<br>Se aplica el estado <strong>"Polvo de Hadas"</strong> a sí misma durante 3 turnos.<br>Efecto: +25% ATQ y +25% AGILIDAD mientras dure.'
+      }
+    ],
+    passives:[],
+    pings:[],
+    rasgoUnico: null
+},
+{
+    id:3, name:'Belle', tagline:'"En su presencia los mortales temen"',
+    element:'electro', rarity:5, role:'Sub-DPS / Buffer', paradigma:'Paradigma del Legado',
+    art: 'Personajes 1.0 - tanda 1/Belle.png',
+    stats:{
+      'PV MAX':45, 'PM MAX':20, 'ATQ':10, 'DEFENSA':8,
+      'ATQ MÁGICO':5, 'DEF MÁGICA':6, 'AGILIDAD':12, 'SUERTE':7
+    },
+    skills:[
+      {
+        icon:'🗡️', name:'Dinamic Warn', type:'Nivel 1',
+        flavor:'Un disparo de advertencia que acumula velocidad y tiene un 35% de probabilidad de desatar un golpe extra contundente.',
+        desc:'Recupera +20 PT y +15 PM.<br>Inflige <strong>100% del ATQ</strong> como Daño de Rayo a un enemigo.<br>35% de prob. (basado en SUERTE) de añadir un golpe extra (120% ATQ adicional).<br>Se aplica <strong>"Aceleración de Ritmo 1"</strong> o <strong>"Aceleración de Ritmo 2"</strong> según su acumulación actual.'
+      },
+      {
+        icon:'💫', name:'¡No aprendes?, Mod-Bot!', type:'Nivel 3',
+        flavor:'Belle activa a su robot acompañante para potenciarse a sí misma durante un tiempo.',
+        desc:'Gasta -20 PM y recupera +15 PT.<br>Se aplica el estado <strong>"Mod-Bot"</strong> a sí misma durante 3 turnos.'
+      },
+      {
+        icon:'🌟', name:'Sabía que me necesitabas', type:'Nivel 5',
+        flavor:'Un drop masivo de graves y relámpagos cuyo poder destructivo escala directamente con la velocidad de la DJ.',
+        desc:'Gasta -100 PT.<br>Inflige <strong>(ATQ * 3.2) + (AGI * 0.4)</strong> como Daño de Rayo a TODOS los enemigos.<br>Otorga a todos los aliados +20% ATQ durante 2 turnos.'
+      },
+      {
+        icon:'🔥', name:'Control de Bajos', type:'Nivel 30',
+        flavor:'Belle manipula la corriente eléctrica ambiental para electrocutar y frenar a un enemigo en específico.',
+        desc:'Gasta -20 PM y recupera +15 PT.<br>Aplica <strong>"Electrocutado"</strong> al enemigo durante 2 turnos.<br>10% de prob. (basado en SUERTE) de aplicar también <strong>"Parálisis"</strong> durante 1 turno.'
+      }
     ],
     passives:[
-      {name:'Voz Melosa',desc:'La <strong>"Hipnosis"</strong> y <strong>"Tela"</strong> ahora duran <strong>3 turnos</strong> en lugar de 2.'},
-      {name:'Danza de las Almas',desc:'Cuando un enemigo bajo <strong>"Hipnosis"</strong> ataca a un aliado enemigo, Hawk obtiene <strong>8 puntos de Energía</strong>.'},
-      {name:'Primer Acto',desc:'Al inicio del combate, aplica <strong>"Marca de la Mariposa"</strong> a 2 enemigos aleatorios.'},
+      {
+        name:'Ritmo Imparable (Talento Core)',
+        desc:'La probabilidad del 35% de activar el golpe extra (FUA) en su Ataque Básico está calculada de forma nativa dentro de la fórmula de daño de Dinamic Warn.'
+      }
     ],
-    pings:[
-      {n:1,name:'Audiencia Cautiva',desc:'El límite de <strong>"Polvo de Hadas"</strong> aumenta a 6. El bono máximo de FUA es de <strong>+72%</strong>.'},
-      {n:2,name:'Crítica Teatral',desc:'Los enemigos bajo <strong>"Hipnosis"</strong> reciben un <strong>25% más de Daño Crítico</strong> de los aliados.'},
-      {n:3,name:'Palabras de Terciopelo',desc:'<strong>Habilidad +3 niveles</strong> (máx. nivel 8).'},
-      {n:4,name:'Beso de la Mariposa',desc:'El <strong>FUA</strong> del Talento reduce la VEL del enemigo golpeado en un <strong>20%</strong> por 1 turno.'},
-      {n:5,name:'Ovación Final',desc:'<strong>Ultimate +3 niveles</strong> (máx. nivel 8).'},
-      {n:6,name:'Teatro de los Títeres',desc:'Una vez por batalla al usar la Ultimate, activa <strong>"Función Final"</strong>: todos los enemigos reciben 100% de daño verdadero basado en el Acierto de Efecto de Hawk y quedan Aturdidos e Inundados (+30% daño de Rayo) por 1 turno. Con 2+ hipnotizados, el daño sube al <strong>150%</strong>.'},
-    ]
-}
-,{
+    pings:[],
+    rasgoUnico: null
+},
+{
     id:5, name:'Fabru', tagline:'"Si el server crashea… es porque él lo hackeó."',
     element:'electro', rarity:5, role:'Main DPS / Control de Área', paradigma:'Paradigma del Bot (Invocador)',
     art: 'Personajes 1.0 - tanda 1/Fabru.png',
@@ -809,4 +708,18 @@ const EFFECT_TOOLTIPS = {
   "Postura Baja": "Estado de iKayto que aumenta Daño de Hielo (+30%) y reduce el daño recibido (-20%).",
   "Compases": "Medidor de iKayto (máx. 3-4). Se obtiene al cambiar de postura o ejecutar FUA. Al alcanzar el máximo, su siguiente ataque se convierte en Danza del Vacío Helado.",
   "Danza del Vacío Helado": "Ataque potenciado de iKayto que inflige un 130% del daño original, aplica 2 acumulaciones de Escarcha a todos los enemigos y reinicia los Compases.",
+
+  // NUEVOS TOOLTIPS V2
+  "Bala de Ban": "Estado acumulable (máx. 3). Potencia sus propias habilidades aumentando drásticamente el daño y duración de efectos a cambio de consumir una carga.",
+  "Quemadura": "Daño periódico de Fuego al inicio del turno enemigo (1.3% de sus PV Máx.). Dura 2 turnos (3 si se potencia).",
+  "Slow-Log": "Reduce AGILIDAD (-20%) y ATQ (-10%). Al inicio de su turno, el enemigo pierde un 0.5% de sus PV Máx. como daño periódico. Dura 2 turnos.",
+  "Escudo de Crédito": "Autodefensa que reduce a la mitad todo el daño físico y mágico recibido por Miki. Dura 2 turnos.",
+  "Marca de la Mariposa": "Marca aplicada por Hawk. No hace daño, pero garantiza que Hilos de Control aplique Hipnosis con 100% de éxito.",
+  "Hipnosis": "Aturde al enemigo por completo (2 turnos). El enemigo recibe un 25% más de daño de todas las fuentes mientras dure.",
+  "Polvo de Hadas": "Autobuff que otorga +25% ATQ y +25% AGILIDAD durante 3 turnos.",
+  "Aceleración de Ritmo 1": "Otorga +10% de AGILIDAD. Dura 3 turnos.",
+  "Aceleración de Ritmo 2": "Otorga +20% de AGILIDAD. Dura 3 turnos.",
+  "Mod-Bot": "Autobuff: +25% ATQ, +25% AGILIDAD y +1 ataque adicional al usar Ataque Básico. Dura 3 turnos.",
+  "Electrocutado": "Daño periódico de Rayo (0.2% PV Máx.) y -20% AGILIDAD. Dura 2 turnos.",
+  "Parálisis": "Inmoviliza al enemigo por completo (no puede atacar ni usar habilidades) durante 1 turno."
 };
