@@ -624,99 +624,20 @@ document.getElementById('search-input')?.addEventListener('input', e => {
 });
 // ── Datos de Habilidades de Personajes ──
 const EFFECT_TOOLTIPS = {
-  // Anteriores
-  "Bala de Ban": "Munición especial en los tambores N°6 o N°12. Siempre es Golpe Crítico e ignora parte de la DEF.",
-  "Quemado extremo": "Aumenta el daño de Fuego recibido por el enemigo en un 40% durante 2 turnos.",
-  "Tambor de 12 Balas": "Recurso propio de ReyDNS. Comienza con 12 balas y las consume al atacar. Si llega a 0, recarga perdiendo un turno.",
-  "Mantra": "Inflige daño de Fuego basado en el ATQ total del equipo.",
-  "Slow-Log": "Debuff que reduce la VEL del objetivo en (15%–25%) y le inflige daño en base al (30%–40% de la DEF de Miki) al inicio de cada turno.",
-  "Engranaje": "Acumulación que Miki obtiene cuando un aliado usa su Habilidad (máx. 5). Al llegar a 5, los consume para ejecutar un FUA.",
-  "FUA": "Ataque Adicional que se ejecuta automáticamente al cumplir ciertas condiciones.",
-
-  // Hawk
-  "Marca de la Mariposa": "Marca aplicada por Hawk durante 2 turnos. Al consumirla, aplica Hipnosis y Tela.",
-  "Hipnosis": "Debuff que obliga al enemigo a atacar a sus aliados. Recibe +15% daño de todas las fuentes.",
-  "Tela": "Debuff que reduce la Vida Máxima (-15%) y la Resistencia a Efectos (-15%) del enemigo.",
-  "Polvo de Hadas": "Acumulación que potencia los FUA de Hawk (+12% por carga, máx. 5). Se obtiene al usar la Habilidad y se consume con la Ultimate.",
-  "Función Final": "Inflige daño verdadero masivo y aplica Aturdimiento e Inundado a todos los enemigos.",
-
-  // Belle
-  "XP": "Acumulación de Belle (máx. 40). Cada carga otorga +1% de VEL. Se obtiene con golpes críticos.",
-  "Mod-Bot": "Robot compañero que se vincula al aliado con más ATQ. Realiza Ataques Conjuntos y potencia al aliado.",
-  "Casete": "Carga que Belle obtiene al usar habilidades (máx. 3). Al llegar a 3, activa un FUA global con probabilidad de Electrocutado.",
-  "Electrocutado": "Debuff que inflige Daño de Rayo (25% VEL de Belle) al inicio del turno. 10% de prob. de causar Parálisis (inmoviliza 1 turno).",
-  "DJ Suprema": "El aliado vinculado recibe el 100% de su XP y los FUA se activan también con Ultimate.",
-  "Mute": "Aumenta un Ping aleatorio del aliado vinculado durante 1 ataque (excepto el 6to).",
-
-  // Fabru
-  "Marca de Hackeo": "Marca aplicada por Fabru. Los drones priorizan atacar a este enemigo.",
-  "Drones de Plasma": "Invocaciones de Fabru (máx. 3). Heredan estadísticas y atacan con Corte de Plasma.",
-  "Corte de Plasma": "Ataque básico de los drones. Inflige (40%–80%) del ATQ del drone como Daño de Rayo.",
-  "Sistema Caído": "Debuff que reduce VEL (-25%) y DEF (-20%) durante 2 turnos. Los enemigos afectados tienen 15% de prob. de fallar ataques.",
-  "Vulnerabilidad Expuesta": "Debuff que reduce DEF un 20% adicional durante 1 turno. Se acumula con Sistema Caído.",
-  "Paquete de Datos": "Aumenta el Daño de Rayo de él y sus drones en +3% por carga.",
-  "Código Raíz": "Habilidad que consume todos los Paquetes de Datos. El siguiente ataque ignora 30% DEF y aplica Aturdimiento.",
-
-  // Eugenio
-  "Naipe": "Carta que Eugenio roba al inicio del turno o con ataques. Forma combinaciones de póker.",
-  "Comodín": "Carta especial que permite elegir cualquier Naipe. Se obtiene al alcanzar 200 de Suerte o con el Baneo 2.",
-  "Suerte": "Estadística especial de Eugenio (máx. 200). Aumenta al inicio de cada turno y potencia sus habilidades.",
-  "Escalera Real": "Combinación de póker. Aplica todos los estados (Quemadura, Electrocutado, etc.) a todos los enemigos por 2 turnos.",
-  "Póker": "Combinación de póker. Copia las estadísticas base de un aliado y las suma a las suyas por 2 turnos.",
-  "Escalera": "Combinación de póker. Daño de Ruptura +120% y +70 de Suerte.",
-  "Trío": "Combinación de póker. ATQ +80% y 3 ataques adicionales que ignoran DEF y escudos.",
-  "Doble Pareja": "Combinación de póker. Prob. Crítica +35% y Daño Crítico +70% durante ese turno.",
-  "Pareja": "Combinación de póker. Provoca 'Burla' y otorga 'Solidez' (DEF +45%, escudo del 25% de Vida Máx.).",
-  "Carta Alta": "Combinación de póker. Si el primer Naipe es un As, +25% a todas las estadísticas y +45% daño de efectos de tiempo.",
-
-  // Kyou
-  "Marca de Vulnerabilidad": "Debuff que hace que el objetivo reciba un 10% más de daño de todas las fuentes durante 2 turnos.",
-  "Vulnerabilidad Expuesta": "Debuff que reduce la DEF del objetivo en (20%–35%) durante 2 turnos.",
-  "Secreto al Descubierto": "Debuff que hace que los enemigos reciban un 15% más de daño de todos los elementos durante 2 turnos.",
-  "Filtración de Datos": "Efecto instantáneo: el próximo ataque recibido por el enemigo inflige un 30% más de daño (se consume tras un golpe).",
-  "Expediente": "Acumulación de Kyou (máx. 5/6). Aumenta el Daño de Rayo del equipo en un 4% por carga. Puede consumirse para añadir debuffs aleatorios.",
-
-  // Ttlim (y otros)
-  "Ralentización": "Estado que reduce la VEL del enemigo en un porcentaje (varía según la fuente).",
-  "Congelación": "Estado que aturde al enemigo durante 1 turno. Al descongelarse, puede recibir daño adicional.",
-  "Rosa Gélida": "Acumulación de Ttlim (máx. 3). Se obtiene al aplicar Ralentización o Congelación. Consumir 3 potencia su siguiente ataque.",
-  "Campo Congelado": "Zona creada por Ttlim (2-3 turnos): los enemigos dentro pierden 15% VEL y reciben +15% daño de Hielo.",
-
-  // Cris
-  "Marca del Fragmento": "Debuff que hace que el enemigo reciba un 10% más de daño de Fuego de todo el equipo durante 2 turnos.",
-  "Fragmento de Espejo": "Acumulación de Cris (máx. 5). Aumenta su Daño Crítico en un 4% por carga. Se obtiene al morir enemigos o romper escudos.",
-  "Quemadura": "Debuff de Daño en el tiempo que inflige un porcentaje del ATQ como Daño de Fuego durante X turnos.",
-
-  // Quency
-  "Marca de Sakura": "Debuff que hace que el enemigo reciba un 15% más de daño de todos los aliados durante 2 turnos.",
-  "Esquiva Inaudito": "Buff de Quency que otorga +5% Prob. de Evasión por cada enemigo en el campo durante 1 turno.",
-  "Contraataque Relámpago": "Ataque adicional de Quency que inflige Daño de Viento y consume la Marca de Sakura.",
-  "Ceguera Floral": "Debuff que otorga un 50% de probabilidad de fallar ataques contra cualquier aliado durante 1 turno.",
-  "Pétalo": "Acumulación de Quency (máx. 5). Aumenta su Daño Crítico en un 6% por carga. Con 3/5 acumulaciones desbloquea efectos adicionales.",
-  "Corte de Conejo": "Versión mejorada del Ataque Básico de Quency que golpea 2 veces.",
-  "Relieve": "Efecto del Baneo 3 que redirige el primer golpe letal que la dejaría entre 40% y 100% de HP al aliado con mayor vida (una vez por batalla).",
-
-  // Eydis
-  "Fisura Rúnica": "Debuff que reduce la DEF en un 15%. Al recibir un golpe crítico, detona causando daño adicional en área y se elimina (versiones avanzadas pueden detonar múltiples veces).",
-  "Fisura Rúnica Avanzada": "Variante de Fisura Rúnica que puede detonar hasta 2-3 veces antes de desaparecer.",
-  "Piedra Rúnica": "Acumulación de Eydis (máx. 3). Aumenta el daño de las detonaciones de Fisura Rúnica en un 5% por carga. Con 3, el Ataque Básico se transforma en Golpe de Ruptura.",
-  "Golpe de Ruptura": "Ataque potenciado de Eydis que consume Piedras Rúnicas, ignora 40% de DEF, inflige alto daño y aplica Fisura Rúnica.",
-
-  // iKayto
-  "Escarcha": "Debuff que hace que el enemigo reciba un 15% más de daño de Hielo por acumulación (máx. 2 acumulaciones).",
-  "Postura Alta": "Estado de iKayto que aumenta VEL (+20%) y Prob. Crítica (+15%).",
-  "Postura Baja": "Estado de iKayto que aumenta Daño de Hielo (+30%) y reduce el daño recibido (-20%).",
-  "Compases": "Medidor de iKayto (máx. 3-4). Se obtiene al cambiar de postura o ejecutar FUA. Al alcanzar el máximo, su siguiente ataque se convierte en Danza del Vacío Helado.",
-  "Danza del Vacío Helado": "Ataque potenciado de iKayto que inflige un 130% del daño original, aplica 2 acumulaciones de Escarcha a todos los enemigos y reinicia los Compases.",
-
-  // NUEVOS TOOLTIPS V2
+  // ReyDNS
   "Bala de Ban": "Estado acumulable (máx. 3). Potencia sus propias habilidades aumentando drásticamente el daño y duración de efectos a cambio de consumir una carga.",
   "Quemadura": "Daño periódico de Fuego al inicio del turno enemigo (1.3% de sus PV Máx.). Dura 2 turnos (3 si se potencia).",
+
+  // Miki
   "Slow-Log": "Reduce AGILIDAD (-20%) y ATQ (-10%). Al inicio de su turno, el enemigo pierde un 0.5% de sus PV Máx. como daño periódico. Dura 2 turnos.",
   "Escudo de Crédito": "Autodefensa que reduce a la mitad todo el daño físico y mágico recibido por Miki. Dura 2 turnos.",
+
+  // Hawk
   "Marca de la Mariposa": "Marca aplicada por Hawk. No hace daño, pero garantiza que Hilos de Control aplique Hipnosis con 100% de éxito.",
   "Hipnosis": "Aturde al enemigo por completo (2 turnos). El enemigo recibe un 25% más de daño de todas las fuentes mientras dure.",
   "Polvo de Hadas": "Autobuff que otorga +25% ATQ y +25% AGILIDAD durante 3 turnos.",
+
+  // Belle
   "Aceleración de Ritmo 1": "Otorga +10% de AGILIDAD. Dura 3 turnos.",
   "Aceleración de Ritmo 2": "Otorga +20% de AGILIDAD. Dura 3 turnos.",
   "Mod-Bot": "Autobuff: +25% ATQ, +25% AGILIDAD y +1 ataque adicional al usar Ataque Básico. Dura 3 turnos.",
