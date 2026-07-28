@@ -463,6 +463,25 @@ function applyTooltips(desc) {
   return html;
 }
 
+// ── Tabla de stats (nueva versión limpia tipo tabla) ──
+function buildStatsTable(stats){
+  const rows = Object.entries(stats).map(([k,v])=>{
+    let valueHTML;
+    if (typeof v === 'object' && v.lvl1 !== undefined && v.lvl99 !== undefined) {
+      valueHTML = `<span class="stat-lvl">LvL 1</span><span class="stat-num">${v.lvl1}</span>
+                    <span class="stat-arrow">→</span>
+                    <span class="stat-lvl">LvL 99</span><span class="stat-num">${v.lvl99}</span>`;
+    } else {
+      valueHTML = `<span class="stat-num stat-num-single">${v}</span>`;
+    }
+    return `<div class="stat-row">
+      <div class="stat-label">${k}</div>
+      <div class="stat-value">${valueHTML}</div>
+    </div>`;
+  }).join('');
+  return `<div class="stats-table">${rows}</div>`;
+}
+
 function openChar(id){
   const c=CHARS.find(x=>x.id===id); if(!c) return;
   const el=EC[c.element];
@@ -471,16 +490,10 @@ function openChar(id){
     :`<div class="modal-hero-bg" style="${GRAD[c.element]}"></div>`;
   const modalContent=document.getElementById('modal-content');
   if(!modalContent) return;
-  
-  // Construir la tabla de estadísticas según el formato
-  const statsHTML = Object.entries(c.stats).map(([k,v])=>{
-    if (typeof v === 'object' && v.lvl1 !== undefined && v.lvl99 !== undefined) {
-      return `<div class="srow"><span class="sname">${k}</span><span class="sval">LvL 1 [${v.lvl1}] - LvL 99 [${v.lvl99}]</span></div>`;
-    } else {
-      return `<div class="srow"><span class="sname">${k}</span><span class="sval">${v}</span></div>`;
-    }
-  }).join('');
-  
+
+  // Tabla de estadísticas base
+  const statsHTML = buildStatsTable(c.stats);
+
   const skillsHTML = c.skills.map(s=>{
     let tagHtml = '';
     if (s.tag) tagHtml = `[${s.tag}] `;
@@ -503,14 +516,14 @@ function openChar(id){
       ${costHtml}
     </div>`;
   }).join('');
-  
+
   const talentoCoreHTML = c.talentoCore ? `
     <div class="ms"><div class="ms-title">🧠 Talento Core</div>
       <div class="skill-card">
         <div class="sk-desc">${c.talentoCore}</div>
       </div>
     </div>` : '';
-  
+
   modalContent.innerHTML=`
     <div class="modal-hero">
       ${heroContent}
@@ -529,7 +542,7 @@ function openChar(id){
     </div>
     <div class="modal-body" style="font-size:1.05rem;">
       <div class="ms"><div class="ms-title">📊 Estadísticas Base</div>
-        <div class="stats-grid">${statsHTML}</div>
+        ${statsHTML}
       </div>
       <div class="ms"><div class="ms-title">⚙️ Habilidades</div>
         ${skillsHTML}
