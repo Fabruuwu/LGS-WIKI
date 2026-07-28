@@ -38,26 +38,22 @@ const CHARS=[
       {
         icon:'🗡️', name:'Tiro de Advertencia', tag:'Básico', type:'Nivel 1',
         flavor:'Un disparo rápido que causa daño básico. Si tiene una \'Bala de Ban\' cargada, el tiro se potencia y la consume.',
-        desc:'Recupera +20 PT y +15 PM.<br>Inflige <strong>100% del ATQ</strong> como Daño de Fuego a un enemigo.<br>Si tiene al menos 1 carga de <strong>"Bala de Ban"</strong>, el daño se duplica (200%) y consume 1 carga.',
-        cost:'', gain:'+20 PT, +15 PM'
+        desc:'Recupera +20 PT y +15 PM.<br>Inflige <strong>100% del ATQ</strong> como Daño de Fuego a un enemigo.<br>Si tiene al menos 1 carga de <strong>"Bala de Ban"</strong>, el daño se duplica (200%) y consume 1 carga.'
       },
       {
         icon:'💫', name:'Fuego a Discreción', tag:'Especial', type:'Nivel 3',
         flavor:'Ráfaga de disparos que quema al enemigo. Puede potenciarse con una \'Bala de Ban\' para hacer más daño y alargar la quemadura.',
-        desc:'Gasta -20 PM y recupera +15 PT.<br>Inflige <strong>200% del ATQ</strong> como Daño de Fuego a un enemigo.<br>Aplica <strong>"Quemadura"</strong> durante 2 turnos.<br>Si gasta 1 carga de <strong>"Bala de Ban"</strong>, el daño base aumenta a 300% y la Quemadura dura 1 turno extra.',
-        cost:'-20 PM', gain:'+15 PT'
+        desc:'Gasta -20 PM y recupera +15 PT.<br>Inflige <strong>200% del ATQ</strong> como Daño de Fuego a un enemigo.<br>Aplica <strong>"Quemadura"</strong> durante 2 turnos.<br>Si gasta 1 carga de <strong>"Bala de Ban"</strong>, el daño base aumenta a 300% y la Quemadura dura 1 turno extra.'
       },
       {
         icon:'🌟', name:'Limpieza de Servidor (Wipe)', tag:'Ultimate', type:'Nivel 5',
         flavor:'Vacía el cargador en un devastador ataque de área. Mientras más \'Balas de Ban\' tenga, más letal será el golpe.',
-        desc:'Gasta -100 PT.<br>Inflige <strong>350% del ATQ</strong> como Daño de Fuego a TODOS los enemigos.<br>Ignora el 20% de la DEF enemiga.<br>Por cada carga de <strong>"Bala de Ban"</strong>, el daño total aumenta un 50% adicional (consume todas las cargas).',
-        cost:'-100 PT', gain:''
+        desc:'Gasta -100 PT.<br>Inflige <strong>350% del ATQ</strong> como Daño de Fuego a TODOS los enemigos.<br>Ignora el 20% de la DEF enemiga.<br>Por cada carga de <strong>"Bala de Ban"</strong>, el daño total aumenta un 50% adicional (consume todas las cargas).'
       },
       {
         icon:'🔥', name:'La Ruleta del Administrador', tag:'Baneo Activo', type:'Nivel 30',
         flavor:'Recarga una \'Bala de Ban\' al instante, permitiéndole potenciar sus próximos ataques.',
-        desc:'Gasta -20 PM y recupera +15 PT.<br>Se aplica el estado <strong>"Balas de Ban"</strong> sobre sí mismo, recuperando 1 carga (máx. 3).',
-        cost:'-20 PM', gain:'+15 PT'
+        desc:'Gasta -20 PM y recupera +15 PT.<br>Se aplica el estado <strong>"Balas de Ban"</strong> sobre sí mismo, recuperando 1 carga (máx. 3).'
       }
     ],
     talentoCore: '',
@@ -81,26 +77,22 @@ const CHARS=[
       {
         icon:'🗡️', name:'Golpe de Top Up', tag:'Básico', type:'Nivel 1',
         flavor:'Un golpe firme que daña en base a su defensa y acelera su propia recarga de Ultimate.',
-        desc:'Recupera +20 PT y +15 PM.<br>Inflige <strong>100% de su DEF</strong> como Daño de Vacío a un enemigo.<br>Otorga a Miki +10 PT adicionales.',
-        cost:'', gain:'+20 PT, +15 PM'
+        desc:'Recupera +20 PT y +15 PM.<br>Inflige <strong>100% de su DEF</strong> como Daño de Vacío a un enemigo.<br>Otorga a Miki +10 PT adicionales.'
       },
       {
         icon:'💫', name:'Muteo Temporal', tag:'Especial', type:'Nivel 3',
         flavor:'Aplica un estado de ralentización y drenaje de vida, reduciendo la velocidad y el ataque del enemigo mientras lo daña por turnos.',
-        desc:'Gasta -20 PM y recupera +15 PT.<br>Inflige <strong>200% de su DEF</strong> como Daño de Vacío a un enemigo.<br>Aplica <strong>"Slow-Log"</strong> al enemigo durante 2 turnos.',
-        cost:'-20 PM', gain:'+15 PT'
+        desc:'Gasta -20 PM y recupera +15 PT.<br>Inflige <strong>200% de su DEF</strong> como Daño de Vacío a un enemigo.<br>Aplica <strong>"Slow-Log"</strong> al enemigo durante 2 turnos.'
       },
       {
         icon:'🌟', name:'Reinicio de Tienda', tag:'Ultimate', type:'Nivel 5',
         flavor:'Un poderoso ataque de área que ralentiza a todos los enemigos y fortalece a todo el equipo.',
-        desc:'Gasta -100 PT.<br>Inflige <strong>280% de su DEF</strong> como Daño de Vacío a TODOS los enemigos.<br>Aplica -30% AGILIDAD a todos los enemigos durante 2 turnos.<br>Aumenta ATQ y DEF de todos los aliados en un 20% durante 2 turnos.',
-        cost:'-100 PT', gain:''
+        desc:'Gasta -100 PT.<br>Inflige <strong>280% de su DEF</strong> como Daño de Vacío a TODOS los enemigos.<br>Aplica -30% AGILIDAD a todos los enemigos durante 2 turnos.<br>Aumenta ATQ y DEF de todos los aliados en un 20% durante 2 turnos.'
       },
       {
         icon:'🔥', name:'Corte de Crédito', tag:'Baneo Activo', type:'Nivel 30',
         flavor:'Activa una póliza de protección personal, reduciendo a la mitad todo el daño recibido por un tiempo.',
-        desc:'Gasta -20 PM y recupera +15 PT.<br>Se aplica el estado <strong>"Escudo de Crédito"</strong> a sí misma durante 2 turnos.',
-        cost:'-20 PM', gain:'+15 PT'
+        desc:'Gasta -20 PM y recupera +15 PT.<br>Se aplica el estado <strong>"Escudo de Crédito"</strong> a sí misma durante 2 turnos.'
       }
     ],
     talentoCore: '',
@@ -124,26 +116,22 @@ const CHARS=[
       {
         icon:'🗡️', name:'Aguja Mental', tag:'Básico', type:'Nivel 1',
         flavor:'Un pequeño rayo de energía que marca al enemigo, preparándolo para ser controlado.',
-        desc:'Recupera +20 PT y +15 PM.<br>Inflige <strong>100% del ATQ</strong> como Daño de Vacío a un enemigo.<br>Aplica <strong>"Marca de la Mariposa"</strong> al enemigo durante 2 turnos.',
-        cost:'', gain:'+20 PT, +15 PM'
+        desc:'Recupera +20 PT y +15 PM.<br>Inflige <strong>100% del ATQ</strong> como Daño de Vacío a un enemigo.<br>Aplica <strong>"Marca de la Mariposa"</strong> al enemigo durante 2 turnos.'
       },
       {
         icon:'💫', name:'Hilos de Control', tag:'Especial', type:'Nivel 3',
         flavor:'Susurra una orden que intenta dominar la mente del enemigo. Si tiene la \'Marca de la Mariposa\', la hipnosis es un éxito asegurado.',
-        desc:'Gasta -20 PM y recupera +15 PT.<br>Inflige <strong>150% del ATQ</strong> como Daño de Vacío a un enemigo.<br>Intenta aplicar <strong>"Hipnosis"</strong> durante 2 turnos (prob. base 30%).<br>Si el enemigo tiene <strong>"Marca de la Mariposa"</strong>, la probabilidad es del 100%.',
-        cost:'-20 PM', gain:'+15 PT'
+        desc:'Gasta -20 PM y recupera +15 PT.<br>Inflige <strong>150% del ATQ</strong> como Daño de Vacío a un enemigo.<br>Intenta aplicar <strong>"Hipnosis"</strong> durante 2 turnos (prob. base 30%).<br>Si el enemigo tiene <strong>"Marca de la Mariposa"</strong>, la probabilidad es del 100%.'
       },
       {
         icon:'🌟', name:'Vals de las Mil Mariposas', tag:'Ultimate', type:'Nivel 5',
         flavor:'Una tormenta de mariposas que arrasa con todos los enemigos. Si está bajo el efecto de \'Polvo de Hadas\', el daño se vuelve devastador.',
-        desc:'Gasta -100 PT.<br>Inflige <strong>300% del ATQ</strong> como Daño de Vacío a TODOS los enemigos.<br>Si tiene <strong>"Polvo de Hadas"</strong>, el daño aumenta un 30% adicional.<br>Aplica <strong>"Hipnosis"</strong> a un enemigo aleatorio.',
-        cost:'-100 PT', gain:''
+        desc:'Gasta -100 PT.<br>Inflige <strong>300% del ATQ</strong> como Daño de Vacío a TODOS los enemigos.<br>Si tiene <strong>"Polvo de Hadas"</strong>, el daño aumenta un 30% adicional.<br>Aplica <strong>"Hipnosis"</strong> a un enemigo aleatorio.'
       },
       {
         icon:'🔥', name:'Polvo de Hadas', tag:'Baneo Activo', type:'Nivel 30',
         flavor:'Un aura de empoderamiento que aumenta considerablemente su poder de ataque y su velocidad durante varios turnos.',
-        desc:'Gasta -20 PM y recupera +15 PT.<br>Se aplica el estado <strong>"Polvo de Hadas"</strong> a sí misma durante 3 turnos.<br>Efecto: +25% ATQ y +25% AGILIDAD mientras dure.',
-        cost:'-20 PM', gain:'+15 PT'
+        desc:'Gasta -20 PM y recupera +15 PT.<br>Se aplica el estado <strong>"Polvo de Hadas"</strong> a sí misma durante 3 turnos.<br>Efecto: +25% ATQ y +25% AGILIDAD mientras dure.'
       }
     ],
     talentoCore: '',
@@ -167,26 +155,22 @@ const CHARS=[
       {
         icon:'🗡️', name:'Dinamic Warn', tag:'Básico', type:'Nivel 1',
         flavor:'Un disparo de advertencia que acumula velocidad y tiene un 35% de probabilidad de desatar un golpe extra contundente.',
-        desc:'Recupera +20 PT y +15 PM.<br>Inflige <strong>100% del ATQ</strong> como Daño de Rayo a un enemigo.<br>35% de prob. (basado en SUERTE) de añadir un golpe extra (120% ATQ adicional).<br>Se aplica <strong>"Aceleración de Ritmo 1"</strong> o <strong>"Aceleración de Ritmo 2"</strong> según su acumulación actual.',
-        cost:'', gain:'+20 PT, +15 PM'
+        desc:'Recupera +20 PT y +15 PM.<br>Inflige <strong>100% del ATQ</strong> como Daño de Rayo a un enemigo.<br>35% de prob. (basado en SUERTE) de añadir un golpe extra (120% ATQ adicional).<br>Se aplica <strong>"Aceleración de Ritmo 1"</strong> o <strong>"Aceleración de Ritmo 2"</strong> según su acumulación actual.'
       },
       {
         icon:'💫', name:'¡No aprendes?, Mod-Bot!', tag:'Especial', type:'Nivel 3',
         flavor:'Belle activa a su robot acompañante para potenciarse a sí misma durante un tiempo.',
-        desc:'Gasta -20 PM y recupera +15 PT.<br>Se aplica el estado <strong>"Mod-Bot"</strong> a sí misma durante 3 turnos.',
-        cost:'-20 PM', gain:'+15 PT'
+        desc:'Gasta -20 PM y recupera +15 PT.<br>Se aplica el estado <strong>"Mod-Bot"</strong> a sí misma durante 3 turnos.'
       },
       {
         icon:'🌟', name:'Sabía que me necesitabas', tag:'Ultimate', type:'Nivel 5',
         flavor:'Un drop masivo de graves y relámpagos cuyo poder destructivo escala directamente con la velocidad de la DJ.',
-        desc:'Gasta -100 PT.<br>Inflige <strong>(ATQ * 3.2) + (AGI * 0.4)</strong> como Daño de Rayo a TODOS los enemigos.<br>Otorga a todos los aliados +20% ATQ durante 2 turnos.',
-        cost:'-100 PT', gain:''
+        desc:'Gasta -100 PT.<br>Inflige <strong>(ATQ * 3.2) + (AGI * 0.4)</strong> como Daño de Rayo a TODOS los enemigos.<br>Otorga a todos los aliados +20% ATQ durante 2 turnos.'
       },
       {
         icon:'🔥', name:'Control de Bajos', tag:'Baneo Activo', type:'Nivel 30',
         flavor:'Belle manipula la corriente eléctrica ambiental para electrocutar y frenar a un enemigo en específico.',
-        desc:'Gasta -20 PM y recupera +15 PT.<br>Aplica <strong>"Electrocutado"</strong> al enemigo durante 2 turnos.<br>10% de prob. (basado en SUERTE) de aplicar también <strong>"Parálisis"</strong> durante 1 turno.',
-        cost:'-20 PM', gain:'+15 PT'
+        desc:'Gasta -20 PM y recupera +15 PT.<br>Aplica <strong>"Electrocutado"</strong> al enemigo durante 2 turnos.<br>10% de prob. (basado en SUERTE) de aplicar también <strong>"Parálisis"</strong> durante 1 turno.'
       }
     ],
     talentoCore: 'Ritmo Imparable: La probabilidad del 35% de activar el golpe extra (FUA) en su Ataque Básico está calculada de forma nativa dentro de la fórmula de daño de Dinamic Warn.',
@@ -463,25 +447,6 @@ function applyTooltips(desc) {
   return html;
 }
 
-// ── Tabla de stats (nueva versión limpia tipo tabla) ──
-function buildStatsTable(stats){
-  const rows = Object.entries(stats).map(([k,v])=>{
-    let valueHTML;
-    if (typeof v === 'object' && v.lvl1 !== undefined && v.lvl99 !== undefined) {
-      valueHTML = `<span class="stat-lvl">LvL 1</span><span class="stat-num">${v.lvl1}</span>
-                    <span class="stat-arrow">→</span>
-                    <span class="stat-lvl">LvL 99</span><span class="stat-num">${v.lvl99}</span>`;
-    } else {
-      valueHTML = `<span class="stat-num stat-num-single">${v}</span>`;
-    }
-    return `<div class="stat-row">
-      <div class="stat-label">${k}</div>
-      <div class="stat-value">${valueHTML}</div>
-    </div>`;
-  }).join('');
-  return `<div class="stats-table">${rows}</div>`;
-}
-
 function openChar(id){
   const c=CHARS.find(x=>x.id===id); if(!c) return;
   const el=EC[c.element];
@@ -491,20 +456,23 @@ function openChar(id){
   const modalContent=document.getElementById('modal-content');
   if(!modalContent) return;
 
-  // Tabla de estadísticas base
-  const statsHTML = buildStatsTable(c.stats);
+  // Estadísticas con formato vertical
+  const statsHTML = Object.entries(c.stats).map(([k,v])=>{
+    if (typeof v === 'object' && v.lvl1 !== undefined && v.lvl99 !== undefined) {
+      return `<div class="srow">
+                <span class="sname">${k}</span>
+                <span class="sval">LvL 1 [${v.lvl1}]<br>LvL 99 [${v.lvl99}]</span>
+              </div>`;
+    } else {
+      return `<div class="srow"><span class="sname">${k}</span><span class="sval">${v}</span></div>`;
+    }
+  }).join('');
 
+  // Habilidades sin coste/ganancia extra
   const skillsHTML = c.skills.map(s=>{
     let tagHtml = '';
     if (s.tag) tagHtml = `[${s.tag}] `;
     const levelText = s.type.replace('Nivel ','Nivel de Desbloqueo: LvL ');
-    let costHtml = '';
-    if (s.cost || s.gain) {
-      costHtml = `<div style="font-size:0.9rem; margin-top:4px; color:var(--cyan);">`;
-      if (s.cost) costHtml += `Costo: ${s.cost} `;
-      if (s.gain) costHtml += `Gana: ${s.gain}`;
-      costHtml += `</div>`;
-    }
     return `<div class="skill-card">
       <div class="sk-head">
         <span class="sk-icon">${s.icon}</span>
@@ -513,7 +481,6 @@ function openChar(id){
       </div>
       <div class="sk-flavor">${s.flavor}</div>
       <div class="sk-desc">${applyTooltips(s.desc)}</div>
-      ${costHtml}
     </div>`;
   }).join('');
 
@@ -536,13 +503,12 @@ function openChar(id){
           <div class="mbadge mbadge-rarity">${stars(c.rarity)}</div>
           <div class="mbadge mbadge-role">${c.role}</div>
           <div class="mbadge mbadge-paradigma">📘 ${c.paradigma}</div>
-          <button class="mbadge mbadge-via" onclick="alert('Próximamente')">⚔️ Cambio de Vía</button>
         </div>
       </div>
     </div>
     <div class="modal-body" style="font-size:1.05rem;">
       <div class="ms"><div class="ms-title">📊 Estadísticas Base</div>
-        ${statsHTML}
+        <div class="stats-grid">${statsHTML}</div>
       </div>
       <div class="ms"><div class="ms-title">⚙️ Habilidades</div>
         ${skillsHTML}
