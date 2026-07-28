@@ -25,33 +25,42 @@ const CHARS=[
     element:'fuego', rarity:5, role:'Main DPS', paradigma:'Paradigma del Flood',
     art: 'Personajes 1.0 - tanda 2/ReyDNS.jpg',
     stats:{
-      'PV MAX':45, 'PM MAX':12, 'ATQ':10, 'DEFENSA':10,
-      'ATQ MÁGICO':6, 'DEF MÁGICA':6, 'AGILIDAD':12, 'SUERTE':6
+      'PV MAX': { lvl1:45, lvl99:650 },
+      'PM MAX': { lvl1:12, lvl99:190 },
+      'ATQ': { lvl1:10, lvl99:145 },
+      'DEFENSA': { lvl1:10, lvl99:75 },
+      'ATQ MÁGICO': { lvl1:6, lvl99:50 },
+      'DEF MÁGICA': { lvl1:6, lvl99:55 },
+      'AGILIDAD': { lvl1:12, lvl99:105 },
+      'SUERTE': { lvl1:6, lvl99:70 }
     },
     skills:[
       {
-        icon:'🗡️', name:'Tiro de Advertencia', type:'Nivel 1',
+        icon:'🗡️', name:'Tiro de Advertencia', tag:'Básico', type:'Nivel 1',
         flavor:'Un disparo rápido que causa daño básico. Si tiene una \'Bala de Ban\' cargada, el tiro se potencia y la consume.',
-        desc:'Recupera +20 PT y +15 PM.<br>Inflige <strong>100% del ATQ</strong> como Daño de Fuego a un enemigo.<br>Si tiene al menos 1 carga de <strong>"Bala de Ban"</strong>, el daño se duplica (200%) y consume 1 carga.'
+        desc:'Recupera +20 PT y +15 PM.<br>Inflige <strong>100% del ATQ</strong> como Daño de Fuego a un enemigo.<br>Si tiene al menos 1 carga de <strong>"Bala de Ban"</strong>, el daño se duplica (200%) y consume 1 carga.',
+        cost:'', gain:'+20 PT, +15 PM'
       },
       {
-        icon:'💫', name:'Fuego a Discreción', type:'Nivel 3',
+        icon:'💫', name:'Fuego a Discreción', tag:'Especial', type:'Nivel 3',
         flavor:'Ráfaga de disparos que quema al enemigo. Puede potenciarse con una \'Bala de Ban\' para hacer más daño y alargar la quemadura.',
-        desc:'Gasta -20 PM y recupera +15 PT.<br>Inflige <strong>200% del ATQ</strong> como Daño de Fuego a un enemigo.<br>Aplica <strong>"Quemadura"</strong> durante 2 turnos.<br>Si gasta 1 carga de <strong>"Bala de Ban"</strong>, el daño base aumenta a 300% y la Quemadura dura 1 turno extra.'
+        desc:'Gasta -20 PM y recupera +15 PT.<br>Inflige <strong>200% del ATQ</strong> como Daño de Fuego a un enemigo.<br>Aplica <strong>"Quemadura"</strong> durante 2 turnos.<br>Si gasta 1 carga de <strong>"Bala de Ban"</strong>, el daño base aumenta a 300% y la Quemadura dura 1 turno extra.',
+        cost:'-20 PM', gain:'+15 PT'
       },
       {
-        icon:'🌟', name:'Limpieza de Servidor (Wipe)', type:'Nivel 5',
+        icon:'🌟', name:'Limpieza de Servidor (Wipe)', tag:'Ultimate', type:'Nivel 5',
         flavor:'Vacía el cargador en un devastador ataque de área. Mientras más \'Balas de Ban\' tenga, más letal será el golpe.',
-        desc:'Gasta -100 PT.<br>Inflige <strong>350% del ATQ</strong> como Daño de Fuego a TODOS los enemigos.<br>Ignora el 20% de la DEF enemiga.<br>Por cada carga de <strong>"Bala de Ban"</strong>, el daño total aumenta un 50% adicional (consume todas las cargas).'
+        desc:'Gasta -100 PT.<br>Inflige <strong>350% del ATQ</strong> como Daño de Fuego a TODOS los enemigos.<br>Ignora el 20% de la DEF enemiga.<br>Por cada carga de <strong>"Bala de Ban"</strong>, el daño total aumenta un 50% adicional (consume todas las cargas).',
+        cost:'-100 PT', gain:''
       },
       {
-        icon:'🔥', name:'La Ruleta del Administrador', type:'Nivel 30',
+        icon:'🔥', name:'La Ruleta del Administrador', tag:'Baneo Activo', type:'Nivel 30',
         flavor:'Recarga una \'Bala de Ban\' al instante, permitiéndole potenciar sus próximos ataques.',
-        desc:'Gasta -20 PM y recupera +15 PT.<br>Se aplica el estado <strong>"Balas de Ban"</strong> sobre sí mismo, recuperando 1 carga (máx. 3).'
+        desc:'Gasta -20 PM y recupera +15 PT.<br>Se aplica el estado <strong>"Balas de Ban"</strong> sobre sí mismo, recuperando 1 carga (máx. 3).',
+        cost:'-20 PM', gain:'+15 PT'
       }
     ],
-    passives:[],
-    pings:[],
+    talentoCore: '',
     rasgoUnico: null
 },
 {
@@ -59,33 +68,42 @@ const CHARS=[
     element:'caos', rarity:5, role:'Soporte / Control', paradigma:'Paradigma del Legado',
     art: 'Personajes 1.0 - tanda 2/Miki.png',
     stats:{
-      'PV MAX':50, 'PM MAX':20, 'ATQ':6, 'DEFENSA':20,
-      'ATQ MÁGICO':4, 'DEF MÁGICA':14, 'AGILIDAD':12, 'SUERTE':6
+      'PV MAX': { lvl1:50, lvl99:650 },
+      'PM MAX': { lvl1:20, lvl99:200 },
+      'ATQ': { lvl1:6, lvl99:60 },
+      'DEFENSA': { lvl1:20, lvl99:185 },
+      'ATQ MÁGICO': { lvl1:4, lvl99:40 },
+      'DEF MÁGICA': { lvl1:14, lvl99:115 },
+      'AGILIDAD': { lvl1:12, lvl99:100 },
+      'SUERTE': { lvl1:6, lvl99:70 }
     },
     skills:[
       {
-        icon:'🗡️', name:'Golpe de Top Up', type:'Nivel 1',
+        icon:'🗡️', name:'Golpe de Top Up', tag:'Básico', type:'Nivel 1',
         flavor:'Un golpe firme que daña en base a su defensa y acelera su propia recarga de Ultimate.',
-        desc:'Recupera +20 PT y +15 PM.<br>Inflige <strong>100% de su DEF</strong> como Daño de Vacío a un enemigo.<br>Otorga a Miki +10 PT adicionales.'
+        desc:'Recupera +20 PT y +15 PM.<br>Inflige <strong>100% de su DEF</strong> como Daño de Vacío a un enemigo.<br>Otorga a Miki +10 PT adicionales.',
+        cost:'', gain:'+20 PT, +15 PM'
       },
       {
-        icon:'💫', name:'Muteo Temporal', type:'Nivel 3',
+        icon:'💫', name:'Muteo Temporal', tag:'Especial', type:'Nivel 3',
         flavor:'Aplica un estado de ralentización y drenaje de vida, reduciendo la velocidad y el ataque del enemigo mientras lo daña por turnos.',
-        desc:'Gasta -20 PM y recupera +15 PT.<br>Inflige <strong>200% de su DEF</strong> como Daño de Vacío a un enemigo.<br>Aplica <strong>"Slow-Log"</strong> al enemigo durante 2 turnos.'
+        desc:'Gasta -20 PM y recupera +15 PT.<br>Inflige <strong>200% de su DEF</strong> como Daño de Vacío a un enemigo.<br>Aplica <strong>"Slow-Log"</strong> al enemigo durante 2 turnos.',
+        cost:'-20 PM', gain:'+15 PT'
       },
       {
-        icon:'🌟', name:'Reinicio de Tienda', type:'Nivel 5',
+        icon:'🌟', name:'Reinicio de Tienda', tag:'Ultimate', type:'Nivel 5',
         flavor:'Un poderoso ataque de área que ralentiza a todos los enemigos y fortalece a todo el equipo.',
-        desc:'Gasta -100 PT.<br>Inflige <strong>280% de su DEF</strong> como Daño de Vacío a TODOS los enemigos.<br>Aplica -30% AGILIDAD a todos los enemigos durante 2 turnos.<br>Aumenta ATQ y DEF de todos los aliados en un 20% durante 2 turnos.'
+        desc:'Gasta -100 PT.<br>Inflige <strong>280% de su DEF</strong> como Daño de Vacío a TODOS los enemigos.<br>Aplica -30% AGILIDAD a todos los enemigos durante 2 turnos.<br>Aumenta ATQ y DEF de todos los aliados en un 20% durante 2 turnos.',
+        cost:'-100 PT', gain:''
       },
       {
-        icon:'🔥', name:'Corte de Crédito', type:'Nivel 30',
+        icon:'🔥', name:'Corte de Crédito', tag:'Baneo Activo', type:'Nivel 30',
         flavor:'Activa una póliza de protección personal, reduciendo a la mitad todo el daño recibido por un tiempo.',
-        desc:'Gasta -20 PM y recupera +15 PT.<br>Se aplica el estado <strong>"Escudo de Crédito"</strong> a sí misma durante 2 turnos.'
+        desc:'Gasta -20 PM y recupera +15 PT.<br>Se aplica el estado <strong>"Escudo de Crédito"</strong> a sí misma durante 2 turnos.',
+        cost:'-20 PM', gain:'+15 PT'
       }
     ],
-    passives:[],
-    pings:[],
+    talentoCore: '',
     rasgoUnico: null
 },
 {
@@ -93,33 +111,42 @@ const CHARS=[
     element:'caos', rarity:5, role:'SubDPS / Debuffer', paradigma:'Paradigma del Warn',
     art: 'Personajes 1.0 - tanda 1/Hawk.png',
     stats:{
-      'PV MAX':45, 'PM MAX':20, 'ATQ':10, 'DEFENSA':8,
-      'ATQ MÁGICO':5, 'DEF MÁGICA':6, 'AGILIDAD':12, 'SUERTE':6
+      'PV MAX': { lvl1:45, lvl99:600 },
+      'PM MAX': { lvl1:20, lvl99:180 },
+      'ATQ': { lvl1:10, lvl99:150 },
+      'DEFENSA': { lvl1:8, lvl99:80 },
+      'ATQ MÁGICO': { lvl1:5, lvl99:45 },
+      'DEF MÁGICA': { lvl1:6, lvl99:55 },
+      'AGILIDAD': { lvl1:12, lvl99:105 },
+      'SUERTE': { lvl1:6, lvl99:70 }
     },
     skills:[
       {
-        icon:'🗡️', name:'Aguja Mental', type:'Nivel 1',
+        icon:'🗡️', name:'Aguja Mental', tag:'Básico', type:'Nivel 1',
         flavor:'Un pequeño rayo de energía que marca al enemigo, preparándolo para ser controlado.',
-        desc:'Recupera +20 PT y +15 PM.<br>Inflige <strong>100% del ATQ</strong> como Daño de Vacío a un enemigo.<br>Aplica <strong>"Marca de la Mariposa"</strong> al enemigo durante 2 turnos.'
+        desc:'Recupera +20 PT y +15 PM.<br>Inflige <strong>100% del ATQ</strong> como Daño de Vacío a un enemigo.<br>Aplica <strong>"Marca de la Mariposa"</strong> al enemigo durante 2 turnos.',
+        cost:'', gain:'+20 PT, +15 PM'
       },
       {
-        icon:'💫', name:'Hilos de Control', type:'Nivel 3',
+        icon:'💫', name:'Hilos de Control', tag:'Especial', type:'Nivel 3',
         flavor:'Susurra una orden que intenta dominar la mente del enemigo. Si tiene la \'Marca de la Mariposa\', la hipnosis es un éxito asegurado.',
-        desc:'Gasta -20 PM y recupera +15 PT.<br>Inflige <strong>150% del ATQ</strong> como Daño de Vacío a un enemigo.<br>Intenta aplicar <strong>"Hipnosis"</strong> durante 2 turnos (prob. base 30%).<br>Si el enemigo tiene <strong>"Marca de la Mariposa"</strong>, la probabilidad es del 100%.'
+        desc:'Gasta -20 PM y recupera +15 PT.<br>Inflige <strong>150% del ATQ</strong> como Daño de Vacío a un enemigo.<br>Intenta aplicar <strong>"Hipnosis"</strong> durante 2 turnos (prob. base 30%).<br>Si el enemigo tiene <strong>"Marca de la Mariposa"</strong>, la probabilidad es del 100%.',
+        cost:'-20 PM', gain:'+15 PT'
       },
       {
-        icon:'🌟', name:'Vals de las Mil Mariposas', type:'Nivel 5',
+        icon:'🌟', name:'Vals de las Mil Mariposas', tag:'Ultimate', type:'Nivel 5',
         flavor:'Una tormenta de mariposas que arrasa con todos los enemigos. Si está bajo el efecto de \'Polvo de Hadas\', el daño se vuelve devastador.',
-        desc:'Gasta -100 PT.<br>Inflige <strong>300% del ATQ</strong> como Daño de Vacío a TODOS los enemigos.<br>Si tiene <strong>"Polvo de Hadas"</strong>, el daño aumenta un 30% adicional.<br>Aplica <strong>"Hipnosis"</strong> a un enemigo aleatorio.'
+        desc:'Gasta -100 PT.<br>Inflige <strong>300% del ATQ</strong> como Daño de Vacío a TODOS los enemigos.<br>Si tiene <strong>"Polvo de Hadas"</strong>, el daño aumenta un 30% adicional.<br>Aplica <strong>"Hipnosis"</strong> a un enemigo aleatorio.',
+        cost:'-100 PT', gain:''
       },
       {
-        icon:'🔥', name:'Polvo de Hadas', type:'Nivel 30',
+        icon:'🔥', name:'Polvo de Hadas', tag:'Baneo Activo', type:'Nivel 30',
         flavor:'Un aura de empoderamiento que aumenta considerablemente su poder de ataque y su velocidad durante varios turnos.',
-        desc:'Gasta -20 PM y recupera +15 PT.<br>Se aplica el estado <strong>"Polvo de Hadas"</strong> a sí misma durante 3 turnos.<br>Efecto: +25% ATQ y +25% AGILIDAD mientras dure.'
+        desc:'Gasta -20 PM y recupera +15 PT.<br>Se aplica el estado <strong>"Polvo de Hadas"</strong> a sí misma durante 3 turnos.<br>Efecto: +25% ATQ y +25% AGILIDAD mientras dure.',
+        cost:'-20 PM', gain:'+15 PT'
       }
     ],
-    passives:[],
-    pings:[],
+    talentoCore: '',
     rasgoUnico: null
 },
 {
@@ -127,38 +154,42 @@ const CHARS=[
     element:'electro', rarity:5, role:'Sub-DPS / Buffer', paradigma:'Paradigma del Legado',
     art: 'Personajes 1.0 - tanda 1/Belle.png',
     stats:{
-      'PV MAX':45, 'PM MAX':20, 'ATQ':10, 'DEFENSA':8,
-      'ATQ MÁGICO':5, 'DEF MÁGICA':6, 'AGILIDAD':12, 'SUERTE':7
+      'PV MAX': { lvl1:45, lvl99:600 },
+      'PM MAX': { lvl1:20, lvl99:190 },
+      'ATQ': { lvl1:10, lvl99:140 },
+      'DEFENSA': { lvl1:8, lvl99:80 },
+      'ATQ MÁGICO': { lvl1:5, lvl99:50 },
+      'DEF MÁGICA': { lvl1:6, lvl99:60 },
+      'AGILIDAD': { lvl1:12, lvl99:115 },
+      'SUERTE': { lvl1:7, lvl99:75 }
     },
     skills:[
       {
-        icon:'🗡️', name:'Dinamic Warn', type:'Nivel 1',
+        icon:'🗡️', name:'Dinamic Warn', tag:'Básico', type:'Nivel 1',
         flavor:'Un disparo de advertencia que acumula velocidad y tiene un 35% de probabilidad de desatar un golpe extra contundente.',
-        desc:'Recupera +20 PT y +15 PM.<br>Inflige <strong>100% del ATQ</strong> como Daño de Rayo a un enemigo.<br>35% de prob. (basado en SUERTE) de añadir un golpe extra (120% ATQ adicional).<br>Se aplica <strong>"Aceleración de Ritmo 1"</strong> o <strong>"Aceleración de Ritmo 2"</strong> según su acumulación actual.'
+        desc:'Recupera +20 PT y +15 PM.<br>Inflige <strong>100% del ATQ</strong> como Daño de Rayo a un enemigo.<br>35% de prob. (basado en SUERTE) de añadir un golpe extra (120% ATQ adicional).<br>Se aplica <strong>"Aceleración de Ritmo 1"</strong> o <strong>"Aceleración de Ritmo 2"</strong> según su acumulación actual.',
+        cost:'', gain:'+20 PT, +15 PM'
       },
       {
-        icon:'💫', name:'¡No aprendes?, Mod-Bot!', type:'Nivel 3',
+        icon:'💫', name:'¡No aprendes?, Mod-Bot!', tag:'Especial', type:'Nivel 3',
         flavor:'Belle activa a su robot acompañante para potenciarse a sí misma durante un tiempo.',
-        desc:'Gasta -20 PM y recupera +15 PT.<br>Se aplica el estado <strong>"Mod-Bot"</strong> a sí misma durante 3 turnos.'
+        desc:'Gasta -20 PM y recupera +15 PT.<br>Se aplica el estado <strong>"Mod-Bot"</strong> a sí misma durante 3 turnos.',
+        cost:'-20 PM', gain:'+15 PT'
       },
       {
-        icon:'🌟', name:'Sabía que me necesitabas', type:'Nivel 5',
+        icon:'🌟', name:'Sabía que me necesitabas', tag:'Ultimate', type:'Nivel 5',
         flavor:'Un drop masivo de graves y relámpagos cuyo poder destructivo escala directamente con la velocidad de la DJ.',
-        desc:'Gasta -100 PT.<br>Inflige <strong>(ATQ * 3.2) + (AGI * 0.4)</strong> como Daño de Rayo a TODOS los enemigos.<br>Otorga a todos los aliados +20% ATQ durante 2 turnos.'
+        desc:'Gasta -100 PT.<br>Inflige <strong>(ATQ * 3.2) + (AGI * 0.4)</strong> como Daño de Rayo a TODOS los enemigos.<br>Otorga a todos los aliados +20% ATQ durante 2 turnos.',
+        cost:'-100 PT', gain:''
       },
       {
-        icon:'🔥', name:'Control de Bajos', type:'Nivel 30',
+        icon:'🔥', name:'Control de Bajos', tag:'Baneo Activo', type:'Nivel 30',
         flavor:'Belle manipula la corriente eléctrica ambiental para electrocutar y frenar a un enemigo en específico.',
-        desc:'Gasta -20 PM y recupera +15 PT.<br>Aplica <strong>"Electrocutado"</strong> al enemigo durante 2 turnos.<br>10% de prob. (basado en SUERTE) de aplicar también <strong>"Parálisis"</strong> durante 1 turno.'
+        desc:'Gasta -20 PM y recupera +15 PT.<br>Aplica <strong>"Electrocutado"</strong> al enemigo durante 2 turnos.<br>10% de prob. (basado en SUERTE) de aplicar también <strong>"Parálisis"</strong> durante 1 turno.',
+        cost:'-20 PM', gain:'+15 PT'
       }
     ],
-    passives:[
-      {
-        name:'Ritmo Imparable (Talento Core)',
-        desc:'La probabilidad del 35% de activar el golpe extra (FUA) en su Ataque Básico está calculada de forma nativa dentro de la fórmula de daño de Dinamic Warn.'
-      }
-    ],
-    pings:[],
+    talentoCore: 'Ritmo Imparable: La probabilidad del 35% de activar el golpe extra (FUA) en su Ataque Básico está calculada de forma nativa dentro de la fórmula de daño de Dinamic Warn.',
     rasgoUnico: null
 },
 {
@@ -193,6 +224,7 @@ const CHARS=[
         desc:'Cuando un Drone de Plasma ataca, otorga 1 <strong>"Paquete de Datos"</strong> (máx. 10). Cada Paquete aumenta el Daño de Rayo de Fabru y sus drones en un <strong>3%</strong> (máx. +30%). Fabru puede consumir todos los Paquetes para activar <strong>"Código Raíz"</strong>: su siguiente ataque ignora el 30% de la DEF enemiga y aplica Aturdimiento (1 turno). Si hay drones, ejecutan Ataque Conjunto adicional (>60% del ATQ del drone) contra enemigos con Marca de Hackeo.'
       },
     ],
+    talentoCore: '',
     passives:[
       { name:'Firewall Inestable', desc:'Los drones ganan un <strong>20% de la DEF de Fabru</strong> como HP adicional.' },
       { name:'DDoS de Paquetes', desc:'Al inicio del combate, obtiene <strong>4 "Paquetes de Datos"</strong>.' },
@@ -206,7 +238,8 @@ const CHARS=[
       { n:4, name:'Redundancia de Datos', desc:'Cuando Fabru obtiene <strong>"Paquetes de Datos"</strong>, tiene un <strong>50% de prob.</strong> de obtener 1 adicional.' },
       { n:5, name:'Colapso del Servidor', desc:'<strong>Ultimate +3 niveles</strong> (máx. nivel 8).' },
       { n:6, name:'Acceso Raíz', desc:'Al usar la Ultimate, si hay 3 drones activos, ejecutan inmediatamente su ataque básico contra todos los enemigos y aplican <strong>"Marca de Hackeo"</strong> a los supervivientes.' }
-    ]
+    ],
+    rasgoUnico: null
 },
 {
     id:6, name:'Eugenio', tagline:'"¡Girando la rueda... y la suerte está echada!"',
@@ -248,6 +281,7 @@ const CHARS=[
         desc:'Comienza con 1 <strong>Naipe</strong> aleatorio. Al inicio de cada turno obtiene <strong>+5 de Suerte</strong>. Por cada 15 puntos de <strong>Suerte</strong> acumulados, roba 1 Naipe adicional. Suerte máxima: 200. Al alcanzar 200, obtiene un <strong>"Comodín"</strong> para elegir cualquier carta en su siguiente mano.'
       },
     ],
+    talentoCore: '',
     passives:[
       { name:'Juego de Manos', desc:'Al inicio de su turno, puede descartar su primer <strong>Naipe</strong> y robar otro al azar.' },
       { name:'Chuchería', desc:'Al inicio del combate obtiene un <strong>"Comodín"</strong>. Puede usarlo una vez por batalla (excepto en el primer turno).' },
@@ -260,7 +294,8 @@ const CHARS=[
       { n:4, name:'Oración Cerrada', desc:'El máximo de <strong>Naipes</strong> en mano pasa de <strong>5 a 10</strong>.' },
       { n:5, name:'Bis, Bis', desc:'<strong>Ultimate +3 niveles</strong> (máx. nivel 8).' },
       { n:6, name:'Truco Final', desc:'Al comenzar un turno, puede elegir la combinación que más le guste durante 1 turno. Luego obtiene 5 <strong>Naipes</strong> aleatorios y 1 <strong>"Comodín Tocado"</strong> (puede elegir "As" incluso en el turno 1).' }
-    ]
+    ],
+    rasgoUnico: null
 },
 {
     id:7, name:'Kyou', tagline:'"Sabe más de ti que tú mismo. Y lo usa."',
@@ -294,6 +329,7 @@ const CHARS=[
         desc:'Cuando un enemigo con debuff de Kyou recibe daño de un aliado, Kyou obtiene 1 <strong>"Expediente"</strong> (máx. 5). Pasiva: +4% Daño de Rayo del equipo por Expediente (máx. +20%). Al usar la Habilidad, puede consumir hasta 3 Expedientes y aplicar debuffs adicionales: <strong>Ralentización</strong>, <strong>Ceguera</strong> o <strong>Quemadura de Datos</strong>.'
       },
     ],
+    talentoCore: '',
     passives:[
       { name:'Acceso Remoto', desc:'Al inicio del combate, aplica <strong>"Marca de Vulnerabilidad"</strong> a un enemigo aleatorio.' },
       { name:'Cortafuegos Débil', desc:'Los enemigos con debuffs infligen un <strong>10% menos de daño</strong> a Kyou.' },
@@ -306,7 +342,8 @@ const CHARS=[
       { n:4, name:'Correo Masivo', desc:'Cuando la Ultimate aplica <strong>"Filtración de Datos"</strong>, también aplica <strong>"Marca de Vulnerabilidad"</strong> a todos los enemigos.' },
       { n:5, name:'Informe Final', desc:'<strong>Ultimate +3 niveles</strong> (máx. nivel 8).' },
       { n:6, name:'Filtración Total', desc:'La Ultimate ahora consume todos los <strong>"Expedientes"</strong>. Por cada uno, el daño de la Ultimate aumenta un <strong>15%</strong> y aplica un debuff aleatorio del Talento a cada enemigo.' }
-    ]
+    ],
+    rasgoUnico: null
 },
 {
     id:8, name:'Ttlim', tagline:'"Su espada no hace ruido. Solo deja rosas y un chat vacío."',
@@ -340,6 +377,7 @@ const CHARS=[
         desc:'Al aplicar <strong>Ralentización</strong> o <strong>Congelación</strong> obtiene 1 <strong>"Rosa Gélida"</strong> (máx. 3). Al llegar a 3, su siguiente ataque las consume: daño aumentado, ignora 20% DEF y extiende 1 turno los debuffs de Hielo.'
       },
     ],
+    talentoCore: '',
     passives:[
       { name:'Escarcha Persistente', desc:'Los enemigos <strong>Ralentizados</strong> por Ttlim reducen su ATQ en un <strong>10%</strong>.' },
       { name:'Silencio en el Templo', desc:'Al inicio del combate, aplica <strong>Ralentización</strong> (1 turno) a todos los enemigos (no genera Rosas Gélidas).' },
@@ -352,7 +390,8 @@ const CHARS=[
       { n:4, name:'Guardia del Templo', desc:'Con 2+ <strong>"Rosas Gélidas"</strong>, Ttlim recibe <strong>20% menos de daño</strong>. Al consumirlas, el bono pasa al aliado con menos HP por 2 turnos.' },
       { n:5, name:'Cero Absoluto', desc:'<strong>Ultimate +3 niveles</strong> (máx. nivel 8).' },
       { n:6, name:'Eco de la Rosa Eterna', desc:'Cuando un enemigo muere <strong>Congelado</strong> o <strong>Ralentizado</strong>, Ttlim obtiene <strong>3 "Rosas Gélidas"</strong> y avanza su siguiente acción un 50%.' }
-    ]
+    ],
+    rasgoUnico: null
 },
 ];
 
@@ -419,11 +458,11 @@ function renderCards(){
 function applyTooltips(desc) {
   let html = desc;
   for (const [term, explanation] of Object.entries(EFFECT_TOOLTIPS)) {
-    // Reemplaza el término exacto (evitando etiquetas HTML internas)
     html = html.replaceAll(term, `<span class="effect-tooltip" data-tooltip="${explanation}">${term}</span>`);
   }
   return html;
 }
+
 function openChar(id){
   const c=CHARS.find(x=>x.id===id); if(!c) return;
   const el=EC[c.element];
@@ -432,6 +471,46 @@ function openChar(id){
     :`<div class="modal-hero-bg" style="${GRAD[c.element]}"></div>`;
   const modalContent=document.getElementById('modal-content');
   if(!modalContent) return;
+  
+  // Construir la tabla de estadísticas según el formato
+  const statsHTML = Object.entries(c.stats).map(([k,v])=>{
+    if (typeof v === 'object' && v.lvl1 !== undefined && v.lvl99 !== undefined) {
+      return `<div class="srow"><span class="sname">${k}</span><span class="sval">LvL 1 [${v.lvl1}] - LvL 99 [${v.lvl99}]</span></div>`;
+    } else {
+      return `<div class="srow"><span class="sname">${k}</span><span class="sval">${v}</span></div>`;
+    }
+  }).join('');
+  
+  const skillsHTML = c.skills.map(s=>{
+    let tagHtml = '';
+    if (s.tag) tagHtml = `[${s.tag}] `;
+    const levelText = s.type.replace('Nivel ','Nivel de Desbloqueo: LvL ');
+    let costHtml = '';
+    if (s.cost || s.gain) {
+      costHtml = `<div style="font-size:0.9rem; margin-top:4px; color:var(--cyan);">`;
+      if (s.cost) costHtml += `Costo: ${s.cost} `;
+      if (s.gain) costHtml += `Gana: ${s.gain}`;
+      costHtml += `</div>`;
+    }
+    return `<div class="skill-card">
+      <div class="sk-head">
+        <span class="sk-icon">${s.icon}</span>
+        <span class="sk-name">${tagHtml}${s.name}</span>
+        <span class="sk-type">${levelText}</span>
+      </div>
+      <div class="sk-flavor">${s.flavor}</div>
+      <div class="sk-desc">${applyTooltips(s.desc)}</div>
+      ${costHtml}
+    </div>`;
+  }).join('');
+  
+  const talentoCoreHTML = c.talentoCore ? `
+    <div class="ms"><div class="ms-title">🧠 Talento Core</div>
+      <div class="skill-card">
+        <div class="sk-desc">${c.talentoCore}</div>
+      </div>
+    </div>` : '';
+  
   modalContent.innerHTML=`
     <div class="modal-hero">
       ${heroContent}
@@ -448,50 +527,14 @@ function openChar(id){
         </div>
       </div>
     </div>
-    <div class="modal-body">
+    <div class="modal-body" style="font-size:1.05rem;">
       <div class="ms"><div class="ms-title">📊 Estadísticas Base</div>
-        <div class="stats-grid">${Object.entries(c.stats).map(([k,v])=>
-          `<div class="srow"><span class="sname">${k}</span><span class="sval">${v}</span></div>`).join('')}
-        </div>
+        <div class="stats-grid">${statsHTML}</div>
       </div>
       <div class="ms"><div class="ms-title">⚙️ Habilidades</div>
-        ${c.skills.map(s=>`<div class="skill-card">
-          <div class="sk-head"><span class="sk-icon">${s.icon}</span><span class="sk-name">${s.name}</span><span class="sk-type">${s.type}</span></div>
-          <div class="sk-flavor">${s.flavor}</div>
-          <div class="sk-desc">${applyTooltips(s.desc)}</div>
-        </div>`).join('')}
+        ${skillsHTML}
       </div>
-      <div class="ms"><div class="ms-title">🔨 Baneos Pasivos</div>
-        ${c.passives.map(p=>`<div class="skill-card">
-          <div class="sk-head"><span class="sk-name">${p.name}</span></div>
-          <div class="sk-desc">${applyTooltips(p.desc)}</div>
-        </div>`).join('')}
-      </div>
-      ${c.rasgoUnico ? `
-      <div class="ms">
-        <div class="ms-title">✨ ${c.rasgoUnico.titulo}</div>
-        <div class="rasgo-desc">${c.rasgoUnico.descripcion}</div>
-        <div class="rasgo-grid">
-          ${c.rasgoUnico.efectos.map(e=>`
-            <div class="rasgo-card">
-              <div class="rasgo-ally">${e.aliado}</div>
-              <div class="rasgo-name">${e.nombre}</div>
-              <div class="rasgo-text">${e.desc}</div>
-            </div>
-          `).join('')}
-        </div>
-      </div>
-      ` : ''}
-      <div class="ms"><div class="ms-title">📡 Pings</div>
-        <table class="ptable">
-          <thead><tr><th>Ping</th><th>Nombre</th><th>Efecto</th></tr></thead>
-          <tbody>${c.pings.map(p=>`<tr>
-            <td class="pnum">${p.n}</td>
-            <td class="pname">${p.name}</td>
-            <td class="pdesc">${applyTooltips(p.desc)}</td>
-          </tr>`).join('')}</tbody>
-        </table>
-      </div>
+      ${talentoCoreHTML}
     </div>`;
   document.getElementById('modal-overlay')?.classList.add('open');
   document.body.style.overflow='hidden';
@@ -509,43 +552,26 @@ document.addEventListener('DOMContentLoaded',()=>{
   // Hamburguesa
   document.getElementById('nav-hamburger')?.addEventListener('click', toggleMenu);
 
-  // ── Buscador inteligente (nombre, elemento:xx, rareza:xx) ──
-document.getElementById('search-input')?.addEventListener('input', e => {
-  const raw = e.target.value.trim();
-  
-  // Reiniciamos los filtros a sus valores por defecto
-  fRarity = 'all';
-  fElem = 'all';
-  fSearch = '';
-
-  if (raw) {
-    // Separa por espacios y analiza cada token
-    const tokens = raw.split(/\s+/);
-    const nameParts = [];
-
-    tokens.forEach(token => {
-      // ¿Es un filtro de elemento?
-      const elemMatch = token.match(/^(elemento|elem):(.+)$/i);
-      if (elemMatch) {
-        fElem = elemMatch[2].toLowerCase();
-        return;
-      }
-      // ¿Es un filtro de rareza?
-      const rarityMatch = token.match(/^(rareza|rarity):(.+)$/i);
-      if (rarityMatch) {
-        const val = rarityMatch[2].toLowerCase();
-        fRarity = (val === 'all' ? 'all' : val); // acepta "all", "5", "4", etc.
-        return;
-      }
-      // Si no es un comando, es parte del nombre
-      nameParts.push(token);
-    });
-
-    fSearch = nameParts.join(' ');
-  }
-
-  renderCards();
-});
+  // ── Buscador inteligente ──
+  document.getElementById('search-input')?.addEventListener('input', e => {
+    const raw = e.target.value.trim();
+    fRarity = 'all';
+    fElem = 'all';
+    fSearch = '';
+    if (raw) {
+      const tokens = raw.split(/\s+/);
+      const nameParts = [];
+      tokens.forEach(token => {
+        const elemMatch = token.match(/^(elemento|elem):(.+)$/i);
+        if (elemMatch) { fElem = elemMatch[2].toLowerCase(); return; }
+        const rarityMatch = token.match(/^(rareza|rarity):(.+)$/i);
+        if (rarityMatch) { fRarity = rarityMatch[2].toLowerCase(); return; }
+        nameParts.push(token);
+      });
+      fSearch = nameParts.join(' ');
+    }
+    renderCards();
+  });
 
   // Modal
   document.getElementById('modal-close')?.addEventListener('click', closeModal);
@@ -554,10 +580,9 @@ document.getElementById('search-input')?.addEventListener('input', e => {
   });
   document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeModal(); });
 
-  // ── Tooltip flotante (hover + click) ──
+  // Tooltip flotante
   const tooltipGlobal = document.getElementById('global-tooltip');
-  let tooltipFixed = false; // se fija al hacer click
-
+  let tooltipFixed = false;
   function showTooltip(text, x, y) {
     tooltipGlobal.textContent = text;
     tooltipGlobal.classList.add('visible');
@@ -570,35 +595,23 @@ document.getElementById('search-input')?.addEventListener('input', e => {
     tooltipGlobal.style.left = left + 'px';
     tooltipGlobal.style.top = top + 'px';
   }
-
   function hideTooltip() {
-    if (!tooltipFixed) {
-      tooltipGlobal.classList.remove('visible');
-    }
+    if (!tooltipFixed) tooltipGlobal.classList.remove('visible');
   }
-
-  // Hover (PC)
   document.body.addEventListener('mouseover', (e) => {
     const target = e.target.closest('.effect-tooltip');
     if (target) {
       const text = target.getAttribute('data-tooltip');
       if (text) {
         const rect = target.getBoundingClientRect();
-        const centerX = rect.left + rect.width / 2;
-        const topY = rect.top;
-        showTooltip(text, centerX, topY);
+        showTooltip(text, rect.left + rect.width/2, rect.top);
       }
     }
   });
-
   document.body.addEventListener('mouseout', (e) => {
     const target = e.target.closest('.effect-tooltip');
-    if (target && !tooltipFixed) {
-      hideTooltip();
-    }
+    if (target && !tooltipFixed) hideTooltip();
   });
-
-  // Click (móvil / fijar)
   document.body.addEventListener('click', (e) => {
     const target = e.target.closest('.effect-tooltip');
     if (target) {
@@ -606,38 +619,26 @@ document.getElementById('search-input')?.addEventListener('input', e => {
       const text = target.getAttribute('data-tooltip');
       if (text) {
         const rect = target.getBoundingClientRect();
-        const centerX = rect.left + rect.width / 2;
-        const topY = rect.top;
-        showTooltip(text, centerX, topY);
-        tooltipFixed = true; // queda fijo hasta click fuera
+        showTooltip(text, rect.left + rect.width/2, rect.top);
+        tooltipFixed = true;
       }
-    } else {
-      tooltipFixed = false;
-      hideTooltip();
-    }
+    } else { tooltipFixed = false; hideTooltip(); }
   });
-
-  // Ocultar al hacer scroll o redimensionar
   window.addEventListener('scroll', () => { tooltipFixed = false; hideTooltip(); }, { passive: true });
   window.addEventListener('resize', () => { tooltipFixed = false; hideTooltip(); });
+
   renderCards();
 });
-// ── Datos de Habilidades de Personajes ──
+
+// ── Tooltips actualizados ──
 const EFFECT_TOOLTIPS = {
-  // ReyDNS
   "Bala de Ban": "Estado acumulable (máx. 3). Potencia sus propias habilidades aumentando drásticamente el daño y duración de efectos a cambio de consumir una carga.",
   "Quemadura": "Daño periódico de Fuego al inicio del turno enemigo (1.3% de sus PV Máx.). Dura 2 turnos (3 si se potencia).",
-
-  // Miki
   "Slow-Log": "Reduce AGILIDAD (-20%) y ATQ (-10%). Al inicio de su turno, el enemigo pierde un 0.5% de sus PV Máx. como daño periódico. Dura 2 turnos.",
   "Escudo de Crédito": "Autodefensa que reduce a la mitad todo el daño físico y mágico recibido por Miki. Dura 2 turnos.",
-
-  // Hawk
   "Marca de la Mariposa": "Marca aplicada por Hawk. No hace daño, pero garantiza que Hilos de Control aplique Hipnosis con 100% de éxito.",
   "Hipnosis": "Aturde al enemigo por completo (2 turnos). El enemigo recibe un 25% más de daño de todas las fuentes mientras dure.",
   "Polvo de Hadas": "Autobuff que otorga +25% ATQ y +25% AGILIDAD durante 3 turnos.",
-
-  // Belle
   "Aceleración de Ritmo 1": "Otorga +10% de AGILIDAD. Dura 3 turnos.",
   "Aceleración de Ritmo 2": "Otorga +20% de AGILIDAD. Dura 3 turnos.",
   "Mod-Bot": "Autobuff: +25% ATQ, +25% AGILIDAD y +1 ataque adicional al usar Ataque Básico. Dura 3 turnos.",
