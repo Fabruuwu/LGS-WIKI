@@ -35,26 +35,18 @@ const CHARS=[
       'SUERTE': { lvl1:6, lvl99:70 }
     },
     skills:[
-      {
-        icon:'🗡️', name:'Tiro de Advertencia', tag:'Básico', type:'Nivel 1',
+      { icon:'🗡️', name:'Tiro de Advertencia', tag:'Básico', type:'Nivel 1',
         flavor:'Un disparo rápido que causa daño básico. Si tiene una \'Bala de Ban\' cargada, el tiro se potencia y la consume.',
-        desc:'Recupera +20 PT y +15 PM.<br>Inflige <strong>100% del ATQ</strong> como Daño de Fuego a un enemigo.<br>Si tiene al menos 1 carga de <strong>"Bala de Ban"</strong>, el daño se duplica (200%) y consume 1 carga.'
-      },
-      {
-        icon:'💫', name:'Fuego a Discreción', tag:'Especial', type:'Nivel 3',
+        desc:'Recupera +20 PT y +15 PM.<br>Inflige <strong>100% del ATQ</strong> como Daño de Fuego a un enemigo.<br>Si tiene al menos 1 carga de <strong>"Bala de Ban"</strong>, el daño se duplica (200%) y consume 1 carga.' },
+      { icon:'💫', name:'Fuego a Discreción', tag:'Especial', type:'Nivel 3',
         flavor:'Ráfaga de disparos que quema al enemigo. Puede potenciarse con una \'Bala de Ban\' para hacer más daño y alargar la quemadura.',
-        desc:'Gasta -20 PM y recupera +15 PT.<br>Inflige <strong>200% del ATQ</strong> como Daño de Fuego a un enemigo.<br>Aplica <strong>"Quemadura"</strong> durante 2 turnos.<br>Si gasta 1 carga de <strong>"Bala de Ban"</strong>, el daño base aumenta a 300% y la Quemadura dura 1 turno extra.'
-      },
-      {
-        icon:'🌟', name:'Limpieza de Servidor (Wipe)', tag:'Ultimate', type:'Nivel 5',
+        desc:'Gasta -20 PM y recupera +15 PT.<br>Inflige <strong>200% del ATQ</strong> como Daño de Fuego a un enemigo.<br>Aplica <strong>"Quemadura"</strong> durante 2 turnos.<br>Si gasta 1 carga de <strong>"Bala de Ban"</strong>, el daño base aumenta a 300% y la Quemadura dura 1 turno extra.' },
+      { icon:'🌟', name:'Limpieza de Servidor (Wipe)', tag:'Ultimate', type:'Nivel 5',
         flavor:'Vacía el cargador en un devastador ataque de área. Mientras más \'Balas de Ban\' tenga, más letal será el golpe.',
-        desc:'Gasta -100 PT.<br>Inflige <strong>350% del ATQ</strong> como Daño de Fuego a TODOS los enemigos.<br>Ignora el 20% de la DEF enemiga.<br>Por cada carga de <strong>"Bala de Ban"</strong>, el daño total aumenta un 50% adicional (consume todas las cargas).'
-      },
-      {
-        icon:'🔥', name:'La Ruleta del Administrador', tag:'Baneo Activo', type:'Nivel 30',
+        desc:'Gasta -100 PT.<br>Inflige <strong>350% del ATQ</strong> como Daño de Fuego a TODOS los enemigos.<br>Ignora el 20% de la DEF enemiga.<br>Por cada carga de <strong>"Bala de Ban"</strong>, el daño total aumenta un 50% adicional (consume todas las cargas).' },
+      { icon:'🔥', name:'La Ruleta del Administrador', tag:'Baneo Activo', type:'Nivel 30',
         flavor:'Recarga una \'Bala de Ban\' al instante, permitiéndole potenciar sus próximos ataques.',
-        desc:'Gasta -20 PM y recupera +15 PT.<br>Se aplica el estado <strong>"Balas de Ban"</strong> sobre sí mismo, recuperando 1 carga (máx. 3).'
-      }
+        desc:'Gasta -20 PM y recupera +15 PT.<br>Se aplica el estado <strong>"Balas de Ban"</strong> sobre sí mismo, recuperando 1 carga (máx. 3).' }
     ],
     talentoCore: '',
     rasgoUnico: null
@@ -74,26 +66,18 @@ const CHARS=[
       'SUERTE': { lvl1:6, lvl99:70 }
     },
     skills:[
-      {
-        icon:'🗡️', name:'Golpe de Top Up', tag:'Básico', type:'Nivel 1',
+      { icon:'🗡️', name:'Golpe de Top Up', tag:'Básico', type:'Nivel 1',
         flavor:'Un golpe firme que daña en base a su defensa y acelera su propia recarga de Ultimate.',
-        desc:'Recupera +20 PT y +15 PM.<br>Inflige <strong>100% de su DEF</strong> como Daño de Vacío a un enemigo.<br>Otorga a Miki +10 PT adicionales.'
-      },
-      {
-        icon:'💫', name:'Muteo Temporal', tag:'Especial', type:'Nivel 3',
+        desc:'Recupera +20 PT y +15 PM.<br>Inflige <strong>100% de su DEF</strong> como Daño de Vacío a un enemigo.<br>Otorga a Miki +10 PT adicionales.' },
+      { icon:'💫', name:'Muteo Temporal', tag:'Especial', type:'Nivel 3',
         flavor:'Aplica un estado de ralentización y drenaje de vida, reduciendo la velocidad y el ataque del enemigo mientras lo daña por turnos.',
-        desc:'Gasta -20 PM y recupera +15 PT.<br>Inflige <strong>200% de su DEF</strong> como Daño de Vacío a un enemigo.<br>Aplica <strong>"Slow-Log"</strong> al enemigo durante 2 turnos.'
-      },
-      {
-        icon:'🌟', name:'Reinicio de Tienda', tag:'Ultimate', type:'Nivel 5',
+        desc:'Gasta -20 PM y recupera +15 PT.<br>Inflige <strong>200% de su DEF</strong> como Daño de Vacío a un enemigo.<br>Aplica <strong>"Slow-Log"</strong> al enemigo durante 2 turnos.' },
+      { icon:'🌟', name:'Reinicio de Tienda', tag:'Ultimate', type:'Nivel 5',
         flavor:'Un poderoso ataque de área que ralentiza a todos los enemigos y fortalece a todo el equipo.',
-        desc:'Gasta -100 PT.<br>Inflige <strong>280% de su DEF</strong> como Daño de Vacío a TODOS los enemigos.<br>Aplica -30% AGILIDAD a todos los enemigos durante 2 turnos.<br>Aumenta ATQ y DEF de todos los aliados en un 20% durante 2 turnos.'
-      },
-      {
-        icon:'🔥', name:'Corte de Crédito', tag:'Baneo Activo', type:'Nivel 30',
+        desc:'Gasta -100 PT.<br>Inflige <strong>280% de su DEF</strong> como Daño de Vacío a TODOS los enemigos.<br>Aplica -30% AGILIDAD a todos los enemigos durante 2 turnos.<br>Aumenta ATQ y DEF de todos los aliados en un 20% durante 2 turnos.' },
+      { icon:'🔥', name:'Corte de Crédito', tag:'Baneo Activo', type:'Nivel 30',
         flavor:'Activa una póliza de protección personal, reduciendo a la mitad todo el daño recibido por un tiempo.',
-        desc:'Gasta -20 PM y recupera +15 PT.<br>Se aplica el estado <strong>"Escudo de Crédito"</strong> a sí misma durante 2 turnos.'
-      }
+        desc:'Gasta -20 PM y recupera +15 PT.<br>Se aplica el estado <strong>"Escudo de Crédito"</strong> a sí misma durante 2 turnos.' }
     ],
     talentoCore: '',
     rasgoUnico: null
@@ -113,26 +97,18 @@ const CHARS=[
       'SUERTE': { lvl1:6, lvl99:70 }
     },
     skills:[
-      {
-        icon:'🗡️', name:'Aguja Mental', tag:'Básico', type:'Nivel 1',
+      { icon:'🗡️', name:'Aguja Mental', tag:'Básico', type:'Nivel 1',
         flavor:'Un pequeño rayo de energía que marca al enemigo, preparándolo para ser controlado.',
-        desc:'Recupera +20 PT y +15 PM.<br>Inflige <strong>100% del ATQ</strong> como Daño de Vacío a un enemigo.<br>Aplica <strong>"Marca de la Mariposa"</strong> al enemigo durante 2 turnos.'
-      },
-      {
-        icon:'💫', name:'Hilos de Control', tag:'Especial', type:'Nivel 3',
+        desc:'Recupera +20 PT y +15 PM.<br>Inflige <strong>100% del ATQ</strong> como Daño de Vacío a un enemigo.<br>Aplica <strong>"Marca de la Mariposa"</strong> al enemigo durante 2 turnos.' },
+      { icon:'💫', name:'Hilos de Control', tag:'Especial', type:'Nivel 3',
         flavor:'Susurra una orden que intenta dominar la mente del enemigo. Si tiene la \'Marca de la Mariposa\', la hipnosis es un éxito asegurado.',
-        desc:'Gasta -20 PM y recupera +15 PT.<br>Inflige <strong>150% del ATQ</strong> como Daño de Vacío a un enemigo.<br>Intenta aplicar <strong>"Hipnosis"</strong> durante 2 turnos (prob. base 30%).<br>Si el enemigo tiene <strong>"Marca de la Mariposa"</strong>, la probabilidad es del 100%.'
-      },
-      {
-        icon:'🌟', name:'Vals de las Mil Mariposas', tag:'Ultimate', type:'Nivel 5',
+        desc:'Gasta -20 PM y recupera +15 PT.<br>Inflige <strong>150% del ATQ</strong> como Daño de Vacío a un enemigo.<br>Intenta aplicar <strong>"Hipnosis"</strong> durante 2 turnos (prob. base 30%).<br>Si el enemigo tiene <strong>"Marca de la Mariposa"</strong>, la probabilidad es del 100%.' },
+      { icon:'🌟', name:'Vals de las Mil Mariposas', tag:'Ultimate', type:'Nivel 5',
         flavor:'Una tormenta de mariposas que arrasa con todos los enemigos. Si está bajo el efecto de \'Polvo de Hadas\', el daño se vuelve devastador.',
-        desc:'Gasta -100 PT.<br>Inflige <strong>300% del ATQ</strong> como Daño de Vacío a TODOS los enemigos.<br>Si tiene <strong>"Polvo de Hadas"</strong>, el daño aumenta un 30% adicional.<br>Aplica <strong>"Hipnosis"</strong> a un enemigo aleatorio.'
-      },
-      {
-        icon:'🔥', name:'Polvo de Hadas', tag:'Baneo Activo', type:'Nivel 30',
+        desc:'Gasta -100 PT.<br>Inflige <strong>300% del ATQ</strong> como Daño de Vacío a TODOS los enemigos.<br>Si tiene <strong>"Polvo de Hadas"</strong>, el daño aumenta un 30% adicional.<br>Aplica <strong>"Hipnosis"</strong> a un enemigo aleatorio.' },
+      { icon:'🔥', name:'Polvo de Hadas', tag:'Baneo Activo', type:'Nivel 30',
         flavor:'Un aura de empoderamiento que aumenta considerablemente su poder de ataque y su velocidad durante varios turnos.',
-        desc:'Gasta -20 PM y recupera +15 PT.<br>Se aplica el estado <strong>"Polvo de Hadas"</strong> a sí misma durante 3 turnos.<br>Efecto: +25% ATQ y +25% AGILIDAD mientras dure.'
-      }
+        desc:'Gasta -20 PM y recupera +15 PT.<br>Se aplica el estado <strong>"Polvo de Hadas"</strong> a sí misma durante 3 turnos.<br>Efecto: +25% ATQ y +25% AGILIDAD mientras dure.' }
     ],
     talentoCore: '',
     rasgoUnico: null
@@ -152,26 +128,18 @@ const CHARS=[
       'SUERTE': { lvl1:7, lvl99:75 }
     },
     skills:[
-      {
-        icon:'🗡️', name:'Dinamic Warn', tag:'Básico', type:'Nivel 1',
+      { icon:'🗡️', name:'Dinamic Warn', tag:'Básico', type:'Nivel 1',
         flavor:'Un disparo de advertencia que acumula velocidad y tiene un 35% de probabilidad de desatar un golpe extra contundente.',
-        desc:'Recupera +20 PT y +15 PM.<br>Inflige <strong>100% del ATQ</strong> como Daño de Rayo a un enemigo.<br>35% de prob. (basado en SUERTE) de añadir un golpe extra (120% ATQ adicional).<br>Se aplica <strong>"Aceleración de Ritmo 1"</strong> o <strong>"Aceleración de Ritmo 2"</strong> según su acumulación actual.'
-      },
-      {
-        icon:'💫', name:'¡No aprendes?, Mod-Bot!', tag:'Especial', type:'Nivel 3',
+        desc:'Recupera +20 PT y +15 PM.<br>Inflige <strong>100% del ATQ</strong> como Daño de Rayo a un enemigo.<br>35% de prob. (basado en SUERTE) de añadir un golpe extra (120% ATQ adicional).<br>Se aplica <strong>"Aceleración de Ritmo 1"</strong> o <strong>"Aceleración de Ritmo 2"</strong> según su acumulación actual.' },
+      { icon:'💫', name:'¡No aprendes?, Mod-Bot!', tag:'Especial', type:'Nivel 3',
         flavor:'Belle activa a su robot acompañante para potenciarse a sí misma durante un tiempo.',
-        desc:'Gasta -20 PM y recupera +15 PT.<br>Se aplica el estado <strong>"Mod-Bot"</strong> a sí misma durante 3 turnos.'
-      },
-      {
-        icon:'🌟', name:'Sabía que me necesitabas', tag:'Ultimate', type:'Nivel 5',
+        desc:'Gasta -20 PM y recupera +15 PT.<br>Se aplica el estado <strong>"Mod-Bot"</strong> a sí misma durante 3 turnos.' },
+      { icon:'🌟', name:'Sabía que me necesitabas', tag:'Ultimate', type:'Nivel 5',
         flavor:'Un drop masivo de graves y relámpagos cuyo poder destructivo escala directamente con la velocidad de la DJ.',
-        desc:'Gasta -100 PT.<br>Inflige <strong>(ATQ * 3.2) + (AGI * 0.4)</strong> como Daño de Rayo a TODOS los enemigos.<br>Otorga a todos los aliados +20% ATQ durante 2 turnos.'
-      },
-      {
-        icon:'🔥', name:'Control de Bajos', tag:'Baneo Activo', type:'Nivel 30',
+        desc:'Gasta -100 PT.<br>Inflige <strong>(ATQ * 3.2) + (AGI * 0.4)</strong> como Daño de Rayo a TODOS los enemigos.<br>Otorga a todos los aliados +20% ATQ durante 2 turnos.' },
+      { icon:'🔥', name:'Control de Bajos', tag:'Baneo Activo', type:'Nivel 30',
         flavor:'Belle manipula la corriente eléctrica ambiental para electrocutar y frenar a un enemigo en específico.',
-        desc:'Gasta -20 PM y recupera +15 PT.<br>Aplica <strong>"Electrocutado"</strong> al enemigo durante 2 turnos.<br>10% de prob. (basado en SUERTE) de aplicar también <strong>"Parálisis"</strong> durante 1 turno.'
-      }
+        desc:'Gasta -20 PM y recupera +15 PT.<br>Aplica <strong>"Electrocutado"</strong> al enemigo durante 2 turnos.<br>10% de prob. (basado en SUERTE) de aplicar también <strong>"Parálisis"</strong> durante 1 turno.' }
     ],
     talentoCore: 'Ritmo Imparable: La probabilidad del 35% de activar el golpe extra (FUA) en su Ataque Básico está calculada de forma nativa dentro de la fórmula de daño de Dinamic Warn.',
     rasgoUnico: null
@@ -181,48 +149,30 @@ const CHARS=[
     element:'electro', rarity:5, role:'Main DPS / Control de Área', paradigma:'Paradigma del Bot (Invocador)',
     art: 'Personajes 1.0 - tanda 1/Fabru.png',
     stats:{
-      HP:560, ATQ:390, DEF:130, VEL:122,
-      'Prob. Crítica':'5%', 'Daño Crítico':'50%', 'Rec. Energía':20,
-      'Acierto de Efecto':20, 'Res. a Efectos':10, 'Ef. de Ruptura':30,
-      'Bono Rayo':0, 'Bono Curación':0
+      'PV MAX': { lvl1:45, lvl99:600 },
+      'PM MAX': { lvl1:20, lvl99:190 },
+      'ATQ': { lvl1:10, lvl99:145 },
+      'DEFENSA': { lvl1:8, lvl99:80 },
+      'ATQ MÁGICO': { lvl1:5, lvl99:45 },
+      'DEF MÁGICA': { lvl1:6, lvl99:60 },
+      'AGILIDAD': { lvl1:12, lvl99:110 },
+      'SUERTE': { lvl1:7, lvl99:70 }
     },
     skills:[
-      {
-        icon:'🗡️', name:'Lanza de Plasma', type:'Ataque Básico',
-        flavor:'Un rápido disparo de energía desde su lanza que deja un rastro de datos corrompidos.',
-        desc:'Inflige <strong>(50%–110% del ATQ)</strong> como Daño de Rayo a un enemigo. Aplica <strong>"Marca de Hackeo"</strong> durante 2 turnos.'
-      },
-      {
-        icon:'🔥', name:'Enjambre de Drones', type:'Habilidad',
-        flavor:'Fabru despliega sus tres cuchillas flotantes sobre el campo de batalla.',
-        desc:'Invoca hasta <strong>3 Drones de Plasma</strong> (máx. 3 activos). Los drones tienen HP igual al <strong>20% del HP Máx. de Fabru</strong> y heredan su ATQ, DEF y VEL. Actúan justo después de Fabru y atacan con <strong>"Corte de Plasma"</strong>: inflige <strong>(40%–80% del ATQ del drone)</strong> como Daño de Rayo, priorizando al enemigo con Marca de Hackeo.'
-      },
-      {
-        icon:'🌟', name:'Overclock del Sistema', type:'Ultimate',
-        flavor:'La interfaz holográfica de Fabru se vuelve roja. Todos los límites de seguridad se desactivan.',
-        desc:'Inflige <strong>(150%–300% del ATQ)</strong> como Daño de Rayo a todos los enemigos. <strong>Sobrecarga</strong> todos los drones activos por 3 turnos: su daño aumenta un 50% y sus ataques golpean en área pequeña. Aplica <strong>"Sistema Caído"</strong> (2 turnos): reduce VEL en 25% y DEF en 20%. Además aplica <strong>"Vulnerabilidad Expuesta"</strong> (1 turno): reduce DEF un 20% adicional (acumulable).'
-      },
-      {
-        icon:'🧠', name:'Red de Datos', type:'Talento',
-        flavor:'Fabru recolecta información del campo de batalla para optimizar sus algoritmos de ataque.',
-        desc:'Cuando un Drone de Plasma ataca, otorga 1 <strong>"Paquete de Datos"</strong> (máx. 10). Cada Paquete aumenta el Daño de Rayo de Fabru y sus drones en un <strong>3%</strong> (máx. +30%). Fabru puede consumir todos los Paquetes para activar <strong>"Código Raíz"</strong>: su siguiente ataque ignora el 30% de la DEF enemiga y aplica Aturdimiento (1 turno). Si hay drones, ejecutan Ataque Conjunto adicional (>60% del ATQ del drone) contra enemigos con Marca de Hackeo.'
-      },
+      { icon:'🗡️', name:'Lanza de Plasma', tag:'Básico', type:'Nivel 1',
+        flavor:'Un disparo de energía que aplica una marca que reduce la defensa del enemigo.',
+        desc:'Recupera +20 PT y +15 PM.<br>Inflige <strong>100% del ATQ</strong> como Daño de Rayo a un enemigo.<br>Aplica <strong>"Marca de Hackeo"</strong> al enemigo durante 2 turnos.' },
+      { icon:'💫', name:'Enjambre de Drones', tag:'Especial', type:'Nivel 3',
+        flavor:'Fabru sobrecarga sus sistemas, aumentando su poder y permitiéndole atacar dos veces.',
+        desc:'Gasta -20 PM y recupera +15 PT.<br>Se aplica el estado <strong>"Enjambre de Drones"</strong> a sí mismo durante 3 turnos.' },
+      { icon:'🌟', name:'Overclock del Sistema', tag:'Ultimate', type:'Nivel 5',
+        flavor:'Un pulso de alto voltaje que daña a todos y aplica un estado de ralentización y fallos.',
+        desc:'Gasta -100 PT.<br>Inflige <strong>300% del ATQ</strong> como Daño de Rayo a TODOS los enemigos.<br>Aplica <strong>"Sistema Caído"</strong> a todos los enemigos durante 2 turnos.' },
+      { icon:'🔥', name:'Codigo Raiz', tag:'Baneo Activo', type:'Nivel 30',
+        flavor:'Activa un exploit que hará que su próximo ataque ignore defensas y aturda al enemigo.',
+        desc:'Gasta -20 PM y recupera +15 PT.<br>Se aplica el estado <strong>"Codigo Raiz"</strong> a sí mismo.' }
     ],
-    talentoCore: '',
-    passives:[
-      { name:'Firewall Inestable', desc:'Los drones ganan un <strong>20% de la DEF de Fabru</strong> como HP adicional.' },
-      { name:'DDoS de Paquetes', desc:'Al inicio del combate, obtiene <strong>4 "Paquetes de Datos"</strong>.' },
-      { name:'Protocolo de Respaldo', desc:'Si un drone muere, Fabru recupera <strong>20 puntos de Energía</strong>.' },
-      { name:'Sobrecarga del Sistema', desc:'Mientras Fabru está en el equipo, los enemigos con <strong>"Sistema Caído"</strong> tienen un <strong>15% de prob. de fallar ataques</strong>.' }
-    ],
-    pings:[
-      { n:1, name:'Carga Rápida', desc:'Al invocar drones, estos atacan inmediatamente al desplegarse.' },
-      { n:2, name:'Hackeo Masivo', desc:'Los enemigos con <strong>"Sistema Caído"</strong> reciben un <strong>20% más de daño</strong> de los drones.' },
-      { n:3, name:'Enjambre Mejorado', desc:'<strong>Habilidad +3 niveles</strong> (máx. nivel 8).' },
-      { n:4, name:'Redundancia de Datos', desc:'Cuando Fabru obtiene <strong>"Paquetes de Datos"</strong>, tiene un <strong>50% de prob.</strong> de obtener 1 adicional.' },
-      { n:5, name:'Colapso del Servidor', desc:'<strong>Ultimate +3 niveles</strong> (máx. nivel 8).' },
-      { n:6, name:'Acceso Raíz', desc:'Al usar la Ultimate, si hay 3 drones activos, ejecutan inmediatamente su ataque básico contra todos los enemigos y aplican <strong>"Marca de Hackeo"</strong> a los supervivientes.' }
-    ],
+    talentoCore: 'Red de Datos: Por cada enemigo en el campo que tenga el estado "Marca de Hackeo", el daño de todos los ataques de Fabru aumenta en un 15%.',
     rasgoUnico: null
 },
 {
@@ -230,55 +180,30 @@ const CHARS=[
     element:'fuego', rarity:5, role:'Sub-DPS / Buffer (Soporte Ofensivo con RNG)', paradigma:'Paradigma del Giveaway',
     art: 'Personajes 1.0 - tanda 1/Eugenio.png',
     stats:{
-      HP:550, ATQ:290, DEF:155, VEL:117,
-      'Prob. Crítica':'5%', 'Daño Crítico':'50%', 'Rec. Energía':20,
-      'Acierto de Efecto':20, 'Res. a Efectos':10, 'Ef. de Ruptura':30,
-      'Bono Fuego':0, 'Bono Curación':0,
-      'Suerte': '0 (máx. 200)'
+      'PV MAX': { lvl1:50, lvl99:650 },
+      'PM MAX': { lvl1:20, lvl99:180 },
+      'ATQ': { lvl1:9, lvl99:120 },
+      'DEFENSA': { lvl1:9, lvl99:80 },
+      'ATQ MÁGICO': { lvl1:3, lvl99:30 },
+      'DEF MÁGICA': { lvl1:5, lvl99:45 },
+      'AGILIDAD': { lvl1:12, lvl99:105 },
+      'SUERTE': { lvl1:10, lvl99:80 }
     },
     skills:[
-      {
-        icon:'🗡️', name:'Lanzamiento de Cartas', type:'Ataque Básico',
-        flavor:'Lanza un naipe con borde cortante, simple pero efectivo.',
-        desc:'Inflige <strong>(50%–110% del ATQ)</strong> como Daño de Fuego a un enemigo. Obtiene <strong>1 Naipe</strong> de su baraja.'
-      },
-      {
-        icon:'🔥', name:'¡Giro de la Ruleta!', type:'Habilidad',
-        flavor:'Eugenio gira una ruleta mágica y lanza una lluvia de naipes explosivos.',
-        desc:'Inflige <strong>(70%–150% del ATQ)</strong> como Daño de Fuego a un enemigo y adyacentes. Roba <strong>Naipes</strong> igual a los efectos negativos activos en todos los enemigos (máx. 5). Al final del turno, si tiene 5 Naipes, forma la mejor combinación de póker y aplica su efecto.<br><br>'
-          + '<strong>Escalera Real:</strong> Aplica todos los estados (Quemadura, Electrocutado, etc.) a todos los enemigos por 2 turnos.<br>'
-          + '<strong>Póker:</strong> Copia todas las estadísticas base de un aliado y las suma a las suyas por 2 turnos.<br>'
-          + '<strong>Escalera:</strong> Daño de Ruptura +120% y +70 Suerte.<br>'
-          + '<strong>Trío:</strong> ATQ +80% y 3 ataques adicionales que ignoran DEF y escudos por 1 turno.<br>'
-          + '<strong>Doble Pareja:</strong> Prob. Crítica +35% y Daño Crítico +70% por 1 turno.<br>'
-          + '<strong>Pareja:</strong> Provoca "Burla" y "Solidez" (DEF +45%, escudo del 25% de Vida Máx.) por 2 turnos.<br>'
-          + '<strong>Carta Alta:</strong> Si su primer Naipe del turno es un As, +25% a todas sus estadísticas y +45% daño de efectos de tiempo por 2 turnos.'
-      },
-      {
-        icon:'🌟', name:'¡Función de Medianoche!', type:'Ultimate',
-        flavor:'El escenario se ilumina. Todas las Eugenio chibi aparecen y lanzan una lluvia de cartas doradas.',
-        desc:'Eugenio aplica <strong>2 combinaciones diferentes</strong> de su mano actual simultáneamente (las dos mejores disponibles). Inflige <strong>(120%–250% del ATQ)</strong> como Daño de Fuego a todos los enemigos. Cada <strong>Naipe</strong> activo aumenta este daño en un <strong>10% adicional</strong>.'
-      },
-      {
-        icon:'🧠', name:'Naipes del Bufón', type:'Talento',
-        flavor:'La esencia del carnaval: nunca sabes qué carta viene, pero siempre es un espectáculo.',
-        desc:'Comienza con 1 <strong>Naipe</strong> aleatorio. Al inicio de cada turno obtiene <strong>+5 de Suerte</strong>. Por cada 15 puntos de <strong>Suerte</strong> acumulados, roba 1 Naipe adicional. Suerte máxima: 200. Al alcanzar 200, obtiene un <strong>"Comodín"</strong> para elegir cualquier carta en su siguiente mano.'
-      },
+      { icon:'🗡️', name:'Lanzamiento de Cartas', tag:'Básico', type:'Nivel 1',
+        flavor:'Lanza un naipe cortante que daña a un enemigo y le permite robar una carta para su baraja.',
+        desc:'Recupera +20 PT y +15 PM.<br>Inflige <strong>100% del ATQ</strong> como Daño de Fuego a un enemigo.<br>Aplica o incrementa el estado <strong>"Naipe"</strong> sobre sí misma (máx. 5 estados distintos).' },
+      { icon:'💫', name:'Giro de la Ruleta', tag:'Especial', type:'Nivel 3',
+        flavor:'Lanza una lluvia de naipes explosivos que rebotan entre varios enemigos. Al llegar a 5 naipes, se activa una combinación especial de póker.',
+        desc:'Gasta -20 PM y recupera +15 PT.<br>Inflige <strong>150% del ATQ</strong> como Daño de Fuego a 3 enemigos aleatorios.<br>Aumenta la acumulación de <strong>"Naipe"</strong> en +1 por cada enemigo impactado que tenga al menos un debuff activo (máx. +5).<br>Si al final del turno tiene <strong>"Naipe 5"</strong>, se consumen todos y se ejecuta una <strong>"Combinación de Póker"</strong>.' },
+      { icon:'🌟', name:'Función de Medianoche', tag:'Ultimate', type:'Nivel 5',
+        flavor:'El escenario se ilumina con una lluvia de cartas doradas que arrasa con todos los enemigos.',
+        desc:'Gasta -100 PT.<br>Inflige <strong>250% del ATQ</strong> como Daño de Fuego a TODOS los enemigos.<br>El daño aumenta un <strong>10% adicional</strong> por cada estado <strong>"Naipe"</strong> que tenga actualmente.' },
+      { icon:'🔥', name:'Truco de Sombras', tag:'Baneo Activo', type:'Nivel 30',
+        flavor:'Un truco de magia que potencia su suerte al máximo y le otorga un naipe extra.',
+        desc:'Gasta -20 PM y recupera +15 PT.<br>Se aplica el estado <strong>"Suerte del Bufón"</strong> a sí misma durante 3 turnos.' }
     ],
-    talentoCore: '',
-    passives:[
-      { name:'Juego de Manos', desc:'Al inicio de su turno, puede descartar su primer <strong>Naipe</strong> y robar otro al azar.' },
-      { name:'Chuchería', desc:'Al inicio del combate obtiene un <strong>"Comodín"</strong>. Puede usarlo una vez por batalla (excepto en el primer turno).' },
-      { name:'Primer Acto', desc:'Evita que su <strong>Suerte</strong> baje entre turnos (sin este baneo, perdería 5 de Suerte por turno si no ataca).' }
-    ],
-    pings:[
-      { n:1, name:'Cartas Marcadas', desc:'Por cada <strong>Naipe</strong> en la mano, la <strong>Suerte</strong> aumenta un <strong>0.25% adicional</strong> al inicio de cada turno.' },
-      { n:2, name:'El Público se Rinde', desc:'La <strong>Suerte</strong> máxima aumenta a <strong>200</strong> y comienza con <strong>30 de Suerte</strong>.' },
-      { n:3, name:'Función Estelar', desc:'<strong>Habilidad +3 niveles</strong> (máx. nivel 8).' },
-      { n:4, name:'Oración Cerrada', desc:'El máximo de <strong>Naipes</strong> en mano pasa de <strong>5 a 10</strong>.' },
-      { n:5, name:'Bis, Bis', desc:'<strong>Ultimate +3 niveles</strong> (máx. nivel 8).' },
-      { n:6, name:'Truco Final', desc:'Al comenzar un turno, puede elegir la combinación que más le guste durante 1 turno. Luego obtiene 5 <strong>Naipes</strong> aleatorios y 1 <strong>"Comodín Tocado"</strong> (puede elegir "As" incluso en el turno 1).' }
-    ],
+    talentoCore: 'Baraja Cargada: Eugenio roba su primer Naipe automáticamente al usar Lanzamiento de Cartas o Giro de la Ruleta. Cada estado "Naipe" le otorga +10% de SUERTE pasiva (máx. +50% con 5).',
     rasgoUnico: null
 },
 {
@@ -286,47 +211,30 @@ const CHARS=[
     element:'electro', rarity:5, role:'Soporte / Debuffer', paradigma:'Paradigma del Warn',
     art: 'Personajes 1.0 - tanda 2/Kyou.png',
     stats:{
-      HP:600, ATQ:340, DEF:160, VEL:112,
-      'Prob. Crítica':'5%', 'Daño Crítico':'50%', 'Rec. Energía':20,
-      'Acierto de Efecto':20, 'Res. a Efectos':10, 'Ef. de Ruptura':30,
-      'Bono Rayo':0, 'Bono Curación':0
+      'PV MAX': { lvl1:50, lvl99:630 },
+      'PM MAX': { lvl1:20, lvl99:185 },
+      'ATQ': { lvl1:9, lvl99:115 },
+      'DEFENSA': { lvl1:10, lvl99:85 },
+      'ATQ MÁGICO': { lvl1:4, lvl99:35 },
+      'DEF MÁGICA': { lvl1:7, lvl99:65 },
+      'AGILIDAD': { lvl1:12, lvl99:110 },
+      'SUERTE': { lvl1:9, lvl99:85 }
     },
     skills:[
-      {
-        icon:'🗡️', name:'Pulso de Datos', type:'Ataque Básico',
-        flavor:'Dispara un paquete de información corrupta desde su tablet. Un spoiler duele.',
-        desc:'Inflige <strong>(45%–95% del ATQ)</strong> como Daño de Rayo. Aplica <strong>"Marca de Vulnerabilidad"</strong> durante 2 turnos.'
-      },
-      {
-        icon:'🔥', name:'Filtración Selectiva', type:'Habilidad',
-        flavor:'Kyou hackea los sistemas enemigos y expone sus puntos débiles a todo el equipo.',
-        desc:'Inflige <strong>(40%–90% del ATQ)</strong> como Daño de Rayo. Aplica <strong>"Vulnerabilidad Expuesta"</strong> durante 2 turnos. Si el enemigo ya tenía <strong>"Marca de Vulnerabilidad"</strong>, extiende la duración de todos sus debuffs en 1 turno.'
-      },
-      {
-        icon:'🌟', name:'Mega Filtración', type:'Ultimate',
-        flavor:'Todos los hologramas se activan a la vez. Una explosión de datos clasificados inunda el campo.',
-        desc:'Inflige <strong>(120%–260% del ATQ)</strong> como Daño de Rayo a todos. Aplica <strong>"Secreto al Descubierto"</strong> (2 turnos) y <strong>"Filtración de Datos"</strong>.'
-      },
-      {
-        icon:'🧠', name:'Información Clasificada', type:'Talento',
-        flavor:'Kyou registra cada acción enemiga y convierte los secretos en armas para el equipo.',
-        desc:'Cuando un enemigo con debuff de Kyou recibe daño de un aliado, Kyou obtiene 1 <strong>"Expediente"</strong> (máx. 5). Pasiva: +4% Daño de Rayo del equipo por Expediente (máx. +20%). Al usar la Habilidad, puede consumir hasta 3 Expedientes y aplicar debuffs adicionales: <strong>Ralentización</strong>, <strong>Ceguera</strong> o <strong>Quemadura de Datos</strong>.'
-      },
+      { icon:'🗡️', name:'Pulso de Datos', tag:'Básico', type:'Nivel 1',
+        flavor:'Dispara un paquete de información corrupta. Un spoiler duele y deja al enemigo vulnerable.',
+        desc:'Recupera +20 PT y +15 PM.<br>Inflige <strong>100% del ATQ</strong> como Daño de Rayo a un enemigo.<br>Aplica <strong>"Marca de Vulnerabilidad"</strong> al enemigo durante 2 turnos.' },
+      { icon:'💫', name:'Filtración Selectiva', tag:'Especial', type:'Nivel 3',
+        flavor:'Hackea los sistemas enemigos y expone sus puntos débiles. Si tiene suficiente información clasificada (Expedientes), el ataque se vuelve más letal y ralentiza al enemigo.',
+        desc:'Gasta -20 PM y recupera +15 PT.<br>Inflige <strong>160% del ATQ</strong> como Daño de Rayo a un enemigo.<br>Aplica <strong>"Vulnerabilidad Expuesta"</strong> al enemigo durante 2 turnos.<br>Si el enemigo tiene <strong>"Marca de Vulnerabilidad"</strong>, el daño aumenta un 30%.<br>Si Kyou tiene al menos 3 cargas de <strong>"Expediente"</strong>, las consume: el daño aumenta un 50% adicional y aplica <strong>"Ralentización"</strong> al enemigo durante 2 turnos.' },
+      { icon:'🌟', name:'Mega Filtración', tag:'Ultimate', type:'Nivel 5',
+        flavor:'Todos los hologramas se activan a la vez. Una explosión de datos clasificados inunda el campo, abriendo una ventana de oportunidad letal para el equipo.',
+        desc:'Gasta -100 PT.<br>Inflige <strong>280% del ATQ</strong> como Daño de Rayo a TODOS los enemigos.<br>Aplica <strong>"Secreto al Descubierto"</strong> a todos los enemigos durante 2 turnos.<br>Aplica <strong>"Filtración de Datos"</strong> a todos los enemigos: durante el resto del turno actual, reciben un 30% más de daño de cualquier fuente.' },
+      { icon:'🔥', name:'Archivo Cifrado', tag:'Baneo Activo', type:'Nivel 30',
+        flavor:'Kyou desbloquea una capa extra de procesamiento en su tablet, potenciando su precisión y su daño elemental.',
+        desc:'Gasta -20 PM y recupera +15 PT.<br>Se aplica el estado <strong>"Archivo Cifrado"</strong> a sí misma durante 3 turnos.' }
     ],
-    talentoCore: '',
-    passives:[
-      { name:'Acceso Remoto', desc:'Al inicio del combate, aplica <strong>"Marca de Vulnerabilidad"</strong> a un enemigo aleatorio.' },
-      { name:'Cortafuegos Débil', desc:'Los enemigos con debuffs infligen un <strong>10% menos de daño</strong> a Kyou.' },
-      { name:'Dato Filtrado', desc:'Cuando un enemigo muere con <strong>"Marca de Vulnerabilidad"</strong>, Kyou obtiene 1 <strong>"Expediente"</strong>.' }
-    ],
-    pings:[
-      { n:1, name:'Datos en Tiempo Real', desc:'Al inicio del combate, Kyou obtiene 2 <strong>"Expedientes"</strong> y el límite máximo pasa a <strong>6</strong>.' },
-      { n:2, name:'Informe Detallado', desc:'Los enemigos con <strong>"Vulnerabilidad Expuesta"</strong> reciben un <strong>20% más de daño de Rayo</strong>.' },
-      { n:3, name:'Análisis Avanzado', desc:'<strong>Habilidad +3 niveles</strong> (máx. nivel 8).' },
-      { n:4, name:'Correo Masivo', desc:'Cuando la Ultimate aplica <strong>"Filtración de Datos"</strong>, también aplica <strong>"Marca de Vulnerabilidad"</strong> a todos los enemigos.' },
-      { n:5, name:'Informe Final', desc:'<strong>Ultimate +3 niveles</strong> (máx. nivel 8).' },
-      { n:6, name:'Filtración Total', desc:'La Ultimate ahora consume todos los <strong>"Expedientes"</strong>. Por cada uno, el daño de la Ultimate aumenta un <strong>15%</strong> y aplica un debuff aleatorio del Talento a cada enemigo.' }
-    ],
+    talentoCore: 'Extracción Activa: Cada Ataque Básico otorga 1 carga de "Expediente", y la Ultimate otorga 2 cargas (máx. 5). Cada carga aumenta el Daño de Rayo de Kyou en un 5% (máx. +25%).',
     rasgoUnico: null
 },
 {
@@ -334,49 +242,63 @@ const CHARS=[
     element:'crio', rarity:5, role:'Sub-DPS / Control', paradigma:'Paradigma del Mute',
     art:'Personajes 1.0 - tanda 2/Ttlim.png',
     stats:{
-      HP:620, ATQ:340, DEF:195, VEL:115,
-      'Prob. Crítica':'5%', 'Daño Crítico':'50%', 'Rec. Energía':20,
-      'Acierto de Efecto':20, 'Res. a Efectos':10, 'Ef. de Ruptura':30,
-      'Bono Hielo':0, 'Bono Curación':0
+      'PV MAX': { lvl1:50, lvl99:650 },
+      'PM MAX': { lvl1:20, lvl99:190 },
+      'ATQ': { lvl1:9, lvl99:135 },
+      'DEFENSA': { lvl1:10, lvl99:85 },
+      'ATQ MÁGICO': { lvl1:4, lvl99:40 },
+      'DEF MÁGICA': { lvl1:5, lvl99:60 },
+      'AGILIDAD': { lvl1:12, lvl99:105 },
+      'SUERTE': { lvl1:6, lvl99:70 }
     },
     skills:[
-      {
-        icon:'🗡️', name:'Estocada Silente', type:'Ataque Básico',
-        flavor:'Un golpe rápido con la espada de hielo, tan silencioso como un muteo.',
-        desc:'Inflige <strong>(50%–115% del ATQ)</strong> como Daño de Hielo. Si el enemigo está <strong>Ralentizado</strong> o <strong>Congelado</strong>, genera 1 <strong>"Rosa Gélida"</strong> (máx. 3).'
-      },
-      {
-        icon:'🔥', name:'Vórtice de Pétalos', type:'Habilidad',
-        flavor:'Ttlim gira su espada creando un remolino de pétalos de rosa congelados.',
-        desc:'Inflige <strong>(90%–200% del ATQ)</strong> como Daño de Hielo a un enemigo y adyacentes. 80% de prob. base de aplicar <strong>Ralentización</strong> (2 turnos). Si ya estaba Ralentizado, 50% de prob. de aplicar <strong>Congelación</strong>.'
-      },
-      {
-        icon:'🌟', name:'Sentencia del Templo Helado', type:'Ultimate',
-        flavor:'Ttlim clava la espada en el suelo. El templo responde con grietas de luz azul.',
-        desc:'Inflige <strong>(160%–350% del ATQ)</strong> como Daño de Hielo a todos los enemigos. Si hay enemigos <strong>Ralentizados</strong> o <strong>Congelados</strong>, +30% de daño y los <strong>Congela</strong> a todos (1 turno). Crea un <strong>"Campo Congelado"</strong> (2 turnos) que reduce VEL y aumenta el daño de Hielo recibido.'
-      },
-      {
-        icon:'🧠', name:'Rosas de la Condena', type:'Talento',
-        flavor:'Convertir el silencio en una sentencia hermosa y letal.',
-        desc:'Al aplicar <strong>Ralentización</strong> o <strong>Congelación</strong> obtiene 1 <strong>"Rosa Gélida"</strong> (máx. 3). Al llegar a 3, su siguiente ataque las consume: daño aumentado, ignora 20% DEF y extiende 1 turno los debuffs de Hielo.'
-      },
+      { icon:'🗡️', name:'Estocada Silente', tag:'Básico', type:'Nivel 1',
+        flavor:'Un golpe rápido con la espada de hielo. Si el enemigo ya está mermado por el frío, Ttlim recolecta una Rosa Gélida.',
+        desc:'Recupera +20 PT y +15 PM.<br>Inflige <strong>100% del ATQ</strong> como Daño de Hielo a un enemigo.<br>Si el enemigo ya tiene <strong>"Ralentización"</strong> o <strong>"Congelación"</strong>, este ataque genera 1 acumulación de <strong>"Rosa Gélida"</strong> sobre sí mismo.' },
+      { icon:'💫', name:'Vórtice de Pétalos', tag:'Especial', type:'Nivel 3',
+        flavor:'Ttlim gira su espada creando un remolino de pétalos congelados que cortan a su paso.',
+        desc:'Gasta -20 PM y recupera +15 PT.<br>Inflige <strong>150% del ATQ</strong> como Daño de Hielo a 3 enemigos aleatorios.<br>80% de prob. base de aplicar <strong>"Ralentización"</strong> (2 turnos).<br>Si el enemigo ya está Ralentizado, 50% de prob. de aplicar <strong>"Congelación"</strong> en su lugar.' },
+      { icon:'🌟', name:'Sentencia del Templo Helado', tag:'Ultimate', type:'Nivel 5',
+        flavor:'Ttlim clava la espada en el suelo. El templo responde con grietas de luz azul bajo los enemigos.',
+        desc:'Gasta -100 PT.<br>Inflige <strong>280% del ATQ</strong> como Daño de Hielo a TODOS los enemigos.<br>Si hay enemigos <strong>"Ralentizados"</strong> o <strong>"Congelados"</strong>, +30% daño y aplica <strong>"Congelación"</strong> a todos (1 turno).<br>Aplica <strong>"Campo Congelado"</strong> a todos los enemigos durante 2 turnos.' },
+      { icon:'🔥', name:'Ritual de Escarcha', tag:'Baneo Activo', type:'Nivel 30',
+        flavor:'Ttlim canaliza el frío ancestral del templo para potenciar su precisión y su poder elemental.',
+        desc:'Gasta -20 PM y recupera +15 PT.<br>Se aplica el estado <strong>"Ritual de Escarcha"</strong> a sí mismo durante 3 turnos.<br>Efecto: +20% Daño de Hielo y +20% Acierto de Efecto.' }
     ],
-    talentoCore: '',
-    passives:[
-      { name:'Escarcha Persistente', desc:'Los enemigos <strong>Ralentizados</strong> por Ttlim reducen su ATQ en un <strong>10%</strong>.' },
-      { name:'Silencio en el Templo', desc:'Al inicio del combate, aplica <strong>Ralentización</strong> (1 turno) a todos los enemigos (no genera Rosas Gélidas).' },
-      { name:'Hoja Eterna', desc:'Al consumir <strong>"Rosas Gélidas"</strong>, recupera <strong>10 puntos de Energía</strong>.' }
-    ],
-    pings:[
-      { n:1, name:'Bienvenida Helada', desc:'Al aplicar <strong>Congelación</strong> con la Habilidad, el daño de descongelación aumenta un <strong>50%</strong> y genera 1 <strong>"Rosa Gélida"</strong> adicional.' },
-      { n:2, name:'Grieta Rúnica', desc:'El <strong>"Campo Congelado"</strong> ahora dura <strong>3 turnos</strong> y reduce la DEF enemiga en un <strong>15%</strong>.' },
-      { n:3, name:'Mandato del Silencio', desc:'<strong>Habilidad +3 niveles</strong> (máx. nivel 8).' },
-      { n:4, name:'Guardia del Templo', desc:'Con 2+ <strong>"Rosas Gélidas"</strong>, Ttlim recibe <strong>20% menos de daño</strong>. Al consumirlas, el bono pasa al aliado con menos HP por 2 turnos.' },
-      { n:5, name:'Cero Absoluto', desc:'<strong>Ultimate +3 niveles</strong> (máx. nivel 8).' },
-      { n:6, name:'Eco de la Rosa Eterna', desc:'Cuando un enemigo muere <strong>Congelado</strong> o <strong>Ralentizado</strong>, Ttlim obtiene <strong>3 "Rosas Gélidas"</strong> y avanza su siguiente acción un 50%.' }
-    ],
+    talentoCore: 'Rosas de la Condena: Golpear enemigos Ralentizados/Congelados otorga 1 "Rosa Gélida" (máx. 3). Con 3, el siguiente ataque las consume: +40% daño, ignora 20% DEF y reinicia duración de Congelación.',
     rasgoUnico: null
 },
+{
+    id:9, name:'Cris', tagline:'"No necesita cerrar tickets, los destruye."',
+    element:'fuego', rarity:5, role:'Main DPS', paradigma:'Paradigma del Baneo',
+    art:'Personajes 1.0 - tanda 1/Cris.png',
+    stats:{
+      'PV MAX': { lvl1:45, lvl99:650 },
+      'PM MAX': { lvl1:20, lvl99:190 },
+      'ATQ': { lvl1:10, lvl99:150 },
+      'DEFENSA': { lvl1:7, lvl99:75 },
+      'ATQ MÁGICO': { lvl1:5, lvl99:50 },
+      'DEF MÁGICA': { lvl1:5, lvl99:55 },
+      'AGILIDAD': { lvl1:12, lvl99:105 },
+      'SUERTE': { lvl1:6, lvl99:70 }
+    },
+    skills:[
+      { icon:'🗡️', name:'Estocada de Asfalto', tag:'Básico', type:'Nivel 1',
+        flavor:'Un golpe seco con la lanza que deja una marca resplandeciente que hace arder al enemigo.',
+        desc:'Recupera +20 PT y +15 PM.<br>Inflige <strong>100% del ATQ</strong> como Daño de Fuego a un enemigo.<br>Aplica <strong>"Marca del Fragmento"</strong> al enemigo durante 2 turnos.' },
+      { icon:'💫', name:'Emboscada Abrasadora', tag:'Especial', type:'Nivel 3',
+        flavor:'Cris salta y estrella la lanza contra el suelo, haciendo temblar los escombros. El caos golpea al azar.',
+        desc:'Gasta -20 PM y recupera +15 PT.<br>Inflige <strong>160% del ATQ</strong> como Daño de Fuego a 3 enemigos aleatorios.<br>Si alguno tiene <strong>"Marca del Fragmento"</strong>, se la consume: daño adicional de 50% ATQ y aplica <strong>"Quemadura"</strong> (2 turnos).<br>Por cada Marca consumida, Cris obtiene 1 acumulación de <strong>"Fragmento de Espejo"</strong>.' },
+      { icon:'🌟', name:'Tormenta de Cristal y Fuego', tag:'Ultimate', type:'Nivel 5',
+        flavor:'La cadena de la lanza se extiende. Cris gira creando un torbellino de llamas y espejos rotos que lo arrasan todo.',
+        desc:'Gasta -100 PT.<br>Inflige <strong>300% del ATQ</strong> como Daño de Fuego a TODOS los enemigos.<br>Consume todas las acumulaciones de <strong>"Fragmento de Espejo"</strong>: +15% daño por cada una.<br>Si consume 3+, ignora 30% de la DEF enemiga.' },
+      { icon:'🔥', name:'Reflejos del Fin', tag:'Baneo Activo', type:'Nivel 30',
+        flavor:'El caos de la batalla alimenta su poder. Las grietas y los escombros se convierten en un arma.',
+        desc:'Gasta -20 PM y recupera +15 PT.<br>Se aplica el estado <strong>"Reflejos del Fin"</strong> a sí misma durante 3 turnos.<br>Efecto: +20% Daño Crítico y +20% Daño de Fuego.' }
+    ],
+    talentoCore: 'Espejos del Caos: Al aplicar "Quemadura" o "Marca del Fragmento", obtiene 1 "Fragmento de Espejo" (máx. 5). Cada uno otorga +4% Daño Crítico pasivo (máx. +20%).',
+    rasgoUnico: null
+}
 ];
 
 let fRarity='all', fElem='all', fSearch='';
@@ -456,7 +378,6 @@ function openChar(id){
   const modalContent=document.getElementById('modal-content');
   if(!modalContent) return;
 
-  // Estadísticas con formato vertical
   const statsHTML = Object.entries(c.stats).map(([k,v])=>{
     if (typeof v === 'object' && v.lvl1 !== undefined && v.lvl99 !== undefined) {
       return `<div class="srow">
@@ -468,7 +389,6 @@ function openChar(id){
     }
   }).join('');
 
-  // Habilidades sin coste/ganancia extra
   const skillsHTML = c.skills.map(s=>{
     let tagHtml = '';
     if (s.tag) tagHtml = `[${s.tag}] `;
@@ -528,10 +448,8 @@ function closeModal(){
 document.addEventListener('DOMContentLoaded',()=>{
   setupNav();
 
-  // Hamburguesa
   document.getElementById('nav-hamburger')?.addEventListener('click', toggleMenu);
 
-  // ── Buscador inteligente ──
   document.getElementById('search-input')?.addEventListener('input', e => {
     const raw = e.target.value.trim();
     fRarity = 'all';
@@ -552,14 +470,12 @@ document.addEventListener('DOMContentLoaded',()=>{
     renderCards();
   });
 
-  // Modal
   document.getElementById('modal-close')?.addEventListener('click', closeModal);
   document.getElementById('modal-overlay')?.addEventListener('click',e=>{
     if(e.target===e.currentTarget) closeModal();
   });
   document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeModal(); });
 
-  // Tooltip flotante
   const tooltipGlobal = document.getElementById('global-tooltip');
   let tooltipFixed = false;
   function showTooltip(text, x, y) {
@@ -611,16 +527,55 @@ document.addEventListener('DOMContentLoaded',()=>{
 
 // ── Tooltips actualizados ──
 const EFFECT_TOOLTIPS = {
+  // ReyDNS
   "Bala de Ban": "Estado acumulable (máx. 3). Potencia sus propias habilidades aumentando drásticamente el daño y duración de efectos a cambio de consumir una carga.",
   "Quemadura": "Daño periódico de Fuego al inicio del turno enemigo (1.3% de sus PV Máx.). Dura 2 turnos (3 si se potencia).",
+
+  // Miki
   "Slow-Log": "Reduce AGILIDAD (-20%) y ATQ (-10%). Al inicio de su turno, el enemigo pierde un 0.5% de sus PV Máx. como daño periódico. Dura 2 turnos.",
   "Escudo de Crédito": "Autodefensa que reduce a la mitad todo el daño físico y mágico recibido por Miki. Dura 2 turnos.",
+
+  // Hawk
   "Marca de la Mariposa": "Marca aplicada por Hawk. No hace daño, pero garantiza que Hilos de Control aplique Hipnosis con 100% de éxito.",
   "Hipnosis": "Aturde al enemigo por completo (2 turnos). El enemigo recibe un 25% más de daño de todas las fuentes mientras dure.",
   "Polvo de Hadas": "Autobuff que otorga +25% ATQ y +25% AGILIDAD durante 3 turnos.",
+
+  // Belle
   "Aceleración de Ritmo 1": "Otorga +10% de AGILIDAD. Dura 3 turnos.",
   "Aceleración de Ritmo 2": "Otorga +20% de AGILIDAD. Dura 3 turnos.",
   "Mod-Bot": "Autobuff: +25% ATQ, +25% AGILIDAD y +1 ataque adicional al usar Ataque Básico. Dura 3 turnos.",
   "Electrocutado": "Daño periódico de Rayo (0.2% PV Máx.) y -20% AGILIDAD. Dura 2 turnos.",
-  "Parálisis": "Inmoviliza al enemigo por completo (no puede atacar ni usar habilidades) durante 1 turno."
+  "Parálisis": "Inmoviliza al enemigo por completo (no puede atacar ni usar habilidades) durante 1 turno.",
+
+  // Fabru
+  "Marca de Hackeo": "Reduce la DEFENSA del enemigo en un 20% durante 2 turnos.",
+  "Enjambre de Drones": "Autobuff: +15% ATQ, +15% AGILIDAD y +1 ataque adicional con Ataque Básico. Dura 3 turnos.",
+  "Sistema Caído": "Reduce AGILIDAD (-20%), DEFENSA (-20%) y probabilidad de golpe (HIT) del enemigo (-15%). Dura 2 turnos.",
+  "Codigo Raiz": "Estado de potenciación de un solo uso. El próximo ataque ignora 30% de la DEF y aplica Aturdimiento (1 turno). Se consume al atacar.",
+
+  // Eugenio
+  "Naipe": "Estado acumulable (máx. 5). Cada uno otorga +10% de SUERTE pasiva. La Ultimate escala su daño según los Naipes activos.",
+  "Combinación de Póker": "Efecto aleatorio que se activa al consumir 5 Naipes con Giro de la Ruleta. Puede buffear a Eugenio, debilitar enemigos o aplicar múltiples estados.",
+  "Suerte del Bufón": "Autobuff que otorga +50% SUERTE y +15% Prob. Crítico. Dura 3 turnos.",
+
+  // Kyou
+  "Marca de Vulnerabilidad": "Reduce la DEFENSA del enemigo en un 10% durante 2 turnos.",
+  "Vulnerabilidad Expuesta": "Reduce la DEFENSA del enemigo en un 20% adicional (acumulable con Marca). Dura 2 turnos.",
+  "Ralentización": "Reduce la AGILIDAD del enemigo en un 20%. Dura 2 turnos.",
+  "Secreto al Descubierto": "Los enemigos reciben un 20% más de daño de TODOS los elementos durante 2 turnos.",
+  "Filtración de Datos": "Durante el resto del turno, los enemigos reciben un 30% más de daño de cualquier fuente. Se desvanece al finalizar la ronda.",
+  "Expediente": "Acumulación de Kyou (máx. 5). Se obtiene al usar Ataque Básico (+1) o Ultimate (+2). Cada carga aumenta el Daño de Rayo en un 5%.",
+  "Archivo Cifrado": "Autobuff que otorga +15% SUERTE y +20% Daño de Rayo durante 3 turnos.",
+
+  // Ttlim
+  "Rosa Gélida": "Acumulación (máx. 3). Se obtiene al golpear enemigos Ralentizados/Congelados. Con 3, el siguiente ataque se potencia.",
+  "Congelación": "Aturde al enemigo (1 turno). Se elimina al recibir daño; el golpe que rompe el hielo inflige un 30% más de daño.",
+  "Campo Congelado": "Reduce AGILIDAD enemiga (-15%) y aumenta el daño de Hielo recibido (+15%). Dura 2 turnos.",
+  "Ritual de Escarcha": "Autobuff que otorga +20% Daño de Hielo y +20% Acierto de Efecto. Dura 3 turnos.",
+
+  // Cris
+  "Marca del Fragmento": "Aumenta el daño de Fuego recibido por el enemigo en un 10%. Dura 2 turnos.",
+  "Quemadura": "Al inicio de su turno, el enemigo pierde un 5% de sus PV Máx. y reduce su DEFENSA en un 10%. Dura 2 turnos.",
+  "Fragmento de Espejo": "Acumulación (máx. 5). Se obtiene al aplicar Marca o Quemadura. Cada uno otorga +4% Daño Crítico pasivo. Se consumen con la Ultimate.",
+  "Reflejos del Fin": "Autobuff que otorga +20% Daño Crítico y +20% Daño de Fuego. Dura 3 turnos."
 };
