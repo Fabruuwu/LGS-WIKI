@@ -6,11 +6,9 @@
 <title>Equipos · LGS Wiki</title>
 <link rel="stylesheet" href="styles.css">
 <style>
-/* ── REEMPLAZÁ TODO EL BLOQUE <style> con esto ── */
-
 /* ── EQUIPOS WRAP ── */
 .equipos-wrap{
-  position:relative;z-index:1; /* fix subtítulo invisible */
+  position:relative;z-index:1;
   max-width:1100px;margin:100px auto 60px;padding:0 20px;
 }
 .equipos-intro{
@@ -18,7 +16,7 @@
   text-align:center;margin-bottom:40px;
 }
 .equipos-desc{
-  color:rgba(255,255,255,.7); /* más visible */
+  color:rgba(255,255,255,.7);
   font-size:1rem;line-height:1.7;max-width:620px;margin:16px auto 24px;
 }
 .equipos-version{
@@ -27,13 +25,91 @@
   border:1px solid rgba(0,229,255,.35);border-radius:20px;padding:6px 22px;
   font-family:'Cinzel Decorative',cursive;font-size:.78rem;letter-spacing:2px;color:var(--cyan);
 }
-.equipos-note{color:rgba(255,255,255,.4);font-size:.8rem;margin-top:12px;}
 
-/* ── CADA EQUIPO ── */
+/* ── SELECTOR DE ENDGAME / REGIÓN ── */
+.selector-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+.endgame-col {
+  flex: 1;
+  min-width: 250px;
+  background: rgba(20,20,40,0.8);
+  border: 1px solid rgba(155,89,245,0.25);
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.endgame-title {
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 1.3rem;
+  color: var(--gold);
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+  text-align: center;
+}
+.region-btn {
+  width: 100%;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.8);
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: 'Rajdhani', sans-serif;
+  letter-spacing: 1px;
+}
+.region-btn:hover {
+  background: rgba(155,89,245,0.2);
+  border-color: var(--violet);
+  color: #fff;
+}
+
+/* ── BARRA DE NAVEGACIÓN INTERNA ── */
+.back-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.back-btn {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(155,89,245,0.3);
+  border-radius: 20px;
+  padding: 6px 16px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--violet);
+  cursor: pointer;
+  transition: background 0.2s;
+  font-family: 'Rajdhani', sans-serif;
+  letter-spacing: 1px;
+}
+.back-btn:hover {
+  background: rgba(155,89,245,0.2);
+}
+.active-selection {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.6);
+  font-weight: 600;
+}
+
+/* ── LISTA DE EQUIPOS ── */
+#equipos-list {
+  display: none;
+}
 .equipo-card{
-  position:relative;z-index:1;
-  background:rgba(10,10,26,.9);
-  border:1px solid rgba(155,89,245,.25);
+  background: rgba(10,10,20,0.85);
+  border:1px solid rgba(155,89,245,0.35);
   border-radius:14px;
   padding:16px 20px;
   margin-bottom:14px;
@@ -46,18 +122,12 @@
   border-color:var(--violet);
   box-shadow:0 6px 20px rgba(0,0,0,.5);
 }
-
-/* Número de equipo */
 .equipo-num{
   font-family:'Cinzel Decorative',cursive;
   font-size:.75rem;color:rgba(255,255,255,.25);
   width:24px;flex-shrink:0;text-align:center;
 }
-
-/* Personajes */
 .equipo-chars{display:flex;gap:10px;flex-shrink:0;}
-
-/* Espacio libre a la derecha (para futuro contenido) */
 .equipo-extra{
   flex:1;
   min-height:80px;
@@ -70,8 +140,6 @@
   font-size:.78rem;
   letter-spacing:1px;
 }
-
-/* Barra de daño */
 .equipo-dmg-bar{
   width:160px;flex-shrink:0;
   display:flex;flex-direction:column;align-items:center;gap:5px;
@@ -81,12 +149,12 @@
 .bar-bg{width:100%;height:8px;background:rgba(255,255,255,.07);border-radius:4px;overflow:hidden;}
 .bar-fill{height:100%;background:linear-gradient(90deg,var(--cyan),var(--violet));border-radius:4px;}
 
-/* ── TARJETAS DE PERSONAJE ── */
+/* Tarjetas de personajes */
 .eq-card{
-  width:105px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);
+  width:90px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);
   border-radius:10px;overflow:hidden;display:flex;flex-direction:column;flex-shrink:0;
 }
-.eq-card-art{width:100%;height:80px;position:relative;overflow:hidden;}
+.eq-card-art{width:100%;height:68px;position:relative;overflow:hidden;}
 .eq-card-art img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;}
 .eq-card-art-bg{width:100%;height:100%;display:flex;align-items:center;justify-content:center;
   font-size:1.1rem;color:rgba(255,255,255,.15);}
@@ -100,12 +168,20 @@
 
 /* Responsive */
 @media(max-width:700px){
+  .selector-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+  .endgame-col {
+    width: 100%;
+    max-width: 400px;
+  }
   .equipo-card{flex-wrap:wrap;}
   .equipo-extra{display:none;}
   .equipo-dmg-bar{width:100%;flex-direction:row;justify-content:space-between;align-items:center;}
   .bar-bg{flex:1;margin:0 8px;}
-  .eq-card{width:84px;}
-  .eq-card-art{height:66px;}
+  .eq-card{width:72px;}
+  .eq-card-art{height:56px;}
 }
 </style>
 </head>
@@ -131,73 +207,103 @@
     <div class="section-badge">✦ Estrategia ✦</div>
     <h1 class="section-title">Equipos</h1>
     <p class="equipos-desc">Descubrí los equipos más poderosos del universo LGS. Combinaciones optimizadas para arrasar en el campo de batalla.</p>
-    <div class="equipos-version">Mejores Equipos General · V1.0</div>
-    <p class="equipos-note">※ Daño calculado en condiciones ideales (rotación completa, buffs activos, sin resistencia enemiga). El porcentaje es relativo al equipo N°5 (100%).</p>
   </div>
+
+  <!-- PANEL DE SELECCIÓN -->
+  <div id="selector-panel">
+    <div class="selector-grid">
+      <!-- EndGame 1 -->
+      <div class="endgame-col">
+        <div class="endgame-title">EndGame 1</div>
+        <button class="region-btn" data-endgame="1" data-region="1.0">Región 1.0</button>
+        <button class="region-btn" data-endgame="1" data-region="1.1">Región 1.1</button>
+        <!-- Añade más botones según necesites -->
+      </div>
+      <!-- EndGame 2 -->
+      <div class="endgame-col">
+        <div class="endgame-title">EndGame 2</div>
+        <button class="region-btn" data-endgame="2" data-region="1.0">Región 1.0</button>
+        <button class="region-btn" data-endgame="2" data-region="1.1">Región 1.1</button>
+      </div>
+      <!-- EndGame 3 -->
+      <div class="endgame-col">
+        <div class="endgame-title">EndGame 3</div>
+        <button class="region-btn" data-endgame="3" data-region="1.0">Región 1.0</button>
+        <button class="region-btn" data-endgame="3" data-region="1.1">Región 1.1</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- BARRA DE RETORNO + INFO DE SELECCIÓN -->
+  <div id="nav-bar" style="display: none;">
+    <div class="back-bar">
+      <button class="back-btn" id="back-btn">← Volver a selección</button>
+      <span class="active-selection" id="active-selection-text"></span>
+    </div>
+  </div>
+
+  <!-- LISTA DE EQUIPOS (se llena dinámicamente) -->
   <div id="equipos-list"></div>
 </div>
 
 <script src="scripts.js" defer></script>
+<div id="global-tooltip"></div>
 
 <script defer>
 // ════════════════════════════════════════
-// MAPEO DE CARTAS (Tierlist) POR ID
+// DATOS DE EQUIPOS POR ENDGAME Y REGIÓN
 // ════════════════════════════════════════
-const CARTA_IMG = {
-  1: 'Personajes 1.0 De frente/ReyDNSCarta.jpg',
-  2: 'Personajes 1.0 De frente/MikiCarta.jpg',
-  3: 'Personajes 1.0 De frente/BelleCarta.jpg',
-  4: 'Personajes 1.0 De frente/HawkCarta.jpg',
-  5: 'Personajes 1.0 De frente/FabruCarta.jpg',
-  6: 'Personajes 1.0 De frente/EugenioCarta.jpg',
-  7: 'Personajes 1.0 De frente/KyouCarta.jpg',
-  8: 'Personajes 1.0 De frente/TtlimCarta.jpg',
-  9: 'Personajes 1.0 De frente/CrisCarta.jpg',
-  10: 'Personajes 1.0 De frente/QuencyCarta.jpg',
-  11: 'Personajes 1.0 De frente/EydisCarta.jpg',
-  12: 'Personajes 1.0 De frente/iKaytoCarta.jpg',
-  13: 'Personajes 1.0 De frente/PobertoCarta.jpg',
-  14: 'Personajes 1.0 De frente/YanfeiCarta.jpg',
-  15: 'Personajes 1.0 De frente/KoenigCarta.jpg',
-  16: 'Personajes 1.0 De frente/TakoCarta.jpg',
-  17: 'Personajes 1.0 De frente/ZenkinCarta.jpg',
-  18: 'Personajes 1.0 De frente/DawnCarta.jpg',
-  19: 'Personajes 1.0 De frente/RegutaCarta.jpg',
-  20: 'Personajes 1.0 De frente/NanaomiCarta.jpg',
-  21: 'Personajes 1.0 De frente/SofiCarta.jpg',
-  22: 'Personajes 1.0 De frente/ArekuCarta.jpg',
-  23: 'Personajes 1.0 De frente/HarrietCarta.jpg',
-  24: 'Personajes 1.0 De frente/AlelinCarta.jpg',
-  25: 'Personajes 1.0 De frente/EscarlataCarta.jpg',
-  26: 'Personajes 1.0 De frente/AbrilCarta.jpg',
-  27: 'Personajes 1.0 De frente/AlexTMZCarta.jpg',
-  28: 'Personajes 1.0 De frente/KomatoCarta.jpg'
+const DATA_EQUIPOS = {
+  // EndGame 1
+  1: {
+    '1.0': [  // Región 1.0 (tus datos actuales)
+      { chars:[1,3,4,13], dmg:14200 },
+      { chars:[5,4,7,13], dmg:13500 },
+      { chars:[1,10,3,13], dmg:12800 },
+      { chars:[5,3,8,13], dmg:12100 },
+      { chars:[1,10,3,25], dmg:10000 },
+      { chars:[12,18,20,13], dmg:9500 },
+      { chars:[9,24,15,13], dmg:8900 },
+      { chars:[9,22,19,13], dmg:8300 },
+      { chars:[21,24,17,13], dmg:7800 },
+      { chars:[12,8,20,25], dmg:7200 }
+    ],
+    '1.1': []  // aquí irán los equipos de la región 1.1
+  },
+  // EndGame 2
+  2: {
+    '1.0': [],
+    '1.1': []
+  },
+  // EndGame 3
+  3: {
+    '1.0': [],
+    '1.1': []
+  }
 };
 
-const EQUIPOS = [
-  { chars:[1,3,4,13], dmg:14200 },
-  { chars:[5,4,7,13], dmg:13500 },
-  { chars:[1,10,3,13], dmg:12800 },
-  { chars:[5,3,8,13], dmg:12100 },
-  { chars:[1,10,3,25], dmg:10000 },
-  { chars:[12,18,20,13], dmg:9500 },
-  { chars:[9,24,15,13], dmg:8900 },
-  { chars:[9,22,19,13], dmg:8300 },
-  { chars:[21,24,17,13], dmg:7800 },
-  { chars:[12,8,20,25], dmg:7200 }
-];
+let currentSelection = null;
 
-const DAMAGE_BASE = EQUIPOS[4].dmg;
-
-function renderEquipos() {
+// ════════════════════════════════════════
+// FUNCIONES DE RENDER DE EQUIPOS
+// ════════════════════════════════════════
+function renderEquipos(equipos) {
   const container = document.getElementById('equipos-list');
   if (!container) return;
 
-  container.innerHTML = EQUIPOS.map((equipo, idx) => {
+  if (!equipos || equipos.length === 0) {
+    container.innerHTML = '<p style="text-align:center; color:rgba(255,255,255,0.4);">No hay equipos disponibles para esta selección.</p>';
+    container.style.display = 'block';
+    return;
+  }
+
+  const DAMAGE_BASE = equipos.length >= 5 ? equipos[4].dmg : equipos[0].dmg;
+
+  container.innerHTML = equipos.map((equipo, idx) => {
     const porcentaje = Math.round((equipo.dmg / DAMAGE_BASE) * 100);
     const relativo   = porcentaje - 100;
     const signo      = relativo >= 0 ? '+' : '';
-    const barWidth   = Math.min(100, porcentaje);
+    const barWidth   = Math.min(100, Math.max(0, porcentaje));
 
     const charsHTML = equipo.chars.map(id => {
       const c = CHARS.find(x => x.id === id);
@@ -209,8 +315,7 @@ function renderEquipos() {
         </div>`;
       }
       const el = EC[c.element];
-      // 🃏 Usamos la imagen de carta si existe; si no, el splash art; si no, gradiente
-      const imgSrc = CARTA_IMG[id] || c.art;
+      const imgSrc = c.art;  // aquí puedes usar tu mapeo de cartas si quieres, yo uso el splash art
       const artHtml = imgSrc
         ? `<img src="${imgSrc}" alt="${c.name}">`
         : `<div class="eq-card-art-bg" style="background:${GRAD[c.element]};"></div>`;
@@ -233,14 +338,54 @@ function renderEquipos() {
         <div class="equipo-chars">${charsHTML}</div>
         <div class="equipo-extra"><!-- espacio libre --></div>
         <div class="equipo-dmg-bar">
-<div class="dmg-percent" style="color:${relativo > 0 ? '#69f0ae' : (relativo < 0 ? '#ff5252' : 'var(--gold)')}">${signo}${relativo}%</div>          <div class="bar-bg"><div class="bar-fill" style="width:${barWidth}%"></div></div>
+          <div class="dmg-percent" style="color:${relativo > 0 ? '#69f0ae' : (relativo < 0 ? '#ff5252' : 'var(--gold)')}">${signo}${relativo}%</div>
+          <div class="bar-bg"><div class="bar-fill" style="width:${barWidth}%"></div></div>
           <div class="dmg-number">${equipo.dmg.toLocaleString()} DMG</div>
         </div>
       </div>`;
   }).join('');
-}
-document.addEventListener('DOMContentLoaded', renderEquipos);
 
+  container.style.display = 'block';
+}
+
+// ════════════════════════════════════════
+// MANEJO DE LA INTERFAZ
+// ════════════════════════════════════════
+document.addEventListener('DOMContentLoaded', () => {
+  const selectorPanel = document.getElementById('selector-panel');
+  const navBar = document.getElementById('nav-bar');
+  const equiposList = document.getElementById('equipos-list');
+  const backBtn = document.getElementById('back-btn');
+  const activeText = document.getElementById('active-selection-text');
+
+  // Evento en los botones de región
+  document.querySelectorAll('.region-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const endgame = btn.dataset.endgame;
+      const region = btn.dataset.region;
+      const equipos = DATA_EQUIPOS[endgame]?.[region] || [];
+
+      currentSelection = { endgame, region };
+      activeText.textContent = `EndGame ${endgame} · Región ${region}`;
+
+      // Ocultar selector, mostrar barra y equipos
+      selectorPanel.style.display = 'none';
+      navBar.style.display = 'block';
+      equiposList.style.display = 'block';
+
+      renderEquipos(equipos);
+    });
+  });
+
+  // Botón Volver
+  backBtn.addEventListener('click', () => {
+    selectorPanel.style.display = 'block';
+    navBar.style.display = 'none';
+    equiposList.style.display = 'none';
+    equiposList.innerHTML = '';
+    currentSelection = null;
+  });
+});
 </script>
 </body>
 </html>
