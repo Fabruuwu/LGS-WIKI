@@ -20,6 +20,7 @@ const GRAD={
 };
 
 const CHARS=[
+// ── Personajes existentes (1-9) ──
 {
     id:1, name:'ReyDNS', tagline:'"El Gatillo del Servidor"',
     element:'fuego', rarity:5, role:'Main DPS', paradigma:'Paradigma del Flood',
@@ -298,6 +299,224 @@ const CHARS=[
     ],
     talentoCore: 'Espejos del Caos: Al aplicar "Quemadura" o "Marca del Fragmento", obtiene 1 "Fragmento de Espejo" (máx. 5). Cada uno otorga +4% Daño Crítico pasivo (máx. +20%).',
     rasgoUnico: null
+},
+// ── NUEVOS PERSONAJES ──
+{
+    id:10, name:'Quency', tagline:'"Esquiva tus mensajes y tus ataques. Solo verás pétalos."',
+    element:'aero', rarity:5, role:'SubDPS / Evasión', paradigma:'Paradigma del Timeout',
+    art:'Personajes 1.0 - tanda 2/Quency.png',
+    stats:{
+      'PV MAX': { lvl1:45, lvl99:600 },
+      'PM MAX': { lvl1:20, lvl99:180 },
+      'ATQ': { lvl1:10, lvl99:140 },
+      'DEFENSA': { lvl1:8, lvl99:80 },
+      'ATQ MÁGICO': { lvl1:5, lvl99:45 },
+      'DEF MÁGICA': { lvl1:6, lvl99:55 },
+      'AGILIDAD': { lvl1:13, lvl99:115 },
+      'SUERTE': { lvl1:7, lvl99:70 }
+    },
+    skills:[
+      { icon:'🗡️', name:'Corte Primaveral', tag:'Básico', type:'Nivel 1',
+        flavor:'Un tajo rápido con la katana que deja una marca de sakura en el enemigo y alimenta su energía.',
+        desc:'Recupera +20 PT y +15 PM.<br>Inflige <strong>100% del ATQ</strong> como Daño de Viento a un enemigo.<br>Aplica <strong>"Marca de Sakura"</strong> al enemigo durante 2 turnos.<br>Quency obtiene 1 acumulación de <strong>"Pétalo"</strong> sobre sí misma.' },
+      { icon:'💫', name:'Esquiva del Conejo', tag:'Especial', type:'Nivel 3',
+        flavor:'Quency adopta una postura baja, aumentando su agilidad y evasión. Si el enemigo tiene su marca, contraataca instantáneamente.',
+        desc:'Gasta -20 PM y recupera +15 PT.<br>Aplica <strong>"Esquiva Inaudito"</strong> (estado dinámico) durante 2 turnos.<br>Si el enemigo tiene <strong>"Marca de Sakura"</strong>, se la consume e inflige <strong>150% del ATQ</strong> como Daño de Viento.<br>Quency obtiene 1 acumulación de <strong>"Pétalo"</strong>.' },
+      { icon:'🌟', name:'Tormenta de Sakura', tag:'Ultimate', type:'Nivel 5',
+        flavor:'Una explosión de pétalos que arrasa el campo y ciega a los enemigos.',
+        desc:'Gasta -100 PT.<br>Inflige <strong>280% del ATQ</strong> como Daño de Viento a TODOS los enemigos.<br>Si Quency tiene <strong>"Esquiva Inaudito"</strong>, el daño aumenta un 25%.<br>Aplica <strong>"Ceguera Floral"</strong> a todos los enemigos durante 1 turno.' },
+      { icon:'🔥', name:'Reflejos de Conejo', tag:'Baneo Activo', type:'Nivel 30',
+        flavor:'Canaliza su agilidad natural para volverse más escurridiza y aumentar su precisión.',
+        desc:'Gasta -20 PM y recupera +15 PT.<br>Se aplica el estado <strong>"Reflejos de Conejo"</strong> a sí misma durante 3 turnos.<br>Efecto: +15% Evasión y +20% Probabilidad Crítica.' }
+    ],
+    talentoCore: 'Reflejos de Conejo (Pasiva): 15% Evasión base. Cada Ataque Básico o Especial otorga 1 acumulación de "Pétalo" (máx. 5). Cada Pétalo da +6% Prob. Crítica. Con 3+, el Básico golpea dos veces. Con 5, ejecuta un Contraataque automático.',
+    rasgoUnico: null
+},
+{
+    id:11, name:'Eydis', tagline:'"En el silencio de los templos, ella escribe la sentencia."',
+    element:'celestial', rarity:5, role:'Soporte Ofensivo / SubDPS', paradigma:'Paradigma del Warn',
+    art:'Personajes 1.0 - tanda 1/Eydis.png',
+    stats:{
+      'PV MAX': { lvl1:50, lvl99:650 },
+      'PM MAX': { lvl1:20, lvl99:190 },
+      'ATQ': { lvl1:9, lvl99:125 },
+      'DEFENSA': { lvl1:10, lvl99:90 },
+      'ATQ MÁGICO': { lvl1:4, lvl99:40 },
+      'DEF MÁGICA': { lvl1:5, lvl99:55 },
+      'AGILIDAD': { lvl1:12, lvl99:105 },
+      'SUERTE': { lvl1:7, lvl99:70 }
+    },
+    skills:[
+      { icon:'🗡️', name:'Filo del Escriba', tag:'Básico', type:'Nivel 1',
+        flavor:'Daño de Luz. +30% de daño si el enemigo tiene Fisura Rúnica.',
+        desc:'Recupera +20 PT y +15 PM.<br>Inflige <strong>100% del ATQ</strong> como Daño de Luz a un enemigo.<br>Si el enemigo tiene <strong>"Fisura Rúnica"</strong>, el daño aumenta un 30%.' },
+      { icon:'💫', name:'Sentencia Rúnica', tag:'Especial', type:'Nivel 3',
+        flavor:'Daño de Luz a un enemigo. Aplica Fisura Rúnica. Si ya tiene fisura, la detona haciendo daño a todos los enemigos y te da 1 Piedra Rúnica.',
+        desc:'Gasta -20 PM y recupera +15 PT.<br>Inflige <strong>160% del ATQ</strong> como Daño de Luz a un enemigo.<br>Aplica <strong>"Fisura Rúnica"</strong> (2 turnos).<br>Si ya tenía Fisura, la detona: inflige <strong>50% del ATQ</strong> a TODOS los enemigos, degrada la Fisura y otorga 1 acumulación de <strong>"Piedra Rúnica"</strong>.' },
+      { icon:'🌟', name:'Colapso del Templo', tag:'Ultimate', type:'Nivel 5',
+        flavor:'Daño de Luz a todos los enemigos. Aplica Fisura Rúnica Avanzada (2 cargas). Otorga +15% Probabilidad Crítica a los aliados por 2 turnos.',
+        desc:'Gasta -100 PT.<br>Inflige <strong>280% del ATQ</strong> como Daño de Luz a TODOS los enemigos.<br>Aplica <strong>"Fisura Rúnica Avanzada"</strong> (2 turnos).<br>Otorga a todos los aliados +15% Prob. Crítica durante 2 turnos.' },
+      { icon:'🔥', name:'Ecos de las Ruinas', tag:'Baneo Activo', type:'Nivel 30',
+        flavor:'Autobuff que otorga +20% Daño de Luz y +20% Probabilidad Crítica durante 3 turnos.',
+        desc:'Gasta -20 PM y recupera +15 PT.<br>Se aplica el estado <strong>"Ecos de las Ruinas"</strong> a sí misma durante 3 turnos.' }
+    ],
+    talentoCore: 'Piedras Rúnicas: Al detonar Fisura obtiene 1 "Piedra Rúnica" (máx. 3, +5% Daño Luz cada una). Con 3, el Ataque Básico se transforma en "Golpe de Ruptura" (200% ATQ, ignora 40% DEF, aplica Fisura).',
+    rasgoUnico: null
+},
+{
+    id:12, name:'iKayto', tagline:'"En el silencio helado, sus espadas cantan."',
+    element:'crio', rarity:5, role:'Main DPS / AoE', paradigma:'Paradigma del Raid',
+    art:'Personajes 1.0 - tanda 1/iKayto.png',
+    stats:{
+      'PV MAX': { lvl1:50, lvl99:600 },
+      'PM MAX': { lvl1:20, lvl99:190 },
+      'ATQ': { lvl1:10, lvl99:145 },
+      'DEFENSA': { lvl1:8, lvl99:75 },
+      'ATQ MÁGICO': { lvl1:5, lvl99:45 },
+      'DEF MÁGICA': { lvl1:6, lvl99:55 },
+      'AGILIDAD': { lvl1:12, lvl99:110 },
+      'SUERTE': { lvl1:7, lvl99:65 }
+    },
+    skills:[
+      { icon:'🗡️', name:'Corte del Alba', tag:'Básico', type:'Nivel 1',
+        flavor:'Daño de Hielo a un enemigo. Aplica/acumula Escarcha (+15% Daño Hielo recibido).',
+        desc:'Recupera +20 PT y +15 PM.<br>Inflige <strong>100% del ATQ</strong> como Daño de Hielo a un enemigo.<br>Aplica/acumula <strong>"Escarcha"</strong> (máx. 2 cargas).' },
+      { icon:'💫', name:'Paso de la Grulla', tag:'Especial', type:'Nivel 3-4',
+        flavor:'Daño de Hielo a todos. Permite elegir entre Postura Alta (+20% VEL y +15% CRI) o Postura Baja (+30% Daño Hielo y -20% daño recibido). Otorga 1 Compás.',
+        desc:'Gasta -20 PM y recupera +15 PT.<br>Inflige <strong>150% del ATQ</strong> como Daño de Hielo a TODOS los enemigos.<br>Elige y aplica <strong>"Postura Alta"</strong> o <strong>"Postura Baja"</strong> (2 turnos) y otorga 1 <strong>"Compás"</strong>.<br>Si ya tenía una postura activa, ejecuta un FUA de 100% a 3 enemigos y otorga 1 Compás extra.' },
+      { icon:'🌟', name:'Vals de la Aurora Boreal', tag:'Ultimate', type:'Nivel 5',
+        flavor:'Daño de Hielo masivo. Escala según las Escarchas enemigas y las consume para Congelar.',
+        desc:'Gasta -100 PT.<br>Inflige <strong>280% del ATQ</strong> como Daño de Hielo a TODOS los enemigos, aumentando un 8% por cada carga de <strong>"Escarcha"</strong> en el campo.<br>Consume todas las Escarchas y aplica <strong>"Congelación"</strong> a enemigos aleatorios (cantidad igual a Escarchas consumidas, máx. 4).' },
+      { icon:'🔥', name:'Sinfonía Invernal', tag:'Baneo Activo', type:'Nivel 30',
+        flavor:'Autobuff que otorga +25% Daño de Hielo y +20% Probabilidad Crítica durante 3 turnos.',
+        desc:'Gasta -20 PM y recupera +15 PT.<br>Se aplica el estado <strong>"Sinfonía Invernal"</strong> a sí misma durante 3 turnos.' }
+    ],
+    talentoCore: 'Espíritu de la Danza: Acumula "Compases" (máx. 3) al cambiar de postura o ejecutar FUA. Con 3, obtiene "Danza del Vacío": su siguiente ataque hace +30% daño y aplica 2 Escarchas a todos los enemigos.',
+    rasgoUnico: null
+},
+{
+    id:25, name:'Escarlata', tagline:'"Donde su báculo apunta, la noche se llena de esperanza."',
+    element:'celestial', rarity:4, role:'Sanadora / Soporte (Sustain)', paradigma:'Paradigma del Soporte Técnico',
+    art:'Personajes 1.0 - tanda 1/Escarlata.png',
+    stats:{
+      'PV MAX': { lvl1:60, lvl99:800 },
+      'PM MAX': { lvl1:20, lvl99:180 },
+      'ATQ': { lvl1:8, lvl99:90 },
+      'DEFENSA': { lvl1:10, lvl99:100 },
+      'ATQ MÁGICO': { lvl1:4, lvl99:40 },
+      'DEF MÁGICA': { lvl1:7, lvl99:65 },
+      'AGILIDAD': { lvl1:11, lvl99:100 },
+      'SUERTE': { lvl1:6, lvl99:70 }
+    },
+    skills:[
+      { icon:'🗡️', name:'Chispa Polar', tag:'Básico', type:'Nivel 1',
+        flavor:'Daño de Luz a un enemigo.',
+        desc:'Recupera +20 PT y +15 PM.<br>Inflige <strong>100% del ATQ</strong> como Daño de Luz a un enemigo.' },
+      { icon:'💫', name:'Manto de Estrellas', tag:'Especial', type:'Nivel 3',
+        flavor:'Cura a un aliado y le otorga un escudo protector.',
+        desc:'Gasta -20 PM y recupera +15 PT.<br>Cura a un aliado un 20% de su HP Máx. (25% si tiene <strong>"Aura de la Aurora"</strong>).<br>Aplica <strong>"Manto Estelar"</strong> (reduce daño físico/mágico en 30%) durante 2 turnos.' },
+      { icon:'🌟', name:'Santuario de la Aurora', tag:'Ultimate', type:'Nivel 5',
+        flavor:'Cura a todo el equipo y les otorga un escudo protector.',
+        desc:'Gasta -100 PT.<br>Cura a todos los aliados un 50% de su HP Máx. + 200 (62.5% si tiene <strong>"Aura de la Aurora"</strong>).<br>Aplica <strong>"Escudo Celestial"</strong> (reduce daño físico/mágico en 30%) durante 2 turnos.' },
+      { icon:'🔥', name:'Luz Sanadora', tag:'Baneo Activo', type:'Nivel 30',
+        flavor:'Autobuff que potencia sus habilidades de curación y su resistencia.',
+        desc:'Gasta -20 PM y recupera +15 PT.<br>Se aplica el estado <strong>"Aura de la Aurora"</strong> a sí misma durante 3 turnos (aumenta su DEF en 20%).' }
+    ],
+    talentoCore: 'Compasión Celestial: Al usar cualquier habilidad, el aliado con menor HP se cura un 10% del HP Máximo de Escarlata.',
+    rasgoUnico: null
+},
+{
+    id:13, name:'Poberto', tagline:'"El conejo no es un peluche... es su guardián."',
+    element:'electro', rarity:4, role:'Tanque / Protector (Sustain)', paradigma:'Paradigma del Escudo',
+    art:'Personajes 1.0 - tanda 2/Poberto.png',
+    stats:{
+      'PV MAX': { lvl1:65, lvl99:900 },
+      'PM MAX': { lvl1:20, lvl99:180 },
+      'ATQ': { lvl1:7, lvl99:75 },
+      'DEFENSA': { lvl1:14, lvl99:160 },
+      'ATQ MÁGICO': { lvl1:4, lvl99:45 },
+      'DEF MÁGICA': { lvl1:7, lvl99:85 },
+      'AGILIDAD': { lvl1:8, lvl99:80 },
+      'SUERTE': { lvl1:5, lvl99:60 }
+    },
+    skills:[
+      { icon:'🗡️', name:'Caricia del Conejo', tag:'Básico', type:'Nivel 1',
+        flavor:'Daño de Rayo a un enemigo. Si tiene el Baneo Activo, el daño aumenta un 15%.',
+        desc:'Recupera +20 PT y +15 PM.<br>Inflige <strong>100% del ATQ</strong> como Daño de Rayo a un enemigo. Si tiene <strong>"Velo Eléctrico"</strong>, el daño aumenta un 15%.' },
+      { icon:'💫', name:'Manto del Guardián', tag:'Especial', type:'Nivel 3',
+        flavor:'Cura a un aliado y le otorga un escudo que reduce el daño recibido a la mitad.',
+        desc:'Gasta -20 PM y recupera +15 PT.<br>Cura a un aliado un 10% de su HP Máx.<br>Aplica <strong>"Manto Protector"</strong> (reduce daño físico/mágico en 50%) durante 2 turnos.' },
+      { icon:'🌟', name:'Protectora del Bosque', tag:'Ultimate', type:'Nivel 5',
+        flavor:'Otorga escudos a todo el equipo y aumenta su defensa física.',
+        desc:'Gasta -100 PT.<br>Aplica <strong>"Manto Protector"</strong> a todos los aliados durante 2 turnos.<br>Otorga a todos los aliados +20% DEFENSA durante 2 turnos.' },
+      { icon:'🔥', name:'Velo Eléctrico', tag:'Baneo Activo', type:'Nivel 30',
+        flavor:'Autobuff que aumenta su defensa y potencia sus descargas eléctricas.',
+        desc:'Gasta -20 PM y recupera +15 PT.<br>Se aplica el estado <strong>"Velo Eléctrico"</strong> a sí misma durante 3 turnos (aumenta su DEF en 20%).' }
+    ],
+    talentoCore: '',
+    rasgoUnico: null
+},
+{
+    id:15, name:'Koenig', tagline:'"Cuando ella marca el ritmo, todo el server acelera."',
+    element:'aero', rarity:4, role:'Soporte / Batería (Recarga de Energía)', paradigma:'Paradigma del Partner',
+    art:'Personajes 1.0 - tanda 2/Koenig.png',
+    stats:{
+      'PV MAX': { lvl1:55, lvl99:700 },
+      'PM MAX': { lvl1:20, lvl99:190 },
+      'ATQ': { lvl1:8, lvl99:85 },
+      'DEFENSA': { lvl1:9, lvl99:85 },
+      'ATQ MÁGICO': { lvl1:4, lvl99:40 },
+      'DEF MÁGICA': { lvl1:5, lvl99:55 },
+      'AGILIDAD': { lvl1:12, lvl99:115 },
+      'SUERTE': { lvl1:6, lvl99:65 }
+    },
+    skills:[
+      { icon:'🗡️', name:'Baquetazo Simple', tag:'Básico', type:'Nivel 1',
+        flavor:'Daño de Viento a un enemigo.',
+        desc:'Recupera +20 PT y +15 PM.<br>Inflige <strong>100% del ATQ</strong> como Daño de Viento a un enemigo.' },
+      { icon:'💫', name:'Redoble de Energía', tag:'Especial', type:'Nivel 3',
+        flavor:'Daño de Viento a un enemigo y otorga 15 PT a todos los aliados.',
+        desc:'Gasta -20 PM y recupera +15 PT.<br>Inflige <strong>150% del ATQ</strong> como Daño de Viento a un enemigo.<br>Otorga +15 PT a TODOS los aliados.' },
+      { icon:'🌟', name:'Gran Final del Festival', tag:'Ultimate', type:'Nivel 5',
+        flavor:'Daño de Viento a todos. Otorga +20% ATQ y +15% VEL a los aliados durante 2 turnos.',
+        desc:'Gasta -100 PT.<br>Inflige <strong>280% del ATQ</strong> como Daño de Viento a TODOS los enemigos.<br>Aplica <strong>"Gran Final del Festival"</strong> a todos los aliados durante 2 turnos.' },
+      { icon:'🔥', name:'Redoble del Tempo', tag:'Baneo Activo', type:'Nivel 30',
+        flavor:'Autobuff que aumenta su velocidad y acelera el ritmo del combate.',
+        desc:'Gasta -20 PM y recupera +15 PT.<br>Se aplica el estado <strong>"Redoble del Tempo"</strong> a sí misma durante 3 turnos (aumenta su AGILIDAD en 20%).' }
+    ],
+    talentoCore: '',
+    rasgoUnico: null
+},
+{
+    id:19, name:'Reguta', tagline:'"Diez mil millones por ciento calculado. La victoria es inevitable."',
+    element:'electro', rarity:4, role:'Soporte / Buffer (Batería de Turnos)', paradigma:'Paradigma del Partner',
+    art:'Personajes 1.0 - tanda 2/Reguta.png',
+    stats:{
+      'PV MAX': { lvl1:60, lvl99:750 },
+      'PM MAX': { lvl1:20, lvl99:190 },
+      'ATQ': { lvl1:8, lvl99:80 },
+      'DEFENSA': { lvl1:10, lvl99:95 },
+      'ATQ MÁGICO': { lvl1:4, lvl99:40 },
+      'DEF MÁGICA': { lvl1:5, lvl99:55 },
+      'AGILIDAD': { lvl1:12, lvl99:115 },
+      'SUERTE': { lvl1:6, lvl99:65 }
+    },
+    skills:[
+      { icon:'🗡️', name:'Tiza de la Pizarra', tag:'Básico', type:'Nivel 1',
+        flavor:'Daño de Rayo a un enemigo.',
+        desc:'Recupera +20 PT y +15 PM.<br>Inflige <strong>100% del ATQ</strong> como Daño de Rayo a un enemigo.' },
+      { icon:'💫', name:'Fórmula de la Velocidad', tag:'Especial', type:'Nivel 3',
+        flavor:'Otorga +25% VEL y +20% ATQ a un aliado durante 2 turnos. Le recupera +10 PT adicionales.',
+        desc:'Gasta -20 PM y recupera +15 PT.<br>Aplica <strong>"Fórmula de la Velocidad"</strong> a un aliado (2 turnos).<br>El aliado recupera +10 PT adicionales (Talento Core).' },
+      { icon:'🌟', name:'Momento Eureka', tag:'Ultimate', type:'Nivel 5',
+        flavor:'Otorga una doble acción a un aliado, limpia sus debuffs y le da +30% ATQ durante ese turno.',
+        desc:'Gasta -100 PT.<br>Aplica <strong>"Eureka"</strong> a un aliado (1 turno): limpia sus debuffs, +30% ATQ y una acción adicional (doble turno).' },
+      { icon:'🔥', name:'Mente Brillante', tag:'Baneo Activo', type:'Nivel 30',
+        flavor:'Autobuff que acelera su propio ritmo y recarga de energía.',
+        desc:'Gasta -20 PM y recupera +15 PT.<br>Se aplica el estado <strong>"Mente Brillante"</strong> a sí misma durante 3 turnos (+20% AGILIDAD y +20% Tasa de Carga de PT).' }
+    ],
+    talentoCore: 'Cálculo Veloz: Al usar "Fórmula de la Velocidad", el aliado objetivo recupera +10 PT adicionales.',
+    rasgoUnico: null
 }
 ];
 
@@ -575,7 +794,45 @@ const EFFECT_TOOLTIPS = {
 
   // Cris
   "Marca del Fragmento": "Aumenta el daño de Fuego recibido por el enemigo en un 10%. Dura 2 turnos.",
-  "Quemadura": "Al inicio de su turno, el enemigo pierde un 5% de sus PV Máx. y reduce su DEFENSA en un 10%. Dura 2 turnos.",
   "Fragmento de Espejo": "Acumulación (máx. 5). Se obtiene al aplicar Marca o Quemadura. Cada uno otorga +4% Daño Crítico pasivo. Se consumen con la Ultimate.",
-  "Reflejos del Fin": "Autobuff que otorga +20% Daño Crítico y +20% Daño de Fuego. Dura 3 turnos."
+  "Reflejos del Fin": "Autobuff que otorga +20% Daño Crítico y +20% Daño de Fuego. Dura 3 turnos.",
+
+  // Quency
+  "Marca de Sakura": "Aumenta el daño recibido por el enemigo en un 15% durante 2 turnos.",
+  "Esquiva Inaudito": "Otorga +5% Evasión y +20% AGILIDAD durante 2 turnos.",
+  "Ceguera Floral": "Reduce el HIT del enemigo en un 50% durante 1 turno.",
+  "Pétalo": "Acumulación (máx. 5). Cada uno da +6% Prob. Crítica. Con 3+ el Básico golpea dos veces; con 5 se ejecuta un Contraataque.",
+  "Reflejos de Conejo": "Autobuff: +15% Evasión y +20% Prob. Crítica durante 3 turnos.",
+
+  // Eydis
+  "Fisura Rúnica": "Reduce DEF un 15%. Al ser detonada, causa daño a todos los enemigos y se degrada. Dura 2 turnos.",
+  "Fisura Rúnica Avanzada": "Igual que Fisura Rúnica, pero puede detonar hasta 2 veces (primero se convierte en normal, luego desaparece).",
+  "Piedra Rúnica": "Acumulación (máx. 3). Cada una otorga +5% Daño de Luz. Con 3, el Ataque Básico se transforma en Golpe de Ruptura.",
+  "Ecos de las Ruinas": "Autobuff: +20% Daño de Luz y +20% Prob. Crítica durante 3 turnos.",
+
+  // iKayto
+  "Escarcha": "Acumulable hasta 2. Aumenta un 15% el Daño de Hielo recibido por el enemigo.",
+  "Postura Alta": "Otorga +20% VEL y +15% Prob. Crítica durante 2 turnos.",
+  "Postura Baja": "Otorga +30% Daño de Hielo y -20% daño recibido durante 2 turnos.",
+  "Compás": "Acumulación (máx. 3). Se obtiene al cambiar de postura o ejecutar FUA. Con 3, activa Danza del Vacío.",
+  "Danza del Vacío": "Potencia el siguiente ataque (+30% daño, aplica 2 Escarchas a todos) y se consume.",
+  "Sinfonía Invernal": "Autobuff: +25% Daño de Hielo y +20% Prob. Crítica durante 3 turnos.",
+
+  // Escarlata
+  "Manto Estelar": "Reduce el daño físico/mágico recibido en un 30% durante 2 turnos.",
+  "Escudo Celestial": "Reduce el daño físico/mágico recibido en un 30% durante 2 turnos.",
+  "Aura de la Aurora": "Autobuff: +20% DEF durante 3 turnos. Mejora las curaciones de Escarlata.",
+
+  // Poberto
+  "Manto Protector": "Reduce el daño físico/mágico recibido en un 50% durante 2 turnos.",
+  "Velo Eléctrico": "Autobuff: +20% DEF. Mientras está activo, el Ataque Básico hace +15% daño. Dura 3 turnos.",
+
+  // Koenig
+  "Gran Final del Festival": "Otorga +20% ATQ y +15% AGILIDAD a los aliados durante 2 turnos.",
+  "Redoble del Tempo": "Autobuff: +20% AGILIDAD durante 3 turnos.",
+
+  // Reguta
+  "Fórmula de la Velocidad": "Otorga +25% AGILIDAD y +20% ATQ a un aliado durante 2 turnos.",
+  "Eureka": "Limpia debuffs, +30% ATQ y otorga una acción adicional (doble turno) durante 1 turno.",
+  "Mente Brillante": "Autobuff: +20% AGILIDAD y +20% Tasa de Carga de PT durante 3 turnos."
 };
