@@ -103,6 +103,21 @@
   font-weight: 600;
 }
 
+/* ── REGLAS (se muestra dinámicamente) ── */
+.reglas-box {
+  background: rgba(0,229,255,0.08);
+  border: 1px solid rgba(0,229,255,0.25);
+  border-radius: 14px;
+  padding: 18px 22px;
+  margin-bottom: 28px;
+  color: rgba(255,255,255,0.8);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+.reglas-box strong {
+  color: var(--cyan);
+}
+
 /* ── LISTA DE EQUIPOS ── */
 #equipos-list {
   display: none;
@@ -149,12 +164,12 @@
 .bar-bg{width:100%;height:8px;background:rgba(255,255,255,.07);border-radius:4px;overflow:hidden;}
 .bar-fill{height:100%;background:linear-gradient(90deg,var(--cyan),var(--violet));border-radius:4px;}
 
-/* Tarjetas de personajes */
+/* Tarjetas de personajes (más grandes y nítidas) */
 .eq-card{
-  width:90px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);
+  width:105px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);
   border-radius:10px;overflow:hidden;display:flex;flex-direction:column;flex-shrink:0;
 }
-.eq-card-art{width:100%;height:68px;position:relative;overflow:hidden;}
+.eq-card-art{width:100%;height:80px;position:relative;overflow:hidden;}
 .eq-card-art img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;}
 .eq-card-art-bg{width:100%;height:100%;display:flex;align-items:center;justify-content:center;
   font-size:1.1rem;color:rgba(255,255,255,.15);}
@@ -162,7 +177,7 @@
   border-radius:50%;border:1px solid rgba(255,255,255,.3);z-index:2;}
 .eq-card-body{padding:5px 6px;background:rgba(10,10,26,.85);
   border-top:1px solid rgba(255,255,255,.06);text-align:center;}
-.eq-card-name{font-family:'Cinzel Decorative',cursive;font-size:.55rem;color:#fff;
+.eq-card-name{font-family:'Cinzel Decorative',cursive;font-size:.58rem;color:#fff;
   white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .eq-card-elname{font-size:.5rem;color:rgba(255,255,255,.35);letter-spacing:1px;margin-top:1px;}
 
@@ -180,8 +195,8 @@
   .equipo-extra{display:none;}
   .equipo-dmg-bar{width:100%;flex-direction:row;justify-content:space-between;align-items:center;}
   .bar-bg{flex:1;margin:0 8px;}
-  .eq-card{width:72px;}
-  .eq-card-art{height:56px;}
+  .eq-card{width:84px;}
+  .eq-card-art{height:66px;}
 }
 </style>
 </head>
@@ -212,20 +227,16 @@
   <!-- PANEL DE SELECCIÓN -->
   <div id="selector-panel">
     <div class="selector-grid">
-      <!-- EndGame 1 -->
       <div class="endgame-col">
         <div class="endgame-title">EndGame 1</div>
         <button class="region-btn" data-endgame="1" data-region="1.0">Región 1.0</button>
         <button class="region-btn" data-endgame="1" data-region="1.1">Región 1.1</button>
-        <!-- Añade más botones según necesites -->
       </div>
-      <!-- EndGame 2 -->
       <div class="endgame-col">
         <div class="endgame-title">EndGame 2</div>
         <button class="region-btn" data-endgame="2" data-region="1.0">Región 1.0</button>
         <button class="region-btn" data-endgame="2" data-region="1.1">Región 1.1</button>
       </div>
-      <!-- EndGame 3 -->
       <div class="endgame-col">
         <div class="endgame-title">EndGame 3</div>
         <button class="region-btn" data-endgame="3" data-region="1.0">Región 1.0</button>
@@ -240,6 +251,7 @@
       <button class="back-btn" id="back-btn">← Volver a selección</button>
       <span class="active-selection" id="active-selection-text"></span>
     </div>
+    <div id="reglas-container"></div>
   </div>
 
   <!-- LISTA DE EQUIPOS (se llena dinámicamente) -->
@@ -251,31 +263,50 @@
 
 <script defer>
 // ════════════════════════════════════════
+// MAPEO DE CARTAS (Tierlist) POR ID
+// ════════════════════════════════════════
+const CARTA_IMG = {
+  1: 'Personajes 1.0 De frente/ReyDNSCarta.jpg',
+  2: 'Personajes 1.0 De frente/MikiCarta.jpg',
+  3: 'Personajes 1.0 De frente/BelleCarta.jpg',
+  4: 'Personajes 1.0 De frente/HawkCarta.jpg',
+  5: 'Personajes 1.0 De frente/FabruCarta.jpg',
+  6: 'Personajes 1.0 De frente/EugenioCarta.jpg',
+  7: 'Personajes 1.0 De frente/KyouCarta.jpg',
+  8: 'Personajes 1.0 De frente/TtlimCarta.jpg',
+  9: 'Personajes 1.0 De frente/CrisCarta.jpg',
+  10: 'Personajes 1.0 De frente/QuencyCarta.jpg',
+  11: 'Personajes 1.0 De frente/EydisCarta.jpg',
+  12: 'Personajes 1.0 De frente/iKaytoCarta.jpg',
+  13: 'Personajes 1.0 De frente/PobertoCarta.jpg',
+  15: 'Personajes 1.0 De frente/KoenigCarta.jpg',
+  19: 'Personajes 1.0 De frente/RegutaCarta.jpg',
+  25: 'Personajes 1.0 De frente/EscarlataCarta.jpg'
+};
+
+// ════════════════════════════════════════
 // DATOS DE EQUIPOS POR ENDGAME Y REGIÓN
 // ════════════════════════════════════════
 const DATA_EQUIPOS = {
-  // EndGame 1
   1: {
-    '1.0': [  // Región 1.0 (tus datos actuales)
-      { chars:[1,3,4,13], dmg:14200 },
-      { chars:[5,4,7,13], dmg:13500 },
-      { chars:[1,10,3,13], dmg:12800 },
-      { chars:[5,3,8,13], dmg:12100 },
-      { chars:[1,10,3,25], dmg:10000 },
-      { chars:[12,18,20,13], dmg:9500 },
-      { chars:[9,24,15,13], dmg:8900 },
-      { chars:[9,22,19,13], dmg:8300 },
-      { chars:[21,24,17,13], dmg:7800 },
-      { chars:[12,8,20,25], dmg:7200 }
+    '1.0': [
+      { chars:[1,3,19,13], dmg:183400 },
+      { chars:[5,3,19,25], dmg:168200 },
+      { chars:[9,10,15,13], dmg:114500 },
+      { chars:[12,8,7,25], dmg:112800 },
+      { chars:[1,6,15,25], dmg:106500 },
+      { chars:[5,4,2,13], dmg:98400 },
+      { chars:[9,4,2,25], dmg:91200 },
+      { chars:[12,10,7,13], dmg:87600 },
+      { chars:[1,8,2,25], dmg:82300 },
+      { chars:[5,11,15,13], dmg:74900 }
     ],
-    '1.1': []  // aquí irán los equipos de la región 1.1
+    '1.1': []
   },
-  // EndGame 2
   2: {
     '1.0': [],
     '1.1': []
   },
-  // EndGame 3
   3: {
     '1.0': [],
     '1.1': []
@@ -315,7 +346,7 @@ function renderEquipos(equipos) {
         </div>`;
       }
       const el = EC[c.element];
-      const imgSrc = c.art;  // aquí puedes usar tu mapeo de cartas si quieres, yo uso el splash art
+      const imgSrc = CARTA_IMG[id] || c.art;
       const artHtml = imgSrc
         ? `<img src="${imgSrc}" alt="${c.name}">`
         : `<div class="eq-card-art-bg" style="background:${GRAD[c.element]};"></div>`;
@@ -349,16 +380,31 @@ function renderEquipos(equipos) {
 }
 
 // ════════════════════════════════════════
+// REGLAS PARA ENDGAME 1 · REGIÓN 1.0
+// ════════════════════════════════════════
+const REGLAS_ENDGAME1 = `
+  <div class="reglas-box">
+    <strong>Reglas:</strong><br>
+    1- Los equipos son de máximo 4 integrantes y deberán conformarse por:<br>
+    &nbsp;&nbsp;&nbsp;1 DPS · 1 SubDPS · 1 Soporte · 1 Sustain<br>
+    &nbsp;&nbsp;&nbsp;(Esta regla NO puede romperse)<br><br>
+    2- Se miden en un total de 50 turnos. La agilidad de cada personaje determina cuántas acciones realizan (AV = 100).<br><br>
+    3- El enemigo tiene HP infinita y 90 de agilidad, por lo que algunos turnos también serán suyos.<br><br>
+    4- Se toman las stats de los personajes a nivel 99 para los cálculos.
+  </div>
+`;
+
+// ════════════════════════════════════════
 // MANEJO DE LA INTERFAZ
 // ════════════════════════════════════════
 document.addEventListener('DOMContentLoaded', () => {
   const selectorPanel = document.getElementById('selector-panel');
   const navBar = document.getElementById('nav-bar');
   const equiposList = document.getElementById('equipos-list');
+  const reglasContainer = document.getElementById('reglas-container');
   const backBtn = document.getElementById('back-btn');
   const activeText = document.getElementById('active-selection-text');
 
-  // Evento en los botones de región
   document.querySelectorAll('.region-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const endgame = btn.dataset.endgame;
@@ -368,7 +414,13 @@ document.addEventListener('DOMContentLoaded', () => {
       currentSelection = { endgame, region };
       activeText.textContent = `EndGame ${endgame} · Región ${region}`;
 
-      // Ocultar selector, mostrar barra y equipos
+      // Mostrar reglas solo si es EndGame 1 · Región 1.0
+      if (endgame === '1' && region === '1.0') {
+        reglasContainer.innerHTML = REGLAS_ENDGAME1;
+      } else {
+        reglasContainer.innerHTML = '';
+      }
+
       selectorPanel.style.display = 'none';
       navBar.style.display = 'block';
       equiposList.style.display = 'block';
@@ -377,12 +429,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Botón Volver
   backBtn.addEventListener('click', () => {
     selectorPanel.style.display = 'block';
     navBar.style.display = 'none';
     equiposList.style.display = 'none';
     equiposList.innerHTML = '';
+    reglasContainer.innerHTML = '';
     currentSelection = null;
   });
 });
