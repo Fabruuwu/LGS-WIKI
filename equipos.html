@@ -143,28 +143,36 @@
   width:24px;flex-shrink:0;text-align:center;
 }
 .equipo-chars{display:flex;gap:10px;flex-shrink:0;}
-.equipo-extra{
-  flex:1;
-  min-height:80px;
-  border-left:1px dashed rgba(255,255,255,.06);
-  margin-left:10px;
-  padding-left:16px;
-  display:flex;
-  align-items:center;
-  color:rgba(255,255,255,.15);
-  font-size:.78rem;
-  letter-spacing:1px;
-}
+
+/* NUEVA BARRA DE DAÑO */
 .equipo-dmg-bar{
-  width:160px;flex-shrink:0;
-  display:flex;flex-direction:column;align-items:center;gap:5px;
+  width:200px;flex-shrink:0;
+  display:flex;flex-direction:column;align-items:center;gap:6px;
 }
-.dmg-percent{font-size:1.3rem;font-weight:900;color:var(--gold);}
-.dmg-number{font-size:.75rem;color:rgba(255,255,255,.45);}
+.dmg-top-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+}
+.dmg-percent{
+  font-size:1.3rem;font-weight:900;color:var(--gold);
+}
+.dmg-number{
+  font-size:1.4rem;font-weight:900;color:#fff;
+  line-height:1;
+}
+.dmg-number small {
+  font-size:0.7rem;
+  font-weight:600;
+  color:rgba(255,255,255,0.5);
+  margin-left:4px;
+}
 .bar-bg{width:100%;height:8px;background:rgba(255,255,255,.07);border-radius:4px;overflow:hidden;}
 .bar-fill{height:100%;background:linear-gradient(90deg,var(--cyan),var(--violet));border-radius:4px;}
 
-/* Tarjetas de personajes (más grandes y nítidas) */
+/* Tarjetas de personajes */
 .eq-card{
   width:105px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);
   border-radius:10px;overflow:hidden;display:flex;flex-direction:column;flex-shrink:0;
@@ -192,8 +200,19 @@
     max-width: 400px;
   }
   .equipo-card{flex-wrap:wrap;}
-  .equipo-extra{display:none;}
-  .equipo-dmg-bar{width:100%;flex-direction:row;justify-content:space-between;align-items:center;}
+  .equipo-dmg-bar{
+    width:100%;
+    flex-direction:row;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+  }
+  .dmg-top-row {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 10px;
+    width: auto;
+  }
   .bar-bg{flex:1;margin:0 8px;}
   .eq-card{width:84px;}
   .eq-card-art{height:66px;}
@@ -367,11 +386,12 @@ function renderEquipos(equipos) {
       <div class="equipo-card">
         <div class="equipo-num">#${idx + 1}</div>
         <div class="equipo-chars">${charsHTML}</div>
-        <div class="equipo-extra"><!-- espacio libre --></div>
         <div class="equipo-dmg-bar">
-          <div class="dmg-percent" style="color:${relativo > 0 ? '#69f0ae' : (relativo < 0 ? '#ff5252' : 'var(--gold)')}">${signo}${relativo}%</div>
+          <div class="dmg-top-row">
+            <span class="dmg-percent" style="color:${relativo > 0 ? '#69f0ae' : (relativo < 0 ? '#ff5252' : 'var(--gold)')}">${signo}${relativo}%</span>
+            <span class="dmg-number">${equipo.dmg.toLocaleString()}<small>DMG</small></span>
+          </div>
           <div class="bar-bg"><div class="bar-fill" style="width:${barWidth}%"></div></div>
-          <div class="dmg-number">${equipo.dmg.toLocaleString()} DMG</div>
         </div>
       </div>`;
   }).join('');
