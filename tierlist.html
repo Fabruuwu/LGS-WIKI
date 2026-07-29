@@ -57,7 +57,7 @@
   display: flex;
   flex-direction: column;
   transition: transform .2s, box-shadow .2s;
-  cursor: pointer; /* cambio para indicar clickeable */
+  cursor: pointer;
 }
 .tl-card:hover {
   transform: translateY(-3px);
@@ -128,7 +128,7 @@
 .tl-modal-overlay.open { opacity: 1; pointer-events: all; }
 
 .tl-modal-card {
-  width: 560px;                     /* más ancho */
+  width: 560px;
   max-width: 96vw;
   background: #0f0f24;
   border: 1px solid rgba(155,89,245,.4);
@@ -198,7 +198,7 @@
 
 .tl-modal-body-row .tl-modal-img {
   flex: 1;
-  height: 420px;                   /* más alto que antes (350px) */
+  height: 420px;
   min-height: 300px;
   position: relative;
 }
@@ -227,7 +227,6 @@
 }
 
 .tl-modal-name {
-  /* ahora usamos .tl-modal-header como título, así que este sobra pero lo dejamos por compatibilidad */
   display: none;
 }
 
@@ -235,10 +234,8 @@
 @media(max-width:700px){
   .tierlist-wrap{padding:90px 12px 40px;}
 
-  /* Ocultamos la cabecera de columnas */
   .tl-header { display: none; }
 
-  /* Fila: ahora es un bloque contenedor del tier */
   .tl-row {
     display: block;
     border: 1px solid rgba(255,255,255,.1);
@@ -248,7 +245,6 @@
     background: rgba(255,255,255,.02);
   }
 
-  /* Tier: título grande centrado */
   .tl-tier {
     display: block;
     text-align: center;
@@ -260,7 +256,6 @@
     font-weight: 900;
   }
 
-  /* Celda: una por categoría, apiladas */
   .tl-cell {
     display: flex;
     flex-wrap: wrap;
@@ -273,7 +268,6 @@
   }
   .tl-cell:last-child { border-bottom: none; }
 
-  /* Etiqueta del rol (sale del data-rol) */
   .tl-cell::before {
     content: attr(data-rol);
     display: block;
@@ -286,7 +280,6 @@
     text-transform: uppercase;
   }
 
-  /* Tarjetas más anchas y centradas */
   .tl-card {
     width: calc(50% - 8px);
     max-width: 180px;
@@ -295,7 +288,6 @@
   .tl-card-name { font-size: 0.7rem; }
   .tl-card-elname { font-size: 0.6rem; }
 
-  /* Aseguramos que el borde lateral no moleste */
   .tl-cell { border-right: none; }
 }
 </style>
@@ -340,10 +332,11 @@
   </div>
 </div>
 
-<!-- Modal de la tierlist (fuera del flujo principal) -->
+<!-- Modal de la tierlist -->
 <div class="tl-modal-overlay" id="tl-modal-overlay">
   <div class="tl-modal-card">
-    <button class="tl-modal-close" id="tl-modal-close" onclick="closeTierModal()">✕</button>    <div class="tl-modal-header" id="tl-modal-name"></div>
+    <button class="tl-modal-close" id="tl-modal-close" onclick="closeTierModal()">✕</button>
+    <div class="tl-modal-header" id="tl-modal-name"></div>
     <div class="tl-modal-body-row">
       <div class="tl-modal-info" id="tl-modal-info"></div>
       <div class="tl-modal-img">
@@ -358,46 +351,49 @@
 <script src="scripts.js" defer></script>
 <script defer>
 // ════════════════════════════════════════
-// DATOS DE LA TIERLIST
+// DATOS DE LA TIERLIST — VERSIÓN 1.0
 // ════════════════════════════════════════
 const TIERLIST = [
   {
     tier:'T0', cls:'tier-t0',
-    dps:    [ {id:1, img:'Personajes 1.0 De frente/ReyDNSCarta.jpg'} ],
-    subdps: [ {id:4, img:'Personajes 1.0 De frente/HawkCarta.jpg'}, {id:3, img:'Personajes 1.0 De frente/BelleCarta.jpg'} ],
-    supp:   [ {id:3, img:'Personajes 1.0 De frente/BelleCarta.jpg'}, {id:2, img:'Personajes 1.0 De frente/MikiCarta.jpg'} ],
-    sust:   [ {id:25, img:'Personajes 1.0 De frente/EscarlataCarta.jpg'}, {id:13, img:'Personajes 1.0 De frente/PobertoCarta.jpg'} ],
-  },
-  {
-    tier:'T0.5', cls:'tier-t05',
-    dps:    [ {id:5, img:'Personajes 1.0 De frente/FabruCarta.jpg'}, {id:12, img:'Personajes 1.0 De frente/iKaytoCarta.jpg'} ],
-    subdps: [ {id:10, img:'Personajes 1.0 De frente/QuencyCarta.jpg'} ],
-    supp:   [ {id:7, img:'Personajes 1.0 De frente/KyouCarta.jpg'}, {id:19, img:'Personajes 1.0 De frente/RegutaCarta.jpg'} ],
+    dps:    [ {id:1,  img:'Personajes 1.0 De frente/ReyDNSCarta.jpg'} ],
+    subdps: [ {id:3,  img:'Personajes 1.0 De frente/BelleCarta.jpg'} ],
+    supp:   [ {id:19, img:'Personajes 1.0 De frente/RegutaCarta.jpg'},
+              {id:3,  img:'Personajes 1.0 De frente/BelleCarta.jpg'} ],
     sust:   [],
   },
   {
+    tier:'T0.5', cls:'tier-t05',
+    dps:    [ {id:5,  img:'Personajes 1.0 De frente/FabruCarta.jpg'} ],
+    subdps: [],
+    supp:   [],
+    sust:   [ {id:25, img:'Personajes 1.0 De frente/EscarlataCarta.jpg'},
+              {id:13, img:'Personajes 1.0 De frente/PobertoCarta.jpg'} ],
+  },
+  {
     tier:'T1', cls:'tier-t1',
-    dps:    [ {id:9, img:'Personajes 1.0 De frente/CrisCarta.jpg'}, {id:21, img:'Personajes 1.0 De frente/SofiCarta.jpg'}, {id:24, img:'Personajes 1.0 De frente/AlelinCarta.jpg'} ],
-    subdps: [ {id:8, img:'Personajes 1.0 De frente/TtlimCarta.jpg'}, {id:11, img:'Personajes 1.0 De frente/EydisCarta.jpg'}, {id:6, img:'Personajes 1.0 De frente/EugenioCarta.jpg'} ],
-    supp:   [ {id:15, img:'Personajes 1.0 De frente/KoenigCarta.jpg'}, {id:17, img:'Personajes 1.0 De frente/ZenkinCarta.jpg'}, {id:20, img:'Personajes 1.0 De frente/NanaomiCarta.jpg'} ],
+    dps:    [ {id:9,  img:'Personajes 1.0 De frente/CrisCarta.jpg'} ],
+    subdps: [ {id:4,  img:'Personajes 1.0 De frente/HawkCarta.jpg'} ],
+    supp:   [ {id:2,  img:'Personajes 1.0 De frente/MikiCarta.jpg'},
+              {id:7,  img:'Personajes 1.0 De frente/KyouCarta.jpg'} ],
     sust:   [],
   },
   {
     tier:'T1.5', cls:'tier-t15',
-    dps:    [ {id:27, img:'Personajes 1.0 De frente/AlexTMZCarta.jpg'}, {id:28, img:'Personajes 1.0 De frente/KomatoCarta.jpg'} ],
-    subdps: [ {id:22, img:'Personajes 1.0 De frente/ArekuCarta.jpg'}, {id:16, img:'Personajes 1.0 De frente/TakoCarta.jpg'}, {id:14, img:'Personajes 1.0 De frente/YanfeiCarta.jpg'} ],
-    supp:   [ {id:26, img:'Personajes 1.0 De frente/AbrilCarta.jpg'}, {id:23, img:'Personajes 1.0 De frente/HarrietCarta.jpg'} ],
+    dps:    [ {id:12, img:'Personajes 1.0 De frente/iKaytoCarta.jpg'} ],
+    subdps: [ {id:6,  img:'Personajes 1.0 De frente/EugenioCarta.jpg'} ],
+    supp:   [ {id:6,  img:'Personajes 1.0 De frente/EugenioCarta.jpg'} ],
     sust:   [],
   },
   {
     tier:'T2', cls:'tier-t2',
-    dps:    [ {id:18, img:'Personajes 1.0 De frente/DawnCarta.jpg'} ],
-    subdps: [],
-    supp:   [],
+    dps:    [],
+    subdps: [ {id:8,  img:'Personajes 1.0 De frente/TtlimCarta.jpg'},
+              {id:10, img:'Personajes 1.0 De frente/QuencyCarta.jpg'},
+              {id:11, img:'Personajes 1.0 De frente/EydisCarta.jpg'} ],
+    supp:   [ {id:15, img:'Personajes 1.0 De frente/KoenigCarta.jpg'} ],
     sust:   [],
   },
-  { tier:'T2.5', cls:'tier-t25', dps:[], subdps:[], supp:[], sust:[] },
-  { tier:'T3',   cls:'tier-t3',  dps:[], subdps:[], supp:[], sust:[] },
 ];
 
 // ════════════════════════════════════════
@@ -412,7 +408,6 @@ function cardHTML(entry) {
     const artHtml = imgSrc
       ? `<img src="${imgSrc}" alt="${c.name}">`
       : `<div class="tl-card-art-bg" style="background:${GRAD[c.element]};"></div>`;
-    // Agregamos data-atributos para el modal
     return `
       <div class="tl-card" data-id="${c.id}" data-img="${imgSrc || ''}">
         <div class="tl-card-art">
@@ -425,7 +420,6 @@ function cardHTML(entry) {
         </div>
       </div>`;
   }
-  // Placeholder genérico sin id
   const inner = entry.img
     ? `<img src="${entry.img}" alt="">`
     : `<div class="tl-card-art-bg" style="background:rgba(255,255,255,.05);"><span style="color:rgba(255,255,255,.2);">?</span></div>`;
@@ -456,7 +450,6 @@ function renderTierlist() {
 document.addEventListener('DOMContentLoaded', () => {
   renderTierlist();
 
-  // Evento delegado en el cuerpo de la tabla
   document.getElementById('tl-body')?.addEventListener('click', (e) => {
     const card = e.target.closest('.tl-card');
     if (!card) return;
@@ -470,7 +463,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.target === e.currentTarget) closeTierModal();
   });
 
-  // ✅ Cerrar con tecla Escape
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeTierModal();
   });
@@ -484,8 +476,7 @@ function openTierModal(id, imgSrc) {
   const c = CHARS.find(x => x.id === id);
   if (!c) return;
   const el = EC[c.element];
-  
-  // Imagen y badges (ya existentes)
+
   document.getElementById('tl-modal-img').src = imgSrc;
   const elemBadge = document.getElementById('tl-modal-elem');
   elemBadge.style.background = el.color;
@@ -493,7 +484,6 @@ function openTierModal(id, imgSrc) {
   document.getElementById('tl-modal-rarity').innerHTML = stars(c.rarity);
   document.getElementById('tl-modal-name').textContent = c.name;
 
-  // Nueva sección de información a la izquierda
   document.getElementById('tl-modal-info').innerHTML = `
     <div class="info-item">
       <span class="info-label">Rol</span>
