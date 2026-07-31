@@ -14,6 +14,61 @@
   border:1px solid rgba(0,229,255,.35);border-radius:20px;padding:6px 22px;
   font-family:'Cinzel Decorative',cursive;font-size:.78rem;letter-spacing:2px;color:var(--cyan);}
 
+/* ── SELECTOR DE REGIÓN ── */
+.region-selector {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+.region-btn {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 20px;
+  padding: 10px 28px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.8);
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: 'Rajdhani', sans-serif;
+  letter-spacing: 1px;
+}
+.region-btn:hover {
+  background: rgba(155,89,245,0.2);
+  border-color: var(--violet);
+  color: #fff;
+}
+
+/* ── BARRA DE NAVEGACIÓN INTERNA ── */
+.back-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.back-btn {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(155,89,245,0.3);
+  border-radius: 20px;
+  padding: 6px 16px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--violet);
+  cursor: pointer;
+  transition: background 0.2s;
+  font-family: 'Rajdhani', sans-serif;
+  letter-spacing: 1px;
+}
+.back-btn:hover {
+  background: rgba(155,89,245,0.2);
+}
+.active-selection {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.6);
+  font-weight: 600;
+}
+
 /* ── TABLA ── */
 .tl-table{width:100%;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.08);}
 .tl-header{display:grid;grid-template-columns:80px repeat(4,1fr);background:rgba(255,255,255,.05);}
@@ -346,15 +401,34 @@
     <div class="tl-version">Tier List General · V1.0</div>
   </div>
 
-  <div class="tl-table">
-    <div class="tl-header">
-      <div class="tl-header-cell"></div>
-      <div class="tl-header-cell col-dps">⚔️ DPS</div>
-      <div class="tl-header-cell col-subdps">🗡️ Sub-DPS</div>
-      <div class="tl-header-cell col-supp">✨ Soporte</div>
-      <div class="tl-header-cell col-sust">💚 Sustain</div>
+  <!-- SELECTOR DE REGIÓN -->
+  <div id="selector-panel">
+    <div class="region-selector">
+      <button class="region-btn" data-region="0">Región 0</button>
+      <button class="region-btn" data-region="1">Región 1</button>
     </div>
-    <div id="tl-body"></div>
+  </div>
+
+  <!-- BARRA DE NAVEGACIÓN INTERNA -->
+  <div id="nav-bar" style="display: none;">
+    <div class="back-bar">
+      <button class="back-btn" id="back-btn">← Volver a selección</button>
+      <span class="active-selection" id="active-selection-text"></span>
+    </div>
+  </div>
+
+  <!-- TABLA DE TIERLIST (oculta hasta elegir región) -->
+  <div id="tierlist-container" style="display: none;">
+    <div class="tl-table">
+      <div class="tl-header">
+        <div class="tl-header-cell"></div>
+        <div class="tl-header-cell col-dps">⚔️ DPS</div>
+        <div class="tl-header-cell col-subdps">🗡️ Sub-DPS</div>
+        <div class="tl-header-cell col-supp">✨ Soporte</div>
+        <div class="tl-header-cell col-sust">💚 Sustain</div>
+      </div>
+      <div id="tl-body"></div>
+    </div>
   </div>
 </div>
 
@@ -377,9 +451,9 @@
 <script src="scripts.js" defer></script>
 <script defer>
 // ════════════════════════════════════════
-// DATOS DE LA TIERLIST — VERSIÓN 1.0
+// DATOS DE LA TIERLIST — REGIÓN 0
 // ════════════════════════════════════════
-const TIERLIST = [
+const TIERLIST_REGION0 = [
   {
     tier:'T0', cls:'tier-t0',
     dps:    [ {id:1,  img:'Personajes 1.0 De frente/ReyDNSCarta.jpg'} ],
@@ -421,6 +495,9 @@ const TIERLIST = [
     sust:   [],
   },
 ];
+
+// Región 1 vacía por ahora
+const TIERLIST_REGION1 = [];
 
 // ════════════════════════════════════════
 // GLOSARIO DE ETIQUETAS
@@ -530,10 +607,14 @@ function cellHTML(chars) {
   return chars.map(c => cardHTML(c)).join('');
 }
 
-function renderTierlist() {
+function renderTierlist(tierlistData) {
   const body = document.getElementById('tl-body');
   if (!body) return;
-  body.innerHTML = TIERLIST.map(row => `
+  if (!tierlistData || tierlistData.length === 0) {
+    body.innerHTML = '<p style="text-align:center; color:rgba(255,255,255,0.4);">No hay datos para esta región todavía.</p>';
+    return;
+  }
+  body.innerHTML = tierlistData.map(row => `
     <div class="tl-row">
       <div class="tl-tier ${row.cls}">${row.tier}</div>
       <div class="tl-cell" data-rol="DPS">${cellHTML(row.dps)}</div>
@@ -556,8 +637,43 @@ function generateTagsHTML(tags, tipo) {
 // MODAL DE LA TIERLIST
 // ════════════════════════════════════════
 document.addEventListener('DOMContentLoaded', () => {
-  renderTierlist();
+  const selectorPanel = document.getElementById('selector-panel');
+  const navBar = document.getElementById('nav-bar');
+  const tierlistContainer = document.getElementById('tierlist-container');
+  const activeText = document.getElementById('active-selection-text');
+  const backBtn = document.getElementById('back-btn');
 
+  let currentRegion = null;
+
+  // Eventos en botones de región
+  document.querySelectorAll('.region-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const region = btn.dataset.region;
+      currentRegion = region;
+      activeText.textContent = `Región ${region}`;
+
+      selectorPanel.style.display = 'none';
+      navBar.style.display = 'block';
+      tierlistContainer.style.display = 'block';
+
+      if (region === '0') {
+        renderTierlist(TIERLIST_REGION0);
+      } else {
+        renderTierlist(TIERLIST_REGION1);
+      }
+    });
+  });
+
+  // Botón Volver
+  backBtn.addEventListener('click', () => {
+    selectorPanel.style.display = 'block';
+    navBar.style.display = 'none';
+    tierlistContainer.style.display = 'none';
+    document.getElementById('tl-body').innerHTML = '';
+    currentRegion = null;
+  });
+
+  // Modal de personaje
   document.getElementById('tl-body')?.addEventListener('click', (e) => {
     const card = e.target.closest('.tl-card');
     if (!card) return;

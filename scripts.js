@@ -23,7 +23,7 @@ const CHARS=[
 // ── Personajes existentes (1-9) ──
 {
     id:1, name:'ReyDNS', tagline:'"El Gatillo del Servidor"',
-    element:'fuego', rarity:5, role:'Main DPS', paradigma:'Paradigma del Flood',
+    element:'fuego', role:'Main DPS', paradigma:'Paradigma del Flood',
     art: 'Personajes 1.0 - tanda 2/ReyDNS.jpg',
     stats:{
       'PV MAX': { lvl1:45, lvl99:650 },
@@ -54,7 +54,7 @@ const CHARS=[
 },
 {
     id:2, name:'Miki', tagline:'"Nada escapa del tarjetón... ni de mi Furina C6"',
-    element:'caos', rarity:5, role:'Soporte / Control', paradigma:'Paradigma del Legado',
+    element:'caos', role:'Soporte / Control', paradigma:'Paradigma del Legado',
     art: 'Personajes 1.0 - tanda 2/Miki.png',
     stats:{
       'PV MAX': { lvl1:50, lvl99:650 },
@@ -85,7 +85,7 @@ const CHARS=[
 },
 {
     id:4, name:'Hawk', tagline:'"Shhh... No pienses. Solo obedece."',
-    element:'caos', rarity:5, role:'SubDPS / Debuffer', paradigma:'Paradigma del Warn',
+    element:'caos', role:'SubDPS / Debuffer', paradigma:'Paradigma del Warn',
     art: 'Personajes 1.0 - tanda 1/Hawk.png',
     stats:{
       'PV MAX': { lvl1:45, lvl99:600 },
@@ -116,7 +116,7 @@ const CHARS=[
 },
 {
     id:3, name:'Belle', tagline:'"En su presencia los mortales temen"',
-    element:'electro', rarity:5, role:'Sub-DPS / Buffer', paradigma:'Paradigma del Legado',
+    element:'electro', role:'Sub-DPS / Buffer', paradigma:'Paradigma del Legado',
     art: 'Personajes 1.0 - tanda 1/Belle.png',
     stats:{
       'PV MAX': { lvl1:45, lvl99:600 },
@@ -147,7 +147,7 @@ const CHARS=[
 },
 {
     id:5, name:'Fabru', tagline:'"Si el server crashea… es porque él lo hackeó."',
-    element:'electro', rarity:5, role:'Main DPS / Control de Área', paradigma:'Paradigma del Bot (Invocador)',
+    element:'electro', role:'Main DPS / Control de Área', paradigma:'Paradigma del Bot (Invocador)',
     art: 'Personajes 1.0 - tanda 1/Fabru.png',
     stats:{
       'PV MAX': { lvl1:45, lvl99:600 },
@@ -178,7 +178,7 @@ const CHARS=[
 },
 {
     id:6, name:'Eugenio', tagline:'"¡Girando la rueda... y la suerte está echada!"',
-    element:'fuego', rarity:5, role:'Sub-DPS / Buffer (Soporte Ofensivo con RNG)', paradigma:'Paradigma del Giveaway',
+    element:'fuego', role:'Sub-DPS / Buffer (Soporte Ofensivo con RNG)', paradigma:'Paradigma del Giveaway',
     art: 'Personajes 1.0 - tanda 1/Eugenio.png',
     stats:{
       'PV MAX': { lvl1:50, lvl99:650 },
@@ -209,7 +209,7 @@ const CHARS=[
 },
 {
     id:7, name:'Kyou', tagline:'"Sabe más de ti que tú mismo. Y lo usa."',
-    element:'electro', rarity:5, role:'Soporte / Debuffer', paradigma:'Paradigma del Warn',
+    element:'electro', role:'Soporte / Debuffer', paradigma:'Paradigma del Warn',
     art: 'Personajes 1.0 - tanda 2/Kyou.png',
     stats:{
       'PV MAX': { lvl1:50, lvl99:630 },
@@ -240,7 +240,7 @@ const CHARS=[
 },
 {
     id:8, name:'Ttlim', tagline:'"Su espada no hace ruido. Solo deja rosas y un chat vacío."',
-    element:'crio', rarity:5, role:'Sub-DPS / Control', paradigma:'Paradigma del Mute',
+    element:'crio', role:'Sub-DPS / Control', paradigma:'Paradigma del Mute',
     art:'Personajes 1.0 - tanda 2/Ttlim.png',
     stats:{
       'PV MAX': { lvl1:50, lvl99:650 },
@@ -271,7 +271,7 @@ const CHARS=[
 },
 {
     id:9, name:'Cris', tagline:'"No necesita cerrar tickets, los destruye."',
-    element:'fuego', rarity:5, role:'Main DPS', paradigma:'Paradigma del Baneo',
+    element:'fuego', role:'Main DPS', paradigma:'Paradigma del Baneo',
     art:'Personajes 1.0 - tanda 1/Cris.png',
     stats:{
       'PV MAX': { lvl1:45, lvl99:650 },
@@ -303,7 +303,7 @@ const CHARS=[
 // ── NUEVOS PERSONAJES ──
 {
     id:10, name:'Quency', tagline:'"Esquiva tus mensajes y tus ataques. Solo verás pétalos."',
-    element:'aero', rarity:5, role:'SubDPS / Evasión', paradigma:'Paradigma del Timeout',
+    element:'aero', role:'SubDPS / Evasión', paradigma:'Paradigma del Timeout',
     art:'Personajes 1.0 - tanda 2/Quency.png',
     stats:{
       'PV MAX': { lvl1:45, lvl99:600 },
@@ -334,7 +334,7 @@ const CHARS=[
 },
 {
     id:11, name:'Eydis', tagline:'"En el silencio de los templos, ella escribe la sentencia."',
-    element:'celestial', rarity:5, role:'Soporte Ofensivo / SubDPS', paradigma:'Paradigma del Warn',
+    element:'celestial', role:'Soporte Ofensivo / SubDPS', paradigma:'Paradigma del Warn',
     art:'Personajes 1.0 - tanda 1/Eydis.png',
     stats:{
       'PV MAX': { lvl1:50, lvl99:650 },
@@ -365,7 +365,7 @@ const CHARS=[
 },
 {
     id:12, name:'iKayto', tagline:'"En el silencio helado, sus espadas cantan."',
-    element:'crio', rarity:5, role:'Main DPS / AoE', paradigma:'Paradigma del Raid',
+    element:'crio', role:'Main DPS / AoE', paradigma:'Paradigma del Raid',
     art:'Personajes 1.0 - tanda 1/iKayto.png',
     stats:{
       'PV MAX': { lvl1:50, lvl99:600 },
@@ -396,7 +396,7 @@ const CHARS=[
 },
 {
     id:25, name:'Escarlata', tagline:'"Donde su báculo apunta, la noche se llena de esperanza."',
-    element:'celestial', rarity:4, role:'Sanadora / Soporte (Sustain)', paradigma:'Paradigma del Soporte Técnico',
+    element:'celestial', role:'Sanadora / Soporte (Sustain)', paradigma:'Paradigma del Soporte Técnico',
     art:'Personajes 1.0 - tanda 1/Escarlata.png',
     stats:{
       'PV MAX': { lvl1:60, lvl99:800 },
@@ -427,7 +427,7 @@ const CHARS=[
 },
 {
     id:13, name:'Poberto', tagline:'"El conejo no es un peluche... es su guardián."',
-    element:'electro', rarity:4, role:'Tanque / Protector (Sustain)', paradigma:'Paradigma del Escudo',
+    element:'electro', role:'Tanque / Protector (Sustain)', paradigma:'Paradigma del Escudo',
     art:'Personajes 1.0 - tanda 2/Poberto.png',
     stats:{
       'PV MAX': { lvl1:65, lvl99:900 },
@@ -458,7 +458,7 @@ const CHARS=[
 },
 {
     id:15, name:'Koenig', tagline:'"Cuando ella marca el ritmo, todo el server acelera."',
-    element:'aero', rarity:4, role:'Soporte / Batería (Recarga de Energía)', paradigma:'Paradigma del Partner',
+    element:'aero', role:'Soporte / Batería (Recarga de Energía)', paradigma:'Paradigma del Partner',
     art:'Personajes 1.0 - tanda 2/Koenig.png',
     stats:{
       'PV MAX': { lvl1:55, lvl99:700 },
@@ -489,7 +489,7 @@ const CHARS=[
 },
 {
     id:19, name:'Reguta', tagline:'"Diez mil millones por ciento calculado. La victoria es inevitable."',
-    element:'electro', rarity:4, role:'Soporte / Buffer (Batería de Turnos)', paradigma:'Paradigma del Partner',
+    element:'electro', role:'Soporte / Buffer (Batería de Turnos)', paradigma:'Paradigma del Partner',
     art:'Personajes 1.0 - tanda 2/Reguta.png',
     stats:{
       'PV MAX': { lvl1:60, lvl99:750 },
@@ -516,6 +516,193 @@ const CHARS=[
         desc:'Gasta -20 PM y recupera +15 PT.<br>Se aplica el estado <strong>"Mente Brillante"</strong> a sí misma durante 3 turnos (+20% AGILIDAD y +20% Tasa de Carga de PT).' }
     ],
     talentoCore: 'Cálculo Veloz: Al usar "Fórmula de la Velocidad", el aliado objetivo recupera +10 PT adicionales.',
+    rasgoUnico: null
+},
+// ── NUEVOS PERSONAJES SP ──
+{
+    id:16, name:'Ttlim SP', tagline:'"El Caído del Cielo"',
+    element:'electro', role:'Main DPS / Acumulador', paradigma:'Paradigma del Juicio Final',
+    art: 'Personajes 1.1/Ttlim SP.jpg',
+    stats:{
+      'PV MAX': { lvl1:55, lvl99:750 },
+      'PM MAX': { lvl1:20, lvl99:200 },
+      'ATQ': { lvl1:12, lvl99:165 },
+      'DEFENSA': { lvl1:10, lvl99:90 },
+      'ATQ MÁGICO': { lvl1:6, lvl99:55 },
+      'DEF MÁGICA': { lvl1:6, lvl99:55 },
+      'AGILIDAD': { lvl1:13, lvl99:115 },
+      'SUERTE': { lvl1:7, lvl99:80 }
+    },
+    skills:[
+      { icon:'🗡️', name:'Estocada de Luz Azul', tag:'Básico', type:'Nivel 1',
+        flavor:'Daño de Rayo a un enemigo. Aplica Marca del Relámpago (+15% daño de Rayo recibido).',
+        desc:'Recupera +20 PT y +15 PM.<br>Inflige <strong>100% del ATQ</strong> como Daño de Rayo a un enemigo.<br>Aplica <strong>"Marca del Relámpago"</strong> al enemigo durante 2 turnos.' },
+      { icon:'💫', name:'Vórtice de Plumas Eléctricas', tag:'Especial', type:'Nivel 3',
+        flavor:'Daño de Rayo a 3 enemigos. Si tienen la Marca, la consumen para un golpe extra. Obtienes 1 Pluma al usarla.',
+        desc:'Gasta -20 PM y recupera +15 PT.<br>Inflige <strong>180% del ATQ</strong> como Daño de Rayo a 3 enemigos aleatorios.<br>Si el enemigo tiene <strong>"Marca del Relámpago"</strong>, se la consume y el daño aumenta un 40% (simulando el golpe extra).<br>Obtiene 1 acumulación de <strong>"Pluma de Juicio"</strong> (máx. 3).' },
+      { icon:'🌟', name:'Juicio del Firmamento', tag:'Ultimate', type:'Nivel 5',
+        flavor:'Daño de Rayo masivo a todos. Consume las Plumas para potenciar el daño. A más Plumas, más destrucción.',
+        desc:'Gasta -100 PT.<br>Inflige <strong>330% del ATQ</strong> como Daño de Rayo a TODOS los enemigos.<br>El daño aumenta un 20% con 1 <strong>"Pluma de Juicio"</strong>, 40% con 2, y 100% con 3.<br>Consume todas las Plumas al finalizar.' },
+      { icon:'🔥', name:'Alas del Cielo', tag:'Baneo Activo', type:'Nivel 30',
+        flavor:'Autobuff que otorga +25% ATQ y +20% AGI durante 3 turnos.',
+        desc:'Gasta -20 PM y recupera +15 PT.<br>Se aplica el estado <strong>"Alas del Cielo"</strong> a sí mismo durante 3 turnos.<br>Efecto: +25% ATQ y +20% AGILIDAD.' }
+    ],
+    talentoCore: 'Cóndor de la Tormenta: Cada "Pluma de Juicio" (máx. 3) otorga +6% de ATQ. Se obtienen al usar el Ataque Especial.',
+    rasgoUnico: null
+},
+{
+    id:17, name:'Yanfei', tagline:'"La Abogada del Fuego"',
+    element:'fuego', role:'Main DPS / Acumulador', paradigma:'Paradigma del Juicio',
+    art: 'Personajes 1.1/Yanfei.jpg',
+    stats:{
+      'PV MAX': { lvl1:50, lvl99:700 },
+      'PM MAX': { lvl1:20, lvl99:200 },
+      'ATQ': { lvl1:11, lvl99:155 },
+      'DEFENSA': { lvl1:8, lvl99:80 },
+      'ATQ MÁGICO': { lvl1:6, lvl99:55 },
+      'DEF MÁGICA': { lvl1:6, lvl99:55 },
+      'AGILIDAD': { lvl1:12, lvl99:110 },
+      'SUERTE': { lvl1:7, lvl99:75 }
+    },
+    skills:[
+      { icon:'🗡️', name:'Martillo de la Ley', tag:'Básico', type:'Nivel 1',
+        flavor:'Daño de Fuego a un enemigo. Acumula 1 Evidencia. El daño escala +8% por Evidencia.',
+        desc:'Recupera +20 PT y +15 PM.<br>Inflige <strong>100% del ATQ</strong> como Daño de Fuego a un enemigo.<br>Aumenta el daño un 8% por cada <strong>"Evidencia"</strong> acumulada (máx. 3).<br>Obtiene 1 acumulación de <strong>"Evidencia"</strong>.' },
+      { icon:'💫', name:'Alegato Ardiente', tag:'Especial', type:'Nivel 3',
+        flavor:'Daño de Fuego a 3 enemigos. Si tiene 2+ Evidencias, aplica Quemadura (8% PV Max por turno). Consume todas las Evidencias al finalizar.',
+        desc:'Gasta -20 PM y recupera +15 PT.<br>Inflige <strong>160% del ATQ</strong> como Daño de Fuego a 3 enemigos aleatorios.<br>El daño aumenta un 25% por cada <strong>"Evidencia"</strong> acumulada.<br>Si tiene 2+ Evidencias, aplica <strong>"Quemadura"</strong> (8% PV Máx. por turno, 2 turnos).<br>Consume todas las Evidencias.' },
+      { icon:'🌟', name:'Sentencia Inapelable', tag:'Ultimate', type:'Nivel 5',
+        flavor:'Daño de Fuego a todos. Aplica Sentencia (-20% DEF, -15% AGI). Si ya la tenía, la extiende a 3 turnos.',
+        desc:'Gasta -100 PT.<br>Inflige <strong>300% del ATQ</strong> como Daño de Fuego a TODOS los enemigos.<br>Si tiene al menos 1 <strong>"Evidencia"</strong>, el daño aumenta un 30% (no consume las Evidencias).<br>Aplica <strong>"Sentencia"</strong> (-20% DEF, -15% AGI, 2 turnos). Si el enemigo ya la tenía, aplica <strong>"Sentencia Extendida"</strong> (3 turnos).' },
+      { icon:'🔥', name:'Fuego del Juicio', tag:'Baneo Activo', type:'Nivel 30',
+        flavor:'Autobuff (+20% ATQ, +15% AGI, 3 turnos) y obtienes 1 Evidencia.',
+        desc:'Gasta -20 PM y recupera +15 PT.<br>Se aplica el estado <strong>"Fuego del Juicio"</strong> a sí misma durante 3 turnos (+20% ATQ, +15% AGI).<br>Obtiene 1 acumulación de <strong>"Evidencia"</strong>.' }
+    ],
+    talentoCore: 'Código Penal: Las Evidencias (máx. 3) potencian sus ataques. Se acumulan con el Ataque Básico y el Baneo Activo, y se consumen con el Ataque Especial.',
+    rasgoUnico: null
+},
+{
+    id:18, name:'Tako', tagline:'"El Mago Urbano"',
+    element:'electro', role:'Sub-DPS / Control', paradigma:'Paradigma del Glitch',
+    art: 'Personajes 1.1/Tako.jpg',
+    stats:{
+      'PV MAX': { lvl1:50, lvl99:720 },
+      'PM MAX': { lvl1:20, lvl99:190 },
+      'ATQ': { lvl1:10, lvl99:140 },
+      'DEFENSA': { lvl1:8, lvl99:80 },
+      'ATQ MÁGICO': { lvl1:7, lvl99:60 },
+      'DEF MÁGICA': { lvl1:6, lvl99:55 },
+      'AGILIDAD': { lvl1:13, lvl99:120 },
+      'SUERTE': { lvl1:6, lvl99:70 }
+    },
+    skills:[
+      { icon:'🗡️', name:'Orbe de Runa Azul', tag:'Básico', type:'Nivel 1',
+        flavor:'Daño de Rayo a un enemigo. Aplica Marca Rúnica (-15% DEF). El daño escala con los Ositos.',
+        desc:'Recupera +20 PT y +15 PM.<br>Inflige <strong>100% del ATQ</strong> como Daño de Rayo a un enemigo.<br>Aplica <strong>"Marca Rúnica"</strong> al enemigo durante 2 turnos.<br>El daño aumenta un 5% por cada <strong>"Osito de Peluche"</strong> (máx. 3).' },
+      { icon:'💫', name:'Ráfaga de Runas', tag:'Especial', type:'Nivel 3',
+        flavor:'Daño de Rayo a 3 enemigos. Consume la Marca para Aturdir y aplicar un debuff. Suma ositos por cada marca consumida.',
+        desc:'Gasta -20 PM y recupera +15 PT.<br>Inflige <strong>180% del ATQ</strong> como Daño de Rayo a 3 enemigos aleatorios.<br>Si el enemigo tiene <strong>"Marca Rúnica"</strong>, se la consume y aplica <strong>"Aturdimiento"</strong> (1 turno) y <strong>"Atadura Rúnica"</strong> (+15% daño recibido, 2 turnos).<br>El daño de este golpe aumenta un 30%.<br>Obtiene acumulaciones de <strong>"Osito de Peluche"</strong> por cada Marca consumida (máx. 3).' },
+      { icon:'🌟', name:'Liberación del Portal', tag:'Ultimate', type:'Nivel 5',
+        flavor:'Daño de Rayo masivo a todos. Aplica Marca y Atadura Rúnica. El daño escala con los Ositos (los consume al final).',
+        desc:'Gasta -100 PT.<br>Inflige <strong>320% del ATQ</strong> como Daño de Rayo a TODOS los enemigos.<br>El daño aumenta un 15% por cada <strong>"Osito de Peluche"</strong> (máx. +45%).<br>Aplica <strong>"Marca Rúnica"</strong> y <strong>"Atadura Rúnica"</strong> a todos los enemigos durante 2 turnos.<br>Consume todos los Ositos al finalizar.' },
+      { icon:'🔥', name:'Técnica del Osito', tag:'Baneo Activo', type:'Nivel 30',
+        flavor:'Autobuff que otorga +20% ATQ y +15% AGI durante 3 turnos.',
+        desc:'Gasta -20 PM y recupera +15 PT.<br>Se aplica el estado <strong>"Técnica del Osito"</strong> a sí mismo durante 3 turnos (+20% ATQ, +15% AGI).' }
+    ],
+    talentoCore: 'Compañero de Peluche: Cada "Osito de Peluche" (máx. 3) otorga +5% de Daño de Rayo. Se obtienen al consumir Marcas con el Ataque Especial.',
+    rasgoUnico: null
+},
+{
+    id:19, name:'Dawn', tagline:'"La Doncella del Invierno"',
+    element:'crio', role:'Sub-DPS / Control', paradigma:'Paradigma de la Escarcha Rúnica',
+    art: 'Personajes 1.1/Dawn.jpg',
+    stats:{
+      'PV MAX': { lvl1:45, lvl99:800 },
+      'PM MAX': { lvl1:18, lvl99:195 },
+      'ATQ': { lvl1:9, lvl99:160 },
+      'DEFENSA': { lvl1:7, lvl99:90 },
+      'ATQ MÁGICO': { lvl1:11, lvl99:180 },
+      'DEF MÁGICA': { lvl1:6, lvl99:85 },
+      'AGILIDAD': { lvl1:10, lvl99:110 },
+      'SUERTE': { lvl1:5, lvl99:75 }
+    },
+    skills:[
+      { icon:'🗡️', name:'Filo de Escarcha', tag:'Básico', type:'Nivel 1',
+        flavor:'Daño de Hielo a un enemigo. Aplica Marca de Escarcha (-15% DEF).',
+        desc:'Recupera +20 PT y +15 PM.<br>Inflige <strong>100% del ATQ</strong> como Daño de Hielo a un enemigo.<br>Aplica <strong>"Marca de Escarcha"</strong> al enemigo durante 2 turnos (-15% DEF).' },
+      { icon:'💫', name:'Círculo Rúnico Helado', tag:'Especial', type:'Nivel 3',
+        flavor:'Daño de Hielo a 3 enemigos. Consume la Marca para congelar al enemigo y otorga acumulaciones de poder a Dawn.',
+        desc:'Gasta -20 PM y recupera +15 PT.<br>Inflige <strong>150% del ATQ</strong> como Daño de Hielo a 3 enemigos aleatorios.<br>Si el enemigo tiene <strong>"Marca de Escarcha"</strong>, se la consume y aplica <strong>"Congelación"</strong> (1 turno).<br>Por cada Marca consumida, Dawn obtiene 1 acumulación de <strong>"Runa de Invierno"</strong> (máx. 3).' },
+      { icon:'🌟', name:'Tempestad de Cristal', tag:'Ultimate', type:'Nivel 5',
+        flavor:'Daño de Hielo masivo a todos los enemigos. El daño aumenta drásticamente con las Runas de Invierno acumuladas, y luego las consume.',
+        desc:'Gasta -100 PT.<br>Inflige <strong>280% del ATQ</strong> como Daño de Hielo a TODOS los enemigos.<br>El daño aumenta un 20% por cada <strong>"Runa de Invierno"</strong> (máx. +60%).<br>Aplica <strong>"Marca de Escarcha"</strong> y <strong>"Fragilidad Helada"</strong> (+15% daño Hielo recibido, 2 turnos) a todos los enemigos.<br>Consume todas las Runas.' },
+      { icon:'🔥', name:'Manto de Hielo', tag:'Baneo Activo', type:'Nivel 30',
+        flavor:'Autobuff que otorga +20% de ATQ MÁGICO y +15% de DEFENSA durante 3 turnos.',
+        desc:'Gasta -20 PM y recupera +15 PT.<br>Se aplica el estado <strong>"Manto de Hielo"</strong> a sí misma durante 3 turnos (+20% ATQ MÁGICO, +15% DEF).' }
+    ],
+    talentoCore: 'Heredera de las Runas de Invierno: Cada "Runa de Invierno" (máx. 3) otorga +6% de Daño de Hielo. Se obtienen al consumir Marcas con el Ataque Especial.',
+    rasgoUnico: null
+},
+{
+    id:20, name:'Sofftsu', tagline:'"El Guardián Invernal"',
+    element:'crio', role:'Sustain (Tanque / Escudador)', paradigma:'Paradigma del Muro de Escarcha',
+    art: 'Personajes 1.1/Sofftsu.jpg',
+    stats:{
+      'PV MAX': { lvl1:65, lvl99:920 },
+      'PM MAX': { lvl1:14, lvl99:180 },
+      'ATQ': { lvl1:7, lvl99:100 },
+      'DEFENSA': { lvl1:14, lvl99:250 },
+      'ATQ MÁGICO': { lvl1:5, lvl99:60 },
+      'DEF MÁGICA': { lvl1:12, lvl99:210 },
+      'AGILIDAD': { lvl1:6, lvl99:70 },
+      'SUERTE': { lvl1:6, lvl99:80 }
+    },
+    skills:[
+      { icon:'🗡️', name:'Estocada de Hielo', tag:'Básico', type:'Nivel 1',
+        flavor:'Daño Físico a un enemigo. Aplica Fractura Helada. El daño escala con las cargas de Escarcha Protectora.',
+        desc:'Recupera +20 PT y +15 PM.<br>Inflige <strong>100% del ATQ</strong> como Daño de Hielo a un enemigo.<br>Aplica <strong>"Fractura Helada"</strong> (-10% DEF, -10% AGI, 2 turnos).<br>El daño aumenta un 5% por cada carga de <strong>"Escarcha Protectora"</strong> (máx. +25%).<br>Si se usa como Contraataque, otorga 1 carga de <strong>"Escarcha Protectora"</strong>.' },
+      { icon:'💫', name:'Baluarte Glacial', tag:'Especial', type:'Nivel 3',
+        flavor:'Escudo de hielo para el equipo. Provoca a los enemigos y otorga capacidad de Contraataque para generar cargas.',
+        desc:'Gasta -20 PM y recupera +15 PT.<br>Aplica <strong>"Provocación"</strong> (2 turnos) y 50% de <strong>Contraataque (CNT)</strong> (2 turnos) sobre sí mismo.<br>Otorga a todos los aliados <strong>"Escudo de Hielo"</strong> (2 turnos). La reducción de daño varía según las cargas de <strong>"Escarcha Protectora"</strong>:<br>Nivel 0: -20% | Nivel 1: -25% | Nivel 2: -30% | Nivel 3: -35% | Nivel 4: -40% | Nivel 5: -45%.' },
+      { icon:'🌟', name:'Muralla Perpetua', tag:'Ultimate', type:'Nivel 5',
+        flavor:'Barrera de hielo masiva que protege a todo el equipo y congela a los enemigos.',
+        desc:'Gasta -100 PT.<br>Aplica <strong>"Inmunidad Helada"</strong> a todos los aliados (-50% daño recibido). Dura 2 turnos +1 turno por cada carga de <strong>"Escarcha Protectora"</strong>. Limpia debuffs de los aliados.<br>Aplica <strong>"Congelación"</strong> (1 turno) y <strong>"Marca de Escarcha"</strong> a todos los enemigos.<br>Consume todas las cargas de <strong>"Escarcha Protectora"</strong>.' },
+      { icon:'🔥', name:'Ajuste Táctico', tag:'Baneo Activo', type:'Nivel 30',
+        flavor:'Autobuff que fortalece sus defensas drásticamente.',
+        desc:'Gasta -20 PM y recupera +15 PT.<br>Se aplica el estado <strong>"Ajuste Táctico"</strong> a sí mismo durante 3 turnos (+30% DEF, +20% MDEF).' }
+    ],
+    talentoCore: 'Reflejo del Glaciar: Acumula hasta 5 cargas de "Escarcha Protectora" al contraatacar con su Ataque Básico (gracias a Baluarte Glacial). Mejora el daño básico, los escudos y la duración de la inmunidad.',
+    rasgoUnico: null
+},
+{
+    id:21, name:'Areku', tagline:'"El Hacker del Relámpago"',
+    element:'electro', role:'Main DPS (Unitarget)', paradigma:'Paradigma de la Precisión Digital',
+    art: 'Personajes 1.1/Areku.jpg',
+    stats:{
+      'PV MAX': { lvl1:45, lvl99:780 },
+      'PM MAX': { lvl1:18, lvl99:195 },
+      'ATQ': { lvl1:10, lvl99:160 },
+      'DEFENSA': { lvl1:6, lvl99:60 },
+      'ATQ MÁGICO': { lvl1:6, lvl99:50 },
+      'DEF MÁGICA': { lvl1:5, lvl99:55 },
+      'AGILIDAD': { lvl1:16, lvl99:220 },
+      'SUERTE': { lvl1:10, lvl99:150 }
+    },
+    skills:[
+      { icon:'🗡️', name:'Análisis de Amenaza', tag:'Básico', type:'Nivel 1',
+        flavor:'Daño de Rayo a un enemigo basado en la Agilidad del usuario. Aplica "Marca de Análisis".',
+        desc:'Recupera +20 PT y +15 PM.<br>Inflige <strong>100% de la AGI</strong> como Daño de Rayo a un enemigo.<br>Aplica <strong>"Marca de Análisis"</strong> al objetivo durante 3 turnos (-15% DEF, +20% daño de Rayo recibido).' },
+      { icon:'💫', name:'Corte de Precisión', tag:'Especial', type:'Nivel 3',
+        flavor:'Ataque rápido de Rayo a un enemigo. Si el objetivo tiene la Marca, el daño se triplica.',
+        desc:'Gasta -20 PM y recupera +15 PT.<br>Inflige <strong>150% de la AGI</strong> como Daño de Rayo a un solo enemigo.<br>Si el enemigo tiene <strong>"Marca de Análisis"</strong>, el daño base se triplica (450% de la AGI).' },
+      { icon:'🌟', name:'Caída del Sistema (Protocolo de Sobrevoltaje)', tag:'Ultimate', type:'Nivel 5',
+        flavor:'Descarga de Rayo masiva sobre un único enemigo. Su daño escala con la Agilidad y la Marca lo potencia aún más.',
+        desc:'Gasta -100 PT.<br>Inflige <strong>250% de la AGI</strong> como Daño de Rayo a un solo enemigo.<br>Tasa de Crítico Base del 50%.<br>Si el enemigo tiene <strong>"Marca de Análisis"</strong>, el daño total aumenta un 30% adicional (no consume la Marca).' },
+      { icon:'🔥', name:'Sobrecarga de Procesador', tag:'Baneo Activo', type:'Nivel 30',
+        flavor:'Autobuff que acelera su sistema al límite, aumentando su Velocidad y tasa de críticos.',
+        desc:'Gasta -20 PM y recupera +15 PT.<br>Aplica el estado <strong>"Sobrecarga de Procesador"</strong> sobre sí mismo durante 3 turnos (+30% AGILIDAD, +30% Tasa de Crítico).' }
+    ],
+    talentoCore: 'Motores de Combate Digital: Estado permanente "Optimización de Hardware". +15% AGI, +15% Tasa de Crítico, -10% DEF, -10% MDEF.',
     rasgoUnico: null
 }
 ];
@@ -545,8 +732,6 @@ function closeMenu(){
 }
 
 // ── Personajes ──
-function stars(n){return'⭐'.repeat(n);}
-
 function renderCards(){
   const grid=document.getElementById('chars-grid');
   if(!grid) return;
@@ -565,11 +750,11 @@ function renderCards(){
     const artHtml=c.art
       ?`<img src="${c.art}" alt="${c.name}">`
       :`<div class="card-art-bg" style="${GRAD[c.element]}"></div>`;
-    return`<div class="char-card" data-rarity="${c.rarity}" onclick="openChar(${c.id})">
+    return`<div class="char-card" onclick="openChar(${c.id})">
       <div class="card-art">
         ${artHtml}
         <div class="elem-badge" style="background:${el.color};box-shadow:0 0 9px ${el.color}"></div>
-        <div class="rarity-badge">${stars(c.rarity)}</div>
+        <!-- Se eliminó rarity-badge -->
       </div>
       <div class="card-footer">
         <div class="card-name">${c.name}</div>
@@ -639,7 +824,7 @@ function openChar(id){
         <div class="modal-tagline">${c.tagline}</div>
         <div class="modal-badges">
           <div class="mbadge"><div class="mbadge-dot" style="background:${el.color};box-shadow:0 0 7px ${el.color}"></div>${el.label}</div>
-          <div class="mbadge mbadge-rarity">${stars(c.rarity)}</div>
+          <!-- Se eliminó mbadge-rarity -->
           <div class="mbadge mbadge-role">${c.role}</div>
           <div class="mbadge mbadge-paradigma">📘 ${c.paradigma}</div>
         </div>
@@ -748,7 +933,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 const EFFECT_TOOLTIPS = {
   // ReyDNS
   "Bala de Ban": "Estado acumulable (máx. 3). Potencia sus propias habilidades aumentando drásticamente el daño y duración de efectos a cambio de consumir una carga.",
-  "Quemadura": "Daño periódico de Fuego al inicio del turno enemigo (1.3% de sus PV Máx.). Dura 2 turnos (3 si se potencia).",
+  "Quemadura": "Daño periódico de Fuego al inicio del turno enemigo. La cantidad varía según el personaje.",
 
   // Miki
   "Slow-Log": "Reduce AGILIDAD (-20%) y ATQ (-10%). Al inicio de su turno, el enemigo pierde un 0.5% de sus PV Máx. como daño periódico. Dura 2 turnos.",
@@ -834,5 +1019,40 @@ const EFFECT_TOOLTIPS = {
   // Reguta
   "Fórmula de la Velocidad": "Otorga +25% AGILIDAD y +20% ATQ a un aliado durante 2 turnos.",
   "Eureka": "Limpia debuffs, +30% ATQ y otorga una acción adicional (doble turno) durante 1 turno.",
-  "Mente Brillante": "Autobuff: +20% AGILIDAD y +20% Tasa de Carga de PT durante 3 turnos."
+  "Mente Brillante": "Autobuff: +20% AGILIDAD y +20% Tasa de Carga de PT durante 3 turnos.",
+
+  // Ttlim SP
+  "Marca del Relámpago": "Aumenta el Daño de Rayo recibido por el enemigo en un 15% durante 2 turnos.",
+  "Pluma de Juicio": "Acumulación (máx. 3). Otorga +6% de ATQ cada una. Se obtienen con el Ataque Especial y se consumen con la Ultimate.",
+  "Alas del Cielo": "Autobuff: +25% ATQ y +20% AGILIDAD durante 3 turnos.",
+
+  // Yanfei
+  "Evidencia": "Acumulación (máx. 3). Aumenta el daño de sus habilidades. Se obtienen con el Ataque Básico y el Baneo, y se consumen con el Ataque Especial.",
+  "Sentencia": "Reduce un 20% la DEF y un 15% la AGI del enemigo. Dura 2 turnos.",
+  "Sentencia Extendida": "Reduce un 20% la DEF y un 15% la AGI del enemigo. Dura 3 turnos.",
+  "Fuego del Juicio": "Autobuff: +20% ATQ y +15% AGILIDAD durante 3 turnos.",
+
+  // Tako
+  "Marca Rúnica": "Reduce la DEF del enemigo en un 15% durante 2 turnos.",
+  "Osito de Peluche": "Acumulación (máx. 3). Otorga +5% de Daño de Rayo cada una. Se obtienen al consumir Marcas con el Ataque Especial.",
+  "Atadura Rúnica": "Aumenta el daño recibido por el enemigo en un 15% durante 2 turnos.",
+  "Técnica del Osito": "Autobuff: +20% ATQ y +15% AGILIDAD durante 3 turnos.",
+
+  // Dawn
+  "Marca de Escarcha": "Reduce la DEF del enemigo en un 15% durante 2 turnos.",
+  "Runa de Invierno": "Acumulación (máx. 3). Otorga +6% de Daño de Hielo cada una. Se obtienen al consumir Marcas con el Ataque Especial.",
+  "Fragilidad Helada": "Aumenta el daño de Hielo recibido por el enemigo en un 15% durante 2 turnos.",
+  "Manto de Hielo": "Autobuff: +20% ATQ MÁGICO y +15% DEF durante 3 turnos.",
+
+  // Sofftsu
+  "Fractura Helada": "Reduce un 10% la DEF y un 10% la AGI del enemigo durante 2 turnos.",
+  "Escarcha Protectora": "Acumulación (máx. 5). Mejora el daño básico, el nivel de sus escudos y la duración de su Inmunidad. Se obtiene al contraatacar.",
+  "Provocación": "Obliga a los enemigos a atacar al portador. Dura 2 turnos.",
+  "Escudo de Hielo": "Reduce el daño recibido por el equipo en un porcentaje variable según el nivel (Nv.0: -20%, Nv.5: -45%). Dura 2 turnos.",
+  "Inmunidad Helada": "Reduce el daño recibido por el equipo en un 50%. La duración base es de 2 turnos +1 turno por cada carga de Escarcha Protectora. Limpia estados negativos al aplicarse.",
+  "Ajuste Táctico": "Autobuff: +30% DEF y +20% MDEF durante 3 turnos.",
+
+  // Areku
+  "Marca de Análisis": "Reduce un 15% la DEF del enemigo y aumenta un 20% el daño de Rayo que recibe. Dura 3 turnos.",
+  "Sobrecarga de Procesador": "Autobuff: +30% AGILIDAD y +30% Tasa de Crítico durante 3 turnos.",
 };
