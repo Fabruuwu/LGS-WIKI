@@ -493,19 +493,27 @@ const TIERLIST_REGION0 = [
 ];
 
 // ════════════════════════════════════════
-// DATOS DE LA TIERLIST — REGIÓN 1
+// DATOS DE LA TIERLIST — REGIÓN 1 (UNIFICADA)
 // ════════════════════════════════════════
 const TIERLIST_REGION1 = [
-  // ── DPS ──
   {
     tier:'T0', cls:'tier-t0',
     dps:    [
       {id:1,  img:'Personajes 1.0 De frente/ReyDNSCarta.jpg'},
       {id:16, img:'Personajes 1.1 De Frente/TtlimSPFrente.jpg'}
     ],
-    subdps: [],
-    supp:   [],
-    sust:   [],
+    subdps: [
+      {id:4,  img:'Personajes 1.0 De frente/HawkCarta.jpg'},
+      {id:3,  img:'Personajes 1.0 De frente/BelleCarta.jpg'}
+    ],
+    supp:   [
+      {id:19, img:'Personajes 1.0 De frente/RegutaCarta.jpg'},
+      {id:2,  img:'Personajes 1.0 De frente/MikiCarta.jpg'}
+    ],
+    sust:   [
+      {id:13, img:'Personajes 1.0 De frente/PobertoCarta.jpg'},
+      {id:25, img:'Personajes 1.0 De frente/EscarlataCarta.jpg'}
+    ],
   },
   {
     tier:'T0.5', cls:'tier-t05',
@@ -513,7 +521,9 @@ const TIERLIST_REGION1 = [
       {id:5,  img:'Personajes 1.0 De frente/FabruCarta.jpg'},
       {id:9,  img:'Personajes 1.0 De frente/CrisCarta.jpg'}
     ],
-    subdps: [],
+    subdps: [
+      {id:22, img:'Personajes 1.1 De Frente/DawnFrente.jpg'}
+    ],
     supp:   [],
     sust:   [],
   },
@@ -523,57 +533,29 @@ const TIERLIST_REGION1 = [
       {id:17, img:'Personajes 1.1 De Frente/YanfeiFrente.jpg'},
       {id:21, img:'Personajes 1.1 De Frente/ArekuFrente.jpg'}
     ],
-    subdps: [],
-    supp:   [],
-    sust:   [],
+    subdps: [
+      {id:18, img:'Personajes 1.1 De Frente/TakoFrente.jpg'}
+    ],
+    supp:   [
+      {id:7,  img:'Personajes 1.0 De frente/KyouCarta.jpg'}
+    ],
+    sust:   [
+      {id:20, img:'Personajes 1.1 De Frente/SofftsuFrente.jpg'}
+    ],
   },
   {
     tier:'T1.5', cls:'tier-t15',
     dps:    [
       {id:12, img:'Personajes 1.0 De frente/iKaytoCarta.jpg'}
     ],
-    subdps: [],
-    supp:   [],
-    sust:   [],
-  },
-  // ── SUB-DPS ──
-  {
-    tier:'T0', cls:'tier-t0',
-    dps:    [],
-    subdps: [
-      {id:4,  img:'Personajes 1.0 De frente/HawkCarta.jpg'},
-      {id:3,  img:'Personajes 1.0 De frente/BelleCarta.jpg'}
-    ],
-    supp:   [],
-    sust:   [],
-  },
-  {
-    tier:'T0.5', cls:'tier-t05',
-    dps:    [],
-    subdps: [
-      {id:22, img:'Personajes 1.1 De Frente/DawnFrente.jpg'}
-    ],
-    supp:   [],
-    sust:   [],
-  },
-  {
-    tier:'T1', cls:'tier-t1',
-    dps:    [],
-    subdps: [
-      {id:18, img:'Personajes 1.1 De Frente/TakoFrente.jpg'}
-    ],
-    supp:   [],
-    sust:   [],
-  },
-  {
-    tier:'T1.5', cls:'tier-t15',
-    dps:    [],
     subdps: [
       {id:6,  img:'Personajes 1.0 De frente/EugenioCarta.jpg'},
       {id:10, img:'Personajes 1.0 De frente/QuencyCarta.jpg'},
       {id:11, img:'Personajes 1.0 De frente/EydisCarta.jpg'}
     ],
-    supp:   [],
+    supp:   [
+      {id:15, img:'Personajes 1.0 De frente/KoenigCarta.jpg'}
+    ],
     sust:   [],
   },
   {
@@ -584,55 +566,6 @@ const TIERLIST_REGION1 = [
     ],
     supp:   [],
     sust:   [],
-  },
-  // ── SOPORTE ──
-  {
-    tier:'T0', cls:'tier-t0',
-    dps:    [],
-    subdps: [],
-    supp:   [
-      {id:19, img:'Personajes 1.0 De frente/RegutaCarta.jpg'},
-      {id:2,  img:'Personajes 1.0 De frente/MikiCarta.jpg'}
-    ],
-    sust:   [],
-  },
-  {
-    tier:'T1', cls:'tier-t1',
-    dps:    [],
-    subdps: [],
-    supp:   [
-      {id:7,  img:'Personajes 1.0 De frente/KyouCarta.jpg'}
-    ],
-    sust:   [],
-  },
-  {
-    tier:'T1.5', cls:'tier-t15',
-    dps:    [],
-    subdps: [],
-    supp:   [
-      {id:15, img:'Personajes 1.0 De frente/KoenigCarta.jpg'}
-    ],
-    sust:   [],
-  },
-  // ── SUSTAIN ──
-  {
-    tier:'T0', cls:'tier-t0',
-    dps:    [],
-    subdps: [],
-    supp:   [],
-    sust:   [
-      {id:13, img:'Personajes 1.0 De frente/PobertoCarta.jpg'},
-      {id:25, img:'Personajes 1.0 De frente/EscarlataCarta.jpg'}
-    ],
-  },
-  {
-    tier:'T1', cls:'tier-t1',
-    dps:    [],
-    subdps: [],
-    supp:   [],
-    sust:   [
-      {id:20, img:'Personajes 1.1 De Frente/SofftsuFrente.jpg'}
-    ],
   },
 ];
 
