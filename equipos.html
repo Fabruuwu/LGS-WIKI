@@ -26,7 +26,7 @@
   font-family:'Cinzel Decorative',cursive;font-size:.78rem;letter-spacing:2px;color:var(--cyan);
 }
 
-/* ── SELECTOR DE ENDGAME / REGIÓN ── */
+/* ── SELECTOR DE REGIÓN ── */
 .selector-grid {
   display: flex;
   flex-wrap: wrap;
@@ -34,9 +34,10 @@
   justify-content: center;
   margin-bottom: 40px;
 }
-.endgame-col {
+.general-col {
   flex: 1;
   min-width: 250px;
+  max-width: 400px;
   background: rgba(20,20,40,0.8);
   border: 1px solid rgba(155,89,245,0.25);
   border-radius: 16px;
@@ -46,7 +47,7 @@
   align-items: center;
   gap: 12px;
 }
-.endgame-title {
+.general-title {
   font-family: 'Cinzel Decorative', cursive;
   font-size: 1.3rem;
   color: var(--gold);
@@ -195,7 +196,7 @@
     flex-direction: column;
     align-items: center;
   }
-  .endgame-col {
+  .general-col {
     width: 100%;
     max-width: 400px;
   }
@@ -246,20 +247,10 @@
   <!-- PANEL DE SELECCIÓN -->
   <div id="selector-panel">
     <div class="selector-grid">
-      <div class="endgame-col">
-        <div class="endgame-title">EndGame 1</div>
-        <button class="region-btn" data-endgame="1" data-region="1.0">Región 1.0</button>
-        <button class="region-btn" data-endgame="1" data-region="1.1">Región 1.1</button>
-      </div>
-      <div class="endgame-col">
-        <div class="endgame-title">EndGame 2</div>
-        <button class="region-btn" data-endgame="2" data-region="1.0">Región 1.0</button>
-        <button class="region-btn" data-endgame="2" data-region="1.1">Región 1.1</button>
-      </div>
-      <div class="endgame-col">
-        <div class="endgame-title">EndGame 3</div>
-        <button class="region-btn" data-endgame="3" data-region="1.0">Región 1.0</button>
-        <button class="region-btn" data-endgame="3" data-region="1.1">Región 1.1</button>
+      <div class="general-col">
+        <div class="general-title">General</div>
+        <button class="region-btn" data-region="1.0">Región 0 (1.0)</button>
+        <button class="region-btn" data-region="1.1">Región 1 (1.1)</button>
       </div>
     </div>
   </div>
@@ -282,9 +273,10 @@
 
 <script defer>
 // ════════════════════════════════════════
-// MAPEO DE CARTAS (Tierlist) POR ID
+// MAPEO DE CARTAS POR ID
 // ════════════════════════════════════════
 const CARTA_IMG = {
+  // Región 0
   1: 'Personajes 1.0 De frente/ReyDNSCarta.jpg',
   2: 'Personajes 1.0 De frente/MikiCarta.jpg',
   3: 'Personajes 1.0 De frente/BelleCarta.jpg',
@@ -300,36 +292,44 @@ const CARTA_IMG = {
   13: 'Personajes 1.0 De frente/PobertoCarta.jpg',
   15: 'Personajes 1.0 De frente/KoenigCarta.jpg',
   19: 'Personajes 1.0 De frente/RegutaCarta.jpg',
-  25: 'Personajes 1.0 De frente/EscarlataCarta.jpg'
+  25: 'Personajes 1.0 De frente/EscarlataCarta.jpg',
+  // Región 1
+  16: 'Personajes 1.1 De Frente/TtlimSPFrente.jpg',
+  17: 'Personajes 1.1 De Frente/YanfeiFrente.jpg',
+  18: 'Personajes 1.1 De Frente/TakoFrente.jpg',
+  20: 'Personajes 1.1 De Frente/SofftsuFrente.jpg',
+  21: 'Personajes 1.1 De Frente/ArekuFrente.jpg',
+  22: 'Personajes 1.1 De Frente/DawnFrente.jpg'
 };
 
 // ════════════════════════════════════════
-// DATOS DE EQUIPOS POR ENDGAME Y REGIÓN
+// DATOS DE EQUIPOS — GENERAL
 // ════════════════════════════════════════
 const DATA_EQUIPOS = {
-  1: {
-    '1.0': [
-      { chars:[1,3,19,13], dmg:183400 },
-      { chars:[5,3,19,25], dmg:168200 },
-      { chars:[9,10,15,13], dmg:114500 },
-      { chars:[12,8,7,25], dmg:112800 },
-      { chars:[1,6,15,25], dmg:106500 },
-      { chars:[5,4,2,13], dmg:98400 },
-      { chars:[9,4,2,25], dmg:91200 },
-      { chars:[12,10,7,13], dmg:87600 },
-      { chars:[1,8,2,25], dmg:82300 },
-      { chars:[5,11,15,13], dmg:74900 }
-    ],
-    '1.1': []
-  },
-  2: {
-    '1.0': [],
-    '1.1': []
-  },
-  3: {
-    '1.0': [],
-    '1.1': []
-  }
+  '1.0': [
+    { chars:[1,3,19,13], dmg:183400 },
+    { chars:[5,3,19,25], dmg:168200 },
+    { chars:[9,10,15,13], dmg:114500 },
+    { chars:[12,8,7,25], dmg:112800 },
+    { chars:[1,6,15,25], dmg:106500 },
+    { chars:[5,4,2,13], dmg:98400 },
+    { chars:[9,4,2,25], dmg:91200 },
+    { chars:[12,10,7,13], dmg:87600 },
+    { chars:[1,8,2,25], dmg:82300 },
+    { chars:[5,11,15,13], dmg:74900 }
+  ],
+  '1.1': [
+    { chars:[16,3,19,13], dmg:198500 },
+    { chars:[1,4,19,25], dmg:185000 },
+    { chars:[21,3,7,13], dmg:146200 },
+    { chars:[17,22,2,25], dmg:127800 },
+    { chars:[5,18,15,20], dmg:109500 },
+    { chars:[9,10,7,13], dmg:95300 },
+    { chars:[12,11,2,25], dmg:88100 },
+    { chars:[1,6,15,13], dmg:81600 },
+    { chars:[5,8,19,20], dmg:73200 },
+    { chars:[9,4,7,25], dmg:68900 }
+  ]
 };
 
 let currentSelection = null;
@@ -400,9 +400,9 @@ function renderEquipos(equipos) {
 }
 
 // ════════════════════════════════════════
-// REGLAS PARA ENDGAME 1 · REGIÓN 1.0
+// REGLAS GENERALES
 // ════════════════════════════════════════
-const REGLAS_ENDGAME1 = `
+const REGLAS_GENERAL = `
   <div class="reglas-box">
     <strong>Reglas:</strong><br>
     1- Los equipos son de máximo 4 integrantes y deberán conformarse por:<br>
@@ -427,19 +427,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelectorAll('.region-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      const endgame = btn.dataset.endgame;
       const region = btn.dataset.region;
-      const equipos = DATA_EQUIPOS[endgame]?.[region] || [];
+      const equipos = DATA_EQUIPOS[region] || [];
 
-      currentSelection = { endgame, region };
-      activeText.textContent = `EndGame ${endgame} · Región ${region}`;
+      currentSelection = { region };
+      activeText.textContent = `General · Región ${region}`;
 
-      // Mostrar reglas solo si es EndGame 1 · Región 1.0
-      if (endgame === '1' && region === '1.0') {
-        reglasContainer.innerHTML = REGLAS_ENDGAME1;
-      } else {
-        reglasContainer.innerHTML = '';
-      }
+      // Mostrar reglas para ambas regiones
+      reglasContainer.innerHTML = REGLAS_GENERAL;
 
       selectorPanel.style.display = 'none';
       navBar.style.display = 'block';

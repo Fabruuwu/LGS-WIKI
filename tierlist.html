@@ -300,11 +300,7 @@
 }
 
 .tl-modal-rarity {
-  position: absolute; top: 10px; right: 10px;
-  background: rgba(0,0,0,.55); border-radius: 12px;
-  padding: 4px 10px; backdrop-filter: blur(4px);
-  color: var(--gold); font-size: 0.9rem;
-  letter-spacing: 2px; z-index: 5;
+  display: none; /* Ocultamos rareza porque ya no se usa */
 }
 
 .tl-modal-name {
@@ -442,7 +438,7 @@
       <div class="tl-modal-img">
         <img id="tl-modal-img" src="" alt="">
         <div class="tl-modal-elem" id="tl-modal-elem"></div>
-        <div class="tl-modal-rarity" id="tl-modal-rarity"></div>
+        <!-- badge de rareza oculto -->
       </div>
     </div>
   </div>
@@ -496,8 +492,149 @@ const TIERLIST_REGION0 = [
   },
 ];
 
-// Región 1 vacía por ahora
-const TIERLIST_REGION1 = [];
+// ════════════════════════════════════════
+// DATOS DE LA TIERLIST — REGIÓN 1
+// ════════════════════════════════════════
+const TIERLIST_REGION1 = [
+  // ── DPS ──
+  {
+    tier:'T0', cls:'tier-t0',
+    dps:    [
+      {id:1,  img:'Personajes 1.0 De frente/ReyDNSCarta.jpg'},
+      {id:16, img:'Personajes 1.1 De Frente/TtlimSPFrente.jpg'}
+    ],
+    subdps: [],
+    supp:   [],
+    sust:   [],
+  },
+  {
+    tier:'T0.5', cls:'tier-t05',
+    dps:    [
+      {id:5,  img:'Personajes 1.0 De frente/FabruCarta.jpg'},
+      {id:9,  img:'Personajes 1.0 De frente/CrisCarta.jpg'}
+    ],
+    subdps: [],
+    supp:   [],
+    sust:   [],
+  },
+  {
+    tier:'T1', cls:'tier-t1',
+    dps:    [
+      {id:17, img:'Personajes 1.1 De Frente/YanfeiFrente.jpg'},
+      {id:21, img:'Personajes 1.1 De Frente/ArekuFrente.jpg'}
+    ],
+    subdps: [],
+    supp:   [],
+    sust:   [],
+  },
+  {
+    tier:'T1.5', cls:'tier-t15',
+    dps:    [
+      {id:12, img:'Personajes 1.0 De frente/iKaytoCarta.jpg'}
+    ],
+    subdps: [],
+    supp:   [],
+    sust:   [],
+  },
+  // ── SUB-DPS ──
+  {
+    tier:'T0', cls:'tier-t0',
+    dps:    [],
+    subdps: [
+      {id:4,  img:'Personajes 1.0 De frente/HawkCarta.jpg'},
+      {id:3,  img:'Personajes 1.0 De frente/BelleCarta.jpg'}
+    ],
+    supp:   [],
+    sust:   [],
+  },
+  {
+    tier:'T0.5', cls:'tier-t05',
+    dps:    [],
+    subdps: [
+      {id:22, img:'Personajes 1.1 De Frente/DawnFrente.jpg'}
+    ],
+    supp:   [],
+    sust:   [],
+  },
+  {
+    tier:'T1', cls:'tier-t1',
+    dps:    [],
+    subdps: [
+      {id:18, img:'Personajes 1.1 De Frente/TakoFrente.jpg'}
+    ],
+    supp:   [],
+    sust:   [],
+  },
+  {
+    tier:'T1.5', cls:'tier-t15',
+    dps:    [],
+    subdps: [
+      {id:6,  img:'Personajes 1.0 De frente/EugenioCarta.jpg'},
+      {id:10, img:'Personajes 1.0 De frente/QuencyCarta.jpg'},
+      {id:11, img:'Personajes 1.0 De frente/EydisCarta.jpg'}
+    ],
+    supp:   [],
+    sust:   [],
+  },
+  {
+    tier:'T2', cls:'tier-t2',
+    dps:    [],
+    subdps: [
+      {id:8,  img:'Personajes 1.0 De frente/TtlimCarta.jpg'}
+    ],
+    supp:   [],
+    sust:   [],
+  },
+  // ── SOPORTE ──
+  {
+    tier:'T0', cls:'tier-t0',
+    dps:    [],
+    subdps: [],
+    supp:   [
+      {id:19, img:'Personajes 1.0 De frente/RegutaCarta.jpg'},
+      {id:2,  img:'Personajes 1.0 De frente/MikiCarta.jpg'}
+    ],
+    sust:   [],
+  },
+  {
+    tier:'T1', cls:'tier-t1',
+    dps:    [],
+    subdps: [],
+    supp:   [
+      {id:7,  img:'Personajes 1.0 De frente/KyouCarta.jpg'}
+    ],
+    sust:   [],
+  },
+  {
+    tier:'T1.5', cls:'tier-t15',
+    dps:    [],
+    subdps: [],
+    supp:   [
+      {id:15, img:'Personajes 1.0 De frente/KoenigCarta.jpg'}
+    ],
+    sust:   [],
+  },
+  // ── SUSTAIN ──
+  {
+    tier:'T0', cls:'tier-t0',
+    dps:    [],
+    subdps: [],
+    supp:   [],
+    sust:   [
+      {id:13, img:'Personajes 1.0 De frente/PobertoCarta.jpg'},
+      {id:25, img:'Personajes 1.0 De frente/EscarlataCarta.jpg'}
+    ],
+  },
+  {
+    tier:'T1', cls:'tier-t1',
+    dps:    [],
+    subdps: [],
+    supp:   [],
+    sust:   [
+      {id:20, img:'Personajes 1.1 De Frente/SofftsuFrente.jpg'}
+    ],
+  },
+];
 
 // ════════════════════════════════════════
 // GLOSARIO DE ETIQUETAS
@@ -548,12 +685,23 @@ const GLOSARIO_TIER = {
   'SUB-DPS': 'Dañador secundario.',
   'RECARGA FORZADA': 'Debe recargar obligatoriamente, perdiendo un turno.',
   'FLEXIBLE': 'Versátil, se adapta a distintas situaciones.',
+  // Nuevas para Región 1
+  'HIGH BURST': 'Capacidad de infligir una cantidad masiva de daño en poco tiempo.',
+  'RESOURCE CONSUMPTION': 'Consume recursos (como acumulaciones) para potenciar sus ataques.',
+  'UNITARGET': 'Especializado en atacar a un solo enemigo.',
+  'HIGH CRIT': 'Alta probabilidad de asestar golpes críticos.',
+  'NO AOE': 'Carece de ataques que afecten a varios enemigos.',
+  'UNITARGET ONLY': 'Todo su kit está diseñado para golpear a un único objetivo.',
+  'OUTCLASSED': 'Ha sido superado por otras versiones o personajes del mismo rol.',
+  'SLOW': 'Baja agilidad, tarda más en actuar.',
+  'PROVOKE': 'Puede forzar a los enemigos a atacarlo.',
 };
 
 // ════════════════════════════════════════
 // FORTALEZAS Y DEBILIDADES POR PERSONAJE
 // ════════════════════════════════════════
 const FORTALEZAS_DEBILIDADES = {
+  // Región 0
   1:  { fortalezas: ['HIGH DMG','SELF BUFF','CRIT GUARANTEED','FLEXIBLE'], debilidades: ['AMMO MANAGEMENT','RECARGA FORZADA','FRAGIL'] },
   2:  { fortalezas: ['DEBUFF','CONTROL','SELF BUFF','TANKY'], debilidades: ['LOW DMG','SETUP REQUIRED','RNG DEPENDENT'] },
   3:  { fortalezas: ['AGI BUFF','ATK BUFF','EXTRA ATK','FUA'], debilidades: ['SQUISHY','RNG DEPENDENT','COMPLEX'] },
@@ -570,6 +718,13 @@ const FORTALEZAS_DEBILIDADES = {
   15: { fortalezas: ['ENERGY','ATK BUFF','AGI BUFF','SIMPLE'], debilidades: ['LOW DMG','SELFISH','NO HEAL'] },
   19: { fortalezas: ['ADVANCE','ENERGY','DMG AMP','DOUBLE TURN'], debilidades: ['FRAGIL','STATS LOW','RNG DEPENDENT'] },
   25: { fortalezas: ['HEAL','SHIELD','PASSIVE HEAL','TANKY'], debilidades: ['NO DMG','ENERGY HUNGRY','REACTIVE'] },
+  // Región 1 - Nuevos personajes
+  16: { fortalezas: ['HIGH BURST','SNOWBALL','SELF BUFF','HIGH DMG'], debilidades: ['SETUP REQUIRED','FRAGIL','COMPLEX'] },
+  17: { fortalezas: ['HIGH BURST','SELF BUFF','DEBUFF'], debilidades: ['RESOURCE CONSUMPTION','INCONSISTENT'] },
+  18: { fortalezas: ['CONTROL','DEBUFF','DMG AMP','SELF BUFF'], debilidades: ['SETUP REQUIRED','COMPLEX','SQUISHY'] },
+  20: { fortalezas: ['SHIELD','PROVOKE','SELF BUFF','TANKY'], debilidades: ['SLOW','COMPLEX','SETUP REQUIRED'] },
+  21: { fortalezas: ['HIGH BURST','UNITARGET','HIGH CRIT'], debilidades: ['NO AOE','SQUISHY','UNITARGET ONLY'] },
+  22: { fortalezas: ['CONTROL','DEBUFF','SNOWBALL','SELF BUFF'], debilidades: ['SETUP REQUIRED','COMPLEX'] },
 };
 
 // ════════════════════════════════════════
@@ -706,7 +861,7 @@ function openTierModal(id, imgSrc) {
   const elemBadge = document.getElementById('tl-modal-elem');
   elemBadge.style.background = el.color;
   elemBadge.style.boxShadow = `0 0 8px ${el.color}`;
-  document.getElementById('tl-modal-rarity').innerHTML = stars(c.rarity);
+  // Se elimina el badge de rareza
   document.getElementById('tl-modal-name').textContent = c.name;
 
   const fortalezasHTML = generateTagsHTML(fd.fortalezas, 'fortaleza');

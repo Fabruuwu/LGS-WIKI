@@ -613,37 +613,6 @@ const CHARS=[
     rasgoUnico: null
 },
 {
-    id:19, name:'Dawn', tagline:'"La Doncella del Invierno"',
-    element:'crio', role:'Sub-DPS / Control', paradigma:'Paradigma de la Escarcha Rúnica',
-    art: 'Personajes 1.1/Dawn.jpg',
-    stats:{
-      'PV MAX': { lvl1:45, lvl99:800 },
-      'PM MAX': { lvl1:18, lvl99:195 },
-      'ATQ': { lvl1:9, lvl99:160 },
-      'DEFENSA': { lvl1:7, lvl99:90 },
-      'ATQ MÁGICO': { lvl1:11, lvl99:180 },
-      'DEF MÁGICA': { lvl1:6, lvl99:85 },
-      'AGILIDAD': { lvl1:10, lvl99:110 },
-      'SUERTE': { lvl1:5, lvl99:75 }
-    },
-    skills:[
-      { icon:'🗡️', name:'Filo de Escarcha', tag:'Básico', type:'Nivel 1',
-        flavor:'Daño de Hielo a un enemigo. Aplica Marca de Escarcha (-15% DEF).',
-        desc:'Recupera +20 PT y +15 PM.<br>Inflige <strong>100% del ATQ</strong> como Daño de Hielo a un enemigo.<br>Aplica <strong>"Marca de Escarcha"</strong> al enemigo durante 2 turnos (-15% DEF).' },
-      { icon:'💫', name:'Círculo Rúnico Helado', tag:'Especial', type:'Nivel 3',
-        flavor:'Daño de Hielo a 3 enemigos. Consume la Marca para congelar al enemigo y otorga acumulaciones de poder a Dawn.',
-        desc:'Gasta -20 PM y recupera +15 PT.<br>Inflige <strong>150% del ATQ</strong> como Daño de Hielo a 3 enemigos aleatorios.<br>Si el enemigo tiene <strong>"Marca de Escarcha"</strong>, se la consume y aplica <strong>"Congelación"</strong> (1 turno).<br>Por cada Marca consumida, Dawn obtiene 1 acumulación de <strong>"Runa de Invierno"</strong> (máx. 3).' },
-      { icon:'🌟', name:'Tempestad de Cristal', tag:'Ultimate', type:'Nivel 5',
-        flavor:'Daño de Hielo masivo a todos los enemigos. El daño aumenta drásticamente con las Runas de Invierno acumuladas, y luego las consume.',
-        desc:'Gasta -100 PT.<br>Inflige <strong>280% del ATQ</strong> como Daño de Hielo a TODOS los enemigos.<br>El daño aumenta un 20% por cada <strong>"Runa de Invierno"</strong> (máx. +60%).<br>Aplica <strong>"Marca de Escarcha"</strong> y <strong>"Fragilidad Helada"</strong> (+15% daño Hielo recibido, 2 turnos) a todos los enemigos.<br>Consume todas las Runas.' },
-      { icon:'🔥', name:'Manto de Hielo', tag:'Baneo Activo', type:'Nivel 30',
-        flavor:'Autobuff que otorga +20% de ATQ MÁGICO y +15% de DEFENSA durante 3 turnos.',
-        desc:'Gasta -20 PM y recupera +15 PT.<br>Se aplica el estado <strong>"Manto de Hielo"</strong> a sí misma durante 3 turnos (+20% ATQ MÁGICO, +15% DEF).' }
-    ],
-    talentoCore: 'Heredera de las Runas de Invierno: Cada "Runa de Invierno" (máx. 3) otorga +6% de Daño de Hielo. Se obtienen al consumir Marcas con el Ataque Especial.',
-    rasgoUnico: null
-},
-{
     id:20, name:'Sofftsu', tagline:'"El Guardián Invernal"',
     element:'crio', role:'Sustain (Tanque / Escudador)', paradigma:'Paradigma del Muro de Escarcha',
     art: 'Personajes 1.1/Sofftsu.jpg',
@@ -705,6 +674,37 @@ const CHARS=[
     talentoCore: 'Motores de Combate Digital: Estado permanente "Optimización de Hardware". +15% AGI, +15% Tasa de Crítico, -10% DEF, -10% MDEF.',
     rasgoUnico: null
 }
+{
+    id:22, name:'Dawn', tagline:'"La Doncella del Invierno"',
+    element:'crio', role:'Sub-DPS / Control', paradigma:'Paradigma de la Escarcha Rúnica',
+    art: 'Personajes 1.1/Dawn.jpg',
+    stats:{
+      'PV MAX': { lvl1:45, lvl99:800 },
+      'PM MAX': { lvl1:18, lvl99:195 },
+      'ATQ': { lvl1:9, lvl99:160 },
+      'DEFENSA': { lvl1:7, lvl99:90 },
+      'ATQ MÁGICO': { lvl1:11, lvl99:180 },
+      'DEF MÁGICA': { lvl1:6, lvl99:85 },
+      'AGILIDAD': { lvl1:10, lvl99:110 },
+      'SUERTE': { lvl1:5, lvl99:75 }
+    },
+    skills:[
+      { icon:'🗡️', name:'Filo de Escarcha', tag:'Básico', type:'Nivel 1',
+        flavor:'Daño de Hielo a un enemigo. Aplica Marca de Escarcha (-15% DEF).',
+        desc:'Recupera +20 PT y +15 PM.<br>Inflige <strong>100% del ATQ</strong> como Daño de Hielo a un enemigo.<br>Aplica <strong>"Marca de Escarcha"</strong> al enemigo durante 2 turnos (-15% DEF).' },
+      { icon:'💫', name:'Círculo Rúnico Helado', tag:'Especial', type:'Nivel 3',
+        flavor:'Daño de Hielo a 3 enemigos. Consume la Marca para congelar al enemigo y otorga acumulaciones de poder a Dawn.',
+        desc:'Gasta -20 PM y recupera +15 PT.<br>Inflige <strong>150% del ATQ</strong> como Daño de Hielo a 3 enemigos aleatorios.<br>Si el enemigo tiene <strong>"Marca de Escarcha"</strong>, se la consume y aplica <strong>"Congelación"</strong> (1 turno).<br>Por cada Marca consumida, Dawn obtiene 1 acumulación de <strong>"Runa de Invierno"</strong> (máx. 3).' },
+      { icon:'🌟', name:'Tempestad de Cristal', tag:'Ultimate', type:'Nivel 5',
+        flavor:'Daño de Hielo masivo a todos los enemigos. El daño aumenta drásticamente con las Runas de Invierno acumuladas, y luego las consume.',
+        desc:'Gasta -100 PT.<br>Inflige <strong>280% del ATQ</strong> como Daño de Hielo a TODOS los enemigos.<br>El daño aumenta un 20% por cada <strong>"Runa de Invierno"</strong> (máx. +60%).<br>Aplica <strong>"Marca de Escarcha"</strong> y <strong>"Fragilidad Helada"</strong> (+15% daño Hielo recibido, 2 turnos) a todos los enemigos.<br>Consume todas las Runas.' },
+      { icon:'🔥', name:'Manto de Hielo', tag:'Baneo Activo', type:'Nivel 30',
+        flavor:'Autobuff que otorga +20% de ATQ MÁGICO y +15% de DEFENSA durante 3 turnos.',
+        desc:'Gasta -20 PM y recupera +15 PT.<br>Se aplica el estado <strong>"Manto de Hielo"</strong> a sí misma durante 3 turnos (+20% ATQ MÁGICO, +15% DEF).' }
+    ],
+    talentoCore: 'Heredera de las Runas de Invierno: Cada "Runa de Invierno" (máx. 3) otorga +6% de Daño de Hielo. Se obtienen al consumir Marcas con el Ataque Especial.',
+    rasgoUnico: null
+},
 ];
 
 let fRarity='all', fElem='all', fSearch='';
