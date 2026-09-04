@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modo Carrera</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="fondo-cancha"></div>
+
+<main class="pantalla" id="pantalla-menu">
+
+  <header class="cabecera">
+    <div class="cabecera__marca">
+      <span class="cabecera__bola">⚽</span>
+      <h1 class="cabecera__titulo">MODO <span>CARRERA</span></h1>
+    </div>
+    <p class="cabecera__sub">Completá la ficha antes de firmar tu primer contrato</p>
+  </header>
+
+  <form id="form-menu" class="tarjeta" novalidate>
+
+    <div class="tarjeta__cabecera">
+      <div>
+        <span class="tarjeta__eyebrow">Paso 01</span>
+        <h2 class="tarjeta__titulo">Tu arranque</h2>
+      </div>
+      <button type="button" class="boton-azar" id="boton-azar">
+        <span class="boton-azar__icono">🎲</span> Al azar
+      </button>
+    </div>
+
+    <!-- NOMBRE + DORSAL -->
+    <div class="fila-nombre">
+      <div class="campo campo--dorsal">
+        <label for="input-dorsal">Dorsal</label>
+        <input type="number" id="input-dorsal" name="dorsal" placeholder="10" min="1" max="99" required>
+      </div>
+
+      <div class="campo campo--nombre">
+        <label for="input-nombre">Nombre del jugador</label>
+        <input type="text" id="input-nombre" name="nombre" placeholder="Escribí tu nombre" maxlength="24" required>
+      </div>
+    </div>
+
+    <!-- DESTINO -->
+    <div class="modulo__grid">
+      <div class="campo campo--pais">
+        <label for="select-pais">Nacionalidad</label>
+        <div class="campo-club__fila">
+          <img id="preview-escudo-pais" class="preview-escudo" alt="" hidden>
+          <select id="select-pais" name="pais" required>
+            <option value="" disabled selected>Elegí...</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="campo campo--pais">
+        <label for="select-liga-pais">País de la liga</label>
+        <div class="campo-club__fila">
+          <img id="preview-escudo-liga-pais" class="preview-escudo" alt="" hidden>
+          <select id="select-liga-pais" name="liga-pais" required>
+            <option value="" disabled selected>Elegí...</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="campo">
+        <label for="select-division">División</label>
+        <select id="select-division" name="division" required disabled>
+          <option value="" disabled selected>—</option>
+        </select>
+      </div>
+
+      <div class="campo campo--club">
+        <label for="select-club">Equipo</label>
+        <div class="campo-club__fila">
+          <img id="preview-escudo" class="preview-escudo" alt="" hidden>
+          <select id="select-club" name="club" required disabled>
+            <option value="" disabled selected>Elegí la división</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- POSICIÓN -->
+    <div class="tarjeta__cabecera tarjeta__cabecera--posicion">
+      <div>
+        <span class="tarjeta__eyebrow">Paso 02</span>
+        <h2 class="tarjeta__titulo">Posición</h2>
+      </div>
+    </div>
+
+    <div class="posiciones" id="grupo-posiciones" role="radiogroup" aria-label="Elegir posición">
+      <button type="button" class="pos-card" data-posicion="delantero" data-dorsal-sugerido="9" role="radio" aria-checked="false">
+        <span class="pos-card__nombre">Delantero</span>
+      </button>
+
+      <button type="button" class="pos-card" data-posicion="enganche" data-dorsal-sugerido="10" role="radio" aria-checked="false">
+        <span class="pos-card__nombre">Enganche</span>
+      </button>
+
+      <button type="button" class="pos-card" data-posicion="central" data-dorsal-sugerido="4" role="radio" aria-checked="false">
+        <span class="pos-card__nombre">Def. Central</span>
+      </button>
+
+      <button type="button" class="pos-card" data-posicion="arquero" data-dorsal-sugerido="1" role="radio" aria-checked="false">
+        <span class="pos-card__nombre">Arquero</span>
+      </button>
+    </div>
+    <input type="hidden" id="input-posicion" name="posicion" required>
+
+    <p class="mensaje-error" id="mensaje-error" hidden></p>
+
+    <button type="submit" class="boton-iniciar">
+      <span class="boton-iniciar__icono">▶</span> Empezar mi carrera
+    </button>
+
+  </form>
+</main>
+
+<!-- ============================================
+     PANTALLA DE JUEGO (HUD)
+     Oculta por defecto. menu.js la muestra al enviar el formulario.
+     ============================================ -->
+<main class="pantalla pantalla--hud" id="pantalla-juego" hidden>
+
+  <div class="tarjeta hud-cabecera">
+
+    <div class="hud-cabecera__izquierda">
+      <div class="hud-cabecera__fila hud-cabecera__fila--top">
+        <img id="hud-bandera" class="hud-bandera" alt="">
+        <span id="hud-nombre" class="hud-nombre">—</span>
+        <span id="hud-promesa-badge" class="hud-promesa-badge" hidden title="Joven Promesa">🌟</span>
+        <span id="hud-dorsal" class="hud-dorsal">#0</span>
+      </div>
+      <div class="hud-cabecera__fila">
+        <span id="hud-club">—</span>
+        <span class="hud-separador">·</span>
+        <span id="hud-año">—</span>
+        <span class="hud-separador">·</span>
+        <span id="hud-edad">—</span>
+      </div>
+      <div class="hud-cabecera__fila hud-cabecera__fila--tenue">
+        <span id="hud-liga">—</span>
+        <span class="hud-separador">·</span>
+        <span id="hud-forma">—</span>
+      </div>
+    </div>
+
+    <div class="hud-cabecera__media">
+      <span id="hud-media" class="hud-media__numero">0</span>
+      <span class="hud-media__etiqueta">Media</span>
+    </div>
+
+    <div class="hud-cabecera__derecha">
+      <img id="hud-escudo-club" class="hud-escudo-club" alt="Escudo del club" hidden>
+      <button type="button" class="hud-boton-retiro" id="hud-boton-retiro" aria-label="Retirarse">
+        ✕
+      </button>
+    </div>
+
+  </div>
+
+  <div class="tarjeta hud-panel">
+
+    <div class="hud-burbujas hud-burbujas--superiores" id="hud-stats-superiores"></div>
+    <div class="hud-burbujas hud-burbujas--atributos" id="hud-atributos"></div>
+    <div class="hud-burbujas hud-burbujas--globales" id="hud-globales"></div>
+
+    <div class="hud-cariño">
+      <div class="hud-cariño__cabecera">
+        <span class="hud-cariño__titulo">Cariño</span>
+        <span><span id="hud-cariño-numero">0</span>/100 — <span id="hud-cariño-etiqueta">—</span></span>
+      </div>
+      <div class="hud-cariño__pista">
+        <div class="hud-cariño__barra" id="hud-cariño-barra"></div>
+      </div>
+    </div>
+
+    <div class="hud-seleccion">
+      <img id="hud-bandera-seleccion" class="hud-bandera" alt="">
+      <span id="hud-estado-seleccion">—</span>
+    </div>
+
+  </div>
+
+<!-- Contenedor de eventos (aparece debajo del HUD) -->
+<div id="evento-container" class="evento-container" hidden></div>
+<!-- Contenedor de competencias -->
+<div id="competition-container" class="competition-container" hidden></div>
+<!-- Contenedor de resumen anual -->
+<div id="resumen-container" class="resumen-container" hidden></div>
+
+</main>
+
+<!-- MODAL DE RETIRO -->
+<div class="modal" id="modal-retiro" hidden>
+  <div class="modal__tarjeta">
+    <p class="modal__pregunta">¿Querés retirarte?</p>
+    <div class="modal__botones">
+      <button type="button" class="modal__boton modal__boton--secundario" id="retiro-cancelar">No, me la banco</button>
+      <button type="button" class="modal__boton modal__boton--peligro" id="retiro-confirmar">Sí, quiero retirarme</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL DE CARTAS -->
+<div class="modal" id="modal-cartas" hidden>
+  <div class="modal__tarjeta modal__tarjeta--cartas">
+    <h2 class="modal__titulo">Elegí una carta para mejorar</h2>
+    <div class="cartas__contenedor" id="contenedor-cartas"></div>
+  </div>
+</div>
+
+<!-- MODAL JOVEN PROMESA -->
+<div class="modal" id="modal-promesa" hidden>
+  <div class="modal__tarjeta modal__tarjeta--promesa">
+    <span class="promesa__estrella">🌟</span>
+    <h2 class="promesa__titulo" id="promesa-titulo">Joven Promesa</h2>
+    <p class="promesa__texto" id="promesa-texto"></p>
+    <button type="button" class="modal__boton modal__boton--promesa" id="promesa-continuar">Empezar mi leyenda</button>
+  </div>
+</div>
+
+<!-- CARTEL DE FIN DE CARRERA -->
+<div class="modal" id="modal-final" hidden>
+  <div class="modal__tarjeta modal__tarjeta--final">
+    <img id="final-escudo" class="final-escudo" alt="" hidden>
+    <h2 class="final-titulo" id="final-titulo">—</h2>
+    <button type="button" class="boton-iniciar" id="final-ver-carrera">
+      <span class="boton-iniciar__icono">📖</span> Ver mi Carrera
+    </button>
+  </div>
+</div>
+
+<!-- PANTALLA DE RESUMEN DE CARRERA -->
+<main class="pantalla-resumen-final" id="pantalla-resumen-final" hidden>
+  <div class="resumen-final__contenido">
+
+    <div class="tarjeta resumen-final__hud">
+      <img id="resumen-escudo-club" class="resumen-final__escudo" alt="" hidden>
+      <div class="resumen-final__hud-texto">
+        <div class="resumen-final__nombre">
+          <span id="resumen-final-nombre">—</span>
+          <span id="resumen-final-dorsal" class="hud-dorsal">#0</span>
+        </div>
+        <div class="resumen-final__titulo-carrera" id="resumen-final-titulo">—</div>
+      </div>
+    </div>
+
+    <div class="tarjeta">
+      <h3 class="resumen-final__seccion">Clubes</h3>
+      <div id="resumen-final-clubes" class="resumen-final__lista"></div>
+    </div>
+
+    <div class="tarjeta">
+      <h3 class="resumen-final__seccion">Selección</h3>
+      <div id="resumen-final-seleccion" class="resumen-final__lista"></div>
+    </div>
+
+    <div class="tarjeta">
+      <h3 class="resumen-final__seccion">Totales de carrera</h3>
+      <div class="hud-burbujas hud-burbujas--globales" id="resumen-final-totales"></div>
+      <div class="resumen-final__valor-max" id="resumen-final-valor-max"></div>
+    </div>
+
+    <div class="resumen-final__rival" id="resumen-final-rival">RIVAL</div>
+
+    <div class="tarjeta resumen-final__puntos">
+      <h3 class="resumen-final__seccion">Puntos de carrera</h3>
+      <div class="resumen-final__puntos-numero" id="resumen-final-puntos-numero">0</div>
+      <div class="resumen-final__puntos-detalle" id="resumen-final-puntos-detalle"></div>
+    </div>
+
+    <button type="button" class="boton-iniciar" id="resumen-final-otra-carrera">
+      <span class="boton-iniciar__icono">🔄</span> Hacer otra carrera
+    </button>
+
+  </div>
+</main>
+
+<script src="data.js"></script>
+<script src="JovenPromesa.js"></script>
+<script src="clasificacionClubes.js"></script>
+<script src="delantero.js"></script>
+<script src="enganche.js"></script>
+<script src="central.js"></script>
+<script src="arquero.js"></script>
+<script src="estado.js"></script>
+<script src="cartas.js"></script>  
+<script src="eventos.js"></script>
+<script src="eventosdelantero.js"></script> 
+<script src="eventosenganche.js"></script>
+<script src="eventoscentral.js"></script>
+<script src="eventosarquero.js"></script>
+<script src="copasargentinas.js"></script>
+<script src="copassudamerica.js"></script>
+<script src="copasinternacionalesclubes.js"></script>
+<script src="PremiosIndividuales.js"></script>
+<script src="menu.js"></script>
+<script src="hud.js"></script>
+<script src="retiro.js"></script>
+<script src="menufinal.js"></script>
+</body>
+</html>
