@@ -1,0 +1,267 @@
+// Datos del historial de parches: cambios (antes/ahora) por personaje, Notas V1.
+// Variable global para que el <script> inline de notas.html la use directamente.
+
+const cambiosPorPersonaje = {
+    1: [ // ReyDNS
+      { atributo: 'ATQ', antes: '380', ahora: '400', tipo: 'buff' },
+      { atributo: 'VEL', antes: '126', ahora: '142', tipo: 'buff' },
+      { atributo: 'ATQ Anécdota', antes: '230', ahora: '250', tipo: 'buff' },
+      { atributo: 'Pasiva Anécdota (bono stats)', antes: '+15 VEL solo a él', ahora: '+10 a todas las stats base del equipo', tipo: 'rework' },
+      { atributo: 'Pasiva Anécdota (daño consecutivo)', antes: '+6% (máx 4, +24%)', ahora: '+5% (máx 5, +25%)', tipo: 'rework' },
+      { atributo: 'Ultimate (daño por bala)', antes: '40%-90%', ahora: '50%-100%', tipo: 'buff' },
+      { atributo: 'Baneo 3 (avance inicial)', antes: '30%', ahora: '25%', tipo: 'nerf' },
+      { atributo: 'Baneo 3 (nuevo)', antes: 'No tenía', ahora: '"Mantra"', tipo: 'rework' },
+      { atributo: 'Rasgo Único', antes: 'No tenía', ahora: 'Sinergias con Belle, Miki y Hawk', tipo: 'rework' },
+      { atributo: 'Recarga Forzada (escudo)', antes: '10%-25%', ahora: '10%-20%', tipo: 'nerf' }
+    ],
+    2: [ // Miki
+      { atributo: 'HP', antes: '580', ahora: '650', tipo: 'buff' },
+      { atributo: 'DEF', antes: '360', ahora: '300', tipo: 'nerf' },
+      { atributo: 'VEL', antes: '112', ahora: '115', tipo: 'buff' },
+      { atributo: 'Anécdota (Tarjeta)', antes: 'No', ahora: '+3% DEF y Acierto por acumulación (máx 30%)', tipo: 'rework' },
+      { atributo: 'Anécdota (Energía)', antes: '5', ahora: '10', tipo: 'buff' },
+      { atributo: 'Ataque Básico', antes: '45%-95% DEF', ahora: '75%-105% DEF', tipo: 'buff' },
+      { atributo: 'Habilidad (daño)', antes: '20%-40% DEF', ahora: '30%-40% DEF', tipo: 'buff' },
+      { atributo: 'Ultimate (buff)', antes: 'Solo VEL y DEF', ahora: 'DEF, VIDA, ATQ, PROB y CRIT', tipo: 'buff' },
+      { atributo: 'Ping 2', antes: 'Sin reducción', ahora: 'FUA con 4 cargas', tipo: 'buff' }
+    ],
+    3: [ // Belle
+      { atributo: 'HP', antes: '750', ahora: '350', tipo: 'nerf' },
+      { atributo: 'ATQ', antes: '400', ahora: '330', tipo: 'nerf' },
+      { atributo: 'VEL', antes: '148', ahora: '148 (sin cambios)', tipo: 'neutral' },
+      { atributo: 'Habilidad', antes: 'Solo daño', ahora: 'Daño +20% Ruptura al aliado', tipo: 'buff' },
+      { atributo: 'Ultimate', antes: 'Sin efecto extra', ahora: 'Efecto de Ruptura = VEL si >250', tipo: 'buff' },
+      { atributo: 'Talento (Electrocutado)', antes: 'Sin Parálisis', ahora: '10% de Parálisis', tipo: 'buff' },
+      { atributo: 'Baneo 1', antes: 'Solo +15% VEL', ahora: '+15% VEL + "Mute" si >250 VEL', tipo: 'buff' },
+      { atributo: 'Baneo 2', antes: 'Sin Ruptura', ahora: '+0.20% Ruptura por XP (máx 50%)', tipo: 'buff' },
+      { atributo: 'Baneo 3', antes: 'Mismo efecto', ahora: 'Renombrado "Ataque PE"', tipo: 'rework' },
+      { atributo: 'Sinergia Quency', antes: 'No tenía', ahora: 'Propaganda, Kitsune, buffs a todo el equipo', tipo: 'rework' }
+    ],
+    4: [ // Hawk
+      { atributo: 'HP', antes: '560', ahora: '620', tipo: 'buff' },
+      { atributo: 'ATQ', antes: '345', ahora: '380', tipo: 'buff' },
+      { atributo: 'DEF', antes: '155', ahora: '170', tipo: 'buff' },
+      { atributo: 'VEL', antes: '112', ahora: '140', tipo: 'buff' },
+      { atributo: 'Rareza Anécdota', antes: '4★', ahora: '5★', tipo: 'buff' },
+      { atributo: 'ATQ Anécdota', antes: '205', ahora: '250', tipo: 'buff' },
+      { atributo: 'HP Anécdota', antes: '75', ahora: '100', tipo: 'buff' },
+      { atributo: 'Pasiva Anécdota (DEF)', antes: '-15% DEF, 1 turno', ahora: '-20% DEF, 2 turnos', tipo: 'buff' },
+      { atributo: 'Pasiva Anécdota (nueva)', antes: 'No', ahora: '+3 Energía al dañar hipnotizados', tipo: 'buff' },
+      { atributo: 'Ataque Básico', antes: '45%-100%', ahora: '65%-120%', tipo: 'buff' },
+      { atributo: 'Habilidad', antes: 'Sin Tela', ahora: 'Aplica "Tela" junto con Hipnosis', tipo: 'buff' },
+      { atributo: 'Ultimate (daño)', antes: '160%-340%', ahora: '180%-360%', tipo: 'buff' },
+      { atributo: 'Ultimate (buff stats)', antes: 'No', ahora: '+10% stats por Polvo consumido', tipo: 'buff' },
+      { atributo: 'Ultimate (reducción DEF)', antes: 'No', ahora: '-30% DEF si ya tenía Hipnosis', tipo: 'buff' },
+      { atributo: 'Talento (máx Polvo)', antes: '3', ahora: '5', tipo: 'buff' },
+      { atributo: 'Talento (FUA/turno)', antes: '2', ahora: '3', tipo: 'buff' },
+      { atributo: 'Talento (daño FUA)', antes: '50%-110%', ahora: '60%-130%', tipo: 'buff' },
+      { atributo: 'Talento (bono Polvo)', antes: '+10% (máx +30%)', ahora: '+12% (máx +60%)', tipo: 'buff' },
+      { atributo: 'Talento (Polvo inicial)', antes: '1', ahora: '2', tipo: 'buff' },
+      { atributo: 'Baneo 2 (Energía)', antes: '5', ahora: '8', tipo: 'buff' },
+      { atributo: 'Baneo 3 (Marcas)', antes: '1 enemigo', ahora: '2 enemigos', tipo: 'buff' },
+      { atributo: 'Ping 1 (límite Polvo)', antes: '4 (máx +40%)', ahora: '6 (máx +72%)', tipo: 'buff' },
+      { atributo: 'Ping 2 (Daño Crítico)', antes: '+20%', ahora: '+25%', tipo: 'buff' },
+      { atributo: 'Ping 4 (reducción VEL)', antes: '15%', ahora: '20%', tipo: 'buff' },
+      { atributo: 'Ping 6', antes: 'Aturdir si 3+ hipnotizados', ahora: '"Función Final"', tipo: 'rework' }
+    ],
+    5: [ // Fabru
+      { atributo: 'ATQ', antes: '370', ahora: '390', tipo: 'buff' },
+      { atributo: 'VEL', antes: '122', ahora: '140', tipo: 'buff' },
+      { atributo: 'ATQ Anécdota', antes: '235', ahora: '250', tipo: 'buff' },
+      { atributo: 'Pasiva Anécdota (ATQ)', antes: '+12%', ahora: '+15%', tipo: 'buff' },
+      { atributo: 'Pasiva Anécdota (Energía)', antes: '+5%', ahora: '+8%', tipo: 'buff' },
+      { atributo: 'Drones (herencia)', antes: 'ATQ y VEL', ahora: 'ATQ, DEF y VEL', tipo: 'buff' },
+      { atributo: 'Drones (daño)', antes: '30%-70%', ahora: '40%-80%', tipo: 'buff' },
+      { atributo: 'Ultimate (daño)', antes: '120%-260%', ahora: '150%-300%', tipo: 'buff' },
+      { atributo: 'Ultimate (Sobrecarga)', antes: '2 turnos', ahora: '3 turnos', tipo: 'buff' },
+      { atributo: 'Ultimate (nuevo)', antes: 'No', ahora: 'Vulnerabilidad Expuesta (-20% DEF)', tipo: 'buff' },
+      { atributo: 'Talento (bono Paquete)', antes: '+2% (máx +20%)', ahora: '+3% (máx +30%)', tipo: 'buff' },
+      { atributo: 'Talento (Código Raíz)', antes: 'Automático', ahora: 'Manual', tipo: 'rework' },
+      { atributo: 'Efecto pasivo nuevo', antes: 'No', ahora: '15% fallo enemigos con Sistema Caído', tipo: 'rework' },
+      { atributo: 'Baneo 2 (Paquetes)', antes: '3', ahora: '4', tipo: 'buff' },
+      { atributo: 'Baneo 3 (Energía)', antes: '15', ahora: '20', tipo: 'buff' },
+      { atributo: 'Ping 2 (daño drones)', antes: '+15%', ahora: '+20%', tipo: 'buff' }
+    ],
+    6: [ // Eugenio
+      { atributo: 'Rareza', antes: '4★', ahora: '5★ Promocional', tipo: 'rework' },
+      { atributo: 'ATQ Anécdota', antes: '180', ahora: '200', tipo: 'buff' },
+      { atributo: 'Pasiva Anécdota', antes: '+15% ATQ', ahora: '+20% ATQ', tipo: 'buff' },
+      { atributo: 'Talento (Suerte)', antes: 'Sin límite claro', ahora: 'Máx 200 (con Ping 2)', tipo: 'rework' },
+      { atributo: 'Habilidad (Escalera)', antes: 'No', ahora: 'Roba Naipes según debuffs enemigos', tipo: 'rework' },
+      { atributo: 'Habilidad (Combinaciones)', antes: 'Sin combinaciones', ahora: '7 jugadas de póker', tipo: 'rework' },
+      { atributo: 'Ultimate', antes: 'Daño simple', ahora: 'Combina 2 jugadas simultáneas', tipo: 'rework' },
+      { atributo: 'Baneo 1', antes: 'Sin cambios', ahora: 'Descarta y roba un Naipe', tipo: 'buff' },
+      { atributo: 'Baneo 2', antes: 'Sin Comodín', ahora: 'Comodín una vez por batalla', tipo: 'buff' },
+      { atributo: 'Baneo 3', antes: 'Sin protección', ahora: 'Evita bajada de Suerte', tipo: 'buff' },
+      { atributo: 'Ping 1', antes: 'Sin bonus', ahora: '+0.25% Suerte por Naipe', tipo: 'buff' },
+      { atributo: 'Ping 2', antes: 'Sin mejora', ahora: 'Suerte máx 200, empieza con 30', tipo: 'buff' },
+      { atributo: 'Ping 4', antes: 'Sin aumento', ahora: 'Mano de 5 a 10 Naipes', tipo: 'buff' },
+      { atributo: 'Ping 6', antes: 'Sin elección', ahora: 'Elige combinación + Comodín Tocado', tipo: 'buff' }
+    ],
+    7: [ // Kyou
+      { atributo: 'ATQ', antes: '350', ahora: '340', tipo: 'nerf' },
+      { atributo: 'VEL', antes: '136', ahora: '112', tipo: 'nerf' },
+      { atributo: 'ATQ Anécdota', antes: '230', ahora: '220', tipo: 'nerf' },
+      { atributo: 'Pasiva Anécdota (Acierto)', antes: '+18%', ahora: '+15%', tipo: 'nerf' },
+      { atributo: 'Pasiva Anécdota (daño)', antes: '20% ATQ', ahora: '15% ATQ', tipo: 'nerf' },
+      { atributo: 'Ultimate (daño)', antes: '130%-280%', ahora: '120%-260%', tipo: 'nerf' },
+      { atributo: 'Ultimate (Secreto)', antes: '+20% daño', ahora: '+15%', tipo: 'nerf' },
+      { atributo: 'Ultimate (Filtración)', antes: '+40% daño', ahora: '+30%', tipo: 'nerf' },
+      { atributo: 'Talento (máx Expedientes)', antes: '6', ahora: '5', tipo: 'nerf' },
+      { atributo: 'Talento (bono Rayo)', antes: '+5% (máx +30%)', ahora: '+4% (máx +20%)', tipo: 'nerf' },
+      { atributo: 'Talento (consumo máx)', antes: '4', ahora: '3', tipo: 'nerf' },
+      { atributo: 'Talento (Ralentización)', antes: '-25%', ahora: '-20%', tipo: 'nerf' },
+      { atributo: 'Talento (Quemadura)', antes: '40%', ahora: '30%', tipo: 'nerf' },
+      { atributo: 'Talento (Silencio)', antes: 'Sí', ahora: 'Eliminado', tipo: 'nerf' },
+      { atributo: 'Baneo 1 (Marcas)', antes: '2 enemigos', ahora: '1 enemigo', tipo: 'nerf' },
+      { atributo: 'Baneo 3 (Expedientes)', antes: '2', ahora: '1', tipo: 'nerf' },
+      { atributo: 'Ping 1 (Expedientes)', antes: '3 (máx 7)', ahora: '2 (máx 6)', tipo: 'nerf' },
+      { atributo: 'Ping 2 (daño Rayo)', antes: '+25%', ahora: '+20%', tipo: 'nerf' },
+      { atributo: 'Ping 6 (daño Ultimate)', antes: '+20%', ahora: '+15%', tipo: 'nerf' }
+    ],
+    8: [], // Ttlim: sin cambios
+    9: [ // Cris
+      { atributo: 'ATQ', antes: '390', ahora: '370', tipo: 'nerf' },
+      { atributo: 'VEL', antes: '121', ahora: '110', tipo: 'nerf' },
+      { atributo: 'Pasiva Anécdota (ATQ)', antes: '+18%', ahora: '+15%', tipo: 'nerf' },
+      { atributo: 'Pasiva Anécdota (Daño Crítico)', antes: '+15% (máx +30%)', ahora: '+12% (máx +24%)', tipo: 'nerf' },
+      { atributo: 'Ultimate (daño)', antes: '180%-390%', ahora: '180%-350%', tipo: 'nerf' },
+      { atributo: 'Ping 6 (Daño Fuego)', antes: '+25%', ahora: '+20%', tipo: 'nerf' }
+    ],
+    10: [ // Quency
+      { atributo: 'ATQ', antes: '450', ahora: '380', tipo: 'nerf' },
+      { atributo: 'VEL', antes: '100', ahora: '100 (sin cambios)', tipo: 'neutral' },
+      { atributo: 'Acierto', antes: '30', ahora: '20', tipo: 'nerf' },
+      { atributo: 'Resistencia', antes: '30', ahora: '10', tipo: 'nerf' },
+      { atributo: 'Ruptura', antes: '35', ahora: '30', tipo: 'nerf' },
+      { atributo: 'Bono Viento', antes: '15%', ahora: '0%', tipo: 'nerf' },
+      { atributo: 'ATQ Anécdota', antes: '300', ahora: '250', tipo: 'nerf' },
+      { atributo: 'Sinergia Belle', antes: 'No', ahora: '"Fiesta", "Warn", "Remove", "Aislado"', tipo: 'rework' }
+    ],
+    11: [ // Eydis
+      { atributo: 'HP', antes: '700', ahora: '660', tipo: 'nerf' },
+      { atributo: 'DEF', antes: '200', ahora: '195', tipo: 'nerf' }
+    ],
+    12: [ // iKayto
+      { atributo: 'ATQ', antes: '375', ahora: '360', tipo: 'nerf' },
+      { atributo: 'VEL', antes: '125', ahora: '112', tipo: 'nerf' },
+      { atributo: 'ATQ Anécdota', antes: '250', ahora: '220', tipo: 'nerf' },
+      { atributo: 'Pasiva Anécdota (Daño Hielo)', antes: '+15%', ahora: '+12%', tipo: 'nerf' },
+      { atributo: 'Pasiva Anécdota (ignorar DEF)', antes: '20%', ahora: '15%', tipo: 'nerf' },
+      { atributo: 'Ultimate (daño)', antes: '180%-380%', ahora: '170%-350%', tipo: 'nerf' },
+      { atributo: 'Ultimate (bono Escarcha)', antes: '+10%', ahora: '+8%', tipo: 'nerf' },
+      { atributo: 'Danza del Vacío', antes: '150%', ahora: '130%', tipo: 'nerf' }
+    ],
+    13: [ // Poberto
+      { atributo: 'Mecánica general', antes: 'Invocaba un Conejo Mecánico', ahora: 'Eliminado todo', tipo: 'rework' },
+      { atributo: 'Habilidad', antes: 'Invocaba al conejo', ahora: '"Manto del Guardián" (escudo a un aliado)', tipo: 'rework' },
+      { atributo: 'Ultimate', antes: 'Explotaba al conejo', ahora: '"Protectora del Bosque" (escudo y DEF a todos)', tipo: 'rework' },
+      { atributo: 'Talento', antes: 'Gestionaba la máscara', ahora: '"Guardiana Seria" (escudo inicial a todo el equipo)', tipo: 'rework' },
+      { atributo: 'Baneos', antes: 'Efectos anteriores', ahora: 'Simplificados: +DEF, +duración escudos, cura pasiva', tipo: 'rework' }
+    ],
+    14: [ // Yanfei
+      { atributo: 'Mecánica general', antes: 'Acumulaba Sabiduría', ahora: 'Eliminado', tipo: 'rework' },
+      { atributo: 'Habilidad', antes: 'Consumía 5 cargas', ahora: 'Simplificada: daño y Quemadura', tipo: 'rework' },
+      { atributo: 'Ultimate', antes: 'Buff al equipo y Quemadura en básicos', ahora: 'Simplificada: daño, Quemadura en área, +15% ATQ', tipo: 'rework' },
+      { atributo: 'Talento', antes: 'Gestión de Sabiduría', ahora: '"Sabia de las Llamas" (Energía al morir Quemado)', tipo: 'rework' },
+      { atributo: 'Baneos', antes: 'Efectos anteriores', ahora: 'Simplificados: extienden Quemadura, +Daño Fuego, Quemadura inicial', tipo: 'rework' }
+    ],
+    15: [ // Koenig
+      { atributo: 'Mecánica general', antes: 'Acumulaba Tempo y lo perdía al recibir daño', ahora: 'Eliminado', tipo: 'rework' },
+      { atributo: 'Habilidad', antes: 'Requiere 3 Tempo', ahora: 'Simplificada: siempre da 15 de Energía', tipo: 'rework' },
+      { atributo: 'Ultimate', antes: 'Similar', ahora: 'Se mantiene', tipo: 'neutral' },
+      { atributo: 'Talento', antes: 'Gestión de Tempo', ahora: '"Ritmo Constante" (siempre da 5 de Energía)', tipo: 'rework' },
+      { atributo: 'Baneos', antes: 'Efectos anteriores', ahora: 'Simplificados: +VEL, +Energía, Energía inicial', tipo: 'rework' }
+    ],
+    16: [ // Tako
+      { atributo: 'Mecánica general', antes: 'Acumulaba Fragmentación y "Rompía" enemigos', ahora: 'Eliminado', tipo: 'rework' },
+      { atributo: 'Habilidad', antes: 'Fragmentación y explosión a 3 stacks', ahora: 'Simplificada: daño y "Lag" (-20% VEL)', tipo: 'rework' },
+      { atributo: 'Ultimate', antes: 'Rompía enemigos y Sistema Corrupto', ahora: 'Simplificada: daño, "Lag" a todos y 50% fallo', tipo: 'rework' },
+      { atributo: 'Talento', antes: '"Error 404" con Fragmentación', ahora: '"Error 404" (Energía al derrotar con "Lag")', tipo: 'rework' },
+      { atributo: 'Baneos', antes: 'Efectos anteriores', ahora: 'Simplificados: "Lag" reduce DEF, +VEL, "Lag" inicial', tipo: 'rework' }
+    ],
+    17: [ // Zenkin
+      { atributo: 'Mecánica general', antes: 'Acumulaba Suerte y Paquetes Sorpresa', ahora: 'Eliminado', tipo: 'rework' },
+      { atributo: 'Habilidad', antes: '3 Suertes y Marca del Gato', ahora: 'Simplificada: daño y +25% ATQ aleatorio', tipo: 'rework' },
+      { atributo: 'Ultimate', antes: '3 Paquetes Sorpresa aleatorios', ahora: 'Simplificada: daño y buffs fijos (+20% ATQ, +15% VEL, +15% DEF)', tipo: 'rework' },
+      { atributo: 'Talento', antes: '"Caja de las Sorpresas" con RNG', ahora: '"Cola de la Suerte" (+10% ATQ a un aliado)', tipo: 'rework' },
+      { atributo: 'Baneos', antes: 'Efectos anteriores', ahora: 'Simplificados: extienden buffs, +ATQ, buff inicial', tipo: 'rework' }
+    ],
+    18: [ // Dawn
+      { atributo: 'Mecánica general', antes: 'Acumulaba Carámbanos y los perdía al recibir daño', ahora: 'Eliminado', tipo: 'rework' },
+      { atributo: 'Habilidad', antes: 'Generaba 2 Carámbanos', ahora: 'Simplificada: daño en área y Ralentización (-20% VEL)', tipo: 'rework' },
+      { atributo: 'Ultimate', antes: '4 Carámbanos y ventana sin consumo', ahora: 'Simplificada: daño en área, Congelación si Ralentizado', tipo: 'rework' },
+      { atributo: 'Talento', antes: '"Danza de los Carámbanos"', ahora: '"Vientos Gélidos" (+15% Daño Hielo vs Ralentizados/Congelados)', tipo: 'rework' },
+      { atributo: 'Baneos', antes: 'Efectos anteriores', ahora: 'Simplificados: +Ralentización, Ralentización inicial, +ATQ', tipo: 'rework' }
+    ],
+    19: [ // Reguta
+      { atributo: 'Mecánica general', antes: 'Acumulaba Planes y los perdía al recibir críticos', ahora: 'Eliminado', tipo: 'rework' },
+      { atributo: 'Habilidad', antes: 'Aceleración Mental con VEL y Habilidad de Equipo', ahora: 'Simplificada: +25% VEL y +15% ATQ', tipo: 'rework' },
+      { atributo: 'Ultimate', antes: 'Consumía Planes para escudos', ahora: 'Simplificada: turno extra, limpia debuffs, +30% ATQ', tipo: 'rework' },
+      { atributo: 'Talento', antes: '"El Plan Perfecto"', ahora: '"Mente Brillante" (siempre da 5 de Energía)', tipo: 'rework' },
+      { atributo: 'Baneos', antes: 'Efectos anteriores', ahora: 'Simplificados: +Daño Crítico, +VEL, Energía inicial', tipo: 'rework' }
+    ],
+    20: [ // Nanaomi
+      { atributo: 'Mecánica general', antes: 'Acumulaba Energía Gravitatoria', ahora: 'Eliminado', tipo: 'rework' },
+      { atributo: 'Habilidad', antes: 'Consumía Energía Gravitatoria', ahora: 'Simplificada: daño en área, -25% VEL fijo', tipo: 'rework' },
+      { atributo: 'Ultimate', antes: 'Generaba cargas, Horizonte de Sucesos', ahora: 'Simplificada: daño, retraso 30%, -20% VEL', tipo: 'rework' },
+      { atributo: 'Talento', antes: '"Ley de Gravitación Universal"', ahora: '-10% VEL a todos al inicio', tipo: 'rework' },
+      { atributo: 'Baneos', antes: 'Efectos anteriores', ahora: 'Simplificados: -35% VEL, -DEF, +Acierto', tipo: 'rework' }
+    ],
+    21: [ // Sofi
+      { atributo: 'Mecánica general', antes: 'Estado "Demonio Bomba" con Pólvora', ahora: 'Simplificada', tipo: 'rework' },
+      { atributo: 'Habilidad', antes: 'Activaba Demonio Bomba', ahora: '"Explosión Controlada" (daño en área, -10% HP)', tipo: 'rework' },
+      { atributo: 'Ultimate', antes: 'Consumía Pólvora, Quemadura', ahora: 'Simplificada: daño masivo, ignora 20% DEF si HP <50%, Quemadura', tipo: 'rework' },
+      { atributo: 'Talento', antes: '"Seguro de Granada"', ahora: '"Adrenalina Explosiva" (+15% Daño Fuego si HP <50%)', tipo: 'rework' },
+      { atributo: 'Baneos', antes: 'Efectos anteriores', ahora: 'Simplificados: -5% HP, cura al matar, +ATQ', tipo: 'rework' }
+    ],
+    22: [ // Areku
+      { atributo: 'Mecánica general', antes: 'Acumulaba Orbes Espirituales y FUA a 4', ahora: 'Eliminado', tipo: 'rework' },
+      { atributo: 'Habilidad', antes: 'Generaba Orbes al atacar Sellados', ahora: 'Simplificada: daño y "Sello" (-15% DEF, -10% VEL)', tipo: 'rework' },
+      { atributo: 'Ultimate', antes: '4 Orbes y FUA', ahora: 'Simplificada: daño, consume Sellos, "Maldición del Misterio"', tipo: 'rework' },
+      { atributo: 'Talento', antes: '"Espíritu del Pasillo" con Orbes', ahora: '"Presencia Inquietante" (Sello automático al inicio de su turno)', tipo: 'rework' },
+      { atributo: 'Baneos', antes: 'Efectos anteriores', ahora: 'Simplificados: Sello -20% DEF, +Daño Vacío, Sello inicial', tipo: 'rework' }
+    ],
+    23: [ // Harriet
+      { atributo: 'Mecánica general', antes: 'Acumulaba Frustración al recibir críticos', ahora: 'Simplificada', tipo: 'rework' },
+      { atributo: 'Habilidad', antes: 'Invocaba 2 Chibis aleatorios', ahora: 'Simplificada: 2 Chibis que aplican efectos automáticos', tipo: 'rework' },
+      { atributo: 'Ultimate', antes: 'Consumía Frustración, 4 Chibis, Caos Emocional', ahora: 'Simplificada: daño e invoca 4 Chibis por 2 turnos', tipo: 'rework' },
+      { atributo: 'Talento', antes: '"Límite de la Paciencia"', ahora: 'Al recibir crítico, siguiente ataque ignora 15% DEF', tipo: 'rework' },
+      { atributo: 'Baneos', antes: 'Efectos anteriores', ahora: 'Simplificados: +duración Chibis, +Energía al invocar, 1 Chibi inicial', tipo: 'rework' }
+    ],
+    24: [ // Alelin
+      { atributo: 'Mecánica general', antes: 'Acumulaba Calor con umbrales', ahora: 'Eliminado', tipo: 'rework' },
+      { atributo: 'Habilidad', antes: 'Generaba 3 de Calor, rebotaba con 7+', ahora: 'Simplificada: daño en área, se repite si 3+ enemigos', tipo: 'rework' },
+      { atributo: 'Ultimate', antes: '5 de Calor y escalaba con exceso', ahora: 'Simplificada: daño masivo, -15% HP', tipo: 'rework' },
+      { atributo: 'Talento', antes: '"¡Sobrecalentada!" con umbrales', ahora: '"Demolicionista Experta" (+5% Daño Fuego por enemigo)', tipo: 'rework' },
+      { atributo: 'Baneos', antes: 'Efectos anteriores', ahora: 'Simplificados: repetición siempre, cura al matar, +ATQ', tipo: 'rework' }
+    ],
+    25: [ // Escarlata
+      { atributo: 'Mecánica general', antes: 'Acumulaba Luces Estelares', ahora: 'Simplificada', tipo: 'rework' },
+      { atributo: 'Habilidad', antes: 'Consumía Luces Estelares, Inmunidad', ahora: 'Simplificada: escudo del 20-35% de su HP', tipo: 'rework' },
+      { atributo: 'Ultimate', antes: '4 Luces Estelares, Aurora Protectora', ahora: 'Simplificada: cura masiva, escudo 15% HP a todos', tipo: 'rework' },
+      { atributo: 'Talento', antes: '"Firmamento de Piedad"', ahora: '"Luz Sanadora" (cura 8% HP al de menos vida)', tipo: 'rework' },
+      { atributo: 'Baneos', antes: 'Efectos anteriores', ahora: 'Simplificados: +cura en Habilidad, +duración escudos, +HP', tipo: 'rework' }
+    ],
+    26: [ // Abril
+      { atributo: 'Mecánica general', antes: 'Invocaba un Zorro Celestial con 3 fases', ahora: 'Eliminado', tipo: 'rework' },
+      { atributo: 'Habilidad', antes: 'Invocaba o alimentaba al zorro', ahora: '"Favor del Guardián" (+30% ATQ, +15% VEL)', tipo: 'rework' },
+      { atributo: 'Ultimate', antes: 'Evolucionaba al zorro, Favor del Zorro', ahora: '"Danza de las Nueve Colas" (+25% ATQ, +15% VEL, +15% DEF, cura)', tipo: 'rework' },
+      { atributo: 'Talento', antes: '"Las Nueve Colas del Destino"', ahora: '"Cola de la Suerte" (+10% ATQ al de mayor ATQ)', tipo: 'rework' },
+      { atributo: 'Baneos', antes: 'Efectos anteriores', ahora: 'Simplificados: +duración buffs, +Energía, +VEL', tipo: 'rework' }
+    ],
+    27: [ // AlexTMZ
+      { atributo: 'Mecánica general', antes: 'Territorio de Escarcha con buffs y daño pasivo', ahora: 'Eliminado', tipo: 'rework' },
+      { atributo: 'Habilidad', antes: 'Creaba Territorio de Escarcha', ahora: 'Simplificada: daño en área, Ralentización (-20% VEL)', tipo: 'rework' },
+      { atributo: 'Ultimate', antes: 'Consumía Territorio, Voto del Centinela', ahora: 'Simplificada: daño masivo, Congelación si Ralentizado', tipo: 'rework' },
+      { atributo: 'Talento', antes: '"Guardián de la Catedral" con Juramento', ahora: '+15% DEF mientras haya Ralentizados/Congelados', tipo: 'rework' },
+      { atributo: 'Baneos', antes: 'Efectos anteriores', ahora: 'Simplificados: +Ralentización, Ralentización inicial, +ATQ', tipo: 'rework' }
+    ],
+    28: [ // Komato
+      { atributo: 'Mecánica general', antes: 'Acumulaba Ecos y Danza del Vacío Helado', ahora: 'Simplificado', tipo: 'rework' },
+      { atributo: 'Habilidad', antes: 'Generaba 2 Ecos, cambiaba postura', ahora: 'Simplificada: daño en área, cambia de postura', tipo: 'rework' },
+      { atributo: 'Ultimate', antes: 'Doble elemento, consumía Ecos, Armonía', ahora: 'Simplificada: daño de doble elemento a un enemigo', tipo: 'rework' },
+      { atributo: 'Talento', antes: '"Ecos del Yo"', ahora: '"Filo Cambiante" (Energía y Daño al cambiar postura)', tipo: 'rework' },
+      { atributo: 'Baneos', antes: 'Efectos anteriores', ahora: 'Simplificados: +VEL al cambiar, +Daño Hielo/Fuego, +ATQ inicial', tipo: 'rework' }
+    ]
+};

@@ -8,20 +8,7 @@
 </head>
 <body data-page="personajes">
 <div class="bg-layer"></div>
-<nav>
-  <div class="nav-logo" onclick="goTo('home')">LGS</div>
-  <button class="nav-hamburger" id="nav-hamburger" aria-label="Menú">
-    <span></span><span></span><span></span>
-  </button>
-  <div class="nav-links" id="nav-links">
-    <button class="nav-btn" data-page="home"       onclick="goTo('home');closeMenu()">Inicio</button>
-    <button class="nav-btn" data-page="personajes" onclick="goTo('personajes');closeMenu()">Personajes</button>
-    <button class="nav-btn" data-page="inventario" onclick="goTo('inventario');closeMenu()">Inventario</button>
-    <button class="nav-btn" data-page="tierlist"   onclick="goTo('tierlist');closeMenu()">Tier List</button>
-    <button class="nav-btn" data-page="equipos"    onclick="goTo('equipos');closeMenu()">Equipos</button>
-    <button class="nav-btn" data-page="notas"      onclick="goTo('notas');closeMenu()">Notas</button>
-  </div>
-</nav>
+<script src="js/nav.js"></script>
 
 <div class="chars-wrap">
   <div class="section-header">
@@ -34,7 +21,21 @@
 <div class="filters">
   <div class="search-wrap">
     <span class="s-icon">🔍</span>
-    <input type="text" id="search-input" placeholder="Buscar (ej: elemento:fuego, rareza:5, nombre)">
+    <input type="text" id="search-input" placeholder="Buscar por nombre...">
+  </div>
+  <div class="fg">
+    <span class="fl">Elemento</span>
+    <div class="fp" id="filter-elements"></div>
+  </div>
+  <div class="fg">
+    <span class="fl">Rol</span>
+    <div class="fp" id="filter-roles">
+      <button class="pill active" data-role="all">Todos</button>
+      <button class="pill" data-role="dps">DPS</button>
+      <button class="pill" data-role="subdps">SubDPS</button>
+      <button class="pill" data-role="soporte">Soporte</button>
+      <button class="pill" data-role="sustain">Sustain</button>
+    </div>
   </div>
   <div class="count-lbl"><span id="char-count">0</span> personajes</div>
 </div>
