@@ -185,6 +185,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;display:flex;align-items:cen
   flex-wrap: wrap;
   align-items: flex-start;
   gap: 20px;
+  position: relative;
+  z-index: 1;
 }
 .search-wrap{position:relative;flex:1;min-width:200px;}
 .search-wrap input{width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(155,89,245,.3);
